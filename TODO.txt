@@ -1,30 +1,12 @@
-
-
-Trouver une nouvelle méthode pour récupérer l'URI de base.
-
-Tests sur différents jeux
-
 Plutôt utiliser les librairies présentes dans l'install de sesame
-/Library/Tomcat/webapps/openrdf-sesame/WEB-INF/lib
+
+Ajouter système de logs ?
 
 
-Ajouter système de logs / historique des requêtes (/ résultats)
-Ajouter système on/off pour les affichages
-Système de logs ?
-
-
-JeuSesame : Ajout test de l'URL avant de l'utiliser
 LiaisonS : récupérer les bindings résultat dynamiquement.
-
-Objectif :
-
-
-<passim:cityThrough>Montpellier</passim:cityThrough>
------->
-<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34172"/>
-
-
 Types de sorties :
 - triplets mis à jour en RDF
 - requêtes update pré-écrites
 - requêtes update exécutées
+
+Possibilité de réaliser plusieurs traitements à la fois ?
