@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:tt="http://localhost/vocab/passim#">
+	
+	<rdf:Description rdf:about="http://localhost/passim/1">
+		<rdf:type rdf:resource="http://localhost/vocab/passim#ServiceDeTransport"/>
+	</rdf:Description>
+	  
+	<rdf:Description rdf:about="http://localhost/passim/1">
+	
+		<tt:NumeroDeLaFiche>1</tt:NumeroDeLaFiche>
+		<tt:NomDuService>05voyageurs</tt:NomDuService>
+		<tt:CouvertureDuService>départementale</tt:CouvertureDuService>
+		<tt:Région>Provence-Alpes-Côte d'Azur</tt:Région>
+		<tt:Département>Hautes-Alpes</tt:Département>
+		<tt:ModeDeTransport>Autocar, Covoiturage</tt:ModeDeTransport>
+		<tt:TypeDeService>Calcul d'itinéraire, Description du réseau, Horaires</tt:TypeDeService>
+		<tt:AccessibilitéDuRéseauAuxPersonnesHandicapées rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</tt:AccessibilitéDuRéseauAuxPersonnesHandicapées>
+		<tt:AdresseWeb>http://www.05voyageurs.com</tt:AdresseWeb>
+		<tt:AccessibilitéDuSiteWebAuxPersonnesHandicapées rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</tt:AccessibilitéDuSiteWebAuxPersonnesHandicapées>
+		
+	 </rdf:Description>
+	 
+</rdf:RDF>
