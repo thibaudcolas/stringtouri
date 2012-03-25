@@ -9,14 +9,14 @@ package prototype;
  */
 public class Prototype {
 	
-	public static JeuSesame geoinsee = new JeuSesame("http://localhost:8080/openrdf-sesame","geo-insee");
-	public static JeuSesame passimpropre = new JeuSesame("http://localhost:8080/openrdf-sesame","passim-propre");
-	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:cityThrough", "geo:Commune", "");
+	public static Jeu geoinsee = new JeuEphemere("./rdf/insee/","regions","TE");
+	public static Jeu passimpropre = new JeuEphemere("./rdf/Brute3.rdf","","ET");
+	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "tt:Région", "geo:Region", "");
 	
 	public static void main(String[] args) {
 		try {
 
-			System.out.println("Res : \n" + test.interconnexion());
+			System.out.println("Res : \n" + test.createNewStatements());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
@@ -26,6 +26,23 @@ public class Prototype {
 		}
 		
 
+	}
+	
+	public String writeRDF(String sub, String prop, String obj) {
+		String ret = "<rdf:Description rdf:about=\""+sub+"\">\n" 
+			+ "\t<"+prop+" rdf:resource=\""+obj+"\"/>\n"
+			+ "</rdf:Description>\n";
+		
+		return ret;
+	}
+	
+	public String writeRDF(String sub, String prop, String obj, String comment) {
+		String ret = "<rdf:Description rdf:about=\""+sub+"\">\n" 
+			+ "\t<"+prop+" rdf:resource=\""+obj+"\"/>"
+			+ " <!-- "+comment+" -->\n"
+			+ "</rdf:Description>\n";
+		
+		return ret;
 	}
 
 }
