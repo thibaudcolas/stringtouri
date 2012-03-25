@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF 
-	xmlns:passim="http://data.lirmm.fr/ontologies/passim#" 
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+xmlns:tt="http://localhost/vocab/passim#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+<rdf:Description rdf:about="http://localhost/passim/1">
+	<tt:Région rdf:resource="http://rdf.insee.fr/geo/2011/REG_93"/>
+</rdf:Description>
 
-	<rdf:Description rdf:about="http://SMTH">
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34022"/> <!-- Baillargues -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34027"/> <!-- Beaulieu -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34057"/> <!-- Castelnau-le-Lez -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34058"/> <!-- Castries -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34077"/> <!-- Clapiers -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34087"/> <!-- Cournonsec -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34088"/> <!-- Cournonterral -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34090"/> <!-- Le Crès -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34095"/> <!-- Fabrègues -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34116"/> <!-- Grabels -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34120"/> <!-- Jacou -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34123"/> <!-- Juvignac -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34129"/> <!-- Lattes -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34134"/> <!-- Lavérune -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34164"/> <!-- Montaud -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34169"/> <!-- Montferrier-sur-Lez -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34172"/> <!-- Montpellier -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34179"/> <!-- Murviel-lès-Montpellier -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34198"/> <!-- Pérols -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34202"/> <!-- Pignan -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34217"/> <!-- Prades-le-Lez -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34227"/> <!-- Restinclières -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34244"/> <!-- Saint-Brès -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34249"/> <!-- Saint-Drézéry -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34256"/> <!-- Saint-Geniès-des-Mourgues -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34259"/> <!-- Saint-Georges-d'Orques -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34270"/> <!-- Saint-Jean-de-Védas -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34295"/> <!-- Saussan -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34307"/> <!-- Sussargues -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34327"/> <!-- Vendargues -->
-		<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34337"/> <!-- Villeneuve-lès-Maguelone -->
-	</rdf:Description>
 </rdf:RDF>
