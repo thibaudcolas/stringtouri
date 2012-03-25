@@ -1,10 +1,15 @@
 package prototype;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.openrdf.model.Namespace;
-import org.openrdf.query.*;
-import org.openrdf.repository.*;
+import org.openrdf.query.QueryLanguage;
+import org.openrdf.query.TupleQuery;
+import org.openrdf.query.TupleQueryResult;
+import org.openrdf.repository.Repository;
+import org.openrdf.repository.RepositoryConnection;
+import org.openrdf.repository.RepositoryException;
 
 /**
  * Classe abstraite permettant de gérer un jeu de données quelle que soit sa provenance.
