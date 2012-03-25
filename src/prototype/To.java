@@ -2,25 +2,28 @@ package prototype;
 
 import java.util.LinkedList;
 
+import org.openrdf.model.impl.StatementImpl;
+import org.openrdf.model.impl.URIImpl;
+
 public abstract class To {
 	
 	protected Jeu amodif;
 	protected String prop;
-	protected LinkedList<Maj> modifs;
+	protected LinkedList<StatementImpl> maj;
 	
 	public To(Jeu j, String p) {
 		amodif = j;
 		prop = p;
-		modifs = new LinkedList<Maj>();
+		maj = new LinkedList<StatementImpl>();
 	}
 	
-	public To(Jeu j, String p, LinkedList<Maj> m) {
+	public To(Jeu j, String p, LinkedList<StatementImpl> m) {
 		amodif = j;
 		prop = p;
-		modifs = m;
+		maj = m;
 	}
 	
-	public void addModif(String obj, LinkedList<String> sujs) {
-		modifs.add(new Maj(obj, sujs));
+	public void addStatement(String s, String p, String o) {
+		maj.add(new StatementImpl(new URIImpl(s), new URIImpl(p), new URIImpl(o)));
 	}
 }
