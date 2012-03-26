@@ -3,12 +3,11 @@ package prototype;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import org.openrdf.model.Resource;
-import org.openrdf.model.Statement;
 import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.model.impl.URIImpl;
 import org.openrdf.query.BindingSet;
 import org.openrdf.query.TupleQueryResult;
+
 
 /**
  * Classe abstraite réalisant l'interconnexion entre deux jeux de données selon différents critères.
@@ -122,39 +121,24 @@ public abstract class Liaison {
 			&& tqr.getBindingNames().size() == 2;
 	}
 	
-	//TODO
-	public String interconnexion() {
+	/**
+	 * Créé les nouveaux triplets contenant les données à jour.
+	 * @return Une liste chaînée de Statement correctement modifiés.
+	 */
+	public LinkedList<StatementImpl> createNewStatements() {
 		HashMap<String, String> sourcedata = getSourceData();
 		HashMap<String, LinkedList<String>> cibledata = getCibleData();
-		StatementImpl tmp;
-		String ret = "";
+		
+		LinkedList<StatementImpl> maj = new LinkedList<StatementImpl>();
+		
 		for (String objet : cibledata.keySet()) {
 			if(sourcedata.containsKey(objet)) {
 				for (String sujet : cibledata.get(objet)) {
-					ret += writeRDF(sujet, propcible, sourcedata.get(objet), objet);
-					tmp = new StatementImpl(new URIImpl(sujet), new URIImpl(propcible), new URIImpl(sourcedata.get(objet)));
-					System.out.println(tmp);
+					maj.add(new StatementImpl(new URIImpl(sujet), new URIImpl(propcible), new URIImpl(sourcedata.get(objet))));
 				}
 			}
 		}
-		return ret;
-	}
-	
-	public String writeRDF(String sub, String prop, String obj) {
-		String ret = "<rdf:Description rdf:about=\""+sub+"\">\n" 
-			+ "\t<"+prop+" rdf:resource=\""+obj+"\"/>\n"
-			+ "</rdf:Description>\n";
-		
-		return ret;
-	}
-	
-	public String writeRDF(String sub, String prop, String obj, String comment) {
-		String ret = "<rdf:Description rdf:about=\""+sub+"\">\n" 
-			+ "\t<"+prop+" rdf:resource=\""+obj+"\"/>"
-			+ " <!-- "+comment+" -->\n"
-			+ "</rdf:Description>\n";
-		
-		return ret;
+		return maj;
 	}
 	
 	/**
