@@ -4,18 +4,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.openrdf.model.Namespace;
+import org.openrdf.model.Resource;
+import org.openrdf.model.Statement;
+import org.openrdf.model.URI;
 import org.openrdf.query.QueryLanguage;
 import org.openrdf.query.TupleQuery;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
+import org.openrdf.repository.RepositoryResult;
 
 /**
  * Classe abstraite permettant de gérer un jeu de données quelle que soit sa provenance.
  * 
  * @author Thibaud Colas
- * @version 16032012
+ * @version 26032012
  * @see Repository, RepositoryConnection, JeuEphemere, JeuSesame, JeuSPARQL
  */
 public abstract class Jeu {
@@ -83,6 +87,24 @@ public abstract class Jeu {
 	
 	public LinkedList<String> getQueries() {
 		return queries;
+	}
+	
+	/**
+	 * Donne tous les triplets du dépôt.
+	 * @return L'ensemble des triplets du dépôt.
+	 * @throws RepositoryException
+	 */
+	public LinkedList<Statement> getAllStatements() throws RepositoryException {
+		return new LinkedList<Statement>(con.getStatements(null, null, null, true).asList());
+	}
+	
+	/**
+	 * Donne les triplets correspondant à des critères.
+	 * @return Les triplets ayant comme sujet r et comme prédicat u.
+	 * @throws RepositoryException
+	 */
+	public RepositoryResult<Statement> getAllStatements(Resource r, URI u) throws RepositoryException {
+		return con.getStatements(r, u, null, true);
 	}
 	
 	public void rollBack() throws RepositoryException {

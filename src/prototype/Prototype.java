@@ -4,7 +4,7 @@ package prototype;
  * Classe principale du prototype.
  * 
  * @author Thibaud Colas
- * @version 18032012
+ * @version 26032012
  * @see Liaison, Jeu
  */
 public class Prototype {
@@ -12,11 +12,14 @@ public class Prototype {
 	public static Jeu geoinsee = new JeuEphemere("./rdf/insee/","regions","TE");
 	public static Jeu passimpropre = new JeuEphemere("./rdf/Brute3.rdf","","ET");
 	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "tt:Région", "geo:Region", "");
+//	public static Jeu geoinsee = new JeuEphemere("./rdf/insee/","departements","TE");
+//	public static Jeu passimpropre = new JeuEphemere("./rdf/passim-propre.rdf","","ET");
+//	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:department", "geo:Departement", "");
 	
 	public static void main(String[] args) {
 		try {
-
-			System.out.println("Res : \n" + test.createNewStatements());
+			To tmp = new ToRDF(passimpropre, test.getNewStatements(), true);
+			System.out.println(tmp.getOutput());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

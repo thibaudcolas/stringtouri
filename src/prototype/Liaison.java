@@ -3,6 +3,7 @@ package prototype;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import org.openrdf.model.Statement;
 import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.model.impl.URIImpl;
 import org.openrdf.query.BindingSet;
@@ -13,7 +14,7 @@ import org.openrdf.query.TupleQueryResult;
  * Classe abstraite réalisant l'interconnexion entre deux jeux de données selon différents critères.
  * 
  * @author Thibaud Colas
- * @version 18032012
+ * @version 26032012
  * @see Jeu, LiaisonSimple, LiaisonTypee, LiaisonLibre
  */
 public abstract class Liaison {
@@ -125,11 +126,11 @@ public abstract class Liaison {
 	 * Créé les nouveaux triplets contenant les données à jour.
 	 * @return Une liste chaînée de Statement correctement modifiés.
 	 */
-	public LinkedList<StatementImpl> createNewStatements() {
+	public LinkedList<Statement> getNewStatements() {
 		HashMap<String, String> sourcedata = getSourceData();
 		HashMap<String, LinkedList<String>> cibledata = getCibleData();
 		
-		LinkedList<StatementImpl> maj = new LinkedList<StatementImpl>();
+		LinkedList<Statement> maj = new LinkedList<Statement>();
 		
 		for (String objet : cibledata.keySet()) {
 			if(sourcedata.containsKey(objet)) {
