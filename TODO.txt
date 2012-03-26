@@ -21,3 +21,5 @@ Jeu, Liaison, To
 ApplicationRDF
 ApplicationSESAME
 ApplicationSPARQL
+
+Ajouter messages d'erreur

@@ -1,9 +1,11 @@
 package prototype;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
+import org.openrdf.model.URI;
 import org.openrdf.repository.RepositoryException;
 
 /**
@@ -17,21 +19,21 @@ public class ToRDF extends To {
 
 	private static final String baliseXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 	
-	private boolean all;
+	private HashMap<String, String> namespaces;
 	
 	public ToRDF(Jeu j) {
 		super(j);
-		all = false;
+		namespaces = new HashMap<String, String>();
 	}
 
 	public ToRDF(Jeu j, LinkedList<Statement> m) {
 		super(j, m);
-		all = false;
+		namespaces = new HashMap<String, String>();
 	}
 	
 	public ToRDF(Jeu j, LinkedList<Statement> m, boolean a) {
-		super(j, m);
-		all = a;
+		super(j, m, a);
+		namespaces = new HashMap<String, String>();
 	}
 	
 	@Override
@@ -44,11 +46,17 @@ public class ToRDF extends To {
 		return baliseXML + "<rdf:RDF \n"+writeNamespaces()+">\n" + writeStatements() + "</rdf:RDF>\n";
 	}
 	
+	private String writePredicate(URI p) {
+		return (p.getNamespace().startsWith("http://") ? namespaces.get(p.getNamespace())+":" : p.getNamespace()) + p.getLocalName();
+	}
+	
 	private String writeNamespaces() {
 		String rdf = "";
 		try {
-			for(Namespace n : amodif.getNamespaceList())
+			for(Namespace n : amodif.getNamespaceList()) {
+				namespaces.put(n.getName(), n.getPrefix());
 				rdf += writeNamespace(n);
+			}
 		} catch (RepositoryException e) {
 			e.printStackTrace();
 		}
@@ -61,39 +69,9 @@ public class ToRDF extends To {
 	
 	private String writeStatements() {
 		String rdf = "";
-		LinkedList<Statement> tmp = null;
-		if(all) { 
-			try {
-				LinkedList<Statement> tous = amodif.getAllStatements();
-				LinkedList<Statement> modifs = maj;
-				boolean comparaison;
-				int i;
-				Statement si = null;
-				int cpt = 0;
-				for (Statement s : tous) {
-					comparaison = true;
-					i = 0;
-					while(comparaison && i < modifs.size()) {
-						si = modifs.get(i);
-						comparaison = !(si.getSubject().stringValue().equals(s.getSubject().stringValue()) 
-								&& si.getPredicate().getLocalName().equals(s.getPredicate().getLocalName()));
-						i++;
-					}
-					if (!comparaison) {
-						tous.set(cpt, si);
-					}
-					cpt++;
-					tmp = tous;
-				}
-			} catch (RepositoryException e) {
-				e.printStackTrace();
-			}
-		}
-		else { 
-			tmp = maj;
-		}
+		LinkedList<Statement> tmp = all ? getGoodStatements() : maj;
 		for (Statement m : tmp) {
-			rdf += writeDesc(m.getSubject().stringValue(), writeProp(m.getPredicate().stringValue(), m.getObject().stringValue(), true));
+			rdf += writeDesc(m.getSubject().stringValue(), writeProp(writePredicate(m.getPredicate()), m.getObject().stringValue()));
 			rdf += "\n";
 		}
 		
@@ -106,8 +84,8 @@ public class ToRDF extends To {
 		return rdf;
 	}
 	
-	private String writeProp(String prop, String obj, boolean isresource) {
-		return "\t" + (isresource ? writeResourceProp(prop, obj) : writeTextProp(prop, obj)) + "\n";
+	private String writeProp(String prop, String obj) {
+		return "\t" + (obj.startsWith("http://") ? writeResourceProp(prop, obj) : writeTextProp(prop, obj)) + "\n";
 	}
 	
 	private String writeResourceProp(String prop, String obj) {

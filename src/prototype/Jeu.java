@@ -107,6 +107,24 @@ public abstract class Jeu {
 		return con.getStatements(r, u, null, true);
 	}
 	
+	/**
+	 * Ajoute un ensemble de triplets au dépôt.
+	 * @param sts : Les triplets à ajouter.
+	 * @throws RepositoryException
+	 */
+	public void addAllStatements(Iterable<Statement> sts) throws RepositoryException {
+		con.add(sts);
+	}
+	
+	/**
+	 * Retire un ensemble de triplets du dépôt.
+	 * @param sts : Les triplets à retirer.
+	 * @throws RepositoryException
+	 */
+	public void removeAllStatements(Iterable<Statement> sts) throws RepositoryException {
+		con.remove(sts);
+	}
+	
 	public void rollBack() throws RepositoryException {
 		con.rollback();
 	}

@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import org.openrdf.model.Statement;
 import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.model.impl.URIImpl;
+import org.openrdf.repository.RepositoryException;
 
 /**
  * Classe abstraite pour le traitement du résultat de l'interconnexion.
@@ -22,21 +23,62 @@ public abstract class To {
 	protected Jeu amodif;
 	protected LinkedList<Statement> maj;
 	protected String output;
+	protected boolean all;
 	
-	public To(Jeu j) {
+	protected To(Jeu j) {
 		amodif = j;
 		maj = new LinkedList<Statement>();
 		output = "";
+		all = false;
 	}
 	
-	public To(Jeu j, LinkedList<Statement> m) {
+	protected To(Jeu j, LinkedList<Statement> m) {
 		amodif = j;
 		maj = m;
 		output = "";
+		all = false;
+	}
+	
+	protected To(Jeu j, LinkedList<Statement> m, boolean a) {
+		amodif = j;
+		maj = m;
+		output = "";
+		all = a;
 	}
 	
 	public void addStatement(String s, String p, String o) {
 		maj.add(new StatementImpl(new URIImpl(s), new URIImpl(p), new URIImpl(o)));
+	}
+	
+	protected LinkedList<Statement> getGoodStatements() {
+		LinkedList<Statement> tmp = null;
+		try {
+			LinkedList<Statement> tous = amodif.getAllStatements();
+			LinkedList<Statement> modifs = maj;
+			boolean comparaison;
+			int i;
+			Statement si = null;
+			int cpt = 0;
+			for (Statement s : tous) {
+				comparaison = true;
+				i = 0;
+				while(comparaison && i < modifs.size()) {
+					si = modifs.get(i);
+					comparaison = !(si.getSubject().stringValue().equals(s.getSubject().stringValue()) 
+							&& si.getPredicate().getLocalName().equals(s.getPredicate().getLocalName()));
+					i++;
+				}
+				if (!comparaison) {
+					tous.set(cpt, si);
+					modifs.remove(si);
+				}
+				cpt++;
+			}
+			tmp = tous;
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		}
+		return tmp;
 	}
 
 	public LinkedList<Statement> getMaj() {
