@@ -10,6 +10,13 @@ import org.openrdf.model.Statement;
 import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.model.impl.URIImpl;
 
+/**
+ * Classe abstraite pour le traitement du résultat de l'interconnexion.
+ * 
+ * @author Thibaud Colas
+ * @version 26032012
+ * @see Jeu, ToRDF, ToSesame, ToSPARQL
+ */
 public abstract class To {
 	
 	protected Jeu amodif;

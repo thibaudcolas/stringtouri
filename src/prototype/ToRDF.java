@@ -4,10 +4,15 @@ import java.util.LinkedList;
 
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
-import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.RepositoryResult;
 
+/**
+ * Classe qui exporte l'interconnexion sous forme de RDFXML
+ * 
+ * @author Thibaud Colas
+ * @version 26032012
+ * @see To
+ */
 public class ToRDF extends To {
 
 	private static final String baliseXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -29,6 +34,7 @@ public class ToRDF extends To {
 		all = a;
 	}
 	
+	@Override
 	public String getOutput() {
 		if(output.equals("")) output = writeRDF();
 		return output;

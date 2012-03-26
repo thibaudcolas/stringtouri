@@ -2,11 +2,22 @@ Plutôt utiliser les librairies présentes dans l'install de sesame
 
 Ajouter système de logs ?
 
-
-LiaisonS : récupérer les bindings résultat dynamiquement.
 Types de sorties :
-- triplets mis à jour en RDF
-- requêtes update pré-écrites
-- requêtes update exécutées
+- requêtes delete+insert écrites / exécutées
+- statements enlevés
 
 Possibilité de réaliser plusieurs traitements à la fois ?
+
+Meilleure gestion des contexts
+
+RDF plus "joli"
+
+Type de liste à modifier pour les statements
+
+Tests unitaires
+
+Application
+Jeu, Liaison, To
+ApplicationRDF
+ApplicationSESAME
+ApplicationSPARQL

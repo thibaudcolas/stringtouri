@@ -5,7 +5,7 @@ package prototype;
  * 
  * @author Thibaud Colas
  * @version 26032012
- * @see Liaison, Jeu
+ * @see Liaison, Jeu, To
  */
 public class Prototype {
 	
