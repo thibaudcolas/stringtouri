@@ -3,7 +3,6 @@ package prototype;
 import java.util.LinkedList;
 
 import org.openrdf.model.Statement;
-import org.openrdf.model.impl.StatementImpl;
 
 //TODO make it work
 
@@ -35,7 +34,8 @@ public class ToSesame extends To {
 
 	@Override
 	public String getOutput() {
-		return null;
+		if (output.equals("")) majStatements();
+		return output;
 	}
 	
 	public void majStatements() {
@@ -46,7 +46,10 @@ public class ToSesame extends To {
 				aenlever.addAll(destination.getAllStatements(m.getSubject(), m.getPredicate()).asList());
 			}
 			destination.removeAllStatements(aenlever);
-			destination.addAllStatements(tmp);
+			output += "- " + aenlever.size() + " - " + aenlever + "\n";
+			output += "+ " + tmp.size() + " - " + tmp + "\n";
+			//destination.addAllStatements(tmp);
+			//TODO utiliser un Set, attention aux doublons, mieux gérer les propriétés
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
