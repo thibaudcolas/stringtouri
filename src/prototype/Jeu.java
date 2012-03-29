@@ -87,7 +87,7 @@ public abstract class Jeu {
 	 * @param query La requête SPARQL sans les PREFIX.
 	 * @throws Exception
 	 */
-	public void UpdateQuery(String query) throws Exception {
+	public void updateQuery(String query) throws Exception {
 		System.out.println("Requête " + nom + " : " + query);
 		
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.

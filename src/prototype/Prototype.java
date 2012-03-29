@@ -21,10 +21,10 @@ public class Prototype {
 	
 	public static void main(String[] args) {
 		try {
-			To tmp = new ToRDF(passimpropre, test.getInterconnexion(), "passim:cityThrough", true);
-			System.out.println(tmp.getOutput());
-			//To tmp = new ToSPARQL(passimpropre, test.getNewStatements(), "passim:cityThrough");
+			//To tmp = new ToRDF(passimpropre, test.getInterconnexion(), "passim:cityThrough", true);
 			//System.out.println(tmp.getOutput());
+			To tmp = new ToSPARQL(passimpropre, test.getInterconnexion(), "passim:cityThrough");
+			System.out.println(tmp.getOutput());
 			//System.out.println(test.getInterconnexion());
 		} 
 		catch (Exception e) {
@@ -33,25 +33,5 @@ public class Prototype {
 		finally {
 			test.shutdown();
 		}
-		
-
 	}
-	
-	public String writeRDF(String sub, String prop, String obj) {
-		String ret = "<rdf:Description rdf:about=\""+sub+"\">\n" 
-			+ "\t<"+prop+" rdf:resource=\""+obj+"\"/>\n"
-			+ "</rdf:Description>\n";
-		
-		return ret;
-	}
-	
-	public String writeRDF(String sub, String prop, String obj, String comment) {
-		String ret = "<rdf:Description rdf:about=\""+sub+"\">\n" 
-			+ "\t<"+prop+" rdf:resource=\""+obj+"\"/>"
-			+ " <!-- "+comment+" -->\n"
-			+ "</rdf:Description>\n";
-		
-		return ret;
-	}
-
 }

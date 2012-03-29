@@ -40,27 +40,31 @@ private Jeu destination;
 	}
 	
 	public void majStatements() {
+		String query;
 		try {
 			for (String suj : maj.keySet()) {
-				
+				query = writeDeleteQuery(suj);
+				output += query + "\n";
+				destination.updateQuery(query);
+				query = writeInsertQuery(suj, maj.get(suj));
+				output += query + "\n";
+				destination.updateQuery(query);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public String writeDeleteQuery() {
-		return "";
+	public String writeInsertQuery(String suj, LinkedList<Statement> sts) {
+		String ret = "INSERT DATA { <" + suj + ">";
+		
+		for(Statement s : sts) {
+			ret += " " + s.getPredicate().stringValue() + " <" + s.getObject().stringValue() + "> ;";
+		}
+		return ret.substring(0, ret.length() - 1) + ". }";
 	}
 	
-	public String writeInsertQuery() {
-		return "";
-	}
-	
-	public String writeDeleteInsertQuery(Statement s) {
-		String ret = "DELETE {<"+s.getSubject().stringValue()+"> "+s.getPredicate().stringValue()+" ?o} "
-				+ "INSERT {<"+s.getSubject().stringValue()+"> "+s.getPredicate().stringValue()+" <"+s.getObject().stringValue()+">} "
-				+ "WHERE {<"+s.getSubject().stringValue()+"> "+s.getPredicate().stringValue()+" ?o}"; 
-		return ret;
+	public String writeDeleteQuery(String suj) {
+		return "DELETE DATA { <" + suj + "> " + prop + " ?o }";
 	}
 }
