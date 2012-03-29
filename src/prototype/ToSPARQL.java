@@ -32,11 +32,25 @@ private Jeu destination;
 	}
 
 	@Override
-	public String getOutput() {
+	public String getOutput(boolean executer) {
 		if (output.equals("")) {
-			majStatements();
+			if (executer) {
+				majStatements();
+			}
+			else {
+				output = getRequetes();
+			}
 		}
 		return output;
+	}
+	
+	private String getRequetes() {
+		String ret = "";
+		for (String suj : maj.keySet()) {
+			ret += writeDeleteInsertQuery(suj, maj.get(suj)) + "\n";
+		}
+		
+		return ret;
 	}
 	
 	public void majStatements() {
@@ -60,10 +74,11 @@ private Jeu destination;
 	 */
 	public String writeDeleteInsertQuery(String suj, LinkedList<Statement> sts) {
 		String ret = "DELETE { <"+suj+"> "+prop+" ?o } INSERT { <"+suj+">";
-		
+		String tmpprop;
 		// DELETE + INSERT combiné pour optimiser l'utilisation du réseau.
 		for (Statement s : maj.get(suj)) {
-			ret += " " + prop + " <" + s.getObject().stringValue() + "> ;";
+			tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
+			ret += " " + tmpprop + " <" + s.getObject().stringValue() + "> ;";
 		}
 		return ret.substring(0, ret.length() - 1) + ". } WHERE { <"+suj+"> "+prop+" ?o }";
 	}

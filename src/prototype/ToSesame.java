@@ -34,7 +34,7 @@ public class ToSesame extends To {
 	}
 
 	@Override
-	public String getOutput() {
+	public String getOutput(boolean executer) {
 		if (output.equals("")) majStatements();
 		return output;
 	}

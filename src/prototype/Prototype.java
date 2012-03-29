@@ -24,7 +24,7 @@ public class Prototype {
 			//To tmp = new ToRDF(passimpropre, test.getInterconnexion(), "passim:cityThrough", true);
 			//System.out.println(tmp.getOutput());
 			To tmp = new ToSPARQL(passimpropre, test.getInterconnexion(), "passim:centerTown");
-			System.out.println(tmp.getOutput());
+			System.out.println(tmp.getOutput(false));
 			//System.out.println(test.getInterconnexion());
 		} 
 		catch (Exception e) {

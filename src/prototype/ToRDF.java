@@ -30,7 +30,7 @@ public class ToRDF extends To {
 	}
 	
 	@Override
-	public String getOutput() {
+	public String getOutput(boolean executer) {
 		if(output.equals("")) output = writeRDF();
 		return output;
 	}

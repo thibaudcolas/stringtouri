@@ -132,9 +132,10 @@ public abstract class To {
 
 	/**
 	 * Cette méthode sera redéfinie dans chaque classe fille et permet d'unifier les sorties possibles.
+	 * @param executer : Retourner en exécutant ou pas.
 	 * @return La sortie de l'application, RDFXML, requêtes ou autre.
 	 */
-	public abstract String getOutput();
+	public abstract String getOutput(boolean executer);
 	
 	/**
 	 * Permet d'écrire le résultat dans un fichier.
@@ -145,7 +146,7 @@ public abstract class To {
 		if (f.isFile() && f.canWrite()) {
 			try {
 				BufferedWriter res = new BufferedWriter(new FileWriter(chemin));
-				res.write(getOutput());
+				res.write(getOutput(false));
 				res.close();
 			} catch (IOException e) {
 				e.printStackTrace();
