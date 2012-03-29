@@ -12,6 +12,11 @@ Meilleure gestion des contextes
 
 RDF plus "joli"
 
+Ajout gestion tous / pas tous pour SPARQL
+Ajout gestion jeu de sortie différent pour SPARQL
+
+Grouper les requêtes SPARQL Update
+
 Type de liste à modifier pour les statements
 
 Optimiser traitement filtrage tous / pas tous.

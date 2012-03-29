@@ -82,10 +82,11 @@ public abstract class To {
 			tmpold = resultat.get(suj);
 			if (tmpold != null) {
 				tmpnew = new LinkedList<Statement>();
+				// Pour tous les anciens triplets.
 				for (Statement s : tmpold) {
 					tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
 					if (!tmpprop.equals(prop)) {
-						System.out.println(tmpprop + "=" + prop);
+						// On ne prend que ceux qui n'ont pas la propriété qui nous intéresse.
 						tmpnew.add(s);
 					}
 				}

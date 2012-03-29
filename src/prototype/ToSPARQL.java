@@ -43,10 +43,7 @@ private Jeu destination;
 		String query;
 		try {
 			for (String suj : maj.keySet()) {
-				query = writeDeleteQuery(suj);
-				output += query + "\n";
-				destination.updateQuery(query);
-				query = writeInsertQuery(suj, maj.get(suj));
+				query = writeDeleteInsertQuery(suj, maj.get(suj));
 				output += query + "\n";
 				destination.updateQuery(query);
 			}
@@ -55,9 +52,26 @@ private Jeu destination;
 		}
 	}
 	
+	/**
+	 * Écrit une requête optimisée pour avoir l'usage le plus faible possible du réseau.
+	 * @param suj : Le sujet de la requête.
+	 * @param sts : Les triplets modifiés par la requête.
+	 * @return La requête sous forme de texte.
+	 */
+	public String writeDeleteInsertQuery(String suj, LinkedList<Statement> sts) {
+		String ret = "DELETE { <"+suj+"> "+prop+" ?o } INSERT { <"+suj+">";
+		
+		// DELETE + INSERT combiné pour optimiser l'utilisation du réseau.
+		for (Statement s : maj.get(suj)) {
+			ret += " " + prop + " <" + s.getObject().stringValue() + "> ;";
+		}
+		return ret.substring(0, ret.length() - 1) + ". } WHERE { <"+suj+"> "+prop+" ?o }";
+	}
+	
 	public String writeInsertQuery(String suj, LinkedList<Statement> sts) {
 		String ret = "INSERT DATA { <" + suj + ">";
 		
+		// C'est un INSERT qui ajoute plusieurs triplets à la fois pour un même sujet.
 		for(Statement s : sts) {
 			ret += " " + s.getPredicate().stringValue() + " <" + s.getObject().stringValue() + "> ;";
 		}
