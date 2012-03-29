@@ -14,7 +14,7 @@ import org.openrdf.query.TupleQueryResult;
  * Classe abstraite réalisant l'interconnexion entre deux jeux de données selon différents critères.
  * 
  * @author Thibaud Colas
- * @version 26032012
+ * @version 29032012
  * @see Jeu, LiaisonSimple, LiaisonTypee, LiaisonLibre
  */
 public abstract class Liaison {
@@ -55,12 +55,15 @@ public abstract class Liaison {
 			
 			if (!hasCorrectBindingNames(tupqres)) throw new Exception("Bindings de la requête incorrects");
 			
+			int cpt = 0;
 			// Pour toutes les lignes de résultat.
 			while (tupqres.hasNext()) {
+				cpt++;
 				bs = tupqres.next();
 				result.put(bs.getValue(ovar).stringValue(), bs.getValue(svar).stringValue());
 			}
 			tupqres.close();
+			System.out.println(cpt + " résultat(s).");
 		}
 		catch (Exception e) {
 			System.err.println("Liaison " + nom + " - Erreur dans la sélection source : " + e);
@@ -87,8 +90,10 @@ public abstract class Liaison {
 			
 			if (!hasCorrectBindingNames(tupqres)) throw new Exception("Bindings de la requête incorrects");
 			
+			int cpt = 0;
 			// Pour toutes les lignes de résultat.
 			while (tupqres.hasNext()) {
+				cpt++;
 				bs = tupqres.next();
 				obj = bs.getValue(ovar).stringValue();
 				
@@ -103,6 +108,7 @@ public abstract class Liaison {
 				
 			}
 			tupqres.close();
+			System.out.println(cpt + " résultat(s).");
 		}
 		catch (Exception e) {
 			System.err.println("Liaison " + nom + " - Erreur dans la sélection cible : " + e);
@@ -124,18 +130,25 @@ public abstract class Liaison {
 	
 	/**
 	 * Créé les nouveaux triplets contenant les données à jour.
-	 * @return Une liste chaînée de Statement correctement modifiés.
+	 * @return Une HashMap contenant les triplets classés par sujet.
 	 */
-	public LinkedList<Statement> getNewStatements() {
+	public HashMap<String, LinkedList<Statement>> getInterconnexion() {
 		HashMap<String, String> sourcedata = getSourceData();
 		HashMap<String, LinkedList<String>> cibledata = getCibleData();
 		
-		LinkedList<Statement> maj = new LinkedList<Statement>();
+		HashMap<String, LinkedList<Statement>> maj = new HashMap<String, LinkedList<Statement>>();
+		LinkedList<Statement> tmpmaj = new LinkedList<Statement>();
 		
 		for (String objet : cibledata.keySet()) {
 			if(sourcedata.containsKey(objet)) {
 				for (String sujet : cibledata.get(objet)) {
-					maj.add(new StatementImpl(new URIImpl(sujet), new URIImpl(propcible), new URIImpl(sourcedata.get(objet))));
+					
+					tmpmaj = maj.get(sujet);
+					if (tmpmaj == null) {
+						tmpmaj = new LinkedList<Statement>();
+						maj.put(sujet, tmpmaj);
+					}
+					tmpmaj.add(new StatementImpl(new URIImpl(sujet), new URIImpl(propcible), new URIImpl(sourcedata.get(objet))));
 				}
 			}
 		}

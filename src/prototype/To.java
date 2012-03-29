@@ -4,93 +4,142 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
+import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
-import org.openrdf.model.impl.StatementImpl;
-import org.openrdf.model.impl.URIImpl;
 import org.openrdf.repository.RepositoryException;
 
 /**
  * Classe abstraite pour le traitement du résultat de l'interconnexion.
  * 
  * @author Thibaud Colas
- * @version 26032012
+ * @version 29032012
  * @see Jeu, ToRDF, ToSesame, ToSPARQL
  */
 public abstract class To {
 	
-	protected Jeu amodif;
-	protected LinkedList<Statement> maj;
+	protected Jeu jeumaj;
+	protected HashMap<String, LinkedList<Statement>> maj;
+	protected String prop;
+	
 	protected String output;
-	protected boolean all;
 	
-	protected To(Jeu j) {
-		amodif = j;
-		maj = new LinkedList<Statement>();
+	protected HashMap<String, String> namespaces;
+	
+	protected To(Jeu j, String p) {
+		jeumaj = j;
+		prop = p;
+		handleNamespaces();
+		maj = new HashMap<String, LinkedList<Statement>>();
 		output = "";
-		all = false;
 	}
 	
-	protected To(Jeu j, LinkedList<Statement> m) {
-		amodif = j;
+	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
+		jeumaj = j;
+		prop = p;
+		handleNamespaces();
 		maj = m;
 		output = "";
-		all = false;
 	}
 	
-	protected To(Jeu j, LinkedList<Statement> m, boolean a) {
-		amodif = j;
-		maj = m;
+	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
+		jeumaj = j;
+		handleNamespaces();
+		prop = p;
+		maj = a ? getFilteredStatements(m) : m;
 		output = "";
-		all = a;
 	}
 	
-	public void addStatement(String s, String p, String o) {
-		maj.add(new StatementImpl(new URIImpl(s), new URIImpl(p), new URIImpl(o)));
-	}
-	
-	protected LinkedList<Statement> getGoodStatements() {
-		LinkedList<Statement> tmp = null;
+	/**
+	 * Importe l'ensemble des namespaces pour ajouter les préfixes aux propriétés.
+	 */
+	private void handleNamespaces() {
 		try {
-			LinkedList<Statement> tous = amodif.getAllStatements();
-			LinkedList<Statement> modifs = maj;
-			boolean comparaison;
-			int i;
-			Statement si = null;
-			int cpt = 0;
-			for (Statement s : tous) {
-				comparaison = true;
-				i = 0;
-				while(comparaison && i < modifs.size()) {
-					si = modifs.get(i);
-					comparaison = !(si.getSubject().stringValue().equals(s.getSubject().stringValue()) 
-							&& si.getPredicate().getLocalName().equals(s.getPredicate().getLocalName()));
-					i++;
-				}
-				if (!comparaison) {
-					tous.set(cpt, si);
-					modifs.remove(si);
-				}
-				cpt++;
+			namespaces = new HashMap<String, String>();
+			List<Namespace> nstmp = jeumaj.getNamespaceList();
+			for(Namespace n : nstmp) {
+				namespaces.put(n.getName(), n.getPrefix());
 			}
-			tmp = tous;
+		} catch (RepositoryException e) {
+			System.err.println("Erreur récupération namespaces - " + e);
+		}
+	}
+	
+	/**
+	 * Filtre tous les triplets du jeu de données pour ajouter les nouveaux / retirer les anciens.
+	 * @param nouv : Les nouveaux triplets.
+	 * @return Un ensemble de triplets mis à jour.
+	 */
+	protected HashMap<String, LinkedList<Statement>> getFilteredStatements(HashMap<String, LinkedList<Statement>> nouv) {
+		HashMap<String, LinkedList<Statement>> resultat = getAllStatements();
+		LinkedList<Statement> tmpold;
+		LinkedList<Statement> tmpnew;
+		String tmpprop;
+		
+		for (String suj : nouv.keySet()) {
+			tmpold = resultat.get(suj);
+			if (tmpold != null) {
+				tmpnew = new LinkedList<Statement>();
+				for(Statement s : tmpold) {
+					tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
+					if(!tmpprop.equals(prop)) {
+						System.out.println(tmpprop +"="+ prop);
+						tmpnew.add(s);
+					}
+				}
+				tmpnew.addAll(nouv.get(suj));
+				resultat.put(suj, tmpnew);
+			}
+		}
+		return resultat;
+	}
+	
+	/**
+	 * Récupère tous les triplets du jeu et les classe par sujet.
+	 * @return Les triplets classés par sujet.
+	 */
+	private HashMap<String, LinkedList<Statement>> getAllStatements() {
+		HashMap<String, LinkedList<Statement>> resultat = new HashMap<String, LinkedList<Statement>>();
+		try {
+			LinkedList<Statement> tous = jeumaj.getAllStatements();
+			LinkedList<Statement> tmpmaj;
+			String tmpsuj;
+			for (Statement s : tous) {
+				tmpsuj = s.getSubject().stringValue();
+				tmpmaj = resultat.get(tmpsuj);
+				if (tmpmaj == null) {
+					tmpmaj = new LinkedList<Statement>();
+					resultat.put(tmpsuj, tmpmaj);
+				}
+				tmpmaj.add(s);
+			}
 		} catch (RepositoryException e) {
 			e.printStackTrace();
 		}
-		return tmp;
+		return resultat;
 	}
 
-	public LinkedList<Statement> getMaj() {
+	public HashMap<String, LinkedList<Statement>> getMaj() {
 		return maj;
 	}
 
-	public void setMaj(LinkedList<Statement> maj) {
+	public void setMaj(HashMap<String, LinkedList<Statement>> maj) {
 		this.maj = maj;
 	}
 
+	/**
+	 * Cette méthode sera redéfinie dans chaque classe fille et permet d'unifier les sorties possibles.
+	 * @return La sortie de l'application, RDFXML, requêtes ou autre.
+	 */
 	public abstract String getOutput();
 	
+	/**
+	 * Permet d'écrire le résultat dans un fichier.
+	 * @param chemin : Le chemin du fichier en question.
+	 */
 	public void writeToFile(String chemin) {
 		File f = new File(chemin);
 		if (f.isFile() && f.canWrite()) {

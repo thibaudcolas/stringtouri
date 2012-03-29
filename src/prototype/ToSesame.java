@@ -1,5 +1,6 @@
 package prototype;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import org.openrdf.model.Statement;
@@ -15,20 +16,20 @@ import org.openrdf.model.Statement;
  */
 public class ToSesame extends To {
 
-	private JeuSesame destination;
+	private Jeu destination;
 	
-	public ToSesame(Jeu j) {
-		super(j);
-		destination = (JeuSesame)j;
+	public ToSesame(Jeu j, String p) {
+		super(j, p);
+		destination = j;
 	}
 
-	public ToSesame(Jeu j, LinkedList<Statement> m) {
-		super(j, m);
-		destination = (JeuSesame)j;
+	public ToSesame(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
+		super(j, m, p);
+		destination = j;
 	}
 	
-	public ToSesame(Jeu j, JeuSesame js, LinkedList<Statement> m, boolean a) {
-		super(j, m, a);
+	public ToSesame(Jeu j, Jeu js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
+		super(j, m, p, a);
 		destination = js;
 	}
 
@@ -39,10 +40,10 @@ public class ToSesame extends To {
 	}
 	
 	public void majStatements() {
-		LinkedList<Statement> tmp = all ? getGoodStatements() : maj;
+		LinkedList<Statement> tmp = maj.get(null); //TODO
 		LinkedList<Statement> aenlever = new LinkedList<Statement>();
 		try {
-			for (Statement m : maj) {
+			for (Statement m : maj.get(null)) { //TODO
 				aenlever.addAll(destination.getAllStatements(m.getSubject(), m.getPredicate()).asList());
 			}
 			destination.removeAllStatements(aenlever);
@@ -56,9 +57,7 @@ public class ToSesame extends To {
 	}
 	
 	public boolean isNewRepository() {
-		String depot = ((JeuSesame)amodif).getIdDepot() != null ? ((JeuSesame)amodif).getIdDepot() : "";
-		String sesame = ((JeuSesame)amodif).getURLSesame() != null ? ((JeuSesame)amodif).getURLSesame() : "";
-		return destination.getIdDepot().equals(depot) && destination.getURLSesame().equals(sesame);
+		return true;
 	}
 
 }

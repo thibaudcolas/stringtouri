@@ -8,11 +8,13 @@ Types de sorties :
 
 Possibilité de réaliser plusieurs traitements à la fois ?
 
-Meilleure gestion des contexts
+Meilleure gestion des contextes
 
 RDF plus "joli"
 
 Type de liste à modifier pour les statements
+
+Optimiser traitement filtrage tous / pas tous.
 
 Tests unitaires
 

@@ -3,37 +3,30 @@ package prototype;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
-import org.openrdf.repository.RepositoryException;
 
 /**
  * Classe qui exporte l'interconnexion sous forme de RDFXML
  * 
  * @author Thibaud Colas
- * @version 26032012
+ * @version 29032012
  * @see To
  */
 public class ToRDF extends To {
 
 	private static final String baliseXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 	
-	private HashMap<String, String> namespaces;
-	
-	public ToRDF(Jeu j) {
-		super(j);
-		namespaces = new HashMap<String, String>();
+	public ToRDF(Jeu j, String p) {
+		super(j, p);
 	}
 
-	public ToRDF(Jeu j, LinkedList<Statement> m) {
-		super(j, m);
-		namespaces = new HashMap<String, String>();
+	public ToRDF(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
+		super(j, m, p);
 	}
 	
-	public ToRDF(Jeu j, LinkedList<Statement> m, boolean a) {
-		super(j, m, a);
-		namespaces = new HashMap<String, String>();
+	public ToRDF(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
+		super(j, m, p, a);
 	}
 	
 	@Override
@@ -46,42 +39,53 @@ public class ToRDF extends To {
 		return baliseXML + "<rdf:RDF \n"+writeNamespaces()+">\n" + writeStatements() + "</rdf:RDF>\n";
 	}
 	
-	private String writePredicate(URI p) {
-		return (p.getNamespace().startsWith("http://") ? namespaces.get(p.getNamespace())+":" : p.getNamespace()) + p.getLocalName();
-	}
-	
 	private String writeNamespaces() {
 		String rdf = "";
-		try {
-			for(Namespace n : amodif.getNamespaceList()) {
-				namespaces.put(n.getName(), n.getPrefix());
-				rdf += writeNamespace(n);
-			}
-		} catch (RepositoryException e) {
-			e.printStackTrace();
+		for(String ns : namespaces.keySet()) {
+			rdf += writeNamespace(namespaces.get(ns), ns);
 		}
 		return rdf;
 	}
 	
-	private String writeNamespace(Namespace n) {
-		return "xmlns:" + n.getPrefix() + "=\"" + n.getName() + "\"\n";
+	private String writeNamespace(String pre, String name) {
+		return "\txmlns:" + pre + "=\"" + name + "\"\n";
 	}
 	
+	/**
+	 * Écrit tous les triplets de maj en les groupant par sujet.
+	 * @return Du RDFXML structuré en balises rdf:Description.
+	 */
 	private String writeStatements() {
 		String rdf = "";
-		LinkedList<Statement> tmp = all ? getGoodStatements() : maj;
-		for (Statement m : tmp) {
-			rdf += writeDesc(m.getSubject().stringValue(), writeProp(writePredicate(m.getPredicate()), m.getObject().stringValue()));
+		String props = "";
+		LinkedList<Statement> tmp;
+		// Classement par sujet.
+		for (String sujet : maj.keySet()) {
+			tmp = maj.get(sujet);
+			for (Statement m : tmp) {
+				props += writeProp(filterPredicate(m.getPredicate()), m.getObject().stringValue());
+			}
+			rdf += writeDesc(sujet, props);
 			rdf += "\n";
+			props = "";
 		}
 		
 		return rdf;
 	}
 	
 	private String writeDesc(String suj, String props) {
-		String rdf = "<rdf:Description rdf:about=\""+suj+"\">\n"
+		return "<rdf:Description rdf:about=\""+suj+"\">\n"
 				+ props + "</rdf:Description>\n";
-		return rdf;
+	}
+	
+	/**
+	 * Utilisé pour convertir une propriété sous forme d'URI en sa version courte utilisant un préfixe.
+	 * @param p : L'URI propriété à convertir.
+	 * @return Une propriété sous la forme préfixe:propriété.
+	 */
+	private String filterPredicate(URI p) {
+		String ns = p.getNamespace();
+		return (ns.startsWith("http://") ? namespaces.get(ns)+":" : ns) + p.getLocalName();
 	}
 	
 	private String writeProp(String prop, String obj) {

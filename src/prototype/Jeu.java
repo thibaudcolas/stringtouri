@@ -10,6 +10,7 @@ import org.openrdf.model.URI;
 import org.openrdf.query.QueryLanguage;
 import org.openrdf.query.TupleQuery;
 import org.openrdf.query.TupleQueryResult;
+import org.openrdf.query.Update;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
@@ -19,7 +20,7 @@ import org.openrdf.repository.RepositoryResult;
  * Classe abstraite permettant de gérer un jeu de données quelle que soit sa provenance.
  * 
  * @author Thibaud Colas
- * @version 26032012
+ * @version 29032012
  * @see Repository, RepositoryConnection, JeuEphemere, JeuSesame, JeuSPARQL
  */
 public abstract class Jeu {
@@ -67,7 +68,7 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Envoie une requête sur le jeu et retourne le résultat.
+	 * Envoie une requête de sélection sur le jeu et retourne le résultat.
 	 * @param query La requête SPARQL sans les PREFIX.
 	 * @return Résultat de la requête.
 	 * @throws Exception
@@ -79,6 +80,20 @@ public abstract class Jeu {
 		queries.add(query);
 		TupleQuery tupleQuery = con.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
 	    return tupleQuery.evaluate();
+	}
+	
+	/**
+	 * Envoie une requête de mise à jour et l'exécute.
+	 * @param query La requête SPARQL sans les PREFIX.
+	 * @throws Exception
+	 */
+	public void UpdateQuery(String query) throws Exception {
+		System.out.println("Requête " + nom + " : " + query);
+		
+		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
+		queries.add(query);
+		Update up = con.prepareUpdate(QueryLanguage.SPARQL, getPrefixes() + query);
+	    up.execute();
 	}
 	
 	public String getLastQuery() {
@@ -97,7 +112,7 @@ public abstract class Jeu {
 	public LinkedList<Statement> getAllStatements() throws RepositoryException {
 		return new LinkedList<Statement>(con.getStatements(null, null, null, true).asList());
 	}
-	
+	//TODO types de retour différents
 	/**
 	 * Donne les triplets correspondant à des critères.
 	 * @return Les triplets ayant comme sujet r et comme prédicat u.

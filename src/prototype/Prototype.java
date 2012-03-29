@@ -21,9 +21,11 @@ public class Prototype {
 	
 	public static void main(String[] args) {
 		try {
-			//To tmp = new ToRDF(passimpropre, test.getNewStatements(), true);
-			To tmp = new ToSesame(passimpropre, test.getNewStatements());
+			To tmp = new ToRDF(passimpropre, test.getInterconnexion(), "passim:cityThrough", true);
 			System.out.println(tmp.getOutput());
+			//To tmp = new ToSPARQL(passimpropre, test.getNewStatements(), "passim:cityThrough");
+			//System.out.println(tmp.getOutput());
+			//System.out.println(test.getInterconnexion());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
