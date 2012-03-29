@@ -20,7 +20,6 @@ import org.openrdf.repository.RepositoryException;
  * @see Jeu, ToRDF, ToSesame, ToSPARQL
  */
 public abstract class To {
-	
 	protected Jeu jeumaj;
 	protected HashMap<String, LinkedList<Statement>> maj;
 	protected String prop;
@@ -60,7 +59,7 @@ public abstract class To {
 		try {
 			namespaces = new HashMap<String, String>();
 			List<Namespace> nstmp = jeumaj.getNamespaceList();
-			for(Namespace n : nstmp) {
+			for (Namespace n : nstmp) {
 				namespaces.put(n.getName(), n.getPrefix());
 			}
 		} catch (RepositoryException e) {
@@ -73,7 +72,7 @@ public abstract class To {
 	 * @param nouv : Les nouveaux triplets.
 	 * @return Un ensemble de triplets mis à jour.
 	 */
-	protected HashMap<String, LinkedList<Statement>> getFilteredStatements(HashMap<String, LinkedList<Statement>> nouv) {
+	protected final HashMap<String, LinkedList<Statement>> getFilteredStatements(HashMap<String, LinkedList<Statement>> nouv) {
 		HashMap<String, LinkedList<Statement>> resultat = getAllStatements();
 		LinkedList<Statement> tmpold;
 		LinkedList<Statement> tmpnew;
@@ -83,10 +82,10 @@ public abstract class To {
 			tmpold = resultat.get(suj);
 			if (tmpold != null) {
 				tmpnew = new LinkedList<Statement>();
-				for(Statement s : tmpold) {
+				for (Statement s : tmpold) {
 					tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
-					if(!tmpprop.equals(prop)) {
-						System.out.println(tmpprop +"="+ prop);
+					if (!tmpprop.equals(prop)) {
+						System.out.println(tmpprop + "=" + prop);
 						tmpnew.add(s);
 					}
 				}
@@ -122,12 +121,12 @@ public abstract class To {
 		return resultat;
 	}
 
-	public HashMap<String, LinkedList<Statement>> getMaj() {
+	public final HashMap<String, LinkedList<Statement>> getMaj() {
 		return maj;
 	}
 
-	public void setMaj(HashMap<String, LinkedList<Statement>> maj) {
-		this.maj = maj;
+	public final void setMaj(HashMap<String, LinkedList<Statement>> m) {
+		this.maj = m;
 	}
 
 	/**
@@ -140,7 +139,7 @@ public abstract class To {
 	 * Permet d'écrire le résultat dans un fichier.
 	 * @param chemin : Le chemin du fichier en question.
 	 */
-	public void writeToFile(String chemin) {
+	public final void writeToFile(final String chemin) {
 		File f = new File(chemin);
 		if (f.isFile() && f.canWrite()) {
 			try {

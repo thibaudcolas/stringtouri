@@ -33,12 +33,13 @@ private Jeu destination;
 
 	@Override
 	public String getOutput() {
-		if (output.equals("")) majStatements();
+		if (output.equals("")) {
+			majStatements();
+		}
 		return output;
 	}
 	
 	public void majStatements() {
-		String deleteinsert;
 		try {
 			for (String suj : maj.keySet()) {
 				
