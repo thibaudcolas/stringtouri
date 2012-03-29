@@ -31,17 +31,20 @@ public class ToRDF extends To {
 	
 	@Override
 	public String getOutput(boolean executer) {
-		if(output.equals("")) output = writeRDF();
+		if (output.equals("")) {
+			output = writeRDF();
+		}
 		return output;
 	}
 	
 	private String writeRDF() {
-		return baliseXML + "<rdf:RDF \n"+writeNamespaces()+">\n" + writeStatements() + "</rdf:RDF>\n";
+		return baliseXML + "<rdf:RDF \n" + writeNamespaces() 
+				+ ">\n" + writeStatements() + "</rdf:RDF>\n";
 	}
 	
 	private String writeNamespaces() {
 		String rdf = "";
-		for(String ns : namespaces.keySet()) {
+		for (String ns : namespaces.keySet()) {
 			rdf += writeNamespace(namespaces.get(ns), ns);
 		}
 		return rdf;
@@ -74,7 +77,7 @@ public class ToRDF extends To {
 	}
 	
 	private String writeDesc(String suj, String props) {
-		return "<rdf:Description rdf:about=\""+suj+"\">\n"
+		return "<rdf:Description rdf:about=\"" + suj + "\">\n"
 				+ props + "</rdf:Description>\n";
 	}
 	
@@ -85,7 +88,7 @@ public class ToRDF extends To {
 	 */
 	private String filterPredicate(URI p) {
 		String ns = p.getNamespace();
-		return (ns.startsWith("http://") ? namespaces.get(ns)+":" : ns) + p.getLocalName();
+		return (ns.startsWith("http://") ? namespaces.get(ns) + ":" : ns) + p.getLocalName();
 	}
 	
 	private String writeProp(String prop, String obj) {
@@ -93,11 +96,11 @@ public class ToRDF extends To {
 	}
 	
 	private String writeResourceProp(String prop, String obj) {
-		return "<"+prop+" rdf:resource=\""+obj+"\"/>";
+		return "<" + prop + " rdf:resource=\"" + obj + "\"/>";
 	}
 	
 	private String writeTextProp(String prop, String obj) {
-		return "<"+prop+">"+obj+"</"+prop+">";
+		return "<" + prop + ">" + obj + "</" + prop + ">";
 	}
 
 }

@@ -1,8 +1,8 @@
 package prototype;
 
-import java.util.*;
+import java.util.LinkedList;
 
-import org.openrdf.repository.*;
+import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.http.HTTPRepository;
 
 /**

@@ -9,14 +9,14 @@ package prototype;
  */
 public class Prototype {
 	
-//	public static Jeu geoinsee = new JeuEphemere("./rdf/insee/","regions","TE");
-//	public static Jeu passimpropre = new JeuEphemere("./rdf/Brute3.rdf","","ET");
+//	public static Jeu geoinsee = new JeuEphemere("./rdf/insee/", "regions", "TE");
+//	public static Jeu passimpropre = new JeuEphemere("./rdf/Brute3.rdf", "", "ET");
 //	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "tt:Région", "geo:Region", "");
-	public static Jeu geoinsee = new JeuSesame("http://localhost:8080/openrdf-sesame","geo-insee-all");
-	public static Jeu passimpropre = new JeuSesame("http://localhost:8080/openrdf-sesame","passim-test");
+	public static Jeu geoinsee = new JeuSesame("http://localhost:8080/openrdf-sesame", "geo-insee-all");
+	public static Jeu passimpropre = new JeuSesame("http://localhost:8080/openrdf-sesame", "passim-test");
 	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:centerTown", "geo:Commune", "");
-//	public static Jeu geoinsee = new JeuEphemere("./rdf/insee/","departements","TE");
-//	public static Jeu passimpropre = new JeuEphemere("./rdf/passim-propre.rdf","","ET");
+//	public static Jeu geoinsee = new JeuEphemere("./rdf/insee/", "departements", "TE");
+//	public static Jeu passimpropre = new JeuEphemere("./rdf/passim-propre.rdf", "", "ET");
 //	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:department", "geo:Departement", "");
 	
 	public static void main(String[] args) {

@@ -35,29 +35,14 @@ public class ToSesame extends To {
 
 	@Override
 	public String getOutput(boolean executer) {
-		if (output.equals("")) majStatements();
+		if (output.equals("")) {
+			majStatements();
+		}
 		return output;
 	}
 	
+	//FIXME
+	//TODO gérer les cas export intégral
 	public void majStatements() {
-		LinkedList<Statement> tmp = maj.get(null); //TODO
-		LinkedList<Statement> aenlever = new LinkedList<Statement>();
-		try {
-			for (Statement m : maj.get(null)) { //TODO
-				aenlever.addAll(destination.getAllStatements(m.getSubject(), m.getPredicate()).asList());
-			}
-			destination.removeAllStatements(aenlever);
-			output += "- " + aenlever.size() + " - " + aenlever + "\n";
-			output += "+ " + tmp.size() + " - " + tmp + "\n";
-			//destination.addAllStatements(tmp);
-			//TODO utiliser un Set, attention aux doublons, mieux gérer les propriétés
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
-	
-	public boolean isNewRepository() {
-		return true;
-	}
-
 }

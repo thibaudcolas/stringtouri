@@ -61,7 +61,7 @@ public abstract class Jeu {
 	public String getPrefixes() throws RepositoryException {
 		String res = "";
 		List<Namespace> ns = getNamespaceList();
-		for(Namespace n : ns) {
+		for (Namespace n : ns) {
 			res += "PREFIX " + n.getPrefix() + ": <" + n.getName() + "> "; 
 		}
 		return res;
@@ -78,8 +78,8 @@ public abstract class Jeu {
 		
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
 		queries.add(query);
-		TupleQuery tupleQuery = con.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
-	    return tupleQuery.evaluate();
+		TupleQuery tq = con.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
+	    return tq.evaluate();
 	}
 	
 	/**
@@ -112,9 +112,11 @@ public abstract class Jeu {
 	public LinkedList<Statement> getAllStatements() throws RepositoryException {
 		return new LinkedList<Statement>(con.getStatements(null, null, null, true).asList());
 	}
-	//TODO types de retour différents
+	//FIXME types de retour différents
 	/**
 	 * Donne les triplets correspondant à des critères.
+	 * @param r : Le sujet qui nous intéresse.
+	 * @param u : Le prédicat qui nous intéresse.
 	 * @return Les triplets ayant comme sujet r et comme prédicat u.
 	 * @throws RepositoryException
 	 */

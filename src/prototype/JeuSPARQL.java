@@ -1,9 +1,9 @@
 package prototype;
 
-import java.util.*;
+import java.util.LinkedList;
 
-import org.openrdf.repository.*;
-import org.openrdf.repository.sparql.*;
+import org.openrdf.repository.RepositoryException;
+import org.openrdf.repository.sparql.SPARQLRepository;
 
 /**
  * Classe de gestion d'un jeu provenant d'un dépôt préexistant sur un serveur SESAME.

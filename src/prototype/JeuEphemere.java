@@ -2,8 +2,9 @@ package prototype;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.util.*;
-import org.openrdf.repository.*;
+import java.util.LinkedList;
+
+import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.sail.SailRepository;
 import org.openrdf.rio.RDFFormat;
 import org.openrdf.sail.memory.MemoryStore;
@@ -22,7 +23,6 @@ public class JeuEphemere extends Jeu {
 	
 	/**
 	 * Constructeur classique.
-	 * @param n : nom du jeu.
 	 * @param source : répertoire / fichier source.
 	 * @param start : filtrage sur les fichiers à importer.
 	 * @param uri : URI de base des données.
@@ -47,10 +47,10 @@ public class JeuEphemere extends Jeu {
 	
 	/**
 	 * Ajoute les fichiers passés en paramètre au dépôt.
-	 * @param source
-	 * @param start
+	 * @param source Le chemin vers le fichier / répertoire qui nous intéresse.
+	 * @param start Le début du nom du fichier/dossier pour filtrage.
 	 */
-	public void addSource(String source, String start) {
+	public final void addSource(String source, String start) {
 		try {
 			File src = new File(source);
 			int nbimport = 0;
@@ -67,11 +67,13 @@ public class JeuEphemere extends Jeu {
 					};
 					
 					File[] rdflist = src.listFiles(fil);
-					for (File f : rdflist) if (f.getName().startsWith(start)) {
+					for (File f : rdflist) {
+						if (f.getName().startsWith(start)) {
 						// Ajout du fichier au format RDFXML.
 						con.add(f, baseuri, RDFFormat.RDFXML);
 						nbimport++;
 					}
+				}
 						
 				}
 				// Cas src est un fichier.
@@ -91,11 +93,11 @@ public class JeuEphemere extends Jeu {
 		}
 	}
 	
-	public String getBaseURI() {
+	public final String getBaseURI() {
 		return baseuri;
 	}
 	
-	public void setBaseURI(String uri) {
+	public final void setBaseURI(String uri) {
 		baseuri = uri;
 	}
 }

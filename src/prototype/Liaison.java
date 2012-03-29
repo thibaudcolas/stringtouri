@@ -39,6 +39,8 @@ public abstract class Liaison {
 	public static final String pvar = "p";
 	public static final String ovar = "o";
 	
+	private static final int DEFSIZE = 100;
+	
 	/**
 	 * Renvoie les données du jeu "référence" : celui d'où proviennent les données interconnectées.
 	 * Une valeur = une URI, une URI = une valeur.
@@ -46,14 +48,16 @@ public abstract class Liaison {
 	 */
 	public HashMap<String, String> getSourceData() {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
-		HashMap<String, String> result = new HashMap<String, String>(100 + maxliens);
+		HashMap<String, String> result = new HashMap<String, String>(DEFSIZE + maxliens);
 		TupleQueryResult tupqres;
 		BindingSet bs;
 		
 		try {
 			tupqres = source.SPARQLQuery(querysource);
 			
-			if (!hasCorrectBindingNames(tupqres)) throw new Exception("Bindings de la requête incorrects");
+			if (!hasCorrectBindingNames(tupqres)) {
+				throw new Exception("Bindings de la requête incorrects");
+			}
 			
 			int cpt = 0;
 			// Pour toutes les lignes de résultat.
@@ -79,7 +83,7 @@ public abstract class Liaison {
 	 */
 	public HashMap<String, LinkedList<String>> getCibleData() {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
-		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(100 + maxliens);
+		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(DEFSIZE + maxliens);
 		TupleQueryResult tupqres;
 		BindingSet bs;
 		String obj;
@@ -88,7 +92,9 @@ public abstract class Liaison {
 		try {
 			tupqres = cible.SPARQLQuery(querycible);
 			
-			if (!hasCorrectBindingNames(tupqres)) throw new Exception("Bindings de la requête incorrects");
+			if (!hasCorrectBindingNames(tupqres)) {
+				throw new Exception("Bindings de la requête incorrects");
+			}
 			
 			int cpt = 0;
 			// Pour toutes les lignes de résultat.
@@ -99,9 +105,12 @@ public abstract class Liaison {
 				
 				// Si la valeur est déjà présente dans le jeu, on prend les URI associées et on va en rajouter une.
 				// Si la valeur n'est pas encore référencée, on ajoute l'URI de l'objet qui l'utilise.
-				if (result.containsKey(obj)) 
+				if (result.containsKey(obj)) {
 					subjects = new LinkedList<String>(result.get(obj));
-				else subjects = new LinkedList<String>();
+				}
+				else {
+					subjects = new LinkedList<String>();
+				}
 				
 				subjects.add(bs.getValue(svar).stringValue());
 				result.put(obj, subjects);
@@ -140,7 +149,7 @@ public abstract class Liaison {
 		LinkedList<Statement> tmpmaj = new LinkedList<Statement>();
 		
 		for (String objet : cibledata.keySet()) {
-			if(sourcedata.containsKey(objet)) {
+			if (sourcedata.containsKey(objet)) {
 				for (String sujet : cibledata.get(objet)) {
 					
 					tmpmaj = maj.get(sujet);
@@ -161,8 +170,8 @@ public abstract class Liaison {
 	 * @return La requête SPARQL finale.
 	 */
 	public String writeQuery(String p) {
-		return "SELECT ?"+svar+" ?"+ovar+" "
-			+ "WHERE {?"+svar+" "+p+" ?"+ovar+"}" 
+		return "SELECT ?" + svar + " ?" + ovar + " "
+			+ "WHERE {?" + svar + " " + p + " ?" + ovar + "}" 
 			+ (maxliens > 0 ? " LIMIT " + maxliens : "");
 	}
 	
@@ -174,9 +183,9 @@ public abstract class Liaison {
 	 * @return La requête SPARQL finale.
 	 */
 	public String writeQuery(String p, String t) {
-		String type = t.equals("") ? "" : "?"+svar+" a "+t+" . ";
-		return "SELECT ?"+svar+" ?"+ovar+" "
-			+ "WHERE {"+ type + "?"+svar+" "+p+" ?"+ovar+"}" 
+		String type = t.equals("") ? "" : "?" + svar + " a " + t + " . ";
+		return "SELECT ?" + svar + " ?" + ovar + " "
+			+ "WHERE {" +  type  +  "?" + svar + " " + p + " ?" + ovar + "}" 
 			+ (maxliens > 0 ? " LIMIT " + maxliens : "");
 	}
 	

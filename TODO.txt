@@ -21,6 +21,8 @@ Type de liste à modifier pour les statements
 
 Optimiser traitement filtrage tous / pas tous.
 
+Mieux gérer les exceptions
+
 Tests unitaires
 
 Application

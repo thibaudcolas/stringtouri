@@ -31,6 +31,11 @@ private Jeu destination;
 		destination = js;
 	}
 
+	/**
+	 * Si executer = faux, alors on récupère les requêtes sans les exécuter.
+	 * @param executer : Dit si on va exécuter les modifcations.
+	 * @return : Les requêtes qui modifieront correctement les données.
+	 */
 	@Override
 	public String getOutput(boolean executer) {
 		if (output.equals("")) {
@@ -53,6 +58,7 @@ private Jeu destination;
 		return ret;
 	}
 	
+	//TODO gérer les cas export intégral
 	public void majStatements() {
 		String query;
 		try {
@@ -73,21 +79,21 @@ private Jeu destination;
 	 * @return La requête sous forme de texte.
 	 */
 	public String writeDeleteInsertQuery(String suj, LinkedList<Statement> sts) {
-		String ret = "DELETE { <"+suj+"> "+prop+" ?o } INSERT { <"+suj+">";
+		String ret = "DELETE { <" + suj + "> " + prop + " ?o } INSERT { <" + suj + ">";
 		String tmpprop;
 		// DELETE + INSERT combiné pour optimiser l'utilisation du réseau.
 		for (Statement s : maj.get(suj)) {
 			tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
 			ret += " " + tmpprop + " <" + s.getObject().stringValue() + "> ;";
 		}
-		return ret.substring(0, ret.length() - 1) + ". } WHERE { <"+suj+"> "+prop+" ?o }";
+		return ret.substring(0, ret.length() - 1) + ". } WHERE { <" + suj + "> " + prop + " ?o }";
 	}
 	
 	public String writeInsertQuery(String suj, LinkedList<Statement> sts) {
 		String ret = "INSERT DATA { <" + suj + ">";
 		
 		// C'est un INSERT qui ajoute plusieurs triplets à la fois pour un même sujet.
-		for(Statement s : sts) {
+		for (Statement s : sts) {
 			ret += " " + s.getPredicate().stringValue() + " <" + s.getObject().stringValue() + "> ;";
 		}
 		return ret.substring(0, ret.length() - 1) + ". }";
