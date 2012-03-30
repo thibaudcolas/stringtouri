@@ -10,6 +10,8 @@ import java.util.List;
 
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
+import org.openrdf.model.URI;
+import org.openrdf.model.Value;
 import org.openrdf.repository.RepositoryException;
 
 /**
@@ -65,6 +67,16 @@ public abstract class To {
 		} catch (RepositoryException e) {
 			System.err.println("Erreur récupération namespaces - " + e);
 		}
+	}
+	
+	/**
+	 * Utilisé pour convertir une propriété sous forme d'URI en sa version courte utilisant un préfixe.
+	 * @param p : L'URI propriété à convertir.
+	 * @return Une propriété sous la forme préfixe:propriété.
+	 */
+	protected String filterPredicate(URI p) {
+		String ns = p.getNamespace();
+		return (ns.startsWith("http://") ? namespaces.get(ns) + ":" : ns) + p.getLocalName();
 	}
 	
 	/**

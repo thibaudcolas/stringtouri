@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
 
 /**
  * Classe qui exporte l'interconnexion sous forme de RDFXML.
@@ -79,16 +78,6 @@ public class ToRDF extends To {
 	private String writeDesc(String suj, String props) {
 		return "<rdf:Description rdf:about=\"" + suj + "\">\n"
 				+ props + "</rdf:Description>\n";
-	}
-	
-	/**
-	 * Utilisé pour convertir une propriété sous forme d'URI en sa version courte utilisant un préfixe.
-	 * @param p : L'URI propriété à convertir.
-	 * @return Une propriété sous la forme préfixe:propriété.
-	 */
-	private String filterPredicate(URI p) {
-		String ns = p.getNamespace();
-		return (ns.startsWith("http://") ? namespaces.get(ns) + ":" : ns) + p.getLocalName();
 	}
 	
 	private String writeProp(String prop, String obj) {

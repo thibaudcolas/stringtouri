@@ -17,7 +17,6 @@ import org.openrdf.sail.memory.MemoryStore;
  */
 public class JeuEphemere extends Jeu {
 	
-	// L'URI de base du jeu, TODO À récupérer autrement.
 	private String baseuri;
 	
 	/**

@@ -120,7 +120,6 @@ public abstract class Liaison {
 			&& tqr.getBindingNames().size() == 2;
 	}
 	
-	//TODO
 	public String interconnexion() {
 		HashMap<String, String> sourcedata = getSourceData();
 		HashMap<String, LinkedList<String>> cibledata = getCibleData();

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 import org.openrdf.model.Statement;
+import org.openrdf.model.Value;
+import org.openrdf.repository.RepositoryException;
 
 /**
  * Classe qui met à jour un SPARQL endpoint avec des requêtes SPARQL.
@@ -15,20 +17,32 @@ import org.openrdf.model.Statement;
 public class ToSPARQL extends To {
 
 private Jeu destination;
+private boolean deleteinsert;
 	
 	public ToSPARQL(Jeu j, String p) {
 		super(j, p);
 		destination = j;
+		deleteinsert = true;
 	}
 
 	public ToSPARQL(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
 		super(j, m, p);
 		destination = j;
+		deleteinsert = true;
 	}
 	
 	public ToSPARQL(Jeu j, Jeu js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
 		super(j, m, p, a);
 		destination = js;
+		deleteinsert = false;
+		
+		for(String ns : namespaces.keySet()) {
+			try {
+				destination.addNamespace(namespaces.get(ns), ns);
+			} catch (RepositoryException e) {
+				System.err.println("Erreur en exportant les namespaces - " + e);
+			}
+		}
 	}
 
 	/**
@@ -52,18 +66,31 @@ private Jeu destination;
 	private String getRequetes() {
 		String ret = "";
 		for (String suj : maj.keySet()) {
-			ret += writeDeleteInsertQuery(suj, maj.get(suj)) + "\n";
+			if(deleteinsert) {
+				ret += writeDeleteInsertQuery(suj, maj.get(suj));
+			}
+			else { 
+				ret += writeInsertQuery(suj, maj.get(suj));
+			}
+			ret += "\n";
 		}
 		
 		return ret;
 	}
 	
-	//TODO gérer les cas export intégral
+	/**
+	 * Envoie des requêtes SPARQL UPDATE pour supprimer/insérer des données.
+	 */
 	public void majStatements() {
 		String query;
 		try {
 			for (String suj : maj.keySet()) {
-				query = writeDeleteInsertQuery(suj, maj.get(suj));
+				if(deleteinsert) {
+					query = writeDeleteInsertQuery(suj, maj.get(suj));
+				}
+				else { 
+					query = writeInsertQuery(suj, maj.get(suj));
+				}
 				output += query + "\n";
 				destination.updateQuery(query);
 			}
@@ -91,15 +118,29 @@ private Jeu destination;
 	
 	public String writeInsertQuery(String suj, LinkedList<Statement> sts) {
 		String ret = "INSERT DATA { <" + suj + ">";
+		String tmpprop;
 		
 		// C'est un INSERT qui ajoute plusieurs triplets à la fois pour un même sujet.
 		for (Statement s : sts) {
-			ret += " " + s.getPredicate().stringValue() + " <" + s.getObject().stringValue() + "> ;";
+			tmpprop = filterPredicate(s.getPredicate());
+			ret += " " + tmpprop + " " + filterObject(s.getObject()) + " ;";
 		}
 		return ret.substring(0, ret.length() - 1) + ". }";
 	}
 	
 	public String writeDeleteQuery(String suj) {
 		return "DELETE DATA { <" + suj + "> " + prop + " ?o }";
+	}
+	
+	/**
+	 * Utilisé pour convertir un objet dans sa forme requêtable.
+	 * @param v : L'objet en question
+	 * @return Un objet écrit proprement
+	 */
+	protected String filterObject(Value v) {
+		String o = v.stringValue();
+		return (o.startsWith("http://") ? "<" + o + ">" 
+				: o.equals("true") || o.equals("false") ? o 
+						: "\"" + o + "\"");
 	}
 }

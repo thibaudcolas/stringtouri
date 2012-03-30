@@ -134,12 +134,22 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Retire un ensemble de triplets du dépôt.
-	 * @param sts : Les triplets à retirer.
+	 * Ajoute un triplet au dépôt.
+	 * @param s : Le triplet.
 	 * @throws RepositoryException
 	 */
-	public final void removeAllStatements(Iterable<Statement> sts) throws RepositoryException {
-		con.remove(sts);
+	public final void addAllStatements(Statement s) throws RepositoryException {
+		con.add(s);
+	}
+	
+	/**
+	 * Retire un ensemble de triplets du dépôt.
+	 * @param r : Le sujet qui nous intéresse.
+	 * @param u : Le prédicat qui nous intéresse.
+	 * @throws RepositoryException
+	 */
+	public final void removeStatements(Resource r, URI u) throws RepositoryException {
+		con.remove(r, u, null);
 	}
 	
 	public final void rollBack() throws RepositoryException {

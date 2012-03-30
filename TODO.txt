@@ -23,6 +23,10 @@ Optimiser traitement filtrage tous / pas tous.
 
 Mieux gérer les exceptions
 
+Gestion des résultats int / booléens / // littéraux
+
+Gestion des commit
+
 Tests unitaires
 
 Application
