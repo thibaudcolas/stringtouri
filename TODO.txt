@@ -1,38 +1,21 @@
-Plutôt utiliser les librairies présentes dans l'install de sesame
+Améliorations :
+- Utiliser les librairies présentes dans l'install de sesame
+- Ajouter un système de logs
+- Meilleure gestion des contextes
+- Meilleure gestion des exceptions
+- Meilleure gestion des commit
+- Tests unitaires
+- Tests non-unitaires
+- Javadoc plus fournie
 
-Ajouter système de logs ?
+Bugs :
+- Gestion des littéraux (entiers) dans les requêtes SPARQL
 
-Types de sorties :
-- requêtes delete+insert écrites / exécutées
-- statements enlevés
 
 Possibilité de réaliser plusieurs traitements à la fois ?
-
-Meilleure gestion des contextes
-
-RDF plus "joli"
-
-Ajout gestion tous / pas tous pour SPARQL
-Ajout gestion jeu de sortie différent pour SPARQL
-
-Grouper les requêtes SPARQL Update
-
-Type de liste à modifier pour les statements
-
-Optimiser traitement filtrage tous / pas tous.
-
-Mieux gérer les exceptions
-
-Gestion des résultats int / booléens / // littéraux
-
-Gestion des commit
-
-Tests unitaires
 
 Application
 Jeu, Liaison, To
 ApplicationRDF
 ApplicationSESAME
 ApplicationSPARQL
-
-Ajouter messages d'erreur
