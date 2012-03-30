@@ -36,7 +36,7 @@ public class JeuSPARQL extends Jeu {
 		}
 	}
 	
-	public String getEndPoint() {
+	public final String getEndPoint() {
 		return endpoint;
 	}
 }

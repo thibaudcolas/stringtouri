@@ -45,11 +45,11 @@ public class LiaisonTypee extends Liaison {
 		querycible = writeQuery(pc, tc);
 	}
 	
-	public String getTypeSource() {
+	public final String getTypeSource() {
 		return typesource;
 	}
 	
-	public String getTypeCible() {
+	public final String getTypeCible() {
 		return typecible;
 	}
 }

@@ -60,11 +60,11 @@ public class JeuSesame extends Jeu {
 		}
 	}
 	
-	public String getURLSesame() {
+	public final String getURLSesame() {
 		return sesame;
 	}
 	
-	public String getIdDepot() {
+	public final String getIdDepot() {
 		return depot;
 	}
 }

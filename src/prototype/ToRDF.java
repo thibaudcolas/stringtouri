@@ -7,7 +7,7 @@ import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
 
 /**
- * Classe qui exporte l'interconnexion sous forme de RDFXML
+ * Classe qui exporte l'interconnexion sous forme de RDFXML.
  * 
  * @author Thibaud Colas
  * @version 29032012
@@ -15,7 +15,7 @@ import org.openrdf.model.URI;
  */
 public class ToRDF extends To {
 
-	private static final String baliseXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+	private static final String BALISEXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 	
 	public ToRDF(Jeu j, String p) {
 		super(j, p);
@@ -38,7 +38,7 @@ public class ToRDF extends To {
 	}
 	
 	private String writeRDF() {
-		return baliseXML + "<rdf:RDF \n" + writeNamespaces() 
+		return BALISEXML + "<rdf:RDF \n" + writeNamespaces() 
 				+ ">\n" + writeStatements() + "</rdf:RDF>\n";
 	}
 	

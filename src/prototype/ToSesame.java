@@ -8,7 +8,7 @@ import org.openrdf.model.Statement;
 //TODO make it work
 
 /**
- * Classe qui met à jour un serveur Sesame avec de nouveaux triplets
+ * Classe qui met à jour un serveur Sesame avec de nouveaux triplets.
  * 
  * @author Thibaud Colas
  * @version 26032012

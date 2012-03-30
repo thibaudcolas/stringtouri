@@ -35,9 +35,9 @@ public abstract class Liaison {
 	/**
 	 * Les ?s ?p ?o utilisés dans les requêtes.
 	 */
-	public static final String svar = "s";
-	public static final String pvar = "p";
-	public static final String ovar = "o";
+	public static final String SVAR = "s";
+	public static final String PVAR = "p";
+	public static final String OVAR = "o";
 	
 	private static final int DEFSIZE = 100;
 	
@@ -64,7 +64,7 @@ public abstract class Liaison {
 			while (tupqres.hasNext()) {
 				cpt++;
 				bs = tupqres.next();
-				result.put(bs.getValue(ovar).stringValue(), bs.getValue(svar).stringValue());
+				result.put(bs.getValue(OVAR).stringValue(), bs.getValue(SVAR).stringValue());
 			}
 			tupqres.close();
 			System.out.println(cpt + " résultat(s).");
@@ -101,7 +101,7 @@ public abstract class Liaison {
 			while (tupqres.hasNext()) {
 				cpt++;
 				bs = tupqres.next();
-				obj = bs.getValue(ovar).stringValue();
+				obj = bs.getValue(OVAR).stringValue();
 				
 				// Si la valeur est déjà présente dans le jeu, on prend les URI associées et on va en rajouter une.
 				// Si la valeur n'est pas encore référencée, on ajoute l'URI de l'objet qui l'utilise.
@@ -112,7 +112,7 @@ public abstract class Liaison {
 					subjects = new LinkedList<String>();
 				}
 				
-				subjects.add(bs.getValue(svar).stringValue());
+				subjects.add(bs.getValue(SVAR).stringValue());
 				result.put(obj, subjects);
 				
 			}
@@ -129,11 +129,11 @@ public abstract class Liaison {
 	/**
 	 * Dit si les résultats passés en paramètre ont des bindings bien formés.
 	 * @param tqr : Résultat d'une requête.
-	 * @return Vrai si le résultat est structuré avec svar et ovar uniquement.
+	 * @return Vrai si le résultat est structuré avec SVAR et OVAR uniquement.
 	 */
-	public boolean hasCorrectBindingNames(TupleQueryResult tqr) {
-		return tqr.getBindingNames().contains(svar)
-			&& tqr.getBindingNames().contains(ovar)
+	public final boolean hasCorrectBindingNames(TupleQueryResult tqr) {
+		return tqr.getBindingNames().contains(SVAR)
+			&& tqr.getBindingNames().contains(OVAR)
 			&& tqr.getBindingNames().size() == 2;
 	}
 	
@@ -170,8 +170,8 @@ public abstract class Liaison {
 	 * @return La requête SPARQL finale.
 	 */
 	public String writeQuery(String p) {
-		return "SELECT ?" + svar + " ?" + ovar + " "
-			+ "WHERE {?" + svar + " " + p + " ?" + ovar + "}" 
+		return "SELECT ?" + SVAR + " ?" + OVAR + " "
+			+ "WHERE {?" + SVAR + " " + p + " ?" + OVAR + "}" 
 			+ (maxliens > 0 ? " LIMIT " + maxliens : "");
 	}
 	
@@ -183,33 +183,33 @@ public abstract class Liaison {
 	 * @return La requête SPARQL finale.
 	 */
 	public String writeQuery(String p, String t) {
-		String type = t.equals("") ? "" : "?" + svar + " a " + t + " . ";
-		return "SELECT ?" + svar + " ?" + ovar + " "
-			+ "WHERE {" +  type  +  "?" + svar + " " + p + " ?" + ovar + "}" 
+		String type = t.equals("") ? "" : "?" + SVAR + " a " + t + " . ";
+		return "SELECT ?" + SVAR + " ?" + OVAR + " "
+			+ "WHERE {" +  type  +  "?" + SVAR + " " + p + " ?" + OVAR + "}" 
 			+ (maxliens > 0 ? " LIMIT " + maxliens : "");
 	}
 	
-	public String getNom() {
+	public final String getNom() {
 		return nom;
 	}
 	
-	public String getPropSource() {
+	public final String getPropSource() {
 		return propsource;
 	}
 	
-	public String getPropCible() {
+	public final String getPropCible() {
 		return propcible;
 	}
 	
-	public String getQuerySource() {
+	public final String getQuerySource() {
 		return querysource;
 	}
 	
-	public String getQueryCible() {
+	public final String getQueryCible() {
 		return querycible;
 	}
 	
-	public int getMaxLiens() {
+	public final int getMaxLiens() {
 		return maxliens;
 	}
 	

@@ -37,19 +37,19 @@ public abstract class Jeu {
 	 * @param uri : l'URI de l'espace de nom.
 	 * @throws RepositoryException
 	 */
-	public void addNamespace(String label, String uri) throws RepositoryException {
+	public final void addNamespace(String label, String uri) throws RepositoryException {
 		con.setNamespace(label, uri);
 	}
 	
-	public String getNamespace(String pre) throws RepositoryException {
+	public final String getNamespace(String pre) throws RepositoryException {
 		return con.getNamespace(pre);
 	}
 	
-	public void razNamespaces() throws RepositoryException {
+	public final void razNamespaces() throws RepositoryException {
 		con.clearNamespaces();
 	}
 	
-	public List<Namespace> getNamespaceList() throws RepositoryException {
+	public final List<Namespace> getNamespaceList() throws RepositoryException {
 		return con.getNamespaces().asList();
 	}
 	
@@ -96,11 +96,11 @@ public abstract class Jeu {
 	    up.execute();
 	}
 	
-	public String getLastQuery() {
+	public final String getLastQuery() {
 		return queries.getLast(); 
 	}
 	
-	public LinkedList<String> getQueries() {
+	public final LinkedList<String> getQueries() {
 		return queries;
 	}
 	
@@ -109,7 +109,7 @@ public abstract class Jeu {
 	 * @return L'ensemble des triplets du dépôt.
 	 * @throws RepositoryException
 	 */
-	public LinkedList<Statement> getAllStatements() throws RepositoryException {
+	public final LinkedList<Statement> getAllStatements() throws RepositoryException {
 		return new LinkedList<Statement>(con.getStatements(null, null, null, true).asList());
 	}
 	//FIXME types de retour différents
@@ -120,7 +120,7 @@ public abstract class Jeu {
 	 * @return Les triplets ayant comme sujet r et comme prédicat u.
 	 * @throws RepositoryException
 	 */
-	public RepositoryResult<Statement> getAllStatements(Resource r, URI u) throws RepositoryException {
+	public final RepositoryResult<Statement> getAllStatements(Resource r, URI u) throws RepositoryException {
 		return con.getStatements(r, u, null, true);
 	}
 	
@@ -129,7 +129,7 @@ public abstract class Jeu {
 	 * @param sts : Les triplets à ajouter.
 	 * @throws RepositoryException
 	 */
-	public void addAllStatements(Iterable<Statement> sts) throws RepositoryException {
+	public final void addAllStatements(Iterable<Statement> sts) throws RepositoryException {
 		con.add(sts);
 	}
 	
@@ -138,22 +138,22 @@ public abstract class Jeu {
 	 * @param sts : Les triplets à retirer.
 	 * @throws RepositoryException
 	 */
-	public void removeAllStatements(Iterable<Statement> sts) throws RepositoryException {
+	public final void removeAllStatements(Iterable<Statement> sts) throws RepositoryException {
 		con.remove(sts);
 	}
 	
-	public void rollBack() throws RepositoryException {
+	public final void rollBack() throws RepositoryException {
 		con.rollback();
 	}
 	
-	public String getNom() {
+	public final String getNom() {
 		return nom;
 	}
 	
 	/**
 	 * Arrêt propre de la connexion puis du dépôt.
 	 */
-	public void shutdown() {
+	public final void shutdown() {
 		try {
 			con.close();
 			rep.shutDown();
