@@ -6,7 +6,7 @@ import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.sparql.SPARQLRepository;
 
 /**
- * Classe de gestion d'un jeu provenant d'un dépôt préexistant sur un serveur SESAME.
+ * A data set accessed using a SPARQL endpoint.
  * 
  * @author Thibaud Colas
  * @version 01042012
@@ -15,13 +15,13 @@ import org.openrdf.repository.sparql.SPARQLRepository;
 public class JeuSPARQL extends Jeu {
 	
 	/**
-	 * L'URL du SPARQL endpoint auquel le jeu accède.
+	 * The SPARQL endpoint's URL.
 	 */
 	private String endpoint;
 	
 	/**
-	 * Constructeur classique.
-	 * @param ep : URL du SPARQL Endpoint où l'on veut se connecter.
+	 * Default constructor.
+	 * @param ep : SPARQL endpoint URL.
 	 */
 	JeuSPARQL(String ep) {
 		try {	
@@ -39,10 +39,6 @@ public class JeuSPARQL extends Jeu {
 		}
 	}
 	
-	/**
-	 * Récupération de l'URL du SPARQL endpoint.
-	 * @return L'URL du endpoint.
-	 */
 	public final String getEndPoint() {
 		return endpoint;
 	}

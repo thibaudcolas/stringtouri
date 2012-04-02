@@ -7,35 +7,57 @@ import org.openrdf.model.Statement;
 import org.openrdf.repository.RepositoryException;
 
 /**
- * Classe qui met à jour un serveur Sesame avec de nouveaux triplets.
+ * Updates a SESAME server with new statements.
  * 
  * @author Thibaud Colas
- * @version 30032012
+ * @version 01042012
  * @see To
  */
 public class ToSesame extends To {
 
+	/**
+	 * The data set where we're going to make the updates.
+	 */
 	private Jeu destination;
 	
+	/**
+	 * Lazy constructor.
+	 * @param j : A data set.
+	 * @param p : The predicate for which we want to update values.
+	 */
 	public ToSesame(Jeu j, String p) {
 		super(j, p);
 		destination = j;
 	}
 
+	/**
+	 * Default constructor.
+	 * @param j : A data set.
+	 * @param m : The new statements to use.
+	 * @param p : The predicate for which we want to update values.
+	 */
 	public ToSesame(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
 		super(j, m, p);
 		destination = j;
 	}
 	
+	/**
+	 * Full constructor.
+	 * @param j : The old data set.
+	 * @param js : A data set to be updated.
+	 * @param m : The new statements to use.
+	 * @param p : The predicate for which we want to update values.
+	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
+	 */
 	public ToSesame(Jeu j, Jeu js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
 		super(j, m, p, a);
 		destination = js;
 	}
 
 	/**
-	 * Si executer = faux, alors on récupère les changements sans les exécuter.
-	 * @param executer : Dit si on va exécuter les modifcations.
-	 * @return : Les changements dans les triplets.
+	 * Retrieves the output of the process as statements.
+	 * @param executer : Tells whether or not to execute the output on the data set.
+	 * @return The modified statements.
 	 */
 	@Override
 	public String getOutput(boolean executer) {
@@ -50,9 +72,26 @@ public class ToSesame extends To {
 		return output;
 	}
 	
+	/**
+	 * Retrieves what's going to be changed and how (added, removed).
+	 * @return String describing the update.
+	 */
+	private String getModifs() {
+		LinkedList<Statement> tmpnew;
+		String ret = "";
+		for (String suj : maj.keySet()) {
+			tmpnew = maj.get(suj);
+			for (Statement s : tmpnew) {
+				ret += "- " + s + "\n";
+			}
+			ret += "+ " + tmpnew + "\n";
+		}
+		return ret;
+	}
+	
 	//FIXME Toujours le même problème avec/sans <>.
 	/**
-	 * Modifie les triplets du jeu en remplaçant les anciens par les nouveaux.
+	 * Updates the data set statements by overwriting the old ones with the new ones.
 	 */
 	public void majStatements() {
 		LinkedList<Statement> tmpnew;
@@ -69,18 +108,5 @@ public class ToSesame extends To {
 		} catch (RepositoryException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	private String getModifs() {
-		LinkedList<Statement> tmpnew;
-		String ret = "";
-		for (String suj : maj.keySet()) {
-			tmpnew = maj.get(suj);
-			for (Statement s : tmpnew) {
-				ret += "- " + s + "\n";
-			}
-			ret += "+ " + tmpnew + "\n";
-		}
-		return ret;
 	}
 }

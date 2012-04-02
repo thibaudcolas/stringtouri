@@ -1,18 +1,32 @@
 package prototype;
 
 /**
- * Classe de liaison entre deux jeux de données selon deux propriétés et un/deux types.
+ * Links two data sets according to two predicates and two data types.
  * 
  * @author Thibaud Colas
- * @version 18032012
+ * @version 01042012
  * @see Liaison
  */
 public class LiaisonTypee extends Liaison {
 	
-	// On va sélectionner les triplets dont le sujet est du type désiré et qui ont la propriété qui nous intéressent.
+	/**
+	 * Data type of interest within the source data set.
+	 */
 	private String typesource;
+	/**
+	 * Data type of interest within the target data set.
+	 */
 	private String typecible;
 	
+	/**
+	 * Default constructor.
+	 * @param s : The source data set.
+	 * @param c : The target data set.
+	 * @param ps : The source predicate.
+	 * @param pc : The target predicate.
+	 * @param ts : The source data type.
+	 * @param tc : The target data type.
+	 */
 	public LiaisonTypee(Jeu s, Jeu c, String ps, String pc, String ts, String tc) {
 		nom = ps + "-" + pc;
 		
@@ -29,6 +43,16 @@ public class LiaisonTypee extends Liaison {
 		querycible = writeQuery(pc, tc);
 	}
 	
+	/**
+	 * Useless constructor.
+	 * @param s : The source data set.
+	 * @param c : The target data set.
+	 * @param ps : The source predicate.
+	 * @param pc : The target predicate.
+	 * @param ts : The source data type.
+	 * @param tc : The target data type.
+	 * @param ml : The max number of links updated.
+	 */
 	public LiaisonTypee(Jeu s, Jeu c, String ps, String pc, String ts, String tc, int ml) {
 		nom = ps + "-" + pc;
 		

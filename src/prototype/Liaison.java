@@ -11,30 +11,49 @@ import org.openrdf.query.TupleQueryResult;
 
 
 /**
- * Classe abstraite réalisant l'interconnexion entre deux jeux de données selon différents critères.
+ * Abstract class interlinking two data sets according to criteria.
  * 
  * @author Thibaud Colas
- * @version 29032012
- * @see Jeu, LiaisonSimple, LiaisonTypee, LiaisonLibre
+ * @version 01042012
+ * @see Jeu
  */
 public abstract class Liaison {
 	
+	/**
+	 * Linkage name for display purposes.
+	 */
 	protected String nom;
-	
+	/**
+	 * Source data for new links.
+	 */
 	protected Jeu source;
+	/**
+	 * Target data for new links.
+	 */
 	protected Jeu cible;
-	
+	/**
+	 * Source predicate to lookup.
+	 */
 	protected String propsource;
+	/**
+	 * Target predicate which will be modified.
+	 */
 	protected String propcible;
 	
+	/**
+	 * Query submited to the source data.
+	 */
 	protected String querysource;
+	/**
+	 * Query submited to the target data.
+	 */
 	protected String querycible;
 	
+	/**
+	 * Max number of new links to be made.
+	 */
 	protected int maxliens;
 	
-	/**
-	 * Les ?s ?p ?o utilisés dans les requêtes.
-	 */
 	public static final String SVAR = "s";
 	public static final String PVAR = "p";
 	public static final String OVAR = "o";
@@ -42,9 +61,9 @@ public abstract class Liaison {
 	private static final int DEFSIZE = 100;
 	
 	/**
-	 * Renvoie les données du jeu "référence" : celui d'où proviennent les données interconnectées.
-	 * Une valeur = une URI, une URI = une valeur.
-	 * @return HashMap clef = la valeur de notre propriété source, valeur = l'URI associée.
+	 * Retrieves data for the source predicate from the source data set.
+	 * One value = one URI, one URI = one value.
+	 * @return HashMap where the key is the value for the source predicate and value is the associated URI (subject).
 	 */
 	public HashMap<String, String> getSourceData() {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
@@ -77,9 +96,9 @@ public abstract class Liaison {
 	}
 	
 	/**
-	 * Renvoie les données du jeu où on veut réaliser l'interconnexion.
-	 * Une valeur = plusieurs URI, une URI = plusieurs valeurs.
-	 * @return Association entre une valeur de la propriété cible et les URI des objets qui ont cette valeur pour cette propriété.
+	 * Retrieves data from the target data set which we want to update.
+	 * One value is associated with multiple URIs, one URI can be associated with multiple values.
+	 * @return Hashmap where a value is associated with the URIs having this value for the target predicate.
 	 */
 	public HashMap<String, LinkedList<String>> getCibleData() {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
@@ -127,9 +146,9 @@ public abstract class Liaison {
 	}
 	
 	/**
-	 * Dit si les résultats passés en paramètre ont des bindings bien formés.
-	 * @param tqr : Résultat d'une requête.
-	 * @return Vrai si le résultat est structuré avec SVAR et OVAR uniquement.
+	 * Tels if the bindings of the results are wel-formed.
+	 * @param tqr : The result of a SPARQL query.
+	 * @return True if the results contain solely both SVAR and OVAR columns.
 	 */
 	public final boolean hasCorrectBindingNames(TupleQueryResult tqr) {
 		return tqr.getBindingNames().contains(SVAR)
@@ -138,8 +157,8 @@ public abstract class Liaison {
 	}
 	
 	/**
-	 * Créé les nouveaux triplets contenant les données à jour.
-	 * @return Une HashMap contenant les triplets classés par sujet.
+	 * Creates new statements with the updated data.
+	 * @return A Hashmap containing statements grouped by their subjects.
 	 */
 	public HashMap<String, LinkedList<Statement>> getInterconnexion() {
 		HashMap<String, String> sourcedata = getSourceData();
@@ -157,6 +176,7 @@ public abstract class Liaison {
 						tmpmaj = new LinkedList<Statement>();
 						maj.put(sujet, tmpmaj);
 					}
+					// propcible est la seule propriété pour laquelle on a des triplets.
 					tmpmaj.add(new StatementImpl(new URIImpl(sujet), new URIImpl(propcible), new URIImpl(sourcedata.get(objet))));
 				}
 			}
@@ -165,8 +185,8 @@ public abstract class Liaison {
 	}
 	
 	/**
-	 * Écrit une requête SPARQL qui récupère les couples sujet - objet pour la propriété qui nous intéresse.
-	 * @param p : La propriété à utiliser, sous la forme namespace:propriété.
+	 * Writes a SPARQL query to retrieve subject - object pairs for a given predicate.
+	 * @param p : The predicate to use, including its local namespace.
 	 * @return La requête SPARQL finale.
 	 */
 	public String writeQuery(String p) {
@@ -176,10 +196,10 @@ public abstract class Liaison {
 	}
 	
 	/**
-	 * Écrit une requête SPARQL qui récupère les couples sujet - objet pour la propriété qui nous intéresse.
-	 * Le sujet sera du type passé en paramètre.
-	 * @param p : La propriété à utiliser, sous la forme namespace:propriété.
-	 * @param t : Le type du sujet.
+	 * Writes a SPARQL query to retrieve subject - object pairs for a given predicate.
+	 * The subject will also be of a given type.
+	 * @param p : The predicate to use, including its local namespace.
+	 * @param t : The subject's data type.
 	 * @return La requête SPARQL finale.
 	 */
 	public String writeQuery(String p, String t) {
@@ -214,7 +234,7 @@ public abstract class Liaison {
 	}
 	
 	/**
-	 * Arrêt propre des jeux source et cible.
+	 * Proper stop of both data sets.
 	 */
 	public void shutdown() {
 		cible.shutdown();

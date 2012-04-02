@@ -1,11 +1,10 @@
 package prototype;
 
 /**
- * Classe principale du prototype.
+ * Main temporary test class.
  * 
  * @author Thibaud Colas
- * @version 26032012
- * @see Liaison, Jeu, To
+ * @version 01042012
  */
 public class Prototype {
 	
@@ -22,11 +21,8 @@ public class Prototype {
 	
 	public static void main(String[] args) {
 		try {
-			//To tmp = new ToRDF(passimpropre, test.getInterconnexion(), "passim:cityThrough", true);
-			//System.out.println(tmp.getOutput());
 			To tmp = new ToSPARQL(passimpropre, test.getInterconnexion(), "passim:department");
 			System.out.println(tmp.getOutput(true));
-			//System.out.println(test.getInterconnexion());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

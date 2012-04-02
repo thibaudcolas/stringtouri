@@ -10,24 +10,24 @@ import org.openrdf.rio.RDFFormat;
 import org.openrdf.sail.memory.MemoryStore;
 
 /**
- * Classe d'administration d'un jeu temporairement créé à l'exécution.
+ * A data set stored locally which lasts only for runtime.
  * 
  * @author Thibaud Colas
  * @version 01042012
- * @see SailRepository, MemoryStore
+ * @see SailRepository
  */
 public class JeuEphemere extends Jeu {
 	
 	/**
-	 * L'URI de base du jeu.
+	 * The base data set URI.
 	 */
 	private String baseuri;
 	
 	/**
-	 * Constructeur classique.
-	 * @param source : répertoire / fichier source.
-	 * @param start : filtrage sur les fichiers à importer.
-	 * @param uri : URI de base des données.
+	 * Simple constructor.
+	 * @param source : Source file / folder.
+	 * @param start : Filter on the filenames to import.
+	 * @param uri : Base URI for the data.
 	 */
 	JeuEphemere(String source, String start, String uri) {
 		try {
@@ -48,9 +48,9 @@ public class JeuEphemere extends Jeu {
 	}
 	
 	/**
-	 * Ajoute les fichiers passés en paramètre au dépôt.
-	 * @param source Le chemin vers le fichier / répertoire qui nous intéresse.
-	 * @param start Le début du nom du fichier/dossier pour filtrage.
+	 * Adds given file(s) to the repository.
+	 * @param source : Path to the given folder/file.
+	 * @param start : String to filter filenames with.
 	 */
 	public final void addSource(String source, String start) {
 		try {
@@ -95,10 +95,6 @@ public class JeuEphemere extends Jeu {
 		}
 	}
 	
-	/**
-	 * Renvoie l'URI de base du jeu.
-	 * @return L'URI de base.
-	 */
 	public final String getBaseURI() {
 		return baseuri;
 	}

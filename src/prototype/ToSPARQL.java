@@ -8,35 +8,61 @@ import org.openrdf.model.Value;
 import org.openrdf.repository.RepositoryException;
 
 /**
- * Classe qui met à jour un SPARQL endpoint avec des requêtes SPARQL.
+ * Updates a SPARQL endpoint using SPARQL queries.
  * 
  * @author Thibaud Colas
- * @version 29032012
+ * @version 01042012
  * @see To
  */
 public class ToSPARQL extends To {
 
-private Jeu destination;
-private boolean deleteinsert;
+	/**
+	 * The data set where we're going to make the updates.
+	 */
+	private Jeu destination;
+	/**
+	 * Tells whether to write only inserts or delete and inserts.
+	 */
+	private boolean deleteinsert;
 	
+	/**
+	 * Lazy constructor.
+	 * @param j : A data set.
+	 * @param p : The predicate for which we want to update values.
+	 */
 	public ToSPARQL(Jeu j, String p) {
 		super(j, p);
 		destination = j;
 		deleteinsert = true;
 	}
 
+	/**
+	 * Default constructor.
+	 * @param j : A data set.
+	 * @param m : The new statements to use.
+	 * @param p : The predicate for which we want to update values.
+	 */
 	public ToSPARQL(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
 		super(j, m, p);
 		destination = j;
 		deleteinsert = true;
 	}
 	
+	/**
+	 * Full constructor.
+	 * @param j : The old data set.
+	 * @param js : A data set to be updated.
+	 * @param m : The new statements to use.
+	 * @param p : The predicate for which we want to update values.
+	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
+	 */
 	public ToSPARQL(Jeu j, Jeu js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
 		super(j, m, p, a);
 		destination = js;
 		deleteinsert = false;
 		
-		for(String ns : namespaces.keySet()) {
+		//Ajout des namespaces de l'ancien jeu dans le nouveau.
+		for (String ns : namespaces.keySet()) {
 			try {
 				destination.addNamespace(namespaces.get(ns), ns);
 			} catch (RepositoryException e) {
@@ -46,9 +72,9 @@ private boolean deleteinsert;
 	}
 
 	/**
-	 * Si executer = faux, alors on récupère les requêtes sans les exécuter.
-	 * @param executer : Dit si on va exécuter les modifcations.
-	 * @return : Les requêtes qui modifieront correctement les données.
+	 * Retrieves the output of the process as statements.
+	 * @param executer : Tells whether or not to submit the queries to the dataset.
+	 * @return The update queries.
 	 */
 	@Override
 	public String getOutput(boolean executer) {
@@ -63,10 +89,14 @@ private boolean deleteinsert;
 		return output;
 	}
 	
+	/**
+	 * Retrieves the SPARQL update queries to be used in order to update the data.
+	 * @return Queries as string.
+	 */
 	private String getRequetes() {
 		String ret = "";
 		for (String suj : maj.keySet()) {
-			if(deleteinsert) {
+			if (deleteinsert) {
 				ret += writeDeleteInsertQuery(suj, maj.get(suj));
 			}
 			else { 
@@ -79,13 +109,13 @@ private boolean deleteinsert;
 	}
 	
 	/**
-	 * Envoie des requêtes SPARQL UPDATE pour supprimer/insérer des données.
+	 * Updates the data set by sending SPARQL DELETE/INSERT queries.
 	 */
 	public void majStatements() {
 		String query;
 		try {
 			for (String suj : maj.keySet()) {
-				if(deleteinsert) {
+				if (deleteinsert) {
 					query = writeDeleteInsertQuery(suj, maj.get(suj));
 				}
 				else { 
@@ -100,10 +130,10 @@ private boolean deleteinsert;
 	}
 	
 	/**
-	 * Écrit une requête optimisée pour avoir l'usage le plus faible possible du réseau.
-	 * @param suj : Le sujet de la requête.
-	 * @param sts : Les triplets modifiés par la requête.
-	 * @return La requête sous forme de texte.
+	 * Writes a shortened SPARQL DELETE+INSERT query.
+	 * @param suj : The query's subject.
+	 * @param sts : Statements to be used.
+	 * @return Query as string.
 	 */
 	public String writeDeleteInsertQuery(String suj, LinkedList<Statement> sts) {
 		String ret = "DELETE { <" + suj + "> " + prop + " ?o } INSERT { <" + suj + ">";
@@ -116,6 +146,12 @@ private boolean deleteinsert;
 		return ret.substring(0, ret.length() - 1) + ". } WHERE { <" + suj + "> " + prop + " ?o }";
 	}
 	
+	/**
+	 * Writes a SPARQL INSERT query.
+	 * @param suj : The query's subject.
+	 * @param sts : Statements to be used.
+	 * @return Query as string.
+	 */
 	public String writeInsertQuery(String suj, LinkedList<Statement> sts) {
 		String ret = "INSERT DATA { <" + suj + ">";
 		String tmpprop;
@@ -128,14 +164,19 @@ private boolean deleteinsert;
 		return ret.substring(0, ret.length() - 1) + ". }";
 	}
 	
+	/**
+	 * Writes a SPARQL DELETE query.
+	 * @param suj : The query's subject.
+	 * @return Query as string.
+	 */
 	public String writeDeleteQuery(String suj) {
 		return "DELETE DATA { <" + suj + "> " + prop + " ?o }";
 	}
 	
 	/**
-	 * Utilisé pour convertir un objet dans sa forme requêtable.
-	 * @param v : L'objet en question
-	 * @return Un objet écrit proprement
+	 * Converts an object into its correct SPARQL syntax.
+	 * @param v : The object.
+	 * @return A well-written object.
 	 */
 	protected String filterObject(Value v) {
 		String o = v.stringValue();

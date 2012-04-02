@@ -14,21 +14,40 @@ import org.openrdf.model.URI;
 import org.openrdf.repository.RepositoryException;
 
 /**
- * Classe abstraite pour le traitement du résultat de l'interconnexion.
+ * Abstract class to process the result of the interlinking.
  * 
  * @author Thibaud Colas
- * @version 29032012
- * @see Jeu, ToRDF, ToSesame, ToSPARQL
+ * @version 01042012
+ * @see Liaison
  */
 public abstract class To {
+	
+	/**
+	 * The data set to use.
+	 */
 	protected Jeu jeumaj;
+	/**
+	 * The new statements produced by the interlinking process.
+	 */
 	protected HashMap<String, LinkedList<Statement>> maj;
+	/**
+	 * The predicate where linking has been made.
+	 */
 	protected String prop;
-	
+	/**
+	 * A generic output string.
+	 */
 	protected String output;
-	
+	/**
+	 * Namespaces to be used during the process.
+	 */
 	protected HashMap<String, String> namespaces;
 	
+	/**
+	 * Super-class lazy constructor.
+	 * @param j : A data set.
+	 * @param p : The predicate for which we want to update values.
+	 */
 	protected To(Jeu j, String p) {
 		jeumaj = j;
 		prop = p;
@@ -37,6 +56,12 @@ public abstract class To {
 		output = "";
 	}
 	
+	/**
+	 * Super-class default constructor.
+	 * @param j : A data set.
+	 * @param m : The new statements to use.
+	 * @param p : The predicate for which we want to update values.
+	 */
 	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
 		jeumaj = j;
 		prop = p;
@@ -45,6 +70,13 @@ public abstract class To {
 		output = "";
 	}
 	
+	/**
+	 * Super-class alternative constructor.
+	 * @param j : A data set.
+	 * @param m : The new statements to use.
+	 * @param p : The predicate for which we want to update values.
+	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
+	 */
 	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
 		jeumaj = j;
 		handleNamespaces();
@@ -54,7 +86,7 @@ public abstract class To {
 	}
 	
 	/**
-	 * Importe l'ensemble des namespaces pour ajouter les préfixes aux propriétés.
+	 * Imports the namespaces to be used later.
 	 */
 	private void handleNamespaces() {
 		try {
@@ -69,9 +101,9 @@ public abstract class To {
 	}
 	
 	/**
-	 * Utilisé pour convertir une propriété sous forme d'URI en sa version courte utilisant un préfixe.
-	 * @param p : L'URI propriété à convertir.
-	 * @return Une propriété sous la forme préfixe:propriété.
+	 * Used to shorten a predicate into its local version.
+	 * @param p : The predicate to convert.
+	 * @return The predicate using a local name.
 	 */
 	protected String filterPredicate(URI p) {
 		String ns = p.getNamespace();
@@ -79,9 +111,9 @@ public abstract class To {
 	}
 	
 	/**
-	 * Filtre tous les triplets du jeu de données pour ajouter les nouveaux / retirer les anciens.
-	 * @param nouv : Les nouveaux triplets.
-	 * @return Un ensemble de triplets mis à jour.
+	 * Filters statements inside the data set to update the new ones.
+	 * @param nouv : The new statements.
+	 * @return A set of up to date statements.
 	 */
 	protected final HashMap<String, LinkedList<Statement>> getFilteredStatements(HashMap<String, LinkedList<Statement>> nouv) {
 		HashMap<String, LinkedList<Statement>> resultat = getAllStatements();
@@ -109,8 +141,8 @@ public abstract class To {
 	}
 	
 	/**
-	 * Récupère tous les triplets du jeu et les classe par sujet.
-	 * @return Les triplets classés par sujet.
+	 * Retrieves every statement inside the data set.
+	 * @return Hashmap of all the statements grouped by subject.
 	 */
 	private HashMap<String, LinkedList<Statement>> getAllStatements() {
 		HashMap<String, LinkedList<Statement>> resultat = new HashMap<String, LinkedList<Statement>>();
@@ -142,15 +174,15 @@ public abstract class To {
 	}
 
 	/**
-	 * Cette méthode sera redéfinie dans chaque classe fille et permet d'unifier les sorties possibles.
-	 * @param executer : Retourner en exécutant ou pas.
-	 * @return La sortie de l'application, RDFXML, requêtes ou autre.
+	 * Abstract generic method to retrieve the output of the process.
+	 * @param executer : Tells whether or not to execute the output on the data set.
+	 * @return The output of the interlinking.
 	 */
 	public abstract String getOutput(boolean executer);
 	
 	/**
-	 * Permet d'écrire le résultat dans un fichier.
-	 * @param chemin : Le chemin du fichier en question.
+	 * Writes the output to a file.
+	 * @param chemin : The path to the file where to write the output.
 	 */
 	public final void writeToFile(final String chemin) {
 		File f = new File(chemin);

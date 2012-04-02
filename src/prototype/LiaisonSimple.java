@@ -1,14 +1,21 @@
 package prototype;
 
 /**
- * Classe de liaison entre deux jeux de données selon deux propriétés.
+ * Links two data sets according to two predicates.
  * 
  * @author Thibaud Colas
- * @version 18032012
+ * @version 01042012
  * @see Liaison
  */
 public class LiaisonSimple extends Liaison {
 	
+	/**
+	 * Default constructor.
+	 * @param s : The source data set.
+	 * @param c : The target data set.
+	 * @param ps : The source predicate.
+	 * @param pc : The target predicate.
+	 */
 	public LiaisonSimple(Jeu s, Jeu c, String ps, String pc) {
 		nom = ps + "-" + pc;
 		
@@ -23,6 +30,14 @@ public class LiaisonSimple extends Liaison {
 		querycible = writeQuery(pc);
 	}
 	
+	/**
+	 * Useless constructor.
+	 * @param s : The source data set.
+	 * @param c : The target data set.
+	 * @param ps : The source predicate.
+	 * @param pc : The target predicate.
+	 * @param ml : The max number of links updated.
+	 */
 	public LiaisonSimple(Jeu s, Jeu c, String ps, String pc, int ml) {
 		nom = ps + "-" + pc;
 		

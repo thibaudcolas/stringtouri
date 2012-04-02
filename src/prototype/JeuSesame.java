@@ -6,7 +6,7 @@ import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.http.HTTPRepository;
 
 /**
- * Classe de gestion d'un jeu provenant d'un dépôt préexistant sur un serveur SESAME.
+ * A data set stored inside a local or remote SESAME server.
  * 
  * @author Thibaud Colas
  * @version 01042012
@@ -15,17 +15,17 @@ import org.openrdf.repository.http.HTTPRepository;
 public class JeuSesame extends Jeu {
 	
 	/**
-	 * L'URL du serveur SESAME utilisé.
+	 * The SESAME server URL.
 	 */
 	private String sesame;
 	/**
-	 * Le nom du dépôt auquel on accède sur le serveur.
+	 * The identifier of the repository.
 	 */
 	private String depot;
 	
 	/**
-	 * Constructeur fainéant.
-	 * @param sd : Adresse directe vers le dépôt sur le serveur SESAME.
+	 * Lazy constructor.
+	 * @param sd : Direct URL to the SESAME repository.
 	 */
 	JeuSesame(String sd) {
 		try {	
@@ -45,9 +45,9 @@ public class JeuSesame extends Jeu {
 	}
 	
 	/**
-	 * Constructeur classique.
-	 * @param s : URL du serveur SESAME.
-	 * @param d : Identifiant du dépôt.
+	 * Default constructor.
+	 * @param s : SESAME server's URL.
+	 * @param d : Repository id.
 	 */
 	JeuSesame(String s, String d) {
 		try {	
@@ -66,18 +66,10 @@ public class JeuSesame extends Jeu {
 		}
 	}
 	
-	/**
-	 * Renvoie l'URL du serveur SESAME.
-	 * @return L'URL du serveur.
-	 */
 	public final String getURLSesame() {
 		return sesame;
 	}
 	
-	/**
-	 * Renvoie l'identifiant du dépôt sur le serveur.
-	 * @return L'identifiant du dépôt.
-	 */
 	public final String getIdDepot() {
 		return depot;
 	}

@@ -16,7 +16,7 @@ import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
 
 /**
- * Classe abstraite permettant de gérer un jeu de données quelle que soit sa provenance.
+ * Abstract class managing a data set from any origin.
  * 
  * @author Thibaud Colas
  * @version 01042012
@@ -25,27 +25,27 @@ import org.openrdf.repository.RepositoryException;
 public abstract class Jeu {
 	
 	/**
-	 * Nom du jeu pour affichage.
+	 * Data set name for display.
 	 */
 	protected String nom;
 	/** 
-	 * Dépôt utilisé pour les données du jeu.
+	 * Repository where the data is stored.
 	 */
 	protected Repository rep;
 	/**
-	 * Connexion vers le dépôt du jeu.
+	 * Connection to the data set's repository.
 	 */
 	protected RepositoryConnection con;
 	
 	/**
-	 * Historique des requêtes passées vers le jeu.
+	 * History of all the queries submited to the data set.
 	 */
 	protected LinkedList<String> queries;
 	
 	/**
-	 * Ajoute un namespace dans le dépôt.
-	 * @param label : le préfixe du namespace.
-	 * @param uri : l'URI de l'espace de nom.
+	 * Adds a namespace to the repository.
+	 * @param label : Namespaces' prefix.
+	 * @param uri : Namespaces' full name.
 	 * @throws RepositoryException
 	 */
 	public final void addNamespace(String label, String uri) throws RepositoryException {
@@ -53,9 +53,9 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Récupère un espace de nom selon son préfixe.
-	 * @param pre : le préfixe du namespace.
-	 * @return L'espace de nom sous forme de chaîne de caractères.
+	 * Recovers the namespace matching a prefix.
+	 * @param pre : The prefix of the namespace.
+	 * @return The namespace as a string.
 	 * @throws RepositoryException
 	 */
 	public final String getNamespace(String pre) throws RepositoryException {
@@ -63,7 +63,7 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Supprime tous les namespaces du jeu.
+	 * Erases all namespaces from the repository.
 	 * @throws RepositoryException
 	 */
 	public final void razNamespaces() throws RepositoryException {
@@ -71,8 +71,8 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Retourne tous les namespaces sous forme de liste.
-	 * @return Les namespaces du jeu sous forme de liste.
+	 * Returns all of the namespaces as a list.
+	 * @return A list of namespaces.
 	 * @throws RepositoryException
 	 */
 	public final List<Namespace> getNamespaceList() throws RepositoryException {
@@ -80,8 +80,8 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Formate les espaces de noms pour utilisation dans une requête.
-	 * @return Tous les namespace du dépôt sous forme de string pour être utilisé par une requête.
+	 * Formats the namespaces in order to be used inside a query.
+	 * @return A string made of the namespaces.
 	 * @throws RepositoryException
 	 */
 	public String getPrefixes() throws RepositoryException {
@@ -94,9 +94,9 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Envoie une requête de sélection sur le jeu et retourne le résultat.
-	 * @param query La requête SPARQL sans les PREFIX.
-	 * @return Résultat de la requête.
+	 * Sends and evaluates a SPARQL select query on the data set.
+	 * @param query : The SPARQL query without its prefixes.
+	 * @return The result of the query.
 	 * @throws Exception
 	 */
 	public TupleQueryResult SPARQLQuery(String query) throws Exception {
@@ -109,8 +109,8 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Envoie une requête de mise à jour et l'exécute.
-	 * @param query La requête SPARQL sans les PREFIX.
+	 * Sends an update (delete/insert) SPARQL query to the data set.
+	 * @param query : The SPARQL query without its prefixes.
 	 * @throws Exception
 	 */
 	public void updateQuery(String query) throws Exception {
@@ -123,24 +123,24 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Renvoie la dernière requête effectuée sur le jeu.
-	 * @return Une requête sous forme textuelle.
+	 * Retrieves the last query sent to the data set.
+	 * @return A query as a string.
 	 */
 	public final String getLastQuery() {
 		return queries.getLast(); 
 	}
 	
 	/**
-	 * Renvoie toutes les requêtes qui ont été faites sur le jeu.
-	 * @return Une liste de requêtes.
+	 * Retrieves all the queries ever made to the data set.
+	 * @return A list of queries.
 	 */
 	public final LinkedList<String> getQueries() {
 		return queries;
 	}
 	
 	/**
-	 * Donne tous les triplets du dépôt.
-	 * @return L'ensemble des triplets du dépôt.
+	 * Gives all of the statements inside the repository.
+	 * @return A linked list containing all the statements.
 	 * @throws RepositoryException
 	 */
 	public final LinkedList<Statement> getAllStatements() throws RepositoryException {
@@ -148,10 +148,10 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Donne les triplets correspondant à des critères.
-	 * @param r : Le sujet qui nous intéresse.
-	 * @param u : Le prédicat qui nous intéresse.
-	 * @return Les triplets ayant comme sujet r et comme prédicat u.
+	 * Recovers statements according to criteria.
+	 * @param r : The subject we want to use.
+	 * @param u : The predicat to use.
+	 * @return Statements which have r as subject and u as predicat.
 	 * @throws RepositoryException
 	 */
 	public final LinkedList<Statement> getAllStatements(Resource r, URI u) throws RepositoryException {
@@ -159,8 +159,8 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Ajoute un ensemble de triplets au dépôt.
-	 * @param sts : Les triplets à ajouter.
+	 * Adds a set of statements to the repository.
+	 * @param sts : The statements to add.
 	 * @throws RepositoryException
 	 */
 	public final void addAllStatements(Iterable<Statement> sts) throws RepositoryException {
@@ -168,8 +168,8 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Ajoute un triplet au dépôt.
-	 * @param s : Le triplet.
+	 * Adds a single statement to the repository.
+	 * @param s : The statement.
 	 * @throws RepositoryException
 	 */
 	public final void addAllStatements(Statement s) throws RepositoryException {
@@ -177,25 +177,21 @@ public abstract class Jeu {
 	}
 	
 	/**
-	 * Retire un ensemble de triplets du dépôt.
-	 * @param r : Le sujet qui nous intéresse.
-	 * @param u : Le prédicat qui nous intéresse.
+	 * Removes numerous statements from the repository according to criteria.
+	 * @param r : The subject we want to use.
+	 * @param u : The predicat to use.
 	 * @throws RepositoryException
 	 */
 	public final void removeStatements(Resource r, URI u) throws RepositoryException {
 		con.remove(r, u, null);
 	}
 	
-	/**
-	 * Retourne le nom du jeu.
-	 * @return Le nom du jeu.
-	 */
 	public final String getNom() {
 		return nom;
 	}
 	
 	/**
-	 * Arrêt propre de la connexion puis du dépôt.
+	 * Stops properly the connection to the repository and shuts down the repository itself.
 	 */
 	public final void shutdown() {
 		try {
