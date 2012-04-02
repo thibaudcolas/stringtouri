@@ -6,6 +6,6 @@
   </fileset>
   <filter name="FilesFromPackage" enabled="true">
     <filter-data value="src/.svn"/>
-    <filter-data value="src/deprecated"/>
   </filter>
+  <filter name="NonSrcDirs" enabled="true"/>
 </fileset-config>

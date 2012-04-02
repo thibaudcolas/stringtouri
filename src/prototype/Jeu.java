@@ -7,10 +7,13 @@ import org.openrdf.model.Namespace;
 import org.openrdf.model.Resource;
 import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
+import org.openrdf.query.MalformedQueryException;
+import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.QueryLanguage;
 import org.openrdf.query.TupleQuery;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.query.Update;
+import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
@@ -97,9 +100,11 @@ public abstract class Jeu {
 	 * Sends and evaluates a SPARQL select query on the data set.
 	 * @param query : The SPARQL query without its prefixes.
 	 * @return The result of the query.
-	 * @throws Exception
+	 * @throws MalformedQueryException 
+	 * @throws RepositoryException 
+	 * @throws QueryEvaluationException 
 	 */
-	public TupleQueryResult SPARQLQuery(String query) throws Exception {
+	public TupleQueryResult SPARQLQuery(String query) throws RepositoryException, MalformedQueryException, QueryEvaluationException {
 		System.out.println("Requête " + nom + " : " + query);
 		
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
@@ -111,9 +116,11 @@ public abstract class Jeu {
 	/**
 	 * Sends an update (delete/insert) SPARQL query to the data set.
 	 * @param query : The SPARQL query without its prefixes.
-	 * @throws Exception
+	 * @throws MalformedQueryException 
+	 * @throws RepositoryException 
+	 * @throws UpdateExecutionException 
 	 */
-	public void updateQuery(String query) throws Exception {
+	public void updateQuery(String query) throws RepositoryException, MalformedQueryException, UpdateExecutionException {
 		System.out.println("Requête " + nom + " : " + query);
 		
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
