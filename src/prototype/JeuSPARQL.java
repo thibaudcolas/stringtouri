@@ -22,8 +22,9 @@ public class JeuSPARQL extends Jeu {
 	/**
 	 * Default constructor.
 	 * @param ep : SPARQL endpoint URL.
+	 * @throws RuntimeException The initialization has failed and no recovery is possible.
 	 */
-	JeuSPARQL(String ep) {
+	JeuSPARQL(String ep) throws RepositoryException {
 		try {	
 			nom = ep;
 			endpoint = ep;
@@ -35,7 +36,7 @@ public class JeuSPARQL extends Jeu {
 			con = rep.getConnection();
 		} 
 		catch (RepositoryException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Error while creating new JeuSPARQL - " + ep, e);
 		}
 	}
 	

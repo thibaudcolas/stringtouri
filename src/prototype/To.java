@@ -96,6 +96,7 @@ public abstract class To {
 				namespaces.put(n.getName(), n.getPrefix());
 			}
 		} catch (RepositoryException e) {
+			//XXX logging && remontée
 			System.err.println("Erreur récupération namespaces - " + e);
 		}
 	}

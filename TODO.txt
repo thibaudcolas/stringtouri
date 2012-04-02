@@ -1,19 +1,18 @@
 Améliorations :
 - Utiliser les librairies présentes dans l'install de sesame
-- Ajouter un système de logs
+- Ajouter un système de logs - Le plus haut possible, dans App
 - Meilleure gestion des contextes
 - Meilleure gestion des exceptions
+-- Wrappings RuntimeException pour les RepositoryException
+-- Bubble up documenté pour les QueryException
+-- Reste :
+Jeu, To, ToSesame, ToSPARQL
 - Tests unitaires
 - Tests non-unitaires
 
 Bugs :
 - Gestion des littéraux (entiers) dans les requêtes SPARQL
+- Export Sesame erreur syntaxique <>
 
 
 Possibilité de réaliser plusieurs traitements à la fois ?
-
-Application
-Jeu, Liaison, To
-ApplicationRDF
-ApplicationSESAME
-ApplicationSPARQL

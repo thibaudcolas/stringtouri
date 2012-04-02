@@ -90,6 +90,7 @@ public class ToSesame extends To {
 	}
 	
 	//FIXME Toujours le même problème avec/sans <>.
+	//XXX exception
 	/**
 	 * Updates the data set statements by overwriting the old ones with the new ones.
 	 */

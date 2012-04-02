@@ -49,7 +49,7 @@ public abstract class Jeu {
 	 * Adds a namespace to the repository.
 	 * @param label : Namespaces' prefix.
 	 * @param uri : Namespaces' full name.
-	 * @throws RepositoryException
+	 * @throws RepositoryException If the new binding fails (repository unwritable).
 	 */
 	public final void addNamespace(String label, String uri) throws RepositoryException {
 		con.setNamespace(label, uri);
@@ -59,7 +59,7 @@ public abstract class Jeu {
 	 * Recovers the namespace matching a prefix.
 	 * @param pre : The prefix of the namespace.
 	 * @return The namespace as a string.
-	 * @throws RepositoryException
+	 * @throws RepositoryException Error while reading the namespace.
 	 */
 	public final String getNamespace(String pre) throws RepositoryException {
 		return con.getNamespace(pre);
@@ -67,16 +67,23 @@ public abstract class Jeu {
 	
 	/**
 	 * Erases all namespaces from the repository.
-	 * @throws RepositoryException
+	 * @return True if there is no more namespace inside the repository.
 	 */
-	public final void razNamespaces() throws RepositoryException {
-		con.clearNamespaces();
+	public boolean razNamespaces() {
+		boolean succes = true;
+		try {
+			con.clearNamespaces();
+		} catch (RepositoryException e) {
+			//XXX logging
+			succes = false;
+		}
+		return succes;
 	}
 	
 	/**
 	 * Returns all of the namespaces as a list.
 	 * @return A list of namespaces.
-	 * @throws RepositoryException
+	 * @throws RepositoryException Error while reading the namespaces.
 	 */
 	public final List<Namespace> getNamespaceList() throws RepositoryException {
 		return con.getNamespaces().asList();
@@ -85,7 +92,7 @@ public abstract class Jeu {
 	/**
 	 * Formats the namespaces in order to be used inside a query.
 	 * @return A string made of the namespaces.
-	 * @throws RepositoryException
+	 * @throws RepositoryException Error while reading the namespaces.
 	 */
 	public String getPrefixes() throws RepositoryException {
 		String res = "";
@@ -103,6 +110,7 @@ public abstract class Jeu {
 	 * @throws MalformedQueryException 
 	 * @throws RepositoryException 
 	 * @throws QueryEvaluationException 
+	 * XXX logging / remontée ?
 	 */
 	public TupleQueryResult SPARQLQuery(String query) throws RepositoryException, MalformedQueryException, QueryEvaluationException {
 		System.out.println("Requête " + nom + " : " + query);
@@ -119,6 +127,7 @@ public abstract class Jeu {
 	 * @throws MalformedQueryException 
 	 * @throws RepositoryException 
 	 * @throws UpdateExecutionException 
+	 * XXX logging / remontée ?
 	 */
 	public void updateQuery(String query) throws RepositoryException, MalformedQueryException, UpdateExecutionException {
 		System.out.println("Requête " + nom + " : " + query);
@@ -148,7 +157,7 @@ public abstract class Jeu {
 	/**
 	 * Gives all of the statements inside the repository.
 	 * @return A linked list containing all the statements.
-	 * @throws RepositoryException
+	 * @throws RepositoryException Problem during retrieval.
 	 */
 	public final LinkedList<Statement> getAllStatements() throws RepositoryException {
 		return new LinkedList<Statement>(con.getStatements(null, null, null, true).asList());
@@ -159,7 +168,7 @@ public abstract class Jeu {
 	 * @param r : The subject we want to use.
 	 * @param u : The predicat to use.
 	 * @return Statements which have r as subject and u as predicat.
-	 * @throws RepositoryException
+	 * @throws RepositoryException Problem during retrieval.
 	 */
 	public final LinkedList<Statement> getAllStatements(Resource r, URI u) throws RepositoryException {
 		return new LinkedList<Statement>(con.getStatements(r, u, null, true).asList());
@@ -168,7 +177,7 @@ public abstract class Jeu {
 	/**
 	 * Adds a set of statements to the repository.
 	 * @param sts : The statements to add.
-	 * @throws RepositoryException
+	 * @throws RepositoryException Repository not writable.
 	 */
 	public final void addAllStatements(Iterable<Statement> sts) throws RepositoryException {
 		con.add(sts);
@@ -177,9 +186,9 @@ public abstract class Jeu {
 	/**
 	 * Adds a single statement to the repository.
 	 * @param s : The statement.
-	 * @throws RepositoryException
+	 * @throws RepositoryException Repository not writable.
 	 */
-	public final void addAllStatements(Statement s) throws RepositoryException {
+	public final void addStatement(Statement s) throws RepositoryException {
 		con.add(s);
 	}
 	
@@ -187,7 +196,7 @@ public abstract class Jeu {
 	 * Removes numerous statements from the repository according to criteria.
 	 * @param r : The subject we want to use.
 	 * @param u : The predicat to use.
-	 * @throws RepositoryException
+	 * @throws RepositoryException Repository not writable.
 	 */
 	public final void removeStatements(Resource r, URI u) throws RepositoryException {
 		con.remove(r, u, null);
@@ -204,7 +213,8 @@ public abstract class Jeu {
 			System.out.println("Connexion " + nom + " " + (con.isOpen() ? "toujours en cours" : "terminée") + ".");
 			
 		} catch (RepositoryException e) {
-			e.printStackTrace();
+			//XXX logging (+ remontée ?)
+			System.err.println("Error while closing both repository and connection - " + e);
 		}
 	}
 	
@@ -215,6 +225,7 @@ public abstract class Jeu {
 		try {
 			con.commit();
 		} catch (RepositoryException e) {
+			//XXX logging
 			System.err.println("Error while committing - " + e);
 		}
 	}
@@ -228,6 +239,7 @@ public abstract class Jeu {
 		try {
 			ret = con.isAutoCommit();
 		} catch (RepositoryException e) {
+			//XXX logging
 			System.err.println("Error while checking autocommit status - " + e);
 			ret = false;
 		}
@@ -242,6 +254,7 @@ public abstract class Jeu {
 		try {
 			con.setAutoCommit(on);
 		} catch (RepositoryException e) {
+			//XXX logging
 			System.err.println("Error while setting autocommit mode - " + e);
 			System.err.println("Autocommit is " + isAutoCommit() + ", was set to " + on);
 		}
@@ -254,6 +267,7 @@ public abstract class Jeu {
 		try {
 			con.rollback();
 		} catch (RepositoryException e) {
+			//XXX logging
 			System.err.println("Error while rollbacking - " + e);
 		}
 	}

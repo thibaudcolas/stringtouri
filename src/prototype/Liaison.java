@@ -7,7 +7,10 @@ import org.openrdf.model.Statement;
 import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.model.impl.URIImpl;
 import org.openrdf.query.BindingSet;
+import org.openrdf.query.MalformedQueryException;
+import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
+import org.openrdf.repository.RepositoryException;
 
 
 /**
@@ -64,18 +67,21 @@ public abstract class Liaison {
 	 * Retrieves data for the source predicate from the source data set.
 	 * One value = one URI, one URI = one value.
 	 * @return HashMap where the key is the value for the source predicate and value is the associated URI (subject).
+	 * @throws QueryEvaluationException Issue with the source query.
+	 * @throws RuntimeException Repository error while fetching data.
+	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
-	public HashMap<String, String> getSourceData() {
+	public HashMap<String, String> getSourceData() throws QueryEvaluationException, RuntimeException, MalformedQueryException {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
 		HashMap<String, String> result = new HashMap<String, String>(DEFSIZE + maxliens);
-		TupleQueryResult tupqres;
+		TupleQueryResult tupqres = null;
 		BindingSet bs;
 		
 		try {
 			tupqres = source.SPARQLQuery(querysource);
 			
 			if (!hasCorrectBindingNames(tupqres)) {
-				throw new Exception("Bindings de la requête incorrects");
+				throw new MalformedQueryException("Wrong query result bindings - " + querysource);
 			}
 			
 			int cpt = 0;
@@ -85,11 +91,19 @@ public abstract class Liaison {
 				bs = tupqres.next();
 				result.put(bs.getValue(OVAR).stringValue(), bs.getValue(SVAR).stringValue());
 			}
-			tupqres.close();
 			System.out.println(cpt + " résultat(s).");
 		}
-		catch (Exception e) {
-			System.err.println("Liaison " + nom + " - Erreur dans la sélection source : " + e);
+		catch (QueryEvaluationException e) {
+			throw new QueryEvaluationException("Query issue : " + querysource, e);
+		}
+		catch (RepositoryException e) {
+			throw new RuntimeException("Repository issue while fetching data - " + propsource, e);
+		}
+		catch (MalformedQueryException e) {
+			throw new MalformedQueryException(e);
+		}
+		finally {
+			tupqres.close();
 		}
 		
 		return result;
@@ -99,11 +113,14 @@ public abstract class Liaison {
 	 * Retrieves data from the target data set which we want to update.
 	 * One value is associated with multiple URIs, one URI can be associated with multiple values.
 	 * @return Hashmap where a value is associated with the URIs having this value for the target predicate.
+	 * @throws QueryEvaluationException Issue with the target query.
+	 * @throws RuntimeException Repository error while fetching data.
+	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
-	public HashMap<String, LinkedList<String>> getCibleData() {
+	public HashMap<String, LinkedList<String>> getCibleData() throws QueryEvaluationException, RuntimeException, MalformedQueryException {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
 		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(DEFSIZE + maxliens);
-		TupleQueryResult tupqres;
+		TupleQueryResult tupqres = null;
 		BindingSet bs;
 		String obj;
 		LinkedList<String> subjects;
@@ -112,7 +129,7 @@ public abstract class Liaison {
 			tupqres = cible.SPARQLQuery(querycible);
 			
 			if (!hasCorrectBindingNames(tupqres)) {
-				throw new Exception("Bindings de la requête incorrects");
+				throw new QueryEvaluationException("Wrong query result bindings - " + querycible);
 			}
 			
 			int cpt = 0;
@@ -135,11 +152,19 @@ public abstract class Liaison {
 				result.put(obj, subjects);
 				
 			}
-			tupqres.close();
 			System.out.println(cpt + " résultat(s).");
 		}
-		catch (Exception e) {
-			System.err.println("Liaison " + nom + " - Erreur dans la sélection cible : " + e);
+		catch (QueryEvaluationException e) {
+			throw new QueryEvaluationException("Query issue : " + querycible, e);
+		}
+		catch (RepositoryException e) {
+			throw new RuntimeException("Repository issue while fetching data - " + propsource, e);
+		}
+		catch (MalformedQueryException e) {
+			throw new MalformedQueryException(e);
+		}
+		finally {
+			tupqres.close();
 		}
 		
 		return result;
@@ -149,18 +174,24 @@ public abstract class Liaison {
 	 * Tels if the bindings of the results are wel-formed.
 	 * @param tqr : The result of a SPARQL query.
 	 * @return True if the results contain solely both SVAR and OVAR columns.
+	 * @throws QueryEvaluationException Error while closing the result.
 	 */
-	public final boolean hasCorrectBindingNames(TupleQueryResult tqr) {
-		return tqr.getBindingNames().contains(SVAR)
+	public final boolean hasCorrectBindingNames(TupleQueryResult tqr) throws QueryEvaluationException {
+		boolean ret = tqr.getBindingNames().contains(SVAR)
 			&& tqr.getBindingNames().contains(OVAR)
 			&& tqr.getBindingNames().size() == 2;
+		tqr.close();
+		return ret;
 	}
 	
 	/**
 	 * Creates new statements with the updated data.
 	 * @return A Hashmap containing statements grouped by their subjects.
+	 * @throws QueryEvaluationException Issue with one of the queries.
+	 * @throws RuntimeException Repository error while fetching data.
+	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
-	public HashMap<String, LinkedList<Statement>> getInterconnexion() {
+	public HashMap<String, LinkedList<Statement>> getInterconnexion() throws QueryEvaluationException, RuntimeException, MalformedQueryException {
 		HashMap<String, String> sourcedata = getSourceData();
 		HashMap<String, LinkedList<String>> cibledata = getCibleData();
 		

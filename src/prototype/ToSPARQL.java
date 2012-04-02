@@ -130,6 +130,7 @@ public class ToSPARQL extends To {
 	 * Updates the data set by sending SPARQL DELETE/INSERT or INSERT queries.
 	 * @param queries : The update queries.
 	 */
+	//XXX exception
 	public void majStatements(LinkedList<String> queries) {
 		//On veut être sûr d'effectuer soit tous les changements, soit aucun.
 		destination.setAutoCommit(false);
@@ -198,6 +199,7 @@ public class ToSPARQL extends To {
 	 */
 	protected String filterObject(Value v) {
 		String o = v.stringValue();
+		//FIXME Gestion des valeurs littérales
 		return (o.startsWith("http://") ? "<" + o + ">" 
 				: o.equals("true") || o.equals("false") ? o 
 						: "\"" + o + "\"");
