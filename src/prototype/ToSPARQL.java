@@ -110,7 +110,7 @@ private boolean deleteinsert;
 		String tmpprop;
 		// DELETE + INSERT combiné pour optimiser l'utilisation du réseau.
 		for (Statement s : maj.get(suj)) {
-			tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
+			tmpprop = filterPredicate(s.getPredicate());
 			ret += " " + tmpprop + " <" + s.getObject().stringValue() + "> ;";
 		}
 		return ret.substring(0, ret.length() - 1) + ". } WHERE { <" + suj + "> " + prop + " ?o }";

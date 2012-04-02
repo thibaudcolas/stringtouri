@@ -13,12 +13,14 @@ import org.openrdf.sail.memory.MemoryStore;
  * Classe d'administration d'un jeu temporairement créé à l'exécution.
  * 
  * @author Thibaud Colas
- * @version 16032012
- * @see SailRepository, MemoryStore, RepositoryConnection
+ * @version 01042012
+ * @see SailRepository, MemoryStore
  */
 public class JeuEphemere extends Jeu {
 	
-	// L'URI de base du jeu, TODO À récupérer autrement.
+	/**
+	 * L'URI de base du jeu.
+	 */
 	private String baseuri;
 	
 	/**
@@ -93,11 +95,11 @@ public class JeuEphemere extends Jeu {
 		}
 	}
 	
+	/**
+	 * Renvoie l'URI de base du jeu.
+	 * @return L'URI de base.
+	 */
 	public final String getBaseURI() {
 		return baseuri;
-	}
-	
-	public final void setBaseURI(String uri) {
-		baseuri = uri;
 	}
 }

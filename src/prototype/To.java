@@ -11,7 +11,6 @@ import java.util.List;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
-import org.openrdf.model.Value;
 import org.openrdf.repository.RepositoryException;
 
 /**

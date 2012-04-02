@@ -14,21 +14,32 @@ import org.openrdf.query.Update;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.RepositoryResult;
 
 /**
  * Classe abstraite permettant de gérer un jeu de données quelle que soit sa provenance.
  * 
  * @author Thibaud Colas
- * @version 29032012
- * @see Repository, RepositoryConnection, JeuEphemere, JeuSesame, JeuSPARQL
+ * @version 01042012
+ * @see RepositoryConnection
  */
 public abstract class Jeu {
 	
+	/**
+	 * Nom du jeu pour affichage.
+	 */
 	protected String nom;
+	/** 
+	 * Dépôt utilisé pour les données du jeu.
+	 */
 	protected Repository rep;
+	/**
+	 * Connexion vers le dépôt du jeu.
+	 */
 	protected RepositoryConnection con;
 	
+	/**
+	 * Historique des requêtes passées vers le jeu.
+	 */
 	protected LinkedList<String> queries;
 	
 	/**
@@ -41,14 +52,29 @@ public abstract class Jeu {
 		con.setNamespace(label, uri);
 	}
 	
+	/**
+	 * Récupère un espace de nom selon son préfixe.
+	 * @param pre : le préfixe du namespace.
+	 * @return L'espace de nom sous forme de chaîne de caractères.
+	 * @throws RepositoryException
+	 */
 	public final String getNamespace(String pre) throws RepositoryException {
 		return con.getNamespace(pre);
 	}
 	
+	/**
+	 * Supprime tous les namespaces du jeu.
+	 * @throws RepositoryException
+	 */
 	public final void razNamespaces() throws RepositoryException {
 		con.clearNamespaces();
 	}
 	
+	/**
+	 * Retourne tous les namespaces sous forme de liste.
+	 * @return Les namespaces du jeu sous forme de liste.
+	 * @throws RepositoryException
+	 */
 	public final List<Namespace> getNamespaceList() throws RepositoryException {
 		return con.getNamespaces().asList();
 	}
@@ -96,10 +122,18 @@ public abstract class Jeu {
 	    up.execute();
 	}
 	
+	/**
+	 * Renvoie la dernière requête effectuée sur le jeu.
+	 * @return Une requête sous forme textuelle.
+	 */
 	public final String getLastQuery() {
 		return queries.getLast(); 
 	}
 	
+	/**
+	 * Renvoie toutes les requêtes qui ont été faites sur le jeu.
+	 * @return Une liste de requêtes.
+	 */
 	public final LinkedList<String> getQueries() {
 		return queries;
 	}
@@ -112,7 +146,7 @@ public abstract class Jeu {
 	public final LinkedList<Statement> getAllStatements() throws RepositoryException {
 		return new LinkedList<Statement>(con.getStatements(null, null, null, true).asList());
 	}
-	//FIXME types de retour différents
+	
 	/**
 	 * Donne les triplets correspondant à des critères.
 	 * @param r : Le sujet qui nous intéresse.
@@ -120,8 +154,8 @@ public abstract class Jeu {
 	 * @return Les triplets ayant comme sujet r et comme prédicat u.
 	 * @throws RepositoryException
 	 */
-	public final RepositoryResult<Statement> getAllStatements(Resource r, URI u) throws RepositoryException {
-		return con.getStatements(r, u, null, true);
+	public final LinkedList<Statement> getAllStatements(Resource r, URI u) throws RepositoryException {
+		return new LinkedList<Statement>(con.getStatements(r, u, null, true).asList());
 	}
 	
 	/**
@@ -152,10 +186,10 @@ public abstract class Jeu {
 		con.remove(r, u, null);
 	}
 	
-	public final void rollBack() throws RepositoryException {
-		con.rollback();
-	}
-	
+	/**
+	 * Retourne le nom du jeu.
+	 * @return Le nom du jeu.
+	 */
 	public final String getNom() {
 		return nom;
 	}
