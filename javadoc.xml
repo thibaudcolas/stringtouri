@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="slf4j-simple-1.6.4.jar:slf4j-api-1.6.4.jar:commons-httpclient-3.1.jar:commons-codec-1.4.jar:openrdf-sesame-2.6.3-onejar.jar:commons-logging-1.1.1.jar" destdir="doc" doctitle="Module String to URI" nodeprecated="true" nodeprecatedlist="true" noindex="true" nonavbar="false" notree="false" source="1.6" sourcefiles="src/prototype/Jeu.java" sourcepath="src" splitindex="false" stylesheetfile="/Users/Will/Workspace/CableLink/custom-sheet.css" use="true" version="true">
+            <link href="file:/Users/Will/Workspace/CableLink/doc/"/>
+        </javadoc>
+    </target>
+</project>
