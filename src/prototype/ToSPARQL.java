@@ -79,53 +79,71 @@ public class ToSPARQL extends To {
 	@Override
 	public String getOutput(boolean executer) {
 		if (output.equals("")) {
-			if (executer) {
-				majStatements();
+			LinkedList<String> queries;
+			if (deleteinsert) {
+				queries = getDeleteInsertQueries();
 			}
 			else {
-				output = getRequetes();
+				queries = getInsertQueries();
+			}
+			
+			if (executer) {
+				majStatements(queries);
 			}
 		}
 		return output;
 	}
 	
 	/**
-	 * Retrieves the SPARQL update queries to be used in order to update the data.
-	 * @return Queries as string.
+	 * Retrieves the SPARQL update delete+insert queries to be used in order to update the data.
+	 * @return A linked list of queries as strings.
 	 */
-	private String getRequetes() {
-		String ret = "";
+	private LinkedList<String> getDeleteInsertQueries() {
+		LinkedList<String> queries = new LinkedList<String>();
+		String tmpquery;
+		output = "";
 		for (String suj : maj.keySet()) {
-			if (deleteinsert) {
-				ret += writeDeleteInsertQuery(suj, maj.get(suj));
-			}
-			else { 
-				ret += writeInsertQuery(suj, maj.get(suj));
-			}
-			ret += "\n";
+			tmpquery = writeDeleteInsertQuery(suj, maj.get(suj));
+			output += tmpquery + "\n";
 		}
 		
-		return ret;
+		return queries;
 	}
 	
 	/**
-	 * Updates the data set by sending SPARQL DELETE/INSERT queries.
+	 * Retrieves the SPARQL update insert queries to be used in order to update the data.
+	 * @return A linked list of queries as strings.
 	 */
-	public void majStatements() {
-		String query;
+	private LinkedList<String> getInsertQueries() {
+		LinkedList<String> queries = new LinkedList<String>();
+		String tmpquery;
+		output = "";
+		for (String suj : maj.keySet()) {
+			tmpquery = writeInsertQuery(suj, maj.get(suj));
+			output += tmpquery + "\n";
+		}
+		
+		return queries;
+	}
+	
+	/**
+	 * Updates the data set by sending SPARQL DELETE/INSERT or INSERT queries.
+	 * @param queries : The update queries.
+	 */
+	public void majStatements(LinkedList<String> queries) {
+		//On veut être sûr d'effectuer soit tous les changements, soit aucun.
+		destination.setAutoCommit(false);
 		try {
-			for (String suj : maj.keySet()) {
-				if (deleteinsert) {
-					query = writeDeleteInsertQuery(suj, maj.get(suj));
-				}
-				else { 
-					query = writeInsertQuery(suj, maj.get(suj));
-				}
-				output += query + "\n";
-				destination.updateQuery(query);
+			for (String q : queries) {
+					destination.updateQuery(q);
 			}
+			destination.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+			destination.rollback();
+		}
+		finally {
+			destination.setAutoCommit(true);
 		}
 	}
 	

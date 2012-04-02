@@ -3,10 +3,8 @@ Améliorations :
 - Ajouter un système de logs
 - Meilleure gestion des contextes
 - Meilleure gestion des exceptions
-- Meilleure gestion des commit
 - Tests unitaires
 - Tests non-unitaires
-- Javadoc plus fournie
 
 Bugs :
 - Gestion des littéraux (entiers) dans les requêtes SPARQL

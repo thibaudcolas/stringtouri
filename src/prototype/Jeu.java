@@ -186,10 +186,6 @@ public abstract class Jeu {
 		con.remove(r, u, null);
 	}
 	
-	public final String getNom() {
-		return nom;
-	}
-	
 	/**
 	 * Stops properly the connection to the repository and shuts down the repository itself.
 	 */
@@ -203,5 +199,59 @@ public abstract class Jeu {
 		} catch (RepositoryException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Commits all of the changes which have not been commited yet.
+	 */
+	public final void commit() {
+		try {
+			con.commit();
+		} catch (RepositoryException e) {
+			System.err.println("Error while committing - " + e);
+		}
+	}
+	
+	/**
+	 * Checks wheter autocommit is on or off.
+	 * @return Status of autocommit.
+	 */
+	public final boolean isAutoCommit() {
+		boolean ret;
+		try {
+			ret = con.isAutoCommit();
+		} catch (RepositoryException e) {
+			System.err.println("Error while checking autocommit status - " + e);
+			ret = false;
+		}
+		return ret;
+	}
+	
+	/**
+	 * Sets auto commit (i.e one commit for each update) on or off.
+	 * @param on : Autocommit status.
+	 */
+	public final void setAutoCommit(boolean on) {
+		try {
+			con.setAutoCommit(on);
+		} catch (RepositoryException e) {
+			System.err.println("Error while setting autocommit mode - " + e);
+			System.err.println("Autocommit is " + isAutoCommit() + ", was set to " + on);
+		}
+	}
+	
+	/**
+	 * Rolls back every uncommitted changes to the repository.
+	 */
+	public final void rollback() {
+		try {
+			con.rollback();
+		} catch (RepositoryException e) {
+			System.err.println("Error while rollbacking - " + e);
+		}
+	}
+	
+	public final String getNom() {
+		return nom;
 	}
 }
