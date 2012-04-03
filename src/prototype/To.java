@@ -35,10 +35,6 @@ public abstract class To {
 	 */
 	protected String prop;
 	/**
-	 * A generic output string.
-	 */
-	protected String output;
-	/**
 	 * Namespaces to be used during the process.
 	 */
 	protected HashMap<String, String> namespaces;
@@ -47,13 +43,13 @@ public abstract class To {
 	 * Super-class lazy constructor.
 	 * @param j : A data set.
 	 * @param p : The predicate for which we want to update values.
+	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(Jeu j, String p) {
+	protected To(Jeu j, String p) throws RepositoryException {
 		jeumaj = j;
 		prop = p;
 		handleNamespaces();
 		maj = new HashMap<String, LinkedList<Statement>>();
-		output = "";
 	}
 	
 	/**
@@ -61,13 +57,13 @@ public abstract class To {
 	 * @param j : A data set.
 	 * @param m : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
+	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
+	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
 		jeumaj = j;
 		prop = p;
 		handleNamespaces();
 		maj = m;
-		output = "";
 	}
 	
 	/**
@@ -76,19 +72,20 @@ public abstract class To {
 	 * @param m : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
+	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
+	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
 		jeumaj = j;
 		handleNamespaces();
 		prop = p;
 		maj = a ? getFilteredStatements(m) : m;
-		output = "";
 	}
 	
 	/**
 	 * Imports the namespaces to be used later.
+	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	private void handleNamespaces() {
+	private void handleNamespaces() throws RepositoryException {
 		try {
 			namespaces = new HashMap<String, String>();
 			List<Namespace> nstmp = jeumaj.getNamespaceList();
@@ -96,8 +93,7 @@ public abstract class To {
 				namespaces.put(n.getName(), n.getPrefix());
 			}
 		} catch (RepositoryException e) {
-			//XXX logging && remontée
-			System.err.println("Erreur récupération namespaces - " + e);
+			throw new RepositoryException("Error while fetching namespaces", e);
 		}
 	}
 	
@@ -115,8 +111,9 @@ public abstract class To {
 	 * Filters statements inside the data set to update the new ones.
 	 * @param nouv : The new statements.
 	 * @return A set of up to date statements.
+	 * @throws RepositoryException Error while fetching statements.
 	 */
-	protected final HashMap<String, LinkedList<Statement>> getFilteredStatements(HashMap<String, LinkedList<Statement>> nouv) {
+	protected final HashMap<String, LinkedList<Statement>> getFilteredStatements(HashMap<String, LinkedList<Statement>> nouv) throws RepositoryException {
 		HashMap<String, LinkedList<Statement>> resultat = getAllStatements();
 		LinkedList<Statement> tmpold;
 		LinkedList<Statement> tmpnew;
@@ -144,24 +141,22 @@ public abstract class To {
 	/**
 	 * Retrieves every statement inside the data set.
 	 * @return Hashmap of all the statements grouped by subject.
+	 * @throws RepositoryException Error while fetching the statements.
 	 */
-	private HashMap<String, LinkedList<Statement>> getAllStatements() {
+	private HashMap<String, LinkedList<Statement>> getAllStatements() throws RepositoryException {
 		HashMap<String, LinkedList<Statement>> resultat = new HashMap<String, LinkedList<Statement>>();
-		try {
-			LinkedList<Statement> tous = jeumaj.getAllStatements();
-			LinkedList<Statement> tmpmaj;
-			String tmpsuj;
-			for (Statement s : tous) {
-				tmpsuj = s.getSubject().stringValue();
-				tmpmaj = resultat.get(tmpsuj);
-				if (tmpmaj == null) {
-					tmpmaj = new LinkedList<Statement>();
-					resultat.put(tmpsuj, tmpmaj);
-				}
-				tmpmaj.add(s);
+		
+		LinkedList<Statement> tous = jeumaj.getAllStatements();
+		LinkedList<Statement> tmpmaj;
+		String tmpsuj;
+		for (Statement s : tous) {
+			tmpsuj = s.getSubject().stringValue();
+			tmpmaj = resultat.get(tmpsuj);
+			if (tmpmaj == null) {
+				tmpmaj = new LinkedList<Statement>();
+				resultat.put(tmpsuj, tmpmaj);
 			}
-		} catch (RepositoryException e) {
-			e.printStackTrace();
+			tmpmaj.add(s);
 		}
 		return resultat;
 	}
@@ -176,28 +171,30 @@ public abstract class To {
 
 	/**
 	 * Abstract generic method to retrieve the output of the process.
-	 * @param executer : Tells whether or not to execute the output on the data set.
 	 * @return The output of the interlinking.
 	 */
-	public abstract String getOutput(boolean executer);
+	public abstract String getOutput();
+	
+	/**
+	 * Abstract generic method to update the data set.
+	 * @throws RuntimeException Fatal error while updating the data set.
+	 */
+	public abstract void majStatements() throws RuntimeException;
 	
 	/**
 	 * Writes the output to a file.
 	 * @param chemin : The path to the file where to write the output.
+	 * @param IOException Error while writing to the filepath.
 	 */
-	public final void writeToFile(final String chemin) {
+	public final void writeToFile(final String chemin) throws IOException {
 		File f = new File(chemin);
 		if (f.isFile() && f.canWrite()) {
-			try {
-				BufferedWriter res = new BufferedWriter(new FileWriter(chemin));
-				res.write(getOutput(false));
-				res.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			BufferedWriter res = new BufferedWriter(new FileWriter(chemin));
+			res.write(getOutput());
+			res.close();
 		}
 		else {
-			System.err.println("Fichier inutilisable");
+			throw new IOException("Fichier inutilisable / introuvable - " + chemin);
 		}
 	}
 }

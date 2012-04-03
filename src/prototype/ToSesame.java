@@ -24,8 +24,9 @@ public class ToSesame extends To {
 	 * Lazy constructor.
 	 * @param j : A data set.
 	 * @param p : The predicate for which we want to update values.
+	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSesame(Jeu j, String p) {
+	public ToSesame(Jeu j, String p) throws RepositoryException {
 		super(j, p);
 		destination = j;
 	}
@@ -35,8 +36,9 @@ public class ToSesame extends To {
 	 * @param j : A data set.
 	 * @param m : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
+	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSesame(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) {
+	public ToSesame(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
 		super(j, m, p);
 		destination = j;
 	}
@@ -48,8 +50,9 @@ public class ToSesame extends To {
 	 * @param m : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
+	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSesame(Jeu j, Jeu js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) {
+	public ToSesame(Jeu j, Jeu js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
 		super(j, m, p, a);
 		destination = js;
 	}
@@ -60,16 +63,8 @@ public class ToSesame extends To {
 	 * @return The modified statements.
 	 */
 	@Override
-	public String getOutput(boolean executer) {
-		if (output.equals("")) {
-			if (executer) {
-				majStatements();
-			}
-			else {
-				output = getModifs();
-			}
-		}
-		return output;
+	public String getOutput() {
+		return getModifs();
 	}
 	
 	/**
@@ -90,24 +85,22 @@ public class ToSesame extends To {
 	}
 	
 	//FIXME Toujours le même problème avec/sans <>.
-	//XXX exception
 	/**
 	 * Updates the data set statements by overwriting the old ones with the new ones.
+	 * @throws RuntimeException Fatal error while updating the statements.
 	 */
-	public void majStatements() {
+	public void majStatements() throws RuntimeException {
 		LinkedList<Statement> tmpnew;
 		try {
 			for (String suj : maj.keySet()) {
 				tmpnew = maj.get(suj);
 				for (Statement s : tmpnew) {
 					destination.removeStatements(s.getSubject(), s.getPredicate());
-					output += "- " + s + "\n";
 				}
 				destination.addAllStatements(tmpnew);
-				output += "+ " + tmpnew + "\n";
 			}
 		} catch (RepositoryException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Error while updating statements in " + destination.getNom(), e);
 		}
 	}
 }

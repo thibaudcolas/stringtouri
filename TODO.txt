@@ -2,11 +2,6 @@ Améliorations :
 - Utiliser les librairies présentes dans l'install de sesame
 - Ajouter un système de logs - Le plus haut possible, dans App
 - Meilleure gestion des contextes
-- Meilleure gestion des exceptions
--- Wrappings RuntimeException pour les RepositoryException
--- Bubble up documenté pour les QueryException
--- Reste :
-Jeu, To, ToSesame, ToSPARQL
 - Tests unitaires
 - Tests non-unitaires
 

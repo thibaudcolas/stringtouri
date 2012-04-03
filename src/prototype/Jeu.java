@@ -68,16 +68,10 @@ public abstract class Jeu {
 	/**
 	 * Erases all namespaces from the repository.
 	 * @return True if there is no more namespace inside the repository.
+	 * @throws RepositoryException Error while erasing all the namespaces.
 	 */
-	public boolean razNamespaces() {
-		boolean succes = true;
-		try {
-			con.clearNamespaces();
-		} catch (RepositoryException e) {
-			//XXX logging
-			succes = false;
-		}
-		return succes;
+	public void razNamespaces() throws RepositoryException {
+		con.clearNamespaces();
 	}
 	
 	/**
@@ -107,10 +101,9 @@ public abstract class Jeu {
 	 * Sends and evaluates a SPARQL select query on the data set.
 	 * @param query : The SPARQL query without its prefixes.
 	 * @return The result of the query.
-	 * @throws MalformedQueryException 
-	 * @throws RepositoryException 
-	 * @throws QueryEvaluationException 
-	 * XXX logging / remontée ?
+	 * @throws MalformedQueryException Query isn't valid.
+	 * @throws RepositoryException Error while accessing the repository.
+	 * @throws QueryEvaluationException Query result isn't valid.
 	 */
 	public TupleQueryResult SPARQLQuery(String query) throws RepositoryException, MalformedQueryException, QueryEvaluationException {
 		System.out.println("Requête " + nom + " : " + query);
@@ -124,10 +117,9 @@ public abstract class Jeu {
 	/**
 	 * Sends an update (delete/insert) SPARQL query to the data set.
 	 * @param query : The SPARQL query without its prefixes.
-	 * @throws MalformedQueryException 
-	 * @throws RepositoryException 
-	 * @throws UpdateExecutionException 
-	 * XXX logging / remontée ?
+	 * @throws MalformedQueryException Query isn't valid.
+	 * @throws RepositoryException Error while accessing the repository.
+	 * @throws UpdateExecutionException Query update isn't valid.
 	 */
 	public void updateQuery(String query) throws RepositoryException, MalformedQueryException, UpdateExecutionException {
 		System.out.println("Requête " + nom + " : " + query);
@@ -213,7 +205,7 @@ public abstract class Jeu {
 			System.out.println("Connexion " + nom + " " + (con.isOpen() ? "toujours en cours" : "terminée") + ".");
 			
 		} catch (RepositoryException e) {
-			//XXX logging (+ remontée ?)
+			//XXX logging
 			System.err.println("Error while closing both repository and connection - " + e);
 		}
 	}

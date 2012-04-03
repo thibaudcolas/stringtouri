@@ -32,8 +32,10 @@ public class JeuEphemere extends Jeu {
 	 * @param start : Filter on the filenames to import.
 	 * @param uri : Base URI for the data.
 	 * @throws RuntimeException The initialization has failed and no recovery is possible.
+	 * @throws IOException File/folder error.
+	 * @throws RDFParseException File(s) content isn't correct RDFXML.
 	 */
-	JeuEphemere(String source, String start, String uri) throws RuntimeException {
+	JeuEphemere(String source, String start, String uri) throws RuntimeException, IOException, RDFParseException {
 		try {
 			nom = source;
 			baseuri = uri;
@@ -49,9 +51,9 @@ public class JeuEphemere extends Jeu {
 		catch (RepositoryException e) {
 			throw new RuntimeException("Error while creating new JeuEphemere", e);
 		} catch (RDFParseException e) {
-			throw new RuntimeException(e);
+			throw new RDFParseException(e);
 		} catch (IOException e) {
-			throw new RuntimeException("File " + source + " isn't usable " + e);
+			throw new IOException("File " + source + " isn't usable " + e);
 		}
 	}
 	
