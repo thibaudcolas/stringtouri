@@ -5,29 +5,18 @@ package prototype;
  * Main temporary test class.
  * 
  * @author Thibaud Colas
- * @version 01042012
+ * @version 04042012
  */
 public class Prototype {
 	
-//	public static Jeu geoinsee = new JeuEphemere("./rdf/insee/", "regions", "TE");
-//	public static Jeu passimpropre = new JeuEphemere("./rdf/Brute3.rdf", "", "ET");
-//	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "tt:Région", "geo:Region", "");
-//	public static Jeu geoinsee = new JeuSesame("http://localhost:8080/openrdf-sesame", "geo-insee-all");
-//	public static Jeu passimpropre = new JeuSesame("http://localhost:8080/openrdf-sesame", "passim-propre");
-//	public static Jeu passimtest = new JeuSesame("http://localhost:8080/openrdf-sesame", "passim-test");
-//	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:cityThrough", "geo:Commune", "");
-	public static Jeu geoinsee;
-	public static Jeu passimpropre;
-	public static Liaison test;
-	
 	public static void main(String[] args) {
+		App test = null;
 		try {
-			geoinsee = new JeuRDF("./rdf/insee/", "departements", "TE");
-			passimpropre  = new JeuRDF("./rdf/passim-propre.rdf", "", "ET");
-			test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:department", "geo:Departement", "");
-
-			To tmp = new ToSPARQL(passimpropre, test.getInterconnexion(), "passim:department");
-			System.out.println(tmp.getOutput());
+			test = new AppRDF("./rdf/insee/","./rdf/passim-propre.rdf","departements","");
+			test.setLiaisonTypee("geo:nom", "passim:department", "geo:Departement", "");
+			test.setRDFOutput();
+			test.initiateInterconnexion(true);
+			System.out.println(test.getOutput());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

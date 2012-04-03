@@ -165,8 +165,8 @@ public abstract class To {
 		return maj;
 	}
 
-	public final void setMaj(HashMap<String, LinkedList<Statement>> m) {
-		this.maj = m;
+	public final void setMaj(HashMap<String, LinkedList<Statement>> m, boolean a) throws RepositoryException {
+		this.maj = a ? getFilteredStatements(m) : m;
 	}
 
 	/**
