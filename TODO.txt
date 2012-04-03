@@ -11,3 +11,5 @@ Bugs :
 
 
 Possibilité de réaliser plusieurs traitements à la fois ?
+
+Review code exception

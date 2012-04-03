@@ -74,12 +74,12 @@ public abstract class Liaison {
 	public HashMap<String, String> getSourceData() throws QueryEvaluationException, RuntimeException, MalformedQueryException {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
 		HashMap<String, String> result = new HashMap<String, String>(DEFSIZE + maxliens);
-		TupleQueryResult tupqres = null;
+		TupleQueryResult tupqres;
 		BindingSet bs;
 		
 		try {
 			tupqres = source.SPARQLQuery(querysource);
-			
+
 			if (!hasCorrectBindingNames(tupqres)) {
 				throw new MalformedQueryException("Wrong query result bindings - " + querysource);
 			}
@@ -92,6 +92,7 @@ public abstract class Liaison {
 				result.put(bs.getValue(OVAR).stringValue(), bs.getValue(SVAR).stringValue());
 			}
 			System.out.println(cpt + " résultat(s).");
+			tupqres.close();
 		}
 		catch (QueryEvaluationException e) {
 			throw new QueryEvaluationException("Query issue : " + querysource, e);
@@ -101,9 +102,6 @@ public abstract class Liaison {
 		}
 		catch (MalformedQueryException e) {
 			throw new MalformedQueryException(e);
-		}
-		finally {
-			tupqres.close();
 		}
 		
 		return result;
@@ -120,7 +118,7 @@ public abstract class Liaison {
 	public HashMap<String, LinkedList<String>> getCibleData() throws QueryEvaluationException, RuntimeException, MalformedQueryException {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
 		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(DEFSIZE + maxliens);
-		TupleQueryResult tupqres = null;
+		TupleQueryResult tupqres;
 		BindingSet bs;
 		String obj;
 		LinkedList<String> subjects;
@@ -131,7 +129,7 @@ public abstract class Liaison {
 			if (!hasCorrectBindingNames(tupqres)) {
 				throw new QueryEvaluationException("Wrong query result bindings - " + querycible);
 			}
-			
+
 			int cpt = 0;
 			// Pour toutes les lignes de résultat.
 			while (tupqres.hasNext()) {
@@ -150,9 +148,9 @@ public abstract class Liaison {
 				
 				subjects.add(bs.getValue(SVAR).stringValue());
 				result.put(obj, subjects);
-				
 			}
 			System.out.println(cpt + " résultat(s).");
+			tupqres.close();
 		}
 		catch (QueryEvaluationException e) {
 			throw new QueryEvaluationException("Query issue : " + querycible, e);
@@ -162,9 +160,6 @@ public abstract class Liaison {
 		}
 		catch (MalformedQueryException e) {
 			throw new MalformedQueryException(e);
-		}
-		finally {
-			tupqres.close();
 		}
 		
 		return result;
@@ -177,11 +172,9 @@ public abstract class Liaison {
 	 * @throws QueryEvaluationException Error while closing the result.
 	 */
 	public final boolean hasCorrectBindingNames(TupleQueryResult tqr) throws QueryEvaluationException {
-		boolean ret = tqr.getBindingNames().contains(SVAR)
-			&& tqr.getBindingNames().contains(OVAR)
-			&& tqr.getBindingNames().size() == 2;
-		tqr.close();
-		return ret;
+		return tqr.getBindingNames().contains(SVAR)
+				&& tqr.getBindingNames().contains(OVAR)
+				&& tqr.getBindingNames().size() == 2;
 	}
 	
 	/**

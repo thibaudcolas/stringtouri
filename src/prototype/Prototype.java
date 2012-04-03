@@ -1,5 +1,6 @@
 package prototype;
 
+
 /**
  * Main temporary test class.
  * 
@@ -17,14 +18,16 @@ public class Prototype {
 //	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:cityThrough", "geo:Commune", "");
 	public static Jeu geoinsee;
 	public static Jeu passimpropre;
-	public static Liaison test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:department", "geo:Departement", "");
+	public static Liaison test;
 	
 	public static void main(String[] args) {
 		try {
-			geoinsee = new JeuEphemere("./rdf/insee/", "departements", "TE");
-			passimpropre  = new JeuEphemere("./rdf/passim-propre.rdf", "", "ET");
+			geoinsee = new JeuRDF("./rdf/insee/", "departements", "TE");
+			passimpropre  = new JeuRDF("./rdf/passim-propre.rdf", "", "ET");
+			test = new LiaisonTypee(geoinsee, passimpropre, "geo:nom", "passim:department", "geo:Departement", "");
+
 			To tmp = new ToSPARQL(passimpropre, test.getInterconnexion(), "passim:department");
-			System.out.println(tmp.getOutput(true));
+			System.out.println(tmp.getOutput());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
