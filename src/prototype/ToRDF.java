@@ -64,6 +64,7 @@ public class ToRDF extends To {
 	 * Never supposed to be called.
 	 * @throws RepositoryException Fatal error while updating the data set.
 	 */
+	//FIXME Maj du jeu avec le nouveau RDF
 	public void majStatements() throws RepositoryException {
 		throw new RepositoryException("Invalid call to majStatement using RDF converter - " + jeumaj.getNom());
 	}

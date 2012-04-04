@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="javadoc">
     <target name="javadoc">
-        <javadoc access="private" author="true" classpath="slf4j-simple-1.6.4.jar:slf4j-api-1.6.4.jar:commons-httpclient-3.1.jar:commons-codec-1.4.jar:openrdf-sesame-2.6.3-onejar.jar:commons-logging-1.1.1.jar" destdir="doc" doctitle="Module String to URI" nodeprecated="true" nodeprecatedlist="true" noindex="true" nonavbar="false" notree="false" source="1.6" sourcefiles="src/prototype/Jeu.java" sourcepath="src" splitindex="false" stylesheetfile="/Users/Will/Workspace/CableLink/custom-sheet.css" use="true" version="true">
+        <javadoc access="private" additionalparam=" javadoc -linkoffline http://www.openrdf.org/doc/sesame2/api/ http://www.openrdf.org/doc/sesame2/api/" author="true" classpath="import/commons-codec-1.4.jar:import/commons-logging-1.1.1.jar:import/slf4j-api-1.6.4.jar:import/commons-httpclient-3.1.jar:import/slf4j-simple-1.6.4.jar:import/openrdf-sesame-2.6.4-onejar.jar" destdir="doc" doctitle="Module StringToURI" nodeprecated="true" nodeprecatedlist="true" noindex="true" nonavbar="false" notree="false" packagenames="prototype" source="1.6" sourcepath="src" splitindex="false" stylesheetfile="/Users/Will/Workspace/CableLink/custom-sheet.css" use="true" version="true">
+            <link href="http://download.oracle.com/javase/6/docs/api/"/>
             <link href="file:/Users/Will/Workspace/CableLink/doc/"/>
         </javadoc>
     </target>
