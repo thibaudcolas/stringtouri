@@ -50,6 +50,10 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected To(Jeu j, String p) throws RepositoryException {
+		if (log.isInfoEnabled()) {
+			log.info("Creation  Output " + j.getNom() + ".");
+		}
+		
 		jeumaj = j;
 		prop = p;
 		handleNamespaces();
@@ -65,7 +69,7 @@ public abstract class To {
 	 */
 	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
 		if (log.isInfoEnabled()) {
-			log.info("Output " + j.getNom() + " creation.");
+			log.info("Creation  Output " + j.getNom() + ".");
 		}
 		
 		jeumaj = j;

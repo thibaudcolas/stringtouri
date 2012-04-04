@@ -17,15 +17,9 @@ public class LiaisonSimple extends Liaison {
 	 * @param pc : The target predicate.
 	 */
 	public LiaisonSimple(Jeu s, Jeu c, String ps, String pc) {
-		nom = ps + "-" + pc;
+		super(s, c, ps, pc);
 		
 		maxliens = 0;
-		
-		source = s;
-		cible = c;
-		propsource = ps;
-		propcible = pc;
-		
 		querysource = writeQuery(ps);
 		querycible = writeQuery(pc);
 	}
@@ -39,15 +33,9 @@ public class LiaisonSimple extends Liaison {
 	 * @param ml : The max number of links updated.
 	 */
 	public LiaisonSimple(Jeu s, Jeu c, String ps, String pc, int ml) {
-		nom = ps + "-" + pc;
+		super(s, c, ps, pc);
 		
 		maxliens = Math.max(ml, 0);
-		
-		source = s;
-		cible = c;
-		propsource = ps;
-		propcible = pc;
-		
 		querysource = writeQuery(ps);
 		querycible = writeQuery(pc);
 	}

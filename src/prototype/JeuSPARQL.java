@@ -25,8 +25,8 @@ public class JeuSPARQL extends Jeu {
 	 * @throws RuntimeException The initialization has failed and no recovery is possible.
 	 */
 	JeuSPARQL(String ep) throws RepositoryException {
+		super(ep);
 		try {	
-			nom = ep;
 			endpoint = ep;
 			rep = new SPARQLRepository(ep);
 			rep.initialize();

@@ -52,6 +52,18 @@ public abstract class Jeu {
 	protected static final Logger log = Logger.getLogger(Jeu.class.getName());
 
 	/**
+	 * Super-class constructor used to log initialization of the data sets.
+	 * @param n : name of the data set.
+	 */
+	protected Jeu(String n) {
+		nom = n;
+		
+		if (log.isInfoEnabled()) {
+			log.info("Creation  Jeu " + nom + ".");
+		}
+	}
+	
+	/**
 	 * Adds a namespace to the repository.
 	 * @param label : Namespaces' prefix.
 	 * @param uri : Namespaces' full name.

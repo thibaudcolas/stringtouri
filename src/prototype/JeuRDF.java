@@ -36,8 +36,8 @@ public class JeuRDF extends Jeu {
 	 * @throws RDFParseException File(s) content isn't correct RDFXML.
 	 */
 	JeuRDF(String source, String start, String uri) throws RepositoryException, IOException, RDFParseException {
+		super(source);
 		try {
-			nom = source;
 			baseuri = uri;
 			queries = new LinkedList<String>();
 			

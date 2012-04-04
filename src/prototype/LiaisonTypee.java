@@ -28,17 +28,11 @@ public class LiaisonTypee extends Liaison {
 	 * @param tc : The target data type.
 	 */
 	public LiaisonTypee(Jeu s, Jeu c, String ps, String pc, String ts, String tc) {
-		nom = ps + "-" + pc;
+		super(s, c, ps, pc);
 		
 		maxliens = 0;
-		
-		source = s;
-		cible = c;
-		propsource = ps;
-		propcible = pc;
 		typesource = ts;
 		typecible = tc;
-		
 		querysource = writeQuery(ps, ts);
 		querycible = writeQuery(pc, tc);
 	}
@@ -54,17 +48,11 @@ public class LiaisonTypee extends Liaison {
 	 * @param ml : The max number of links updated.
 	 */
 	public LiaisonTypee(Jeu s, Jeu c, String ps, String pc, String ts, String tc, int ml) {
-		nom = ps + "-" + pc;
+		super(s, c, ps, pc);
 		
 		maxliens = Math.max(ml, 0);
-		
-		source = s;
-		cible = c;
-		propsource = ps;
-		propcible = pc;
 		typesource = ts;
 		typecible = tc;
-		
 		querysource = writeQuery(ps, ts);
 		querycible = writeQuery(pc, tc);
 	}

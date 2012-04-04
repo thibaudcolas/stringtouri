@@ -70,6 +70,26 @@ public abstract class Liaison {
 	private static final int DEFSIZE = 100;
 	
 	/**
+	 * Super-class constructor used to log initialization of the linkages.
+	 * @param s : The source data set.
+	 * @param c : The target data set.
+	 * @param ps : The source predicate.
+	 * @param pc : The target predicate.
+	 */
+	protected Liaison(Jeu s, Jeu c, String ps, String pc) {
+		nom = ps + "-" + pc;
+		
+		if (log.isInfoEnabled()) {
+			log.info("Creation  Liaison " + nom + ".");
+		}
+		
+		source = s;
+		cible = c;
+		propsource = ps;
+		propcible = pc;
+	}
+	
+	/**
 	 * Retrieves data for the source predicate from the source data set.
 	 * One value = one URI, one URI = one value.
 	 * @return HashMap where the key is the value for the source predicate and value is the associated URI (subject).

@@ -14,5 +14,4 @@ Possibilité de réaliser plusieurs traitements à la fois ?
 
 
 Logging dans App
-Faire des constructeurs pour les classes abstraites refactor
 Paramètres dans StringToURI

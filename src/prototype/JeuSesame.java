@@ -29,8 +29,8 @@ public class JeuSesame extends Jeu {
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
 	JeuSesame(String sd) throws RepositoryException {
-		try {	
-			nom = sd;
+		super(sd);
+		try {
 			sesame = sd;
 			depot = sd;
 			rep = new HTTPRepository(sd);
@@ -52,8 +52,8 @@ public class JeuSesame extends Jeu {
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
 	JeuSesame(String s, String d) throws RepositoryException {
+		super(s + " - " + d);
 		try {	
-			nom = s + " - " + d;
 			sesame = s;
 			depot = d;
 			rep = new HTTPRepository(sesame, depot);
