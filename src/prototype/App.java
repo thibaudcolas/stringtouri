@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.UpdateExecutionException;
@@ -39,6 +40,11 @@ public class App {
 	 * Output handler, telling how the update will be processed.
 	 */
 	protected To sortie;
+	
+	/**
+	 * Main Logger to record actions on pretty much everything.
+	 */
+	protected static final Logger log = Logger.getLogger(App.class.getName());
 	
 	/**
 	 * Shortened constructor to use with set**** methods.

@@ -91,10 +91,12 @@ public class JeuRDF extends Jeu {
 				con.add(src, baseuri, RDFFormat.RDFXML);
 				nbimport++;
 			}
-			System.out.println("Importation " + nom + " : " + nbimport + " source(s).");
+			if (log.isInfoEnabled()) {
+				log.info("Import " + nom + " : " + nbimport + " file(s).");
+			}
 		}
 		else {
-			throw new FileNotFoundException("File " + source + " does not exist.");
+			throw new FileNotFoundException("Import " + nom + " : " + source + " not found.");
 		}
 	}
 	

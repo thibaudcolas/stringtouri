@@ -3,6 +3,7 @@ package prototype;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Resource;
 import org.openrdf.model.Statement;
@@ -45,6 +46,11 @@ public abstract class Jeu {
 	 */
 	protected LinkedList<String> queries;
 	
+	/**
+	 * Logger to record actions on the data set.
+	 */
+	protected static final Logger log = Logger.getLogger(Jeu.class.getName());
+
 	/**
 	 * Adds a namespace to the repository.
 	 * @param label : Namespaces' prefix.
@@ -107,11 +113,14 @@ public abstract class Jeu {
 	public TupleQueryResult SPARQLQuery(String query) throws RepositoryException, MalformedQueryException, QueryEvaluationException {
 		TupleQuery tq;
 		TupleQueryResult tpq;
+		
+		if (log.isInfoEnabled()) {
+			log.info("Query " + nom + " select - " + query);
+		}
+		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
+		queries.add(query);
+		
 		try {
-			System.out.println("Requête " + nom + " : " + query);
-			
-			// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
-			queries.add(query);
 			tq = con.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
 			tpq = tq.evaluate();
 		}
@@ -131,11 +140,13 @@ public abstract class Jeu {
 	 * @throws UpdateExecutionException Query update isn't valid.
 	 */
 	public void updateQuery(String query) throws RepositoryException, UpdateExecutionException, MalformedQueryException {
+		if (log.isInfoEnabled()) {
+			log.info("Query " + nom + " update - " + query);
+		}
+		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
+		queries.add(query);
+		
 		try {
-			System.out.println("Requête " + nom + " : " + query);
-			
-			// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
-			queries.add(query);
 			Update up = con.prepareUpdate(QueryLanguage.SPARQL, getPrefixes() + query);
 		    up.execute();
 		}
@@ -218,11 +229,12 @@ public abstract class Jeu {
 			con.close();
 			rep.shutDown();
 			
-			System.out.println("Connexion " + nom + " " + (con.isOpen() ? "toujours en cours" : "terminée") + ".");
-			
+			if (log.isInfoEnabled()) {
+				log.info("Connection " + nom + " " + (con.isOpen() ? "still on" : "off") + ".");
+			}
 		} catch (RepositoryException e) {
-			//XXX logging
-			System.err.println("Error while closing both repository and connection - " + e);
+			//TODO warn ?
+			log.error("Connection " + nom + " failed to be closed - " + e);
 		}
 	}
 	
@@ -232,9 +244,13 @@ public abstract class Jeu {
 	public final void commit() {
 		try {
 			con.commit();
+			
+			if (log.isInfoEnabled()) {
+				log.info("Commit " + nom + ".");
+			}
+			
 		} catch (RepositoryException e) {
-			//XXX logging
-			System.err.println("Error while committing - " + e);
+			log.error("Commit " + nom + " error - " + e);
 		}
 	}
 	
@@ -247,8 +263,7 @@ public abstract class Jeu {
 		try {
 			ret = con.isAutoCommit();
 		} catch (RepositoryException e) {
-			//XXX logging
-			System.err.println("Error while checking autocommit status - " + e);
+			log.error("Commit " + nom + " checking error - " + e);
 			ret = false;
 		}
 		return ret;
@@ -261,10 +276,13 @@ public abstract class Jeu {
 	public final void setAutoCommit(boolean on) {
 		try {
 			con.setAutoCommit(on);
+			
+			if (log.isInfoEnabled()) {
+				log.info("Commit " + nom + " " + (on ? "on" : "off") + " auto.");
+			}
+			
 		} catch (RepositoryException e) {
-			//XXX logging
-			System.err.println("Error while setting autocommit mode - " + e);
-			System.err.println("Autocommit is " + isAutoCommit() + ", was set to " + on);
+			log.error("Commit " + nom + " " + (on ? "on" : "off") + " auto error - " + e);
 		}
 	}
 	
@@ -274,9 +292,13 @@ public abstract class Jeu {
 	public final void rollback() {
 		try {
 			con.rollback();
+			
+			if (log.isInfoEnabled()) {
+				log.info("Commit " + nom + " rollback.");
+			}
+			
 		} catch (RepositoryException e) {
-			//XXX logging
-			System.err.println("Error while rollbacking - " + e);
+			log.error("Commit " + nom + " rollback error - " + e);
 		}
 	}
 	

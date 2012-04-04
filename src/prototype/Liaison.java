@@ -3,6 +3,7 @@ package prototype;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import org.apache.log4j.Logger;
 import org.openrdf.model.Statement;
 import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.model.impl.URIImpl;
@@ -56,6 +57,11 @@ public abstract class Liaison {
 	 * Max number of new links to be made.
 	 */
 	protected int maxliens;
+	
+	/**
+	 * Logger to record actions on the data set.
+	 */
+	protected static final Logger log = Logger.getLogger(Liaison.class.getName());
 	
 	public static final String SVAR = "s";
 	public static final String PVAR = "p";
