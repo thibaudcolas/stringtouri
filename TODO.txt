@@ -7,6 +7,7 @@ Améliorations :
 Bugs :
 - Gestion des littéraux (entiers) dans les requêtes SPARQL
 - Export Sesame erreur syntaxique <>
+- Maj du jeu avec le nouveau RDF
 
 
 Possibilité de réaliser plusieurs traitements à la fois ?

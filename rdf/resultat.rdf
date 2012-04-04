@@ -1,10 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF 
-xmlns:tt="http://localhost/vocab/passim#"
-xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:passim="http://data.lirmm.fr/ontologies/passim#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:geo-fr="http://rdf.insee.fr/geo/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-<rdf:Description rdf:about="http://localhost/passim/1">
-	<tt:Région rdf:resource="http://rdf.insee.fr/geo/2011/REG_93"/>
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/+Horaires">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Service"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/861">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#TransportServiceInformation"/>
+	<passim:region rdf:resource="http://dbpedia.org/resource/Franche-Comt%C3%A9"/>
+	<passim:serviceName>TAD - Bassin de Lons le Saunier</passim:serviceName>
+	<passim:serviceCoverage rdf:resource="http://data.lirmm.fr/passim/local"/>
+	<passim:department rdf:resource="http://rdf.insee.fr/geo/2011/DEP_39"/>
+	<passim:centerTown rdf:resource="http://rdf.insee.fr/geo/2011/COM_39300"/>
+	<passim:modeOfTransport rdf:resource="http://data.lirmm.fr/passim/Transport+%C3%A0+la+demande"/>
+	<passim:isAccessibilityForDisabledPerson>false</passim:isAccessibilityForDisabledPerson>
+	<passim:webSite rdf:resource="http://www.malis.fr"/>
+	<passim:isWebSiteAccessibilityForDisabledPerson>false</passim:isWebSiteAccessibilityForDisabledPerson>
+	<passim:infoPoint>,,LONS LE SAUNIER,0800881846,</passim:infoPoint>
+	<passim:comment>Réservation TAD au 0800 88 18 46 (gratuit depuis poste fixe) du mardi au samedi, de 9h à 11h30 et de 14h à 17h30</passim:comment>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/Calcul+d%27itin%C3%A9raire">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Service"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/Transports+Collectifs+Urbains">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Mode"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/681">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#TransportServiceInformation"/>
+	<passim:region rdf:resource="http://dbpedia.org/resource/Lorraine_%28region%29"/>
+	<passim:serviceName>Réseau de transport départemental Vosges (88)</passim:serviceName>
+	<passim:serviceCoverage rdf:resource="http://data.lirmm.fr/passim/départementale"/>
+	<passim:department rdf:resource="http://rdf.insee.fr/geo/2011/DEP_88"/>
+	<passim:centerTown rdf:resource="http://rdf.insee.fr/geo/2011/COM_88160"/>
+	<passim:modeOfTransport rdf:resource="http://data.lirmm.fr/passim/Autocar"/>
+	<passim:isAccessibilityForDisabledPerson>false</passim:isAccessibilityForDisabledPerson>
+	<passim:webSite rdf:resource="http://www.cg88.fr"/>
+	<passim:isWebSiteAccessibilityForDisabledPerson>false</passim:isWebSiteAccessibilityForDisabledPerson>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/919">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#TransportServiceInformation"/>
+	<passim:region rdf:resource="http://dbpedia.org/resource/Languedoc-Roussillon"/>
+	<passim:serviceName>TaM</passim:serviceName>
+	<passim:serviceCoverage rdf:resource="http://data.lirmm.fr/passim/local"/>
+	<passim:department rdf:resource="http://rdf.insee.fr/geo/2011/DEP_34"/>
+	<passim:centerTown rdf:resource="http://rdf.insee.fr/geo/2011/COM_34172"/>
+	<passim:modeOfTransport rdf:resource="http://data.lirmm.fr/passim/Transports+Collectifs+Urbains"/>
+	<passim:typeOfService rdf:resource="http://data.lirmm.fr/passim/Calcul+d%27itin%C3%A9raire"/>
+	<passim:typeOfService rdf:resource="http://data.lirmm.fr/passim/+Description+du+r%C3%A9seau"/>
+	<passim:typeOfService rdf:resource="http://data.lirmm.fr/passim/+Horaires"/>
+	<passim:typeOfService rdf:resource="http://data.lirmm.fr/passim/+Tarifs"/>
+	<passim:isAccessibilityForDisabledPerson>true</passim:isAccessibilityForDisabledPerson>
+	<passim:webSite rdf:resource="http://www.tam-way.com"/>
+	<passim:isWebSiteAccessibilityForDisabledPerson>false</passim:isWebSiteAccessibilityForDisabledPerson>
+	<passim:infoPoint>Point Info-Services-27 rue Maguelone,34000,MONTPELLIER,04 67 22 87 87,</passim:infoPoint>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34249"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34179"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34116"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34337"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34327"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34217"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34077"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34058"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34295"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34244"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34169"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34087"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34270"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34090"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34134"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34202"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34022"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34164"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34172"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34057"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34027"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34256"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34120"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34307"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34123"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34095"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34129"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34198"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34259"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34088"/>
+	<passim:cityThrough rdf:resource="http://rdf.insee.fr/geo/2011/COM_34227"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/Autocar">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Mode"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/+Description+du+r%C3%A9seau">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Service"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/+Tarifs">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Serv+Horairesice"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/départementale">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Coverage"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/446">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#TransportServiceInformation"/>
+	<passim:region rdf:resource="http://dbpedia.org/resource/Franche-Comt%C3%A9"/>
+	<passim:serviceName>Le réseau de transport de voyageurs du JURA</passim:serviceName>
+	<passim:serviceCoverage rdf:resource="http://data.lirmm.fr/passim/local"/>
+	<passim:department rdf:resource="http://rdf.insee.fr/geo/2011/DEP_39"/>
+	<passim:centerTown rdf:resource="http://rdf.insee.fr/geo/2011/COM_39300"/>
+	<passim:modeOfTransport rdf:resource="http://data.lirmm.fr/passim/Transport+%C3%A0+la+demande"/>
+	<passim:isAccessibilityForDisabledPerson>false</passim:isAccessibilityForDisabledPerson>
+	<passim:webSite>aucune</passim:webSite>
+	<passim:isWebSiteAccessibilityForDisabledPerson>false</passim:isWebSiteAccessibilityForDisabledPerson>
+	<passim:infoPoint>Le réseau de transport de voyageurs du JURA 366 rue des Frères Lumière,39000,LONS-LE-SAUNIER,0800 100 988,</passim:infoPoint>
+	<passim:comment>réservation la veille entre 9h et 11h30 ou entre 14h et 16h30 auprès du numéro vert</passim:comment>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/local">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Coverage"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.lirmm.fr/passim/Transport+%C3%A0+la+demande">
+	<rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Mode"/>
 </rdf:Description>
 
 </rdf:RDF>
