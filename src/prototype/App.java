@@ -15,7 +15,7 @@ import org.openrdf.repository.RepositoryException;
  * Handles the interlinking process from A to Z.
  * 
  * @author Thibaud Colas
- * @version 04042012
+ * @version 05042012
  * @see Jeu
  */
 public class App {

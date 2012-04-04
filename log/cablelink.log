@@ -83,3 +83,166 @@
 05-04-2012 01:02:48,962 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
 05-04-2012 01:02:48,966 INFO  - Jeu - Connection ./rdf/insee/ off.
 05-04-2012 01:02:48,966 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 01:05:23,438 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:05:23,935 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-test.
+05-04-2012 01:05:23,937 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-test
+05-04-2012 01:05:23,938 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
+05-04-2012 01:05:23,940 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-test.
+05-04-2012 01:05:23,940 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-test namespace retrieval.
+05-04-2012 01:05:24,430 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+05-04-2012 01:05:26,453 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:05:26,454 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-test select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:05:26,500 FATAL - App - org.openrdf.query.QueryEvaluationException: Query : SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:05:26,501 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:05:26,501 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-test off.
+05-04-2012 01:06:40,046 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:06:40,440 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-all.
+05-04-2012 01:06:40,443 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-all
+05-04-2012 01:06:40,444 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:06:40,445 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-all.
+05-04-2012 01:06:40,445 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-all namespace retrieval.
+05-04-2012 01:06:40,717 FATAL - App - org.openrdf.repository.RepositoryException: While fetching namespaces
+05-04-2012 01:06:40,720 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:06:40,721 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-all off.
+05-04-2012 01:06:49,304 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:06:49,774 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:06:49,775 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:06:49,776 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:06:49,777 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:06:49,777 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:06:50,043 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:06:50,234 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:06:50,235 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:06:50,306 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:06:50,308 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:06:50,309 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:06:50,309 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:08:07,427 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:08:07,822 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:07,823 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:08:07,824 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
+05-04-2012 01:08:07,826 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:07,826 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:08:08,037 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:08:08,227 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:08:08,227 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:08:08,274 FATAL - App - org.openrdf.query.QueryEvaluationException: Query : SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:08:08,277 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:08:08,277 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:08:42,992 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:08:43,422 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:43,425 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:08:43,426 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:08:43,428 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:43,429 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:08:43,738 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:08:43,978 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:08:43,979 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:08:44,062 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:44,067 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:08:44,070 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:08:44,071 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:09:41,755 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:09:42,219 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:09:42,220 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:09:42,221 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:09:42,222 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:09:42,222 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:09:42,498 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:09:42,682 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:09:42,684 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:09:42,753 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:09:42,755 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:09:42,757 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:09:42,757 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:10:40,676 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:10:40,891 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:10:40,892 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:10:40,893 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:10:40,895 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:10:40,896 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:10:41,203 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:10:41,404 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:10:41,404 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:10:41,636 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:10:41,662 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:10:41,715 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:10:41,721 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:11:07,829 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:11:08,076 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:08,077 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:11:08,079 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:11:08,081 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:08,082 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:11:08,311 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:11:08,513 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:11:08,514 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:11:08,545 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:08,548 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:11:08,551 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:11:08,552 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:11:45,303 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:11:45,759 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:45,761 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:11:45,762 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:11:45,763 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:45,763 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:11:45,965 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:11:46,087 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:11:46,087 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:11:46,112 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:46,114 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:11:46,117 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:11:46,118 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:20:45,138 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:20:45,648 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:20:45,652 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:20:45,654 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:20:45,655 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:20:45,656 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:20:45,884 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:20:46,118 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:20:46,118 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:20:46,171 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:20:46,174 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:20:46,176 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:20:46,177 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:24:06,146 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:06,347 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:06,349 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:24:06,350 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:24:06,352 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:06,352 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:24:06,584 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:24:06,743 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:06,743 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:24:06,777 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:06,780 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:24:06,782 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:24:06,783 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:24:32,891 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:33,088 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:33,089 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:24:33,092 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:24:33,093 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:33,094 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:24:33,340 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:24:33,645 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:33,645 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:24:33,675 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:33,678 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:24:33,679 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:24:33,680 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:24:46,656 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:46,865 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:46,867 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:24:46,868 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:24:46,869 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:46,870 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:24:47,111 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:24:47,285 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:47,286 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:24:47,315 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:47,317 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:24:47,319 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:24:47,319 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.

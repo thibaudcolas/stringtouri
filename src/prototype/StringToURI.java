@@ -4,7 +4,7 @@ package prototype;
  * Main class with user interface.
  * 
  * @author Thibaud Colas
- * @version 04042012
+ * @version 05042012
  * @see App
  */
 public class StringToURI {
