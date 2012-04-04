@@ -123,6 +123,10 @@ public class ToSPARQL extends To {
 	public void majStatements() throws RepositoryException, MalformedQueryException, UpdateExecutionException {
 		LinkedList<String> queries = deleteinsert ? getDeleteInsertQueries() :getInsertQueries();
 
+		if (log.isInfoEnabled()) {
+			log.info("Update " + destination.getNom() + " using SPARQL queries.");
+		}
+		
 		//On veut être sûr d'effectuer soit tous les changements, soit aucun.
 		destination.setAutoCommit(false);
 		try {

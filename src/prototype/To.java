@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
@@ -38,6 +39,11 @@ public abstract class To {
 	protected HashMap<String, String> namespaces;
 	
 	/**
+	 * Logger to record actions on the data set.
+	 */
+	protected static final Logger log = Logger.getLogger(To.class.getName());
+	
+	/**
 	 * Super-class lazy constructor.
 	 * @param j : A data set.
 	 * @param p : The predicate for which we want to update values.
@@ -58,6 +64,10 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
+		if (log.isInfoEnabled()) {
+			log.info("Output " + j.getNom() + " creation.");
+		}
+		
 		jeumaj = j;
 		prop = p;
 		handleNamespaces();
@@ -73,6 +83,10 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
+		if (log.isInfoEnabled()) {
+			log.info("Output " + j.getNom() + " creation.");
+		}
+		
 		jeumaj = j;
 		handleNamespaces();
 		prop = p;
@@ -84,6 +98,9 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	private void handleNamespaces() throws RepositoryException {
+		if (log.isInfoEnabled()) {
+			log.info("Export " + jeumaj.getNom() + " namespace retrieval.");
+		}
 		try {
 			namespaces = new HashMap<String, String>();
 			List<Namespace> nstmp = jeumaj.getNamespaceList();
@@ -116,6 +133,10 @@ public abstract class To {
 		LinkedList<Statement> tmpold;
 		LinkedList<Statement> tmpnew;
 		String tmpprop;
+		
+		if (log.isInfoEnabled()) {
+			log.info("Export " + jeumaj.getNom() + " statement filtering.");
+		}
 		
 		for (String suj : nouv.keySet()) {
 			tmpold = resultat.get(suj);

@@ -1,42 +1,26 @@
-04-04-2012 20:01:53,853 [main] [Jeu] 
-  INFO  Import ./rdf/insee/ : 1 file(s).
-04-04-2012 20:01:53,892 [main] [Jeu] 
-  INFO  Import ./rdf/Brute3.rdf : 1 file(s).
-04-04-2012 20:01:53,907 [main] [Jeu] 
-  INFO  Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-04-04-2012 20:01:54,278 [main] [Liaison] 
-  INFO  Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-04-04-2012 20:01:54,279 [main] [Jeu] 
-  INFO  Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-04-04-2012 20:01:54,282 [main] [Liaison] 
-  INFO  Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-04-04-2012 20:01:54,283 [main] [Liaison] 
-  INFO  Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
-04-04-2012 20:02:47,936 [main] [Jeu] INFO  Import ./rdf/insee/ : 1 file(s).
-04-04-2012 20:02:47,971 [main] [Jeu] INFO  Import ./rdf/Brute3.rdf : 1 file(s).
-04-04-2012 20:02:47,980 [main] [Jeu] INFO  Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-04-04-2012 20:02:48,483 [main] [Liaison] INFO  Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-04-04-2012 20:02:48,484 [main] [Jeu] INFO  Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-04-04-2012 20:02:48,487 [main] [Liaison] INFO  Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-04-04-2012 20:02:48,488 [main] [Liaison] INFO  Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
-04-04-2012 20:03:43,542 INFO  [main] [Jeu] Import ./rdf/insee/ : 1 file(s).
-04-04-2012 20:03:43,574 INFO  [main] [Jeu] Import ./rdf/Brute3.rdf : 1 file(s).
-04-04-2012 20:03:43,584 INFO  [main] [Jeu] Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-04-04-2012 20:03:44,004 INFO  [main] [Liaison] Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-04-04-2012 20:03:44,005 INFO  [main] [Jeu] Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-04-04-2012 20:03:44,007 INFO  [main] [Liaison] Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-04-04-2012 20:03:44,008 INFO  [main] [Liaison] Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
-04-04-2012 20:04:51,878 INFO  - [Jeu] Import ./rdf/insee/ : 1 file(s).
-04-04-2012 20:04:51,914 INFO  - [Jeu] Import ./rdf/Brute3.rdf : 1 file(s).
-04-04-2012 20:04:51,924 INFO  - [Jeu] Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-04-04-2012 20:04:52,336 INFO  - [Liaison] Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-04-04-2012 20:04:52,337 INFO  - [Jeu] Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-04-04-2012 20:04:52,339 INFO  - [Liaison] Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-04-04-2012 20:04:52,340 INFO  - [Liaison] Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
-04-04-2012 20:05:50,108 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-04-04-2012 20:05:50,141 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-04-04-2012 20:05:50,150 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-04-04-2012 20:05:50,616 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-04-04-2012 20:05:50,618 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-04-04-2012 20:05:50,624 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-04-04-2012 20:05:50,625 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
+04-04-2012 20:13:56,173 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+04-04-2012 20:13:56,229 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+04-04-2012 20:13:56,240 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+04-04-2012 20:13:56,703 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+04-04-2012 20:13:56,704 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+04-04-2012 20:13:56,706 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+04-04-2012 20:13:56,706 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
+04-04-2012 20:15:10,125 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+04-04-2012 20:15:10,154 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+04-04-2012 20:15:10,164 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+04-04-2012 20:15:10,540 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+04-04-2012 20:15:10,541 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+04-04-2012 20:15:10,543 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+04-04-2012 20:15:10,544 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
+04-04-2012 20:15:10,558 INFO  - Jeu - Connection ./rdf/insee/ off.
+04-04-2012 20:15:10,559 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+04-04-2012 21:35:19,648 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+04-04-2012 21:35:19,703 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+04-04-2012 21:35:19,705 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+04-04-2012 21:35:19,713 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+04-04-2012 21:35:20,153 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+04-04-2012 21:35:20,154 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+04-04-2012 21:35:20,157 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+04-04-2012 21:35:20,158 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
+04-04-2012 21:35:20,172 INFO  - Jeu - Connection ./rdf/insee/ off.
+04-04-2012 21:35:20,173 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.

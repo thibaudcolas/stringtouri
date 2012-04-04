@@ -23,7 +23,7 @@ public class Prototype {
 			e.printStackTrace();
 		}
 		finally {
-			//test.shutdown();
+			test.shutdown();
 		}
 	}
 }

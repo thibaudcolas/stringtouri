@@ -90,6 +90,11 @@ public class ToSesame extends To {
 	 */
 	public void majStatements() throws RepositoryException {
 		LinkedList<Statement> tmpnew;
+		
+		if (log.isInfoEnabled()) {
+			log.info("Update " + destination.getNom() + " using Sesame statements.");
+		}
+		
 		try {
 			for (String suj : maj.keySet()) {
 				tmpnew = maj.get(suj);

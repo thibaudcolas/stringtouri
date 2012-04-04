@@ -1,5 +1,5 @@
 Améliorations :
-- Utiliser les librairies présentes dans l'install de sesame
+- Meilleure gestion des librairies
 - Meilleure gestion des contextes
 - Tests unitaires
 - Tests non-unitaires
@@ -14,7 +14,5 @@ Possibilité de réaliser plusieurs traitements à la fois ?
 
 
 Logging dans App
-Convert logging to xml
-Log des créations d'objet
-Gérer cas particuliers exception / logging pour les commit et les shutdown.
+Faire des constructeurs pour les classes abstraites refactor
 Paramètres dans StringToURI

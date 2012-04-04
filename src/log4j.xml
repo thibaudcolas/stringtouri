@@ -36,5 +36,11 @@
       <appender-ref ref="console"/>      
       <appender-ref ref="dailyfile"/>      
    </logger>
+   
+   <logger name="prototype.To" additivity="false" >   
+      <level value="INFO" />
+      <appender-ref ref="console"/>      
+      <appender-ref ref="dailyfile"/>      
+   </logger>
  
 </log4j:configuration>
