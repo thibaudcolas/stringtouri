@@ -23,7 +23,7 @@ import org.openrdf.repository.RepositoryException;
  * Abstract class managing a data set from any origin.
  * 
  * @author Thibaud Colas
- * @version 01042012
+ * @version 04042012
  * @see RepositoryConnection
  */
 public abstract class Jeu {

@@ -97,7 +97,10 @@ public abstract class Liaison {
 				bs = tupqres.next();
 				result.put(bs.getValue(OVAR).stringValue(), bs.getValue(SVAR).stringValue());
 			}
-			System.out.println(cpt + " résultat(s).");
+			
+			if (log.isInfoEnabled()) {
+				log.info("Predicate " + propsource + " has " + cpt + " statement(s) in " + source.getNom() + ".");
+			}
 			tupqres.close();
 		}
 		catch (QueryEvaluationException e) {
@@ -155,7 +158,10 @@ public abstract class Liaison {
 				subjects.add(bs.getValue(SVAR).stringValue());
 				result.put(obj, subjects);
 			}
-			System.out.println(cpt + " résultat(s).");
+			
+			if (log.isInfoEnabled()) {
+				log.info("Predicate " + propcible + " has " + cpt + " statement(s) in " + cible.getNom() + ".");
+			}
 			tupqres.close();
 		}
 		catch (RepositoryException e) {
@@ -191,8 +197,10 @@ public abstract class Liaison {
 		HashMap<String, LinkedList<Statement>> maj = new HashMap<String, LinkedList<Statement>>();
 		LinkedList<Statement> tmpmaj = new LinkedList<Statement>();
 		
+		int cpt = 0;
 		for (String objet : cibledata.keySet()) {
 			if (sourcedata.containsKey(objet)) {
+				cpt++;
 				for (String sujet : cibledata.get(objet)) {
 					
 					tmpmaj = maj.get(sujet);
@@ -205,6 +213,11 @@ public abstract class Liaison {
 				}
 			}
 		}
+		
+		if (log.isInfoEnabled()) {
+			log.info("Predicate " + propcible + " and " + propsource + " have " + cpt + " common statement(s) in " + nom + ".");
+		}
+		
 		return maj;
 	}
 	

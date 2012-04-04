@@ -14,6 +14,7 @@ Possibilité de réaliser plusieurs traitements à la fois ?
 
 
 Logging dans App
+Convert logging to xml
 Log des créations d'objet
 Gérer cas particuliers exception / logging pour les commit et les shutdown.
 Paramètres dans StringToURI
