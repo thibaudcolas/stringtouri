@@ -15,10 +15,25 @@ public class AppSesame extends App {
 	 * Simple constructor.
 	 * @param urlref : URL to source SESAME repository.
 	 * @param urlobj : URL to target SESAME repository.
-	 * @throws RepositoryException Error inside one or both the data sets.
 	 */
-	public AppSesame(String urlref, String urlobj) throws RepositoryException {
-		super(new JeuSesame(urlref), new JeuSesame(urlobj));
+	public AppSesame(String urlref, String urlobj) {
+		super();
+		
+		try {
+			reference = new JeuSPARQL(urlref);
+			objectif = new JeuSPARQL(urlobj);
+			
+			nom = reference.getNom() + " - " + objectif.getNom();
+	
+			if (log.isInfoEnabled()) {
+				log.info("Creation AppRDF " + nom);
+			}
+		}
+		catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		}
 	}
 	
 	/**
@@ -26,9 +41,24 @@ public class AppSesame extends App {
 	 * @param urlsesame : URL to SESAME server.
 	 * @param depotref : Source repository identifier.
 	 * @param depotobj : Target repository identifier.
-	 * @throws RepositoryException Error inside one or both the data sets.
 	 */
-	public AppSesame(String urlsesame, String depotref, String depotobj) throws RepositoryException {
-		super(new JeuSesame(urlsesame, depotref), new JeuSesame(urlsesame, depotobj));
+	public AppSesame(String urlsesame, String depotref, String depotobj) {
+		super();
+		
+		try {
+			reference = new JeuSesame(urlsesame, depotref);
+			objectif = new JeuSesame(urlsesame, depotobj);
+			
+			nom = reference.getNom() + " - " + objectif.getNom();
+	
+			if (log.isInfoEnabled()) {
+				log.info("Creation AppRDF " + nom);
+			}
+		}
+		catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		}
 	}
 }

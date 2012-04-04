@@ -14,10 +14,25 @@ public class AppSPARQL extends App {
 	/**
 	 * Constructor for two SPARQL endpoints.
 	 * @param urlref : Source data set endpoint.
-	 * @param urlint : Target data set endpoints.
-	 * @throws RepositoryException Error inside one or both the data sets.
+	 * @param urlobj : Target data set endpoints.
 	 */
-	public AppSPARQL(String urlref, String urlint) throws RepositoryException {
-		super(new JeuSPARQL(urlref), new JeuSPARQL(urlint));
+	public AppSPARQL(String urlref, String urlobj) {
+		super();
+		
+		try {
+			reference = new JeuSPARQL(urlref);
+			objectif = new JeuSPARQL(urlobj);
+			
+			nom = reference.getNom() + " - " + objectif.getNom();
+	
+			if (log.isInfoEnabled()) {
+				log.info("Creation AppRDF " + nom);
+			}
+		}
+		catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		}
 	}
 }

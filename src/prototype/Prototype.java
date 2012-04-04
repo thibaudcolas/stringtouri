@@ -15,9 +15,9 @@ public class Prototype {
 			//test = new AppSesame("http://localhost:8080/openrdf-sesame/","geo-insee-all","passim-test");
 			test = new AppRDF("./rdf/insee/","./rdf/Brute3.rdf", "regions", "");
 			test.setLiaisonTypee("geo:nom", "tt:Région", "geo:Region", "");
-			test.setRDFOutput();
+			test.setSPARQLOutput();
 			test.initiateInterconnexion(false);
-			System.out.println(test.getOutput());
+			//System.out.println(test.getOutput());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

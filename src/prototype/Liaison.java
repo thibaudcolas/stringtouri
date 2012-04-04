@@ -77,7 +77,7 @@ public abstract class Liaison {
 	 * @param pc : The target predicate.
 	 */
 	protected Liaison(Jeu s, Jeu c, String ps, String pc) {
-		nom = ps + "-" + pc;
+		nom = ps + " - " + pc;
 		
 		if (log.isInfoEnabled()) {
 			log.info("Creation  Liaison " + nom + ".");
@@ -100,7 +100,7 @@ public abstract class Liaison {
 	public HashMap<String, String> getSourceData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
 		HashMap<String, String> result = new HashMap<String, String>(DEFSIZE + maxliens);
-		TupleQueryResult tupqres;
+		TupleQueryResult tupqres = null;
 		BindingSet bs;
 		
 		try {
@@ -121,7 +121,6 @@ public abstract class Liaison {
 			if (log.isInfoEnabled()) {
 				log.info("Predicate " + propsource + " has " + cpt + " statement(s) in " + source.getNom() + ".");
 			}
-			tupqres.close();
 		}
 		catch (QueryEvaluationException e) {
 			throw new QueryEvaluationException("Query : " + querysource, e);
@@ -131,6 +130,11 @@ public abstract class Liaison {
 		}
 		catch (MalformedQueryException e) {
 			throw new MalformedQueryException("Query : " + querysource, e);
+		}
+		finally {
+			if (tupqres != null) {
+				tupqres.close();
+			}
 		}
 		
 		return result;
@@ -147,7 +151,7 @@ public abstract class Liaison {
 	public HashMap<String, LinkedList<String>> getCibleData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
 		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(DEFSIZE + maxliens);
-		TupleQueryResult tupqres;
+		TupleQueryResult tupqres = null;
 		BindingSet bs;
 		String obj;
 		LinkedList<String> subjects;
@@ -182,10 +186,14 @@ public abstract class Liaison {
 			if (log.isInfoEnabled()) {
 				log.info("Predicate " + propcible + " has " + cpt + " statement(s) in " + cible.getNom() + ".");
 			}
-			tupqres.close();
 		}
 		catch (RepositoryException e) {
 			throw new RepositoryException("While fetching data - " + propsource, e);
+		}
+		finally {
+			if (tupqres != null) {
+				tupqres.close();
+			}
 		}
 		
 		return result;

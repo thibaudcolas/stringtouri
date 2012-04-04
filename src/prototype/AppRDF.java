@@ -20,11 +20,32 @@ public class AppRDF extends App {
 	 * @param objpath : Filepath to target data.
 	 * @param reffilter : Name filter.
 	 * @param objfilter : Name filter.
-	 * @throws RepositoryException Bad things happened to one or both the data sets.
-	 * @throws RDFParseException RDF inside one of the files is corrupted.
-	 * @throws IOException Error while reading one of the files.
 	 */
-	public AppRDF(String refpath, String objpath, String reffilter, String objfilter) throws RepositoryException, RDFParseException, RuntimeException, IOException {
-		super(new JeuRDF(refpath, reffilter, ""), new JeuRDF(objpath, objfilter, ""));
+	public AppRDF(String refpath, String objpath, String reffilter, String objfilter) {
+		super();
+		
+		try {
+			reference = new JeuRDF(refpath, reffilter, "");
+			objectif = new JeuRDF(objpath, objfilter, "");
+			
+			nom = reference.getNom() + " - " + objectif.getNom();
+	
+			if (log.isInfoEnabled()) {
+				log.info("Creation AppRDF " + nom);
+			}
+		}
+		catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		} catch (RDFParseException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(4);
+		} catch (IOException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(2);
+		}
 	}
 }

@@ -21,6 +21,10 @@ import org.openrdf.repository.RepositoryException;
 public class App {
 	
 	/**
+	 * Name for display purposes.
+	 */
+	protected String nom;
+	/**
 	 * Data set to which we'll link data.
 	 */
 	protected Jeu reference;
@@ -47,11 +51,24 @@ public class App {
 	protected static final Logger log = Logger.getLogger(App.class.getName());
 	
 	/**
-	 * Shortened constructor to use with set**** methods.
+	 * Shortest constructor to use only with parent classes.
+	 */
+	protected App() {
+		
+	}
+	
+	/**
+	 * Shortened constructor to use with setLiaisonXXX methods.
 	 * @param ref : Source data set.
 	 * @param obj : Target data set.
 	 */
 	public App(Jeu ref, Jeu obj) {
+		nom = ref.getNom() + " - " + obj.getNom();
+		
+		if (log.isInfoEnabled()) {
+			log.info("Creation App " + nom);
+		}
+		
 		reference = ref;
 		objectif = obj;
 	}
@@ -64,17 +81,20 @@ public class App {
 	 * @param l : Linking handler.
 	 * @param t : Output handler.
 	 * @param a : Tells whether to output all the data or just the new statements.
-	 * @throws RepositoryException XXX logging
-	 * @throws QueryEvaluationException XXX logging
-	 * @throws MalformedQueryException XXX logging
 	 */
-	public App(Jeu ref, Jeu obj, String d, Liaison l, To t, boolean a) throws RepositoryException, QueryEvaluationException, MalformedQueryException {
+	public App(Jeu ref, Jeu obj, String d, Liaison l, To t, boolean a) {
+		nom = ref.getNom() + " - " + obj.getNom();
+		
+		if (log.isInfoEnabled()) {
+			log.info("Creation App " + nom);
+		}
+		
 		reference = ref;
 		objectif = obj;
 		datatomaj = d;
 		linkage = l;
 		sortie = t;
-		sortie.setMaj(l.getInterconnexion(), a);
+		initiateInterconnexion(a);	
 	}
 	
 	/**
@@ -113,38 +133,63 @@ public class App {
 	
 	/**
 	 * Sets output to be RDFXML.
-	 * @throws RepositoryException XXX logging
 	 */
-	public void setRDFOutput() throws RepositoryException {
-		sortie = new ToRDF(objectif, datatomaj);
+	public void setRDFOutput() {
+		try {
+			sortie = new ToRDF(objectif, datatomaj);
+		} catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		}
 	}
 	
 	/**
 	 * Sets output to be new Sesame statements.
-	 * @throws RepositoryException XXX logging
 	 */
-	public void setSesameOutput() throws RepositoryException {
-		sortie = new ToSesame(objectif, datatomaj);
+	public void setSesameOutput() {
+		try {
+			sortie = new ToSesame(objectif, datatomaj);
+		} catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		}
 	}
 	
 	/**
 	 * Sets output to be SPARQL Update queries.
-	 * @throws RepositoryException XXX logging
 	 */
-	public void setSPARQLOutput() throws RepositoryException {
-		sortie = new ToSPARQL(objectif, datatomaj);
+	public void setSPARQLOutput() {
+		try {
+			sortie = new ToSPARQL(objectif, datatomaj);
+		} catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		}
 	}
 	
 	/**
 	 * Starts the interlinking process.
 	 * @param a : Tells wheter to process all the statements or just the updated ones.
-	 * @throws QueryEvaluationException
-	 * @throws MalformedQueryException XXX logging
-	 * @throws RuntimeException XXX logging
-	 * @throws RepositoryException XXX logging
 	 */
-	public void initiateInterconnexion(boolean a) throws QueryEvaluationException, MalformedQueryException, RuntimeException, RepositoryException {
-		sortie.setMaj(linkage.getInterconnexion(), a);
+	public void initiateInterconnexion(boolean a) {
+		try {
+			sortie.setMaj(linkage.getInterconnexion(), a);
+		} catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		} catch (QueryEvaluationException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(3);
+		} catch (MalformedQueryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(3);
+		}
 	}
 	
 	/**
@@ -157,12 +202,23 @@ public class App {
 	
 	/**
 	 * Updates statements inside the repository.
-	 * @throws RepositoryException XXX logging
-	 * @throws MalformedQueryException XXX logging
-	 * @throws UpdateExecutionException XXX logging
 	 */
-	public void doUpdate() throws RepositoryException, MalformedQueryException, UpdateExecutionException {
-		sortie.majStatements();
+	public void doUpdate() {
+		try {
+			sortie.majStatements();
+		} catch (RepositoryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(1);
+		} catch (UpdateExecutionException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(3);
+		} catch (MalformedQueryException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(3);
+		}
 	}
 
 	/**
@@ -176,17 +232,27 @@ public class App {
 	/** 
 	 * Writes the output to a file.
 	 * @param chemin : The path to the file where to write the output.
-	 * @throws IOException Error while writing to the filepath.
 	 */
-	public final void storeOutput(final String chemin) throws IOException {
-		File f = new File(chemin);
-		if (f.isFile() && f.canWrite()) {
-			BufferedWriter res = new BufferedWriter(new FileWriter(chemin));
-			res.write(sortie.getOutput());
-			res.close();
+	public final void storeOutput(final String chemin) {
+		try { 
+			File f = new File(chemin);
+			if (f.isFile() && f.canWrite()) {
+				BufferedWriter res = new BufferedWriter(new FileWriter(chemin));
+				res.write(sortie.getOutput());
+				res.close();
+				
+				if (log.isInfoEnabled()) {
+					log.info("Export " + nom + " output - " + chemin);
+				}
+			}
+			else {
+				throw new IOException("File not writable/corrupted - " + chemin);
+			}
 		}
-		else {
-			throw new IOException("Fichier inutilisable / introuvable - " + chemin);
+		catch (IOException e) {
+			log.fatal(e);
+			shutdown();
+			System.exit(2);
 		}
 	}
 }

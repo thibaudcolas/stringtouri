@@ -12,6 +12,4 @@ Bugs :
 
 Possibilité de réaliser plusieurs traitements à la fois ?
 
-
-Logging dans App
 Paramètres dans StringToURI

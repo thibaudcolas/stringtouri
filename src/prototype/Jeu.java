@@ -245,8 +245,7 @@ public abstract class Jeu {
 				log.info("Connection " + nom + " " + (con.isOpen() ? "still on" : "off") + ".");
 			}
 		} catch (RepositoryException e) {
-			//TODO warn ?
-			log.error("Connection " + nom + " failed to be closed - " + e);
+			log.warn("Connection " + nom + " failed to be closed - " + e);
 		}
 	}
 	
