@@ -36,7 +36,7 @@ public class JeuSPARQL extends Jeu {
 			con = rep.getConnection();
 		} 
 		catch (RepositoryException e) {
-			throw new RepositoryException("Error while creating new JeuSPARQL - " + ep, e);
+			throw new RepositoryException("While creating new JeuSPARQL - " + ep, e);
 		}
 	}
 	

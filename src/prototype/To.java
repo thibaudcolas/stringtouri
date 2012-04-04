@@ -11,6 +11,8 @@ import java.util.List;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
+import org.openrdf.query.MalformedQueryException;
+import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
 
 /**
@@ -93,7 +95,7 @@ public abstract class To {
 				namespaces.put(n.getName(), n.getPrefix());
 			}
 		} catch (RepositoryException e) {
-			throw new RepositoryException("Error while fetching namespaces", e);
+			throw new RepositoryException("While fetching namespaces", e);
 		}
 	}
 	
@@ -177,14 +179,16 @@ public abstract class To {
 	
 	/**
 	 * Abstract generic method to update the data set.
-	 * @throws RuntimeException Fatal error while updating the data set.
+	 * @throws UpdateExecutionException Query failed to update data.
+	 * @throws MalformedQueryException Query isn't valid.
+	 * @throws RepositoryException Fatal error while updating the data set.
 	 */
-	public abstract void majStatements() throws RuntimeException;
+	public abstract void majStatements() throws RepositoryException, MalformedQueryException, UpdateExecutionException;
 	
-	/**
+	/** 
 	 * Writes the output to a file.
 	 * @param chemin : The path to the file where to write the output.
-	 * @param IOException Error while writing to the filepath.
+	 * @throws IOException Error while writing to the filepath.
 	 */
 	public final void writeToFile(final String chemin) throws IOException {
 		File f = new File(chemin);

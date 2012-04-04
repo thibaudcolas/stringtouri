@@ -13,7 +13,7 @@ import org.openrdf.repository.RepositoryException;
  * Updates a SPARQL endpoint using SPARQL queries.
  * 
  * @author Thibaud Colas
- * @version 01042012
+ * @version 04042012
  * @see To
  */
 public class ToSPARQL extends To {
@@ -115,34 +115,34 @@ public class ToSPARQL extends To {
 	
 	/**
 	 * Updates the data set by sending SPARQL DELETE/INSERT or INSERT queries.
-	 * @throws RuntimeException Error while SPARQL updating statements.
+	 * @throws RepositoryException Error while SPARQL updating statements.
+	 * @throws UpdateExecutionException Query failed to update data.
+	 * @throws MalformedQueryException Query isn't valid.
 	 */
 	@Override
-	public void majStatements() throws RuntimeException {
-		String tmpq = "";
+	public void majStatements() throws RepositoryException, MalformedQueryException, UpdateExecutionException {
 		LinkedList<String> queries = deleteinsert ? getDeleteInsertQueries() :getInsertQueries();
 
 		//On veut être sûr d'effectuer soit tous les changements, soit aucun.
 		destination.setAutoCommit(false);
 		try {
 			for (String q : queries) {
-					tmpq = q;
 					destination.updateQuery(q);
 			}
 			destination.commit();
 		} 
 		catch (RepositoryException e) {
 			destination.rollback();
-			throw new RuntimeException("Error while SPARQL updating statements - " + destination.getNom(), e);
+			throw new RepositoryException("While SPARQL updating statements - " + destination.getNom(), e);
 		} 
 		catch (MalformedQueryException e) {
 			destination.rollback();
-			throw new RuntimeException("Malformed update query - " + tmpq);
-		} 
+			throw e;
+		}
 		catch (UpdateExecutionException e) {
 			destination.rollback();
-			throw new RuntimeException("Error while SPARQL updating statements - " + destination.getNom(), e);
-		}
+			throw e;
+		} 
 		finally {
 			destination.setAutoCommit(true);
 		}

@@ -17,7 +17,7 @@ import org.openrdf.repository.RepositoryException;
  * Abstract class interlinking two data sets according to criteria.
  * 
  * @author Thibaud Colas
- * @version 01042012
+ * @version 04042012
  * @see Jeu
  */
 public abstract class Liaison {
@@ -68,10 +68,10 @@ public abstract class Liaison {
 	 * One value = one URI, one URI = one value.
 	 * @return HashMap where the key is the value for the source predicate and value is the associated URI (subject).
 	 * @throws QueryEvaluationException Issue with the source query.
-	 * @throws RuntimeException Repository error while fetching data.
+	 * @throws RepositoryException Repository error while fetching data.
 	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
-	public HashMap<String, String> getSourceData() throws QueryEvaluationException, RuntimeException, MalformedQueryException {
+	public HashMap<String, String> getSourceData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
 		HashMap<String, String> result = new HashMap<String, String>(DEFSIZE + maxliens);
 		TupleQueryResult tupqres;
@@ -95,13 +95,13 @@ public abstract class Liaison {
 			tupqres.close();
 		}
 		catch (QueryEvaluationException e) {
-			throw new QueryEvaluationException("Query issue : " + querysource, e);
+			throw new QueryEvaluationException("Query : " + querysource, e);
 		}
 		catch (RepositoryException e) {
-			throw new RuntimeException("Repository issue while fetching data - " + propsource, e);
+			throw new RepositoryException("Repository issue while fetching data - " + propsource, e);
 		}
 		catch (MalformedQueryException e) {
-			throw new MalformedQueryException(e);
+			throw new MalformedQueryException("Query : " + querysource, e);
 		}
 		
 		return result;
@@ -112,10 +112,10 @@ public abstract class Liaison {
 	 * One value is associated with multiple URIs, one URI can be associated with multiple values.
 	 * @return Hashmap where a value is associated with the URIs having this value for the target predicate.
 	 * @throws QueryEvaluationException Issue with the target query.
-	 * @throws RuntimeException Repository error while fetching data.
+	 * @throws RepositoryException Repository error while fetching data.
 	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
-	public HashMap<String, LinkedList<String>> getCibleData() throws QueryEvaluationException, RuntimeException, MalformedQueryException {
+	public HashMap<String, LinkedList<String>> getCibleData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
 		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(DEFSIZE + maxliens);
 		TupleQueryResult tupqres;
@@ -152,14 +152,8 @@ public abstract class Liaison {
 			System.out.println(cpt + " résultat(s).");
 			tupqres.close();
 		}
-		catch (QueryEvaluationException e) {
-			throw new QueryEvaluationException("Query issue : " + querycible, e);
-		}
 		catch (RepositoryException e) {
-			throw new RuntimeException("Repository issue while fetching data - " + propsource, e);
-		}
-		catch (MalformedQueryException e) {
-			throw new MalformedQueryException(e);
+			throw new RepositoryException("While fetching data - " + propsource, e);
 		}
 		
 		return result;
@@ -181,10 +175,10 @@ public abstract class Liaison {
 	 * Creates new statements with the updated data.
 	 * @return A Hashmap containing statements grouped by their subjects.
 	 * @throws QueryEvaluationException Issue with one of the queries.
-	 * @throws RuntimeException Repository error while fetching data.
+	 * @throws RepositoryException Repository error while fetching data.
 	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
-	public HashMap<String, LinkedList<Statement>> getInterconnexion() throws QueryEvaluationException, RuntimeException, MalformedQueryException {
+	public HashMap<String, LinkedList<Statement>> getInterconnexion() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		HashMap<String, String> sourcedata = getSourceData();
 		HashMap<String, LinkedList<String>> cibledata = getCibleData();
 		

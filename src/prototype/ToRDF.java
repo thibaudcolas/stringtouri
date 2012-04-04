@@ -53,7 +53,6 @@ public class ToRDF extends To {
 	
 	/**
 	 * Retrieves the output of the process as RDFXML.
-	 * @param executer : Tells whether or not to execute the output on the data set.
 	 * @return The RDFXML output.
 	 */
 	@Override
@@ -63,10 +62,10 @@ public class ToRDF extends To {
 	
 	/**
 	 * Never supposed to be called.
-	 * @throws RuntimeException Fatal error while updating the data set.
+	 * @throws RepositoryException Fatal error while updating the data set.
 	 */
-	public void majStatements() throws RuntimeException {
-		throw new RuntimeException("Invalid call to majStatement using RDF converter - " + jeumaj.getNom());
+	public void majStatements() throws RepositoryException {
+		throw new RepositoryException("Invalid call to majStatement using RDF converter - " + jeumaj.getNom());
 	}
 	
 	/**

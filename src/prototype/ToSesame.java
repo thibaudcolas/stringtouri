@@ -59,7 +59,6 @@ public class ToSesame extends To {
 
 	/**
 	 * Retrieves the output of the process as statements.
-	 * @param executer : Tells whether or not to execute the output on the data set.
 	 * @return The modified statements.
 	 */
 	@Override
@@ -87,9 +86,9 @@ public class ToSesame extends To {
 	//FIXME Toujours le même problème avec/sans <>.
 	/**
 	 * Updates the data set statements by overwriting the old ones with the new ones.
-	 * @throws RuntimeException Fatal error while updating the statements.
+	 * @throws RepositoryException Fatal error while updating the statements.
 	 */
-	public void majStatements() throws RuntimeException {
+	public void majStatements() throws RepositoryException {
 		LinkedList<Statement> tmpnew;
 		try {
 			for (String suj : maj.keySet()) {
@@ -100,7 +99,7 @@ public class ToSesame extends To {
 				destination.addAllStatements(tmpnew);
 			}
 		} catch (RepositoryException e) {
-			throw new RuntimeException("Error while updating statements in " + destination.getNom(), e);
+			throw new RepositoryException("While updating statements - " + destination.getNom(), e);
 		}
 	}
 }

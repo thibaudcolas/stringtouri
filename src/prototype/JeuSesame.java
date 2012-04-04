@@ -26,9 +26,9 @@ public class JeuSesame extends Jeu {
 	/**
 	 * Lazy constructor.
 	 * @param sd : Direct URL to the SESAME repository.
-	 * @throws RuntimeException The initialization has failed and no recovery is possible.
+	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	JeuSesame(String sd) throws RuntimeException {
+	JeuSesame(String sd) throws RepositoryException {
 		try {	
 			nom = sd;
 			sesame = sd;
@@ -41,7 +41,7 @@ public class JeuSesame extends Jeu {
 			con = rep.getConnection();
 		} 
 		catch (RepositoryException e) {
-			throw new RuntimeException("Error while creating new JeuSesame - " + sd, e);
+			throw new RepositoryException("While creating new JeuSesame - " + sd, e);
 		}
 	}
 	
@@ -49,9 +49,9 @@ public class JeuSesame extends Jeu {
 	 * Default constructor.
 	 * @param s : SESAME server's URL.
 	 * @param d : Repository id.
-	 * @throws RuntimeException The initialization has failed and no recovery is possible.
+	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	JeuSesame(String s, String d) throws RuntimeException {
+	JeuSesame(String s, String d) throws RepositoryException {
 		try {	
 			nom = s + " - " + d;
 			sesame = s;
@@ -64,7 +64,7 @@ public class JeuSesame extends Jeu {
 			con = rep.getConnection();
 		} 
 		catch (RepositoryException e) {
-			throw new RuntimeException("Error while creating new JeuSesame - " + s + " " + d, e);
+			throw new RepositoryException("While creating new JeuSesame - " + s + " " + d, e);
 		}
 	}
 	

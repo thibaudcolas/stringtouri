@@ -2,6 +2,7 @@ package prototype;
 
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
+import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
 
 public class App {
@@ -13,19 +14,20 @@ public class App {
 	
 	protected Liaison linkage;
 	
-	protected To interconnexion;
+	protected To sortie;
 	
 	public App(Jeu ref, Jeu obj) {
 		reference = ref;
 		objectif = obj;
 	}
 	
-	public App(Jeu ref, Jeu obj, String d, Liaison l, To t) {
+	public App(Jeu ref, Jeu obj, String d, Liaison l, To t, boolean a) throws RepositoryException, QueryEvaluationException, MalformedQueryException {
 		reference = ref;
 		objectif = obj;
 		datatomaj = d;
 		linkage = l;
-		interconnexion = t;
+		sortie = t;
+		sortie.setMaj(l.getInterconnexion(), a);
 	}
 	
 	public void setLiaisonSimple(String referenceprop, String objectifprop) {
@@ -44,27 +46,27 @@ public class App {
 	}
 	
 	public void setRDFOutput() throws RepositoryException {
-		interconnexion = new ToRDF(objectif, datatomaj);
+		sortie = new ToRDF(objectif, datatomaj);
 	}
 	
 	public void setSesameOutput() throws RepositoryException {
-		interconnexion = new ToSesame(objectif, datatomaj);
+		sortie = new ToSesame(objectif, datatomaj);
 	}
 	
 	public void setSPARQLOutput() throws RepositoryException {
-		interconnexion = new ToSPARQL(objectif, datatomaj);
+		sortie = new ToSPARQL(objectif, datatomaj);
 	}
 	
 	public void initiateInterconnexion(boolean a) throws QueryEvaluationException, MalformedQueryException, RuntimeException, RepositoryException {
-		interconnexion.setMaj(linkage.getInterconnexion(), a);
+		sortie.setMaj(linkage.getInterconnexion(), a);
 	}
 	
 	public String getOutput() {
-		return interconnexion.getOutput();
+		return sortie.getOutput();
 	}
 	
-	public void doUpdate() {
-		interconnexion.majStatements();
+	public void doUpdate() throws RepositoryException, MalformedQueryException, UpdateExecutionException {
+		sortie.majStatements();
 	}
 
 	public void shutdown() {

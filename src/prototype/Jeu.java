@@ -67,7 +67,6 @@ public abstract class Jeu {
 	
 	/**
 	 * Erases all namespaces from the repository.
-	 * @return True if there is no more namespace inside the repository.
 	 * @throws RepositoryException Error while erasing all the namespaces.
 	 */
 	public void razNamespaces() throws RepositoryException {
@@ -106,12 +105,22 @@ public abstract class Jeu {
 	 * @throws QueryEvaluationException Query result isn't valid.
 	 */
 	public TupleQueryResult SPARQLQuery(String query) throws RepositoryException, MalformedQueryException, QueryEvaluationException {
-		System.out.println("Requête " + nom + " : " + query);
-		
-		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
-		queries.add(query);
-		TupleQuery tq = con.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
-	    return tq.evaluate();
+		TupleQuery tq;
+		TupleQueryResult tpq;
+		try {
+			System.out.println("Requête " + nom + " : " + query);
+			
+			// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
+			queries.add(query);
+			tq = con.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
+			tpq = tq.evaluate();
+		}
+		catch (MalformedQueryException e) {
+			throw new MalformedQueryException("Query : " + query, e);
+		} catch (QueryEvaluationException e) {
+			throw new QueryEvaluationException("Query : " + query, e);
+		}
+	    return tpq;
 	}
 	
 	/**
@@ -121,13 +130,20 @@ public abstract class Jeu {
 	 * @throws RepositoryException Error while accessing the repository.
 	 * @throws UpdateExecutionException Query update isn't valid.
 	 */
-	public void updateQuery(String query) throws RepositoryException, MalformedQueryException, UpdateExecutionException {
-		System.out.println("Requête " + nom + " : " + query);
-		
-		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
-		queries.add(query);
-		Update up = con.prepareUpdate(QueryLanguage.SPARQL, getPrefixes() + query);
-	    up.execute();
+	public void updateQuery(String query) throws RepositoryException, UpdateExecutionException, MalformedQueryException {
+		try {
+			System.out.println("Requête " + nom + " : " + query);
+			
+			// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
+			queries.add(query);
+			Update up = con.prepareUpdate(QueryLanguage.SPARQL, getPrefixes() + query);
+		    up.execute();
+		}
+		catch (MalformedQueryException e) {
+			throw new MalformedQueryException("Query : " + query, e);
+		} catch (UpdateExecutionException e) {
+			throw new UpdateExecutionException("Query : " + query, e);
+		}
 	}
 	
 	/**

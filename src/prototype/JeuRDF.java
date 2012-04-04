@@ -31,11 +31,11 @@ public class JeuRDF extends Jeu {
 	 * @param source : Source file / folder.
 	 * @param start : Filter on the filenames to import.
 	 * @param uri : Base URI for the data.
-	 * @throws RuntimeException The initialization has failed and no recovery is possible.
+	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 * @throws IOException File/folder error.
 	 * @throws RDFParseException File(s) content isn't correct RDFXML.
 	 */
-	JeuRDF(String source, String start, String uri) throws RuntimeException, IOException, RDFParseException {
+	JeuRDF(String source, String start, String uri) throws RepositoryException, IOException, RDFParseException {
 		try {
 			nom = source;
 			baseuri = uri;
@@ -49,11 +49,7 @@ public class JeuRDF extends Jeu {
 			addSource(source, start);
 		} 
 		catch (RepositoryException e) {
-			throw new RuntimeException("Error while creating new JeuRDF", e);
-		} catch (RDFParseException e) {
-			throw new RDFParseException(e);
-		} catch (IOException e) {
-			throw new IOException("File " + source + " isn't usable " + e);
+			throw new RepositoryException("While creating new JeuRDF - " + source, e);
 		}
 	}
 	

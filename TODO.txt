@@ -1,6 +1,5 @@
 Améliorations :
 - Utiliser les librairies présentes dans l'install de sesame
-- Ajouter un système de logs - Le plus haut possible, dans App
 - Meilleure gestion des contextes
 - Tests unitaires
 - Tests non-unitaires
@@ -12,4 +11,8 @@ Bugs :
 
 Possibilité de réaliser plusieurs traitements à la fois ?
 
-Review code exception
+
+Logging dans App
+Gérer cas particuliers exception / logging pour les commit et les shutdown.
+Paramètres dans StringToURI
+Javadoc avec types simples
