@@ -1,9 +1,5 @@
 package prototype;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -184,21 +180,4 @@ public abstract class To {
 	 * @throws RepositoryException Fatal error while updating the data set.
 	 */
 	public abstract void majStatements() throws RepositoryException, MalformedQueryException, UpdateExecutionException;
-	
-	/** 
-	 * Writes the output to a file.
-	 * @param chemin : The path to the file where to write the output.
-	 * @throws IOException Error while writing to the filepath.
-	 */
-	public final void writeToFile(final String chemin) throws IOException {
-		File f = new File(chemin);
-		if (f.isFile() && f.canWrite()) {
-			BufferedWriter res = new BufferedWriter(new FileWriter(chemin));
-			res.write(getOutput());
-			res.close();
-		}
-		else {
-			throw new IOException("Fichier inutilisable / introuvable - " + chemin);
-		}
-	}
 }

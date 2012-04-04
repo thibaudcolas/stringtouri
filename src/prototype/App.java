@@ -1,5 +1,10 @@
 package prototype;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.UpdateExecutionException;
@@ -72,5 +77,22 @@ public class App {
 	public void shutdown() {
 		reference.shutdown();
 		objectif.shutdown();
+	}
+	
+	/** 
+	 * Writes the output to a file.
+	 * @param chemin : The path to the file where to write the output.
+	 * @throws IOException Error while writing to the filepath.
+	 */
+	public final void storeOutput(final String chemin) throws IOException {
+		File f = new File(chemin);
+		if (f.isFile() && f.canWrite()) {
+			BufferedWriter res = new BufferedWriter(new FileWriter(chemin));
+			res.write(sortie.getOutput());
+			res.close();
+		}
+		else {
+			throw new IOException("Fichier inutilisable / introuvable - " + chemin);
+		}
 	}
 }
