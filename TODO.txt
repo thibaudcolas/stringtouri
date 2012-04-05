@@ -2,14 +2,15 @@ Améliorations :
 - Meilleure gestion des librairies
 - Tests unitaires
 - Tests non-unitaires
-- Créer checkstyle custom
 - Faire fonctionner FindBugs
 
 Bugs :
-- Gestion des littéraux (entiers) dans les requêtes SPARQL ValueFactory ?
+- Gestion des litéraux (entiers) dans les requêtes SPARQL ValueFactory ?
 - Export Sesame erreur syntaxique <>
 - Maj du jeuRDF avec le nouveau RDF
 
 Possibilité de réaliser plusieurs traitements à la fois ?
 
 Paramètres dans StringToURI
+
+Refaire les messages de logs pour les exceptions

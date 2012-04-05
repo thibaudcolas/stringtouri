@@ -207,7 +207,7 @@ public class App {
 	/**
 	 * Updates statements inside the repository.
 	 */
-	public void doUpdate() {
+	public final void doUpdate() {
 		try {
 			sortie.majStatements();
 		} catch (RepositoryException e) {

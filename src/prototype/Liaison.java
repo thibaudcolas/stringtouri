@@ -23,6 +23,10 @@ import org.openrdf.repository.RepositoryException;
  */
 public abstract class Liaison {
 	
+	public static final String SVAR = "s";
+	public static final String PVAR = "p";
+	public static final String OVAR = "o";
+	
 	/**
 	 * Linkage name for display purposes.
 	 */
@@ -62,10 +66,6 @@ public abstract class Liaison {
 	 * Logger to record actions on the data set.
 	 */
 	protected static final Logger LOG = Logger.getLogger(Liaison.class.getName());
-	
-	public static final String SVAR = "s";
-	public static final String PVAR = "p";
-	public static final String OVAR = "o";
 	
 	private static final int DEFSIZE = 100;
 	

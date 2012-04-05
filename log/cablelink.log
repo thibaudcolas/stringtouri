@@ -246,3 +246,60 @@
 05-04-2012 01:24:47,317 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
 05-04-2012 01:24:47,319 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
 05-04-2012 01:24:47,319 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 12:40:54,505 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 12:40:55,137 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 12:40:55,138 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 12:40:55,232 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 12:40:55,233 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 12:40:55,234 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 12:40:55,236 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 12:40:55,236 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 12:40:55,247 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 12:40:56,243 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
+05-04-2012 12:40:56,243 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:40:56,245 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:40:56,248 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 12:40:56,248 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 12:41:17,063 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 12:41:17,520 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 12:41:17,520 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 12:41:17,574 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 12:41:17,574 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 12:41:17,575 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 12:41:17,576 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 12:41:17,576 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 12:41:17,583 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 12:41:17,952 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
+05-04-2012 12:41:17,953 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:41:17,955 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:41:17,957 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 12:41:17,958 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 12:42:17,104 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 12:42:17,898 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 12:42:17,899 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 12:42:17,921 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 12:42:17,921 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 12:42:17,922 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 12:42:17,923 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 12:42:17,923 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 12:42:17,929 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 12:42:18,453 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
+05-04-2012 12:42:18,454 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:42:18,455 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:42:18,458 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 12:42:18,458 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 12:42:36,923 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 12:42:37,363 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 12:42:37,364 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 12:42:37,408 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 12:42:37,408 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 12:42:37,409 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
+05-04-2012 12:42:37,410 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 12:42:37,410 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 12:42:37,423 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+05-04-2012 12:42:37,765 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+05-04-2012 12:42:37,766 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 12:42:37,769 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+05-04-2012 12:42:37,770 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+05-04-2012 12:42:37,773 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 12:42:37,773 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.

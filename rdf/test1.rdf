@@ -1,0 +1,43 @@
+<rdf:RDF
+    xmlns:passim="http://data.lirmm.fr/ontologies/passim#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:geo-fr="http://rdf.insee.fr/geo/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:tt="http://localhost/vocab/passim#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://data.lirmm.fr/passim/DescriptionDuReseau">
+    <rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Service"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.lirmm.fr/passim/Autocar">
+    <rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Mode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.lirmm.fr/passim/1">
+    <rdf:type rdf:resource="http://localhost/vocab/passim#ServiceDeTransport"/>
+    <passim:isAccessibilityForDisabledPerson rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</passim:isAccessibilityForDisabledPerson>
+    <passim:typeOfService rdf:resource="http://data.lirmm.fr/passim/CalculDItineraire"/>
+    <passim:serviceName>05voyageurs</passim:serviceName>
+    <passim:typeOfService rdf:resource="http://data.lirmm.fr/passim/+Horaires"/>
+    <passim:modeOfTransport rdf:resource="http://data.lirmm.fr/passim/Autocar"/>
+    <passim:serviceCoverage rdf:resource="http://data.lirmm.fr/passim/departementale"/>
+    <passim:isWebSiteAccessibilityForDisabledPerson rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</passim:isWebSiteAccessibilityForDisabledPerson>
+    <passim:department>Hautes-Alpes</passim:department>
+    <passim:webSite>http://www.05voyageurs.com</passim:webSite>
+    <passim:modeOfTransport rdf:resource="http://data.lirmm.fr/passim/+Covoiturage"/>
+    <passim:region>Provence-Alpes-Cote d'Azur</passim:region>
+    <passim:typeOfService rdf:resource="http://data.lirmm.fr/passim/DescriptionDuReseau"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.lirmm.fr/passim/departementale">
+    <rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Coverage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.lirmm.fr/passim/+Covoiturage">
+    <rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Mode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.lirmm.fr/passim/CalculDItineraire">
+    <rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Service"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.lirmm.fr/passim/+Horaires">
+    <rdf:type rdf:resource="http://data.lirmm.fr/ontologies/passim#Service"/>
+  </rdf:Description>
+</rdf:RDF>

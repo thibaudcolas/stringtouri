@@ -130,7 +130,7 @@ public class ToSPARQL extends To {
 		destination.setAutoCommit(false);
 		try {
 			for (String q : queries) {
-					destination.updateQuery(q);
+				destination.updateQuery(q);
 			}
 			destination.commit();
 		} 
