@@ -1,6 +1,5 @@
 Améliorations :
 - Meilleure gestion des librairies
-- Tests unitaires
 - Tests non-unitaires
 
 Bugs :
@@ -11,3 +10,5 @@ Bugs :
 Possibilité de réaliser plusieurs traitements à la fois ?
 
 Paramètres dans StringToURI
+
+Tests unitaires et couverture sur Liaison
