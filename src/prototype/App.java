@@ -48,7 +48,11 @@ public class App {
 	/**
 	 * Main Logger to record actions on pretty much everything.
 	 */
-	protected static final Logger log = Logger.getLogger(App.class.getName());
+	protected static final Logger LOG = Logger.getLogger(App.class.getName());
+	
+	protected static final int CODERE = 1;
+	protected static final int CODEIO = 2;
+	protected static final int CODEQY = 3;
 	
 	/**
 	 * Shortest constructor to use only with parent classes.
@@ -65,8 +69,8 @@ public class App {
 	public App(Jeu ref, Jeu obj) {
 		nom = ref.getNom() + " - " + obj.getNom();
 		
-		if (log.isInfoEnabled()) {
-			log.info("Creation App " + nom);
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Creation App " + nom);
 		}
 		
 		reference = ref;
@@ -85,8 +89,8 @@ public class App {
 	public App(Jeu ref, Jeu obj, String d, Liaison l, To t, boolean a) {
 		nom = ref.getNom() + " - " + obj.getNom();
 		
-		if (log.isInfoEnabled()) {
-			log.info("Creation App " + nom);
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Creation App " + nom);
 		}
 		
 		reference = ref;
@@ -138,9 +142,9 @@ public class App {
 		try {
 			sortie = new ToRDF(objectif, datatomaj);
 		} catch (RepositoryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(1);
+			System.exit(CODERE);
 		}
 	}
 	
@@ -151,9 +155,9 @@ public class App {
 		try {
 			sortie = new ToSesame(objectif, datatomaj);
 		} catch (RepositoryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(1);
+			System.exit(CODERE);
 		}
 	}
 	
@@ -164,9 +168,9 @@ public class App {
 		try {
 			sortie = new ToSPARQL(objectif, datatomaj);
 		} catch (RepositoryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(1);
+			System.exit(CODERE);
 		}
 	}
 	
@@ -178,17 +182,17 @@ public class App {
 		try {
 			sortie.setMaj(linkage.getInterconnexion(), a);
 		} catch (RepositoryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(1);
+			System.exit(CODERE);
 		} catch (QueryEvaluationException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(3);
+			System.exit(CODEQY);
 		} catch (MalformedQueryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(3);
+			System.exit(CODEQY);
 		}
 	}
 	
@@ -207,17 +211,17 @@ public class App {
 		try {
 			sortie.majStatements();
 		} catch (RepositoryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
 			System.exit(1);
 		} catch (UpdateExecutionException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(3);
+			System.exit(CODEQY);
 		} catch (MalformedQueryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(3);
+			System.exit(CODEQY);
 		}
 	}
 
@@ -236,13 +240,16 @@ public class App {
 	public final void storeOutput(final String chemin) {
 		try { 
 			File f = new File(chemin);
+			if (!f.exists()) {
+				f.createNewFile();
+			}
 			if (f.isFile() && f.canWrite()) {
 				BufferedWriter res = new BufferedWriter(new FileWriter(chemin));
 				res.write(sortie.getOutput());
 				res.close();
 				
-				if (log.isInfoEnabled()) {
-					log.info("Export " + nom + " output - " + chemin);
+				if (LOG.isInfoEnabled()) {
+					LOG.info("Export " + nom + " output - " + chemin);
 				}
 			}
 			else {
@@ -250,9 +257,9 @@ public class App {
 			}
 		}
 		catch (IOException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(2);
+			System.exit(CODEIO);
 		}
 	}
 }

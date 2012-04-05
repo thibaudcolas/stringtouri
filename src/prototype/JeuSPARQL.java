@@ -22,7 +22,7 @@ public class JeuSPARQL extends Jeu {
 	/**
 	 * Default constructor.
 	 * @param ep : SPARQL endpoint URL.
-	 * @throws RuntimeException The initialization has failed and no recovery is possible.
+	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
 	JeuSPARQL(String ep) throws RepositoryException {
 		super(ep);

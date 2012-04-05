@@ -41,7 +41,7 @@ public abstract class To {
 	/**
 	 * Logger to record actions on the data set.
 	 */
-	protected static final Logger log = Logger.getLogger(To.class.getName());
+	protected static final Logger LOG = Logger.getLogger(To.class.getName());
 	
 	/**
 	 * Super-class lazy constructor.
@@ -50,8 +50,8 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected To(Jeu j, String p) throws RepositoryException {
-		if (log.isInfoEnabled()) {
-			log.info("Creation  Output " + j.getNom() + ".");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Creation  Output " + j.getNom() + ".");
 		}
 		
 		jeumaj = j;
@@ -68,8 +68,8 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
-		if (log.isInfoEnabled()) {
-			log.info("Creation  Output " + j.getNom() + ".");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Creation  Output " + j.getNom() + ".");
 		}
 		
 		jeumaj = j;
@@ -87,8 +87,8 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
-		if (log.isInfoEnabled()) {
-			log.info("Output " + j.getNom() + " creation.");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Output " + j.getNom() + " creation.");
 		}
 		
 		jeumaj = j;
@@ -102,8 +102,8 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	private void handleNamespaces() throws RepositoryException {
-		if (log.isInfoEnabled()) {
-			log.info("Export " + jeumaj.getNom() + " namespace retrieval.");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Export " + jeumaj.getNom() + " namespace retrieval.");
 		}
 		try {
 			namespaces = new HashMap<String, String>();
@@ -138,8 +138,8 @@ public abstract class To {
 		LinkedList<Statement> tmpnew;
 		String tmpprop;
 		
-		if (log.isInfoEnabled()) {
-			log.info("Export " + jeumaj.getNom() + " statement filtering.");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Export " + jeumaj.getNom() + " statement filtering.");
 		}
 		
 		for (String suj : nouv.keySet()) {

@@ -91,8 +91,8 @@ public class JeuRDF extends Jeu {
 				con.add(src, baseuri, RDFFormat.RDFXML);
 				nbimport++;
 			}
-			if (log.isInfoEnabled()) {
-				log.info("Import " + nom + " : " + nbimport + " file(s).");
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Import " + nom + " : " + nbimport + " file(s).");
 			}
 		}
 		else {

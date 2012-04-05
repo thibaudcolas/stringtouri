@@ -61,7 +61,7 @@ public abstract class Liaison {
 	/**
 	 * Logger to record actions on the data set.
 	 */
-	protected static final Logger log = Logger.getLogger(Liaison.class.getName());
+	protected static final Logger LOG = Logger.getLogger(Liaison.class.getName());
 	
 	public static final String SVAR = "s";
 	public static final String PVAR = "p";
@@ -79,8 +79,8 @@ public abstract class Liaison {
 	protected Liaison(Jeu s, Jeu c, String ps, String pc) {
 		nom = ps + " - " + pc;
 		
-		if (log.isInfoEnabled()) {
-			log.info("Creation  Liaison " + nom + ".");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Creation  Liaison " + nom + ".");
 		}
 		
 		source = s;
@@ -118,8 +118,8 @@ public abstract class Liaison {
 				result.put(bs.getValue(OVAR).stringValue(), bs.getValue(SVAR).stringValue());
 			}
 			
-			if (log.isInfoEnabled()) {
-				log.info("Predicate " + propsource + " has " + cpt + " statement(s) in " + source.getNom() + ".");
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Predicate " + propsource + " has " + cpt + " statement(s) in " + source.getNom() + ".");
 			}
 		}
 		catch (QueryEvaluationException e) {
@@ -183,8 +183,8 @@ public abstract class Liaison {
 				result.put(obj, subjects);
 			}
 			
-			if (log.isInfoEnabled()) {
-				log.info("Predicate " + propcible + " has " + cpt + " statement(s) in " + cible.getNom() + ".");
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Predicate " + propcible + " has " + cpt + " statement(s) in " + cible.getNom() + ".");
 			}
 		}
 		catch (RepositoryException e) {
@@ -242,8 +242,8 @@ public abstract class Liaison {
 			}
 		}
 		
-		if (log.isInfoEnabled()) {
-			log.info("Predicate " + propcible + " and " + propsource + " have " + cpt + " common statement(s) in " + nom + ".");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Predicate " + propcible + " and " + propsource + " have " + cpt + " common statement(s) in " + nom + ".");
 		}
 		
 		return maj;

@@ -9,7 +9,7 @@ import org.openrdf.rio.RDFParseException;
  * Helps handling the interlinking with RDF data.
  * 
  * @author Thibaud Colas
- * @version 04042012
+ * @version 05042012
  * @see App
  */
 public class AppRDF extends App {
@@ -30,22 +30,22 @@ public class AppRDF extends App {
 			
 			nom = reference.getNom() + " - " + objectif.getNom();
 	
-			if (log.isInfoEnabled()) {
-				log.info("Creation AppRDF " + nom);
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Creation AppRDF " + nom);
 			}
 		}
 		catch (RepositoryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(1);
+			System.exit(CODERE);
 		} catch (RDFParseException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(4);
+			System.exit(CODEIO);
 		} catch (IOException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(2);
+			System.exit(CODEIO);
 		}
 	}
 }

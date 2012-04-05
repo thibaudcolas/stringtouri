@@ -49,7 +49,7 @@ public abstract class Jeu {
 	/**
 	 * Logger to record actions on the data set.
 	 */
-	protected static final Logger log = Logger.getLogger(Jeu.class.getName());
+	protected static final Logger LOG = Logger.getLogger(Jeu.class.getName());
 
 	/**
 	 * Super-class constructor used to log initialization of the data sets.
@@ -58,8 +58,8 @@ public abstract class Jeu {
 	protected Jeu(String n) {
 		nom = n;
 		
-		if (log.isInfoEnabled()) {
-			log.info("Creation  Jeu " + nom + ".");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Creation  Jeu " + nom + ".");
 		}
 	}
 	
@@ -126,8 +126,8 @@ public abstract class Jeu {
 		TupleQuery tq;
 		TupleQueryResult tpq;
 		
-		if (log.isInfoEnabled()) {
-			log.info("Query " + nom + " select - " + query);
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Query " + nom + " select - " + query);
 		}
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
 		queries.add(query);
@@ -152,8 +152,8 @@ public abstract class Jeu {
 	 * @throws UpdateExecutionException Query update isn't valid.
 	 */
 	public void updateQuery(String query) throws RepositoryException, UpdateExecutionException, MalformedQueryException {
-		if (log.isInfoEnabled()) {
-			log.info("Query " + nom + " update - " + query);
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Query " + nom + " update - " + query);
 		}
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
 		queries.add(query);
@@ -241,11 +241,11 @@ public abstract class Jeu {
 			con.close();
 			rep.shutDown();
 			
-			if (log.isInfoEnabled()) {
-				log.info("Connection " + nom + " " + (con.isOpen() ? "still on" : "off") + ".");
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Connection " + nom + " " + (con.isOpen() ? "still on" : "off") + ".");
 			}
 		} catch (RepositoryException e) {
-			log.warn("Connection " + nom + " failed to be closed - " + e);
+			LOG.warn("Connection " + nom + " failed to be closed - " + e);
 		}
 	}
 	
@@ -256,12 +256,12 @@ public abstract class Jeu {
 		try {
 			con.commit();
 			
-			if (log.isInfoEnabled()) {
-				log.info("Commit " + nom + ".");
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Commit " + nom + ".");
 			}
 			
 		} catch (RepositoryException e) {
-			log.error("Commit " + nom + " error - " + e);
+			LOG.error("Commit " + nom + " error - " + e);
 		}
 	}
 	
@@ -274,7 +274,7 @@ public abstract class Jeu {
 		try {
 			ret = con.isAutoCommit();
 		} catch (RepositoryException e) {
-			log.error("Commit " + nom + " checking error - " + e);
+			LOG.error("Commit " + nom + " checking error - " + e);
 			ret = false;
 		}
 		return ret;
@@ -288,12 +288,12 @@ public abstract class Jeu {
 		try {
 			con.setAutoCommit(on);
 			
-			if (log.isInfoEnabled()) {
-				log.info("Commit " + nom + " " + (on ? "on" : "off") + " auto.");
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Commit " + nom + " " + (on ? "on" : "off") + " auto.");
 			}
 			
 		} catch (RepositoryException e) {
-			log.error("Commit " + nom + " " + (on ? "on" : "off") + " auto error - " + e);
+			LOG.error("Commit " + nom + " " + (on ? "on" : "off") + " auto error - " + e);
 		}
 	}
 	
@@ -304,12 +304,12 @@ public abstract class Jeu {
 		try {
 			con.rollback();
 			
-			if (log.isInfoEnabled()) {
-				log.info("Commit " + nom + " rollback.");
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Commit " + nom + " rollback.");
 			}
 			
 		} catch (RepositoryException e) {
-			log.error("Commit " + nom + " rollback error - " + e);
+			LOG.error("Commit " + nom + " rollback error - " + e);
 		}
 	}
 	

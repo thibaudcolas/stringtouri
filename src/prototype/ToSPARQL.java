@@ -79,9 +79,8 @@ public class ToSPARQL extends To {
 	@Override
 	public String getOutput() {
 		String ret = "";
-		LinkedList<String> queries = deleteinsert ? getDeleteInsertQueries() :getInsertQueries();
-		for (String q : queries)
-		{
+		LinkedList<String> queries = deleteinsert ? getDeleteInsertQueries() : getInsertQueries();
+		for (String q : queries) {
 			ret += q + "\n";
 		}
 		return ret;
@@ -121,10 +120,10 @@ public class ToSPARQL extends To {
 	 */
 	@Override
 	public void majStatements() throws RepositoryException, MalformedQueryException, UpdateExecutionException {
-		LinkedList<String> queries = deleteinsert ? getDeleteInsertQueries() :getInsertQueries();
+		LinkedList<String> queries = deleteinsert ? getDeleteInsertQueries() : getInsertQueries();
 
-		if (log.isInfoEnabled()) {
-			log.info("Update " + destination.getNom() + " using SPARQL queries.");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Update " + destination.getNom() + " using SPARQL queries.");
 		}
 		
 		//On veut être sûr d'effectuer soit tous les changements, soit aucun.

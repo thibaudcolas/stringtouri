@@ -83,7 +83,7 @@ public class ToSesame extends To {
 		return ret;
 	}
 	
-	//FIXME Toujours le même problème avec/sans <>.
+	//FIXME URI propriété écrite avec/sans <>.
 	/**
 	 * Updates the data set statements by overwriting the old ones with the new ones.
 	 * @throws RepositoryException Fatal error while updating the statements.
@@ -91,8 +91,8 @@ public class ToSesame extends To {
 	public void majStatements() throws RepositoryException {
 		LinkedList<Statement> tmpnew;
 		
-		if (log.isInfoEnabled()) {
-			log.info("Update " + destination.getNom() + " using Sesame statements.");
+		if (LOG.isInfoEnabled()) {
+			LOG.info("Update " + destination.getNom() + " using Sesame statements.");
 		}
 		
 		try {

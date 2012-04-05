@@ -25,14 +25,14 @@ public class AppSesame extends App {
 			
 			nom = reference.getNom() + " - " + objectif.getNom();
 	
-			if (log.isInfoEnabled()) {
-				log.info("Creation AppRDF " + nom);
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Creation AppRDF " + nom);
 			}
 		}
 		catch (RepositoryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(1);
+			System.exit(CODERE);
 		}
 	}
 	
@@ -51,14 +51,14 @@ public class AppSesame extends App {
 			
 			nom = reference.getNom() + " - " + objectif.getNom();
 	
-			if (log.isInfoEnabled()) {
-				log.info("Creation AppRDF " + nom);
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Creation AppRDF " + nom);
 			}
 		}
 		catch (RepositoryException e) {
-			log.fatal(e);
+			LOG.fatal(e);
 			shutdown();
-			System.exit(1);
+			System.exit(CODERE);
 		}
 	}
 }
