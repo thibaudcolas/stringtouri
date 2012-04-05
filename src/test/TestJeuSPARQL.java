@@ -5,8 +5,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
@@ -21,24 +19,20 @@ import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
-import org.openrdf.rio.RDFParseException;
 
-import prototype.JeuRDF;
+import prototype.JeuSPARQL;
 
-public class TestJeuRDF {
+public class TestJeuSPARQL {
 	
-	private JeuRDF j;
-	private static final String deffile = "./src/test/rdf/countries.rdf";
-	private static final String deffolder = "./src/test/rdf/";
-	private static final String defpre = "continents";
-	private static final String defuri = "defuri";
+	private JeuSPARQL j;
+	private static final String defurl = "http://localhost:8080/openrdf-sesame/repositories/test";
 	private static final String rdfpre = "rdf";
 	private static final String rdfuri = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 	private static final String defreq = "SELECT ?s WHERE {?s ?p ?o}";
 	
 	@Before
 	public void setUp() throws Exception {
-		j = new JeuRDF(deffolder,defpre,defuri);
+		j = new JeuSPARQL(defurl);
 	}
 
 	@After
@@ -48,33 +42,10 @@ public class TestJeuRDF {
 
 	@Test (expected=NoSuchElementException.class)
 	public void testConstructor() {
-		assertEquals(j.getNom(), deffolder);
-		assertEquals(j.getBaseURI(), defuri);
+		assertEquals(j.getNom(), defurl);
+		assertEquals(j.getEndPoint(), defurl);
+		
 		j.getLastQuery();
-	}
-	
-	@Test
-	public void testAddSourceFolder() {
-		try {
-			int tmpsize = j.getAllStatements().size();
-			j.addSource(deffile,"", defuri);
-			assertTrue(tmpsize < j.getAllStatements().size());
-			
-		} catch (Exception e) {
-			fail();
-		}
-	}
-	
-	@Test (expected=FileNotFoundException.class)
-	public void testAddSourceNotFound() throws IOException {
-		try {
-			j.addSource(deffolder+"notfound/","", defuri);
-		}
-		catch (RepositoryException e) {
-			fail();
-		} catch (RDFParseException e) {
-			fail();
-		}
 	}
 	
 	@Test
@@ -92,9 +63,9 @@ public class TestJeuRDF {
 	@Test
 	public void testNamespaceAddGet() {
 		try {
-			assertEquals(null,j.getNamespace(defuri));
-			j.addNamespace(defuri, defuri+defuri);
-			assertEquals(j.getNamespace(defuri), defuri+defuri);
+			assertEquals(null,j.getNamespace(defurl));
+			j.addNamespace(defurl, defurl+rdfpre);
+			assertEquals(j.getNamespace(defurl), defurl+rdfpre);
 		} catch (RepositoryException e) {
 			fail();
 		} 
@@ -144,15 +115,15 @@ public class TestJeuRDF {
 		}
 	}
 	
-	@Test (expected=MalformedQueryException.class)
-	public void testSPARQLSelectError() throws MalformedQueryException {
+	@Test (expected=QueryEvaluationException.class)
+	public void testSPARQLSelectError() throws QueryEvaluationException {
 		try {
 			j.SPARQLQuery("SELECT ?s WHERE {");
 			
 			fail();
 		} catch (RepositoryException e) {
 			fail();
-		} catch (QueryEvaluationException e) {
+		} catch (MalformedQueryException e) {
 			fail();
 		}
 	}
@@ -175,15 +146,15 @@ public class TestJeuRDF {
 		}
 	}
 	
-	@Test (expected=MalformedQueryException.class)
-	public void testSPARQLUpdateError() throws MalformedQueryException {
+	@Test (expected=UpdateExecutionException.class)
+	public void testSPARQLUpdateError() throws UpdateExecutionException {
 		try {
 			j.updateQuery("DELETE DATA ");
 			
 			fail();
 		} catch (RepositoryException e) {
 			fail();
-		} catch (UpdateExecutionException e) {
+		} catch (MalformedQueryException e) {
 			fail();
 		}
 	}
@@ -233,10 +204,10 @@ public class TestJeuRDF {
 			
 			j.rollback();
 			
-			assertFalse(j.getAllStatements().size() == 0);
+			assertTrue(j.getAllStatements().size() == 0);
 			
 			j.commit();
-			assertFalse(j.getAllStatements().size() == 0);
+			assertTrue(j.getAllStatements().size() == 0);
 			
 		} catch (RepositoryException e) {
 			fail();
@@ -253,14 +224,14 @@ public class TestJeuRDF {
 			LinkedList<Statement> sts = j.getAllStatements();
 			assertTrue(sts.size() != 0);
 			
-			j.addStatement(new StatementImpl(new URIImpl(rdfpre+":"+defuri), new URIImpl(rdfpre+":"+defuri), new URIImpl(rdfpre+":"+defuri)));
+			j.addStatement(new StatementImpl(new URIImpl(rdfpre+":"+defurl), new URIImpl(rdfpre+":"+defurl), new URIImpl(rdfpre+":"+defurl)));
 			assertEquals(sts.size() + 1, j.getAllStatements(null, null).size());
 			
 			j.addAllStatements(sts);
 			assertEquals(sts.size()+1, j.getAllStatements().size());
 			
 			
-			j.removeStatements(null, new URIImpl(rdfpre+":"+defuri));
+			j.removeStatements(null, new URIImpl(rdfpre+":"+defurl));
 			assertEquals(sts.size(), j.getAllStatements(null, null).size());
 			
 		} catch (RepositoryException e) {

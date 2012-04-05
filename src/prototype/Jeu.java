@@ -1,5 +1,9 @@
 package prototype;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,6 +22,8 @@ import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
+import org.openrdf.rio.RDFFormat;
+import org.openrdf.rio.RDFParseException;
 
 /**
  * Abstract class managing a data set from any origin.
@@ -60,6 +66,54 @@ public abstract class Jeu {
 		
 		if (LOG.isInfoEnabled()) {
 			LOG.info("Creation  Jeu " + nom + ".");
+		}
+	}
+	
+	/**
+	 * Adds given file(s) to the repository.
+	 * @param source : Path to the given folder/file.
+	 * @param start : String to filter filenames with.
+	 * @param baseuri : Base URI for the new data.
+	 * @throws IOException If the submitted filepath isn't usable.
+	 * @throws RDFParseException If the RDF data inside the file(s) isn't well-formed.
+	 * @throws RepositoryException Internal repository error.
+	 */
+	public void addSource(String source, String start, String baseuri) throws RepositoryException, RDFParseException, IOException {
+		File src = new File(source);
+		int nbimport = 0;
+		
+		if (src.exists()) {
+			// Cas src est un répertoire.
+			if (src.isDirectory()) {
+				
+				// On ne prend que les fichiers rdf.
+				FilenameFilter fil = new FilenameFilter() {
+				    public boolean accept(File d, String n) {
+				        return !n.startsWith(".") && n.endsWith(".rdf");
+				    }
+				};
+				
+				File[] rdflist = src.listFiles(fil);
+				for (File f : rdflist) {
+					if (f.getName().startsWith(start)) {
+						// Ajout du fichier au format RDFXML.
+						con.add(f, baseuri, RDFFormat.RDFXML);
+						nbimport++;
+					}
+				}	
+			}
+			// Cas src est un fichier.
+			else {
+				// Ajout du fichier au format RDFXML.
+				con.add(src, baseuri, RDFFormat.RDFXML);
+				nbimport++;
+			}
+			if (LOG.isInfoEnabled()) {
+				LOG.info("Import " + nom + " : " + nbimport + " file(s).");
+			}
+		}
+		else {
+			throw new FileNotFoundException("Import " + nom + " : " + source + " not found.");
 		}
 	}
 	
