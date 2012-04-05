@@ -24,7 +24,7 @@ public class JeuSPARQL extends Jeu {
 	 * @param ep : SPARQL endpoint URL.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	JeuSPARQL(String ep) throws RepositoryException {
+	public JeuSPARQL(String ep) throws RepositoryException {
 		super(ep);
 		try {	
 			endpoint = ep;

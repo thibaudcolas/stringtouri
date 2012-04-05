@@ -1,0 +1,936 @@
+05-04-2012 00:24:58,226 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 00:24:58,769 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 00:24:58,770 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 00:24:58,806 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 00:24:58,806 INFO  - App - Creation App ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 00:24:58,821 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
+05-04-2012 00:24:58,831 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 00:24:58,831 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 00:30:07,390 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 00:30:08,208 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 00:30:08,438 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 00:30:08,584 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 00:30:08,586 INFO  - App - Creation App ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 00:30:08,592 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
+05-04-2012 00:30:08,596 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 00:30:08,597 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 00:30:08,623 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+05-04-2012 00:30:09,336 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+05-04-2012 00:30:09,341 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 00:30:09,344 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+05-04-2012 00:30:09,345 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
+05-04-2012 00:30:09,347 FATAL - App - java.io.IOException: File not writable/corrupted - /Users/Will/Desktop/tmp.txt
+05-04-2012 00:46:05,021 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 00:46:05,481 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-test.
+05-04-2012 00:46:05,483 INFO  - App - Creation App http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-test
+05-04-2012 00:46:05,484 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
+05-04-2012 00:46:05,485 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-test.
+05-04-2012 00:46:05,485 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-test namespace retrieval.
+05-04-2012 00:46:05,626 FATAL - App - org.openrdf.repository.RepositoryException: While fetching namespaces
+05-04-2012 00:46:05,628 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 00:46:05,629 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-test off.
+05-04-2012 00:46:56,906 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 00:46:57,381 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-test.
+05-04-2012 00:46:57,382 INFO  - App - Creation App http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-test
+05-04-2012 00:46:57,384 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
+05-04-2012 00:46:57,385 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-test.
+05-04-2012 00:46:57,385 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-test namespace retrieval.
+05-04-2012 00:46:57,564 FATAL - App - org.openrdf.repository.RepositoryException: While fetching namespaces
+05-04-2012 00:46:57,565 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 00:46:57,565 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-test off.
+05-04-2012 00:47:48,835 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 00:47:49,551 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 00:47:49,556 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 00:47:49,599 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 00:47:49,600 INFO  - App - Creation App ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 00:47:49,608 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
+05-04-2012 00:47:49,612 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 00:47:49,614 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 00:47:49,750 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+05-04-2012 00:47:50,298 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+05-04-2012 00:47:50,299 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 00:47:50,303 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+05-04-2012 00:47:50,307 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
+05-04-2012 00:47:50,316 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 00:47:50,319 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 00:48:57,797 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 00:48:58,338 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 00:48:58,340 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 00:48:58,377 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 00:48:58,378 INFO  - App - Creation App ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 00:48:58,379 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
+05-04-2012 00:48:58,399 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 00:48:58,400 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 00:48:58,413 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+05-04-2012 00:48:58,820 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+05-04-2012 00:48:58,820 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 00:48:58,824 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+05-04-2012 00:48:58,825 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
+05-04-2012 00:48:58,827 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 00:48:58,828 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 01:02:47,577 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 01:02:48,125 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 01:02:48,127 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 01:02:48,267 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 01:02:48,271 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 01:02:48,272 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
+05-04-2012 01:02:48,273 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 01:02:48,281 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 01:02:48,309 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+05-04-2012 01:02:48,948 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+05-04-2012 01:02:48,957 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:02:48,961 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+05-04-2012 01:02:48,962 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+05-04-2012 01:02:48,966 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 01:02:48,966 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 01:05:23,438 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:05:23,935 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-test.
+05-04-2012 01:05:23,937 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-test
+05-04-2012 01:05:23,938 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
+05-04-2012 01:05:23,940 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-test.
+05-04-2012 01:05:23,940 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-test namespace retrieval.
+05-04-2012 01:05:24,430 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+05-04-2012 01:05:26,453 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:05:26,454 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-test select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:05:26,500 FATAL - App - org.openrdf.query.QueryEvaluationException: Query : SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:05:26,501 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:05:26,501 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-test off.
+05-04-2012 01:06:40,046 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:06:40,440 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-all.
+05-04-2012 01:06:40,443 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-all
+05-04-2012 01:06:40,444 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:06:40,445 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-all.
+05-04-2012 01:06:40,445 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-all namespace retrieval.
+05-04-2012 01:06:40,717 FATAL - App - org.openrdf.repository.RepositoryException: While fetching namespaces
+05-04-2012 01:06:40,720 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:06:40,721 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-all off.
+05-04-2012 01:06:49,304 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:06:49,774 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:06:49,775 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:06:49,776 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:06:49,777 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:06:49,777 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:06:50,043 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:06:50,234 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:06:50,235 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:06:50,306 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:06:50,308 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:06:50,309 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:06:50,309 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:08:07,427 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:08:07,822 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:07,823 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:08:07,824 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
+05-04-2012 01:08:07,826 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:07,826 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:08:08,037 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:08:08,227 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:08:08,227 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:08:08,274 FATAL - App - org.openrdf.query.QueryEvaluationException: Query : SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 01:08:08,277 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:08:08,277 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:08:42,992 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:08:43,422 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:43,425 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:08:43,426 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:08:43,428 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:43,429 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:08:43,738 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:08:43,978 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:08:43,979 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:08:44,062 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:08:44,067 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:08:44,070 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:08:44,071 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:09:41,755 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:09:42,219 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:09:42,220 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:09:42,221 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:09:42,222 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:09:42,222 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:09:42,498 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:09:42,682 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:09:42,684 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:09:42,753 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:09:42,755 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:09:42,757 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:09:42,757 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:10:40,676 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:10:40,891 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:10:40,892 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:10:40,893 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:10:40,895 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:10:40,896 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:10:41,203 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:10:41,404 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:10:41,404 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:10:41,636 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:10:41,662 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:10:41,715 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:10:41,721 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:11:07,829 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:11:08,076 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:08,077 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:11:08,079 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:11:08,081 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:08,082 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:11:08,311 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:11:08,513 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:11:08,514 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:11:08,545 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:08,548 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:11:08,551 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:11:08,552 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:11:45,303 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:11:45,759 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:45,761 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:11:45,762 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:11:45,763 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:45,763 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:11:45,965 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:11:46,087 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:11:46,087 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:11:46,112 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:11:46,114 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:11:46,117 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:11:46,118 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:20:45,138 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:20:45,648 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:20:45,652 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:20:45,654 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:20:45,655 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:20:45,656 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:20:45,884 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:20:46,118 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:20:46,118 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:20:46,171 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:20:46,174 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:20:46,176 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:20:46,177 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:24:06,146 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:06,347 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:06,349 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:24:06,350 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:24:06,352 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:06,352 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:24:06,584 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:24:06,743 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:06,743 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:24:06,777 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:06,780 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:24:06,782 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:24:06,783 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:24:32,891 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:33,088 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:33,089 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:24:33,092 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:24:33,093 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:33,094 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:24:33,340 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:24:33,645 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:33,645 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:24:33,675 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:33,678 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:24:33,679 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:24:33,680 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 01:24:46,656 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:46,865 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:46,867 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
+05-04-2012 01:24:46,868 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 01:24:46,869 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:46,870 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
+05-04-2012 01:24:47,111 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 01:24:47,285 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+05-04-2012 01:24:47,286 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 01:24:47,315 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+05-04-2012 01:24:47,317 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
+05-04-2012 01:24:47,319 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
+05-04-2012 01:24:47,319 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
+05-04-2012 12:40:54,505 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 12:40:55,137 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 12:40:55,138 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 12:40:55,232 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 12:40:55,233 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 12:40:55,234 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 12:40:55,236 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 12:40:55,236 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 12:40:55,247 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 12:40:56,243 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
+05-04-2012 12:40:56,243 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:40:56,245 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:40:56,248 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 12:40:56,248 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 12:41:17,063 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 12:41:17,520 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 12:41:17,520 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 12:41:17,574 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 12:41:17,574 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 12:41:17,575 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 12:41:17,576 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 12:41:17,576 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 12:41:17,583 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 12:41:17,952 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
+05-04-2012 12:41:17,953 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:41:17,955 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:41:17,957 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 12:41:17,958 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 12:42:17,104 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 12:42:17,898 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 12:42:17,899 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 12:42:17,921 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 12:42:17,921 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 12:42:17,922 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
+05-04-2012 12:42:17,923 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 12:42:17,923 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 12:42:17,929 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
+05-04-2012 12:42:18,453 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
+05-04-2012 12:42:18,454 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:42:18,455 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
+05-04-2012 12:42:18,458 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 12:42:18,458 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 12:42:36,923 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
+05-04-2012 12:42:37,363 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
+05-04-2012 12:42:37,364 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
+05-04-2012 12:42:37,408 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
+05-04-2012 12:42:37,408 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+05-04-2012 12:42:37,409 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
+05-04-2012 12:42:37,410 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
+05-04-2012 12:42:37,410 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
+05-04-2012 12:42:37,423 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+05-04-2012 12:42:37,765 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+05-04-2012 12:42:37,766 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+05-04-2012 12:42:37,769 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+05-04-2012 12:42:37,770 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+05-04-2012 12:42:37,773 INFO  - Jeu - Connection ./rdf/insee/ off.
+05-04-2012 12:42:37,773 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+05-04-2012 20:02:01,030 INFO  - Jeu - Creation  Jeu countries.rdf.
+05-04-2012 20:02:36,319 INFO  - Jeu - Creation  Jeu ./src/test/countries.rdf.
+05-04-2012 20:02:40,493 INFO  - Jeu - Import ./src/test/countries.rdf : 1 file(s).
+05-04-2012 20:02:40,511 INFO  - Jeu - Connection ./src/test/countries.rdf off.
+05-04-2012 20:03:24,331 INFO  - Jeu - Creation  Jeu ./src/test/continents.rdf.
+05-04-2012 20:03:24,630 INFO  - Jeu - Import ./src/test/continents.rdf : 1 file(s).
+05-04-2012 20:03:24,633 INFO  - Jeu - Connection ./src/test/continents.rdf off.
+05-04-2012 20:03:53,720 INFO  - Jeu - Creation  Jeu ./src/test/continents.rdf.
+05-04-2012 20:03:55,075 INFO  - Jeu - Creation  Jeu ./src/test/continents.rdf.
+05-04-2012 20:03:56,128 INFO  - Jeu - Import ./src/test/continents.rdf : 1 file(s).
+05-04-2012 20:03:56,132 INFO  - Jeu - Connection ./src/test/continents.rdf off.
+05-04-2012 20:03:56,977 INFO  - Jeu - Import ./src/test/continents.rdf : 1 file(s).
+05-04-2012 20:03:56,993 INFO  - Jeu - Connection ./src/test/continents.rdf off.
+05-04-2012 20:09:22,581 INFO  - Jeu - Creation  Jeu ./src/test/continents.rdf.
+05-04-2012 20:09:22,843 INFO  - Jeu - Import ./src/test/continents.rdf : 1 file(s).
+05-04-2012 20:09:22,874 INFO  - Jeu - Connection ./src/test/continents.rdf off.
+05-04-2012 20:09:22,878 INFO  - Jeu - Creation  Jeu ./src/test/continents.rdf.
+05-04-2012 20:09:22,940 INFO  - Jeu - Import ./src/test/continents.rdf : 1 file(s).
+05-04-2012 20:09:22,950 INFO  - Jeu - Connection ./src/test/continents.rdf off.
+05-04-2012 20:10:52,111 INFO  - Jeu - Creation  Jeu ./src/test/continents.rdf.
+05-04-2012 20:10:52,395 INFO  - Jeu - Import ./src/test/continents.rdf : 1 file(s).
+05-04-2012 20:10:52,398 INFO  - Jeu - Connection ./src/test/continents.rdf off.
+05-04-2012 20:10:52,419 INFO  - Jeu - Creation  Jeu ./src/test/continents.rdf.
+05-04-2012 20:10:52,518 INFO  - Jeu - Import ./src/test/continents.rdf : 1 file(s).
+05-04-2012 20:10:52,525 INFO  - Jeu - Connection ./src/test/continents.rdf off.
+05-04-2012 20:19:29,044 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:19:30,742 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:19:30,745 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:19:30,789 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:19:30,957 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:19:34,210 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:19:34,281 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:19:34,283 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:19:34,443 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:19:34,460 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:19:52,293 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:19:53,401 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:19:53,408 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:19:53,412 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:19:53,483 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:19:55,830 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:19:55,979 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:19:55,980 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:19:55,996 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:19:55,999 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:21:57,408 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:21:58,553 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:21:58,556 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:21:58,562 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:21:58,648 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:22:01,565 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:22:01,721 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:22:01,737 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:22:01,799 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:22:01,803 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:22:01,820 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:22:01,835 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:22:01,839 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:24:50,737 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:24:51,616 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:24:51,618 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:24:51,623 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:24:51,695 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:24:53,990 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:24:54,051 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:24:54,052 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:24:54,097 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:24:54,098 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:24:54,116 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:24:54,211 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:24:54,214 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:28,195 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:29,233 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:29,238 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:29,242 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:29,303 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:31,501 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:31,612 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:31,623 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:31,687 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:31,699 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:31,709 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:31,724 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:31,727 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:49,930 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:50,191 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:50,204 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:50,213 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:50,322 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:52,376 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:52,510 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:52,520 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:52,616 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:52,617 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:52,618 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:52,656 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:52,658 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:57,477 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:58,368 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:25:58,384 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:25:58,388 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:25:58,432 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:26:00,705 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:26:00,855 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:26:00,878 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:26:00,916 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:26:00,917 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:26:00,918 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:26:00,957 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:26:00,962 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:27:31,136 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:27:32,223 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:27:32,240 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:27:32,244 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:27:32,303 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:27:34,578 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:27:34,635 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:27:34,637 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:27:34,671 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:27:34,672 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:27:34,720 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:27:34,882 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:27:34,888 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:28:55,952 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:28:56,946 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:28:56,969 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:28:56,973 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:28:57,042 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:28:59,332 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:28:59,446 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:28:59,447 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:28:59,530 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:28:59,549 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:28:59,550 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:28:59,597 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:28:59,617 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:45:44,193 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:45:44,530 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:45:44,532 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:45:44,559 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:45:44,628 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:45:46,473 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:45:46,528 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:45:46,535 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:45:46,551 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:45:46,552 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:45:46,601 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:45:46,682 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:45:46,684 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:45:46,686 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:45:46,729 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:45:46,731 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:46:11,981 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:46:12,373 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:46:12,376 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:46:12,378 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:46:12,440 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:46:14,409 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:46:14,566 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:46:14,586 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:46:14,601 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:46:14,602 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:46:14,604 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:46:14,681 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:46:14,685 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:46:14,685 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:46:14,710 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:46:14,711 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:54:04,590 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:54:06,377 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:54:06,380 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:54:06,389 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:54:06,514 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:54:09,111 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:54:09,219 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:54:09,220 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:54:09,269 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:54:09,270 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:54:09,271 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:54:09,291 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:54:09,294 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:54:09,295 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:54:09,309 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:54:09,310 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 20:54:09,311 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 20:54:09,324 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 20:54:09,325 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 21:27:45,756 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 21:27:47,264 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 21:27:47,275 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 21:27:47,310 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 21:27:47,416 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 21:27:50,871 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 21:27:51,037 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 21:27:51,074 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 21:27:51,166 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 21:27:51,174 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 21:27:51,184 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 21:27:51,213 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 21:27:51,239 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 21:27:51,241 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 21:27:51,368 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 21:27:51,369 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 21:27:51,371 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 21:27:51,456 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 21:27:51,457 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 21:27:51,479 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 21:27:51,537 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 21:27:51,539 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:22:52,096 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:22:52,516 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:52,522 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:22:52,528 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:22:52,592 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:55,033 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:55,166 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:22:55,171 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:22:55,258 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:55,273 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:22:55,274 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:22:55,304 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:55,306 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:22:55,307 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:22:55,348 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:55,349 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:22:55,350 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:22:55,536 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:55,551 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:22:55,553 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:22:55,583 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:55,584 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:22:55,585 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:22:55,654 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:22:55,655 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 22:25:11,826 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:25:13,447 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:13,451 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:25:13,476 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:25:13,657 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:17,708 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:17,936 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:25:17,944 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:25:17,957 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:17,958 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:25:17,959 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:25:17,992 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:17,997 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:25:17,998 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:25:18,020 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:18,021 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:25:18,022 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:25:18,039 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:18,040 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:25:18,160 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:25:18,194 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:18,194 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:25:18,195 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:25:18,218 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:25:18,222 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 22:26:45,019 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:26:45,814 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:45,829 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:26:45,833 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:26:45,882 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:50,326 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:50,457 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:26:50,460 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:26:50,595 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:50,595 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:26:50,596 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:26:50,652 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:50,655 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:26:50,656 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:26:50,693 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:50,694 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:26:50,695 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:26:50,815 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:50,816 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:26:50,816 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:26:50,944 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:50,946 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:26:50,948 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:26:50,992 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:26:50,993 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 22:26:52,170 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:29:10,665 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:29:12,729 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:12,732 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:29:12,736 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:29:13,048 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:17,998 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:18,199 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:29:18,218 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:29:18,264 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:18,269 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:29:18,270 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:29:18,306 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:18,309 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:29:18,310 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:29:18,409 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:18,409 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:29:18,410 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:29:18,603 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:18,604 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:29:18,605 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:29:18,635 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:18,654 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:29:18,667 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:29:18,699 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:29:18,704 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 22:29:20,484 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:35,195 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:35,867 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:35,870 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:35,911 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:36,002 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:40,166 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:40,327 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:40,331 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:40,373 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:40,374 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:40,375 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:40,406 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:40,410 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:40,412 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:40,460 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:40,460 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:40,462 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:40,516 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:40,516 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:40,595 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:40,657 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:40,659 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:40,665 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:40,804 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:40,804 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 22:30:41,845 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:30:41,847 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:30:41,896 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:30:41,897 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+05-04-2012 22:30:41,909 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:32:56,595 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:32:57,466 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:32:57,470 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:32:57,473 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:32:57,555 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:01,868 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:02,031 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:33:02,032 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:33:02,061 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:02,062 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:33:02,063 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:33:02,174 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:02,177 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:33:02,178 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:33:02,236 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:02,237 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:33:02,238 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:33:02,454 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:02,457 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:33:02,461 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:33:02,592 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:02,592 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:33:02,593 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:33:02,660 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:02,668 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 22:33:03,585 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 22:33:03,624 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 22:33:03,661 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 22:33:03,661 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+05-04-2012 22:33:03,679 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:27,610 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:29,163 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:29,170 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:29,252 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:29,316 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:32,746 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:32,928 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:32,930 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:32,958 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:32,959 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:32,960 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:33,044 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:33,047 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:33,048 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:33,120 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:33,120 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:33,121 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:33,159 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:33,159 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:33,251 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:33,284 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:33,285 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:33,292 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:33,355 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:33,355 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 23:10:34,556 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:34,559 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:34,598 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:34,599 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+05-04-2012 23:10:34,610 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:34,611 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:34,644 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:34,649 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:10:34,736 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:10:34,737 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:10:34,780 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:10:34,780 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA 
+05-04-2012 23:10:34,785 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:31,731 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:33,656 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:33,659 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:33,663 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:33,718 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:37,216 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:37,354 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:37,372 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:37,412 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:37,413 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:37,425 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:37,510 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:37,513 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:37,514 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:37,568 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:37,569 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:37,570 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:37,596 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:37,663 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:37,668 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:37,681 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:37,682 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:37,732 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:37,759 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:37,760 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 23:35:39,102 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:39,102 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:39,113 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:39,159 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+05-04-2012 23:35:39,164 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:39,166 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:39,184 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:39,184 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:35:39,270 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:39,273 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:39,310 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:39,311 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA 
+05-04-2012 23:35:39,314 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:39,315 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:39,352 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:39,352 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:35:39,353 INFO  - Jeu - Commit ./src/test/rdf/ on auto.
+05-04-2012 23:35:39,353 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:39,354 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:39,478 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:39,479 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:35:39,479 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:35:39,496 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:35:39,502 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:35:39,606 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:35:39,608 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:35:39,608 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:35:39,628 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:24,080 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:25,825 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:25,829 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:25,832 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:25,900 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:29,238 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:29,425 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:29,426 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:29,447 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:29,448 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:29,449 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:29,472 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:29,475 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:29,478 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:29,514 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:29,515 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:29,516 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:29,535 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:29,536 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:29,537 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:29,616 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:29,617 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:29,623 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:29,657 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:29,657 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 23:36:31,064 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:31,067 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:31,090 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:31,091 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+05-04-2012 23:36:31,096 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:31,115 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:31,142 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:31,142 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:36:31,245 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:31,246 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:31,272 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:31,273 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA 
+05-04-2012 23:36:31,276 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:31,293 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:31,349 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:31,350 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:36:31,350 INFO  - Jeu - Commit ./src/test/rdf/ on auto.
+05-04-2012 23:36:31,351 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:31,375 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:31,438 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:31,439 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:36:31,439 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:36:31,447 INFO  - Jeu - Commit ./src/test/rdf/.
+05-04-2012 23:36:31,474 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:31,475 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:31,537 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:31,538 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:36:31,538 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:36:31,548 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:53,497 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:54,873 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:54,889 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:54,898 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:55,053 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:58,848 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:59,064 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:59,065 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:59,087 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:59,088 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:59,089 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:59,108 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:59,112 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:59,113 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:59,167 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:59,168 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:59,169 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:59,234 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:59,306 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:59,343 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:59,372 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:59,373 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:36:59,374 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:36:59,393 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:36:59,394 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 23:37:00,676 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:37:00,678 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:37:00,694 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:37:00,695 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+05-04-2012 23:37:00,701 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:37:00,702 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:37:00,727 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:37:00,727 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:37:00,804 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:37:00,805 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:37:00,841 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:37:00,846 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA 
+05-04-2012 23:37:00,850 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:37:00,860 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:37:00,967 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:37:00,968 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:37:00,968 INFO  - Jeu - Commit ./src/test/rdf/ on auto.
+05-04-2012 23:37:00,969 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:37:00,969 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:37:01,044 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:37:01,044 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:37:01,045 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:37:01,120 INFO  - Jeu - Commit ./src/test/rdf/.
+05-04-2012 23:37:01,121 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:37:01,122 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:37:01,158 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:37:01,158 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:37:01,158 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:37:01,164 INFO  - Jeu - Commit ./src/test/rdf/ rollback.
+05-04-2012 23:37:01,165 INFO  - Jeu - Commit ./src/test/rdf/.
+05-04-2012 23:37:01,166 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:29,819 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:31,754 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:31,757 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:31,820 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:31,970 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:36,064 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:36,169 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:36,170 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:36,356 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:36,356 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:36,357 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:36,390 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:36,394 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:36,399 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:36,427 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:36,428 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:36,429 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:36,494 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:36,496 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:36,497 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:36,606 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:36,607 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:36,607 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:36,654 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:36,654 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+05-04-2012 23:59:38,008 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:38,016 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:38,064 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:38,064 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+05-04-2012 23:59:38,069 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:38,070 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:38,080 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:38,081 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:59:38,175 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:38,193 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:38,206 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:38,206 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA 
+05-04-2012 23:59:38,209 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:38,223 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:38,265 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:38,266 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:59:38,267 INFO  - Jeu - Commit ./src/test/rdf/ on auto.
+05-04-2012 23:59:38,267 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:38,268 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:38,296 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:38,296 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:59:38,296 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:59:38,328 INFO  - Jeu - Commit ./src/test/rdf/.
+05-04-2012 23:59:38,331 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:38,332 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:38,386 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:38,387 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+05-04-2012 23:59:38,387 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+05-04-2012 23:59:38,404 INFO  - Jeu - Commit ./src/test/rdf/ rollback.
+05-04-2012 23:59:38,405 INFO  - Jeu - Commit ./src/test/rdf/.
+05-04-2012 23:59:38,437 INFO  - Jeu - Connection ./src/test/rdf/ off.
+05-04-2012 23:59:38,438 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+05-04-2012 23:59:38,473 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+05-04-2012 23:59:38,485 INFO  - Jeu - Connection ./src/test/rdf/ off.

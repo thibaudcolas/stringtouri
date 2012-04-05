@@ -142,7 +142,7 @@ public class App {
 		try {
 			sortie = new ToRDF(objectif, datatomaj);
 		} catch (RepositoryException e) {
-			LOG.fatal(e);
+			LOG.fatal("Export " + nom + " RDF - " + e);
 			shutdown();
 			System.exit(CODERE);
 		}
@@ -155,7 +155,7 @@ public class App {
 		try {
 			sortie = new ToSesame(objectif, datatomaj);
 		} catch (RepositoryException e) {
-			LOG.fatal(e);
+			LOG.fatal("Export " + nom + " Sesame - " + e);
 			shutdown();
 			System.exit(CODERE);
 		}
@@ -168,7 +168,7 @@ public class App {
 		try {
 			sortie = new ToSPARQL(objectif, datatomaj);
 		} catch (RepositoryException e) {
-			LOG.fatal(e);
+			LOG.fatal("Export " + nom + " SPARQL - " + e);
 			shutdown();
 			System.exit(CODERE);
 		}
@@ -182,15 +182,15 @@ public class App {
 		try {
 			sortie.setMaj(linkage.getInterconnexion(), a);
 		} catch (RepositoryException e) {
-			LOG.fatal(e);
+			LOG.fatal("Interlink " + nom + " - " + e);
 			shutdown();
 			System.exit(CODERE);
 		} catch (QueryEvaluationException e) {
-			LOG.fatal(e);
+			LOG.fatal("Interlink " + nom + " - " + e);
 			shutdown();
 			System.exit(CODEQY);
 		} catch (MalformedQueryException e) {
-			LOG.fatal(e);
+			LOG.fatal("Interlink " + nom + " - " + e);
 			shutdown();
 			System.exit(CODEQY);
 		}
@@ -211,15 +211,15 @@ public class App {
 		try {
 			sortie.majStatements();
 		} catch (RepositoryException e) {
-			LOG.fatal(e);
+			LOG.fatal("Interlink " + nom + " update - " + e);
 			shutdown();
 			System.exit(1);
 		} catch (UpdateExecutionException e) {
-			LOG.fatal(e);
+			LOG.fatal("Interlink " + nom + " update - " + e);
 			shutdown();
 			System.exit(CODEQY);
 		} catch (MalformedQueryException e) {
-			LOG.fatal(e);
+			LOG.fatal("Interlink " + nom + " update - " + e);
 			shutdown();
 			System.exit(CODEQY);
 		}
@@ -257,7 +257,7 @@ public class App {
 			}
 		}
 		catch (IOException e) {
-			LOG.fatal(e);
+			LOG.fatal("Export " + nom + " - " + e);
 			shutdown();
 			System.exit(CODEIO);
 		}

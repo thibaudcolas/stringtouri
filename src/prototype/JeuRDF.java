@@ -35,7 +35,7 @@ public class JeuRDF extends Jeu {
 	 * @throws IOException File/folder error.
 	 * @throws RDFParseException File(s) content isn't correct RDFXML.
 	 */
-	JeuRDF(String source, String start, String uri) throws RepositoryException, IOException, RDFParseException {
+	public JeuRDF(String source, String start, String uri) throws RepositoryException, IOException, RDFParseException {
 		super(source);
 		try {
 			baseuri = uri;
@@ -61,7 +61,7 @@ public class JeuRDF extends Jeu {
 	 * @throws RDFParseException If the RDF data inside the file(s) isn't well-formed.
 	 * @throws RepositoryException Internal repository error.
 	 */
-	private void addSource(String source, String start) throws RepositoryException, RDFParseException, IOException {
+	public void addSource(String source, String start) throws RepositoryException, RDFParseException, IOException {
 		File src = new File(source);
 		int nbimport = 0;
 		

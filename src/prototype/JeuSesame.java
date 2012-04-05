@@ -28,7 +28,7 @@ public class JeuSesame extends Jeu {
 	 * @param sd : Direct URL to the SESAME repository.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	JeuSesame(String sd) throws RepositoryException {
+	public JeuSesame(String sd) throws RepositoryException {
 		super(sd);
 		try {
 			sesame = sd;
@@ -51,7 +51,7 @@ public class JeuSesame extends Jeu {
 	 * @param d : Repository id.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	JeuSesame(String s, String d) throws RepositoryException {
+	public JeuSesame(String s, String d) throws RepositoryException {
 		super(s + " - " + d);
 		try {	
 			sesame = s;

@@ -1,305 +1,177 @@
-05-04-2012 00:24:58,226 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 00:24:58,769 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 00:24:58,770 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 00:24:58,806 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 00:24:58,806 INFO  - App - Creation App ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 00:24:58,821 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
-05-04-2012 00:24:58,831 INFO  - Jeu - Connection ./rdf/insee/ off.
-05-04-2012 00:24:58,831 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
-05-04-2012 00:30:07,390 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 00:30:08,208 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 00:30:08,438 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 00:30:08,584 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 00:30:08,586 INFO  - App - Creation App ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 00:30:08,592 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
-05-04-2012 00:30:08,596 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
-05-04-2012 00:30:08,597 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
-05-04-2012 00:30:08,623 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-05-04-2012 00:30:09,336 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-05-04-2012 00:30:09,341 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 00:30:09,344 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-05-04-2012 00:30:09,345 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
-05-04-2012 00:30:09,347 FATAL - App - java.io.IOException: File not writable/corrupted - /Users/Will/Desktop/tmp.txt
-05-04-2012 00:46:05,021 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 00:46:05,481 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-test.
-05-04-2012 00:46:05,483 INFO  - App - Creation App http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-test
-05-04-2012 00:46:05,484 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
-05-04-2012 00:46:05,485 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-test.
-05-04-2012 00:46:05,485 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-test namespace retrieval.
-05-04-2012 00:46:05,626 FATAL - App - org.openrdf.repository.RepositoryException: While fetching namespaces
-05-04-2012 00:46:05,628 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 00:46:05,629 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-test off.
-05-04-2012 00:46:56,906 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 00:46:57,381 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-test.
-05-04-2012 00:46:57,382 INFO  - App - Creation App http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-test
-05-04-2012 00:46:57,384 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
-05-04-2012 00:46:57,385 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-test.
-05-04-2012 00:46:57,385 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-test namespace retrieval.
-05-04-2012 00:46:57,564 FATAL - App - org.openrdf.repository.RepositoryException: While fetching namespaces
-05-04-2012 00:46:57,565 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 00:46:57,565 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-test off.
-05-04-2012 00:47:48,835 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 00:47:49,551 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 00:47:49,556 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 00:47:49,599 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 00:47:49,600 INFO  - App - Creation App ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 00:47:49,608 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
-05-04-2012 00:47:49,612 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
-05-04-2012 00:47:49,614 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
-05-04-2012 00:47:49,750 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-05-04-2012 00:47:50,298 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-05-04-2012 00:47:50,299 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 00:47:50,303 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-05-04-2012 00:47:50,307 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
-05-04-2012 00:47:50,316 INFO  - Jeu - Connection ./rdf/insee/ off.
-05-04-2012 00:47:50,319 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
-05-04-2012 00:48:57,797 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 00:48:58,338 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 00:48:58,340 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 00:48:58,377 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 00:48:58,378 INFO  - App - Creation App ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 00:48:58,379 INFO  - Liaison - Creation  Liaison geo:nom-tt:Région.
-05-04-2012 00:48:58,399 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
-05-04-2012 00:48:58,400 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
-05-04-2012 00:48:58,413 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-05-04-2012 00:48:58,820 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-05-04-2012 00:48:58,820 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 00:48:58,824 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-05-04-2012 00:48:58,825 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom-tt:Région.
-05-04-2012 00:48:58,827 INFO  - Jeu - Connection ./rdf/insee/ off.
-05-04-2012 00:48:58,828 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
-05-04-2012 01:02:47,577 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 01:02:48,125 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 01:02:48,127 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 01:02:48,267 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 01:02:48,271 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 01:02:48,272 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
-05-04-2012 01:02:48,273 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
-05-04-2012 01:02:48,281 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
-05-04-2012 01:02:48,309 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-05-04-2012 01:02:48,948 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-05-04-2012 01:02:48,957 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 01:02:48,961 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-05-04-2012 01:02:48,962 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-05-04-2012 01:02:48,966 INFO  - Jeu - Connection ./rdf/insee/ off.
-05-04-2012 01:02:48,966 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
-05-04-2012 01:05:23,438 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:05:23,935 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-test.
-05-04-2012 01:05:23,937 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-test
-05-04-2012 01:05:23,938 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
-05-04-2012 01:05:23,940 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-test.
-05-04-2012 01:05:23,940 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-test namespace retrieval.
-05-04-2012 01:05:24,430 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-05-04-2012 01:05:26,453 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:05:26,454 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-test select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 01:05:26,500 FATAL - App - org.openrdf.query.QueryEvaluationException: Query : SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 01:05:26,501 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:05:26,501 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-test off.
-05-04-2012 01:06:40,046 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:06:40,440 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-all.
-05-04-2012 01:06:40,443 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-all
-05-04-2012 01:06:40,444 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:06:40,445 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-all.
-05-04-2012 01:06:40,445 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-all namespace retrieval.
-05-04-2012 01:06:40,717 FATAL - App - org.openrdf.repository.RepositoryException: While fetching namespaces
-05-04-2012 01:06:40,720 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:06:40,721 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-all off.
-05-04-2012 01:06:49,304 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:06:49,774 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:06:49,775 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:06:49,776 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:06:49,777 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:06:49,777 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:06:50,043 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:06:50,234 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:06:50,235 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:06:50,306 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:06:50,308 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:06:50,309 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:06:50,309 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:08:07,427 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:08:07,822 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:08:07,823 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:08:07,824 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
-05-04-2012 01:08:07,826 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:08:07,826 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:08:08,037 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:08:08,227 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:08:08,227 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 01:08:08,274 FATAL - App - org.openrdf.query.QueryEvaluationException: Query : SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 01:08:08,277 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:08:08,277 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:08:42,992 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:08:43,422 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:08:43,425 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:08:43,426 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:08:43,428 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:08:43,429 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:08:43,738 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:08:43,978 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:08:43,979 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:08:44,062 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:08:44,067 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:08:44,070 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:08:44,071 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:09:41,755 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:09:42,219 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:09:42,220 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:09:42,221 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:09:42,222 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:09:42,222 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:09:42,498 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:09:42,682 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:09:42,684 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:09:42,753 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:09:42,755 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:09:42,757 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:09:42,757 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:10:40,676 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:10:40,891 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:10:40,892 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:10:40,893 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:10:40,895 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:10:40,896 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:10:41,203 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:10:41,404 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:10:41,404 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:10:41,636 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:10:41,662 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:10:41,715 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:10:41,721 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:11:07,829 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:11:08,076 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:11:08,077 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:11:08,079 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:11:08,081 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:11:08,082 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:11:08,311 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:11:08,513 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:11:08,514 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:11:08,545 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:11:08,548 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:11:08,551 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:11:08,552 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:11:45,303 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:11:45,759 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:11:45,761 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:11:45,762 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:11:45,763 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:11:45,763 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:11:45,965 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:11:46,087 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:11:46,087 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:11:46,112 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:11:46,114 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:11:46,117 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:11:46,118 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:20:45,138 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:20:45,648 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:20:45,652 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:20:45,654 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:20:45,655 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:20:45,656 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:20:45,884 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:20:46,118 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:20:46,118 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:20:46,171 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:20:46,174 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:20:46,176 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:20:46,177 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:24:06,146 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:24:06,347 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:06,349 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:24:06,350 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:24:06,352 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:06,352 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:24:06,584 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:24:06,743 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:24:06,743 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:24:06,777 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:06,780 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:24:06,782 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:24:06,783 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:24:32,891 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:24:33,088 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:33,089 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:24:33,092 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:24:33,093 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:33,094 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:24:33,340 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:24:33,645 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:24:33,645 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:24:33,675 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:33,678 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:24:33,679 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:24:33,680 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 01:24:46,656 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:24:46,865 INFO  - Jeu - Creation  Jeu http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:46,867 INFO  - App - Creation AppRDF http://localhost:8080/openrdf-sesame/ - geo-insee-all - http://localhost:8080/openrdf-sesame/ - passim-propre
-05-04-2012 01:24:46,868 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 01:24:46,869 INFO  - To - Creation  Output http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:46,870 INFO  - To - Export http://localhost:8080/openrdf-sesame/ - passim-propre namespace retrieval.
-05-04-2012 01:24:47,111 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - geo-insee-all select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 01:24:47,285 INFO  - Liaison - Predicate geo:nom has 400 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
-05-04-2012 01:24:47,286 INFO  - Jeu - Query http://localhost:8080/openrdf-sesame/ - passim-propre select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 01:24:47,315 INFO  - Liaison - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
-05-04-2012 01:24:47,317 INFO  - Liaison - Predicate passim:department and geo:nom have 3 common statement(s) in geo:nom - passim:department.
-05-04-2012 01:24:47,319 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - geo-insee-all off.
-05-04-2012 01:24:47,319 INFO  - Jeu - Connection http://localhost:8080/openrdf-sesame/ - passim-propre off.
-05-04-2012 12:40:54,505 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 12:40:55,137 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 12:40:55,138 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 12:40:55,232 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 12:40:55,233 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 12:40:55,234 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 12:40:55,236 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
-05-04-2012 12:40:55,236 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
-05-04-2012 12:40:55,247 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 12:40:56,243 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
-05-04-2012 12:40:56,243 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 12:40:56,245 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 12:40:56,248 INFO  - Jeu - Connection ./rdf/insee/ off.
-05-04-2012 12:40:56,248 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
-05-04-2012 12:41:17,063 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 12:41:17,520 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 12:41:17,520 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 12:41:17,574 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 12:41:17,574 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 12:41:17,575 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 12:41:17,576 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
-05-04-2012 12:41:17,576 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
-05-04-2012 12:41:17,583 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 12:41:17,952 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
-05-04-2012 12:41:17,953 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 12:41:17,955 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 12:41:17,957 INFO  - Jeu - Connection ./rdf/insee/ off.
-05-04-2012 12:41:17,958 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
-05-04-2012 12:42:17,104 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 12:42:17,898 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 12:42:17,899 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 12:42:17,921 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 12:42:17,921 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 12:42:17,922 INFO  - Liaison - Creation  Liaison geo:nom - passim:department.
-05-04-2012 12:42:17,923 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
-05-04-2012 12:42:17,923 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
-05-04-2012 12:42:17,929 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Departement . ?s geo:nom ?o}
-05-04-2012 12:42:18,453 INFO  - Liaison - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
-05-04-2012 12:42:18,454 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 12:42:18,455 FATAL - App - org.openrdf.query.MalformedQueryException: Query : SELECT ?s ?o WHERE {?s passim:department ?o}
-05-04-2012 12:42:18,458 INFO  - Jeu - Connection ./rdf/insee/ off.
-05-04-2012 12:42:18,458 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
-05-04-2012 12:42:36,923 INFO  - Jeu - Creation  Jeu ./rdf/insee/.
-05-04-2012 12:42:37,363 INFO  - Jeu - Import ./rdf/insee/ : 1 file(s).
-05-04-2012 12:42:37,364 INFO  - Jeu - Creation  Jeu ./rdf/Brute3.rdf.
-05-04-2012 12:42:37,408 INFO  - Jeu - Import ./rdf/Brute3.rdf : 1 file(s).
-05-04-2012 12:42:37,408 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
-05-04-2012 12:42:37,409 INFO  - Liaison - Creation  Liaison geo:nom - tt:Région.
-05-04-2012 12:42:37,410 INFO  - To - Creation  Output ./rdf/Brute3.rdf.
-05-04-2012 12:42:37,410 INFO  - To - Export ./rdf/Brute3.rdf namespace retrieval.
-05-04-2012 12:42:37,423 INFO  - Jeu - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
-05-04-2012 12:42:37,765 INFO  - Liaison - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
-05-04-2012 12:42:37,766 INFO  - Jeu - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-05-04-2012 12:42:37,769 INFO  - Liaison - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-05-04-2012 12:42:37,770 INFO  - Liaison - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-05-04-2012 12:42:37,773 INFO  - Jeu - Connection ./rdf/insee/ off.
-05-04-2012 12:42:37,773 INFO  - Jeu - Connection ./rdf/Brute3.rdf off.
+06-04-2012 00:00:24,295 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:25,881 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:25,884 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:25,888 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:25,967 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:29,438 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:29,603 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:29,604 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:29,637 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:29,638 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:29,639 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:29,676 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:29,678 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:29,679 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:29,694 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:29,694 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:29,695 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:29,762 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:29,763 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:29,764 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:29,800 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:29,801 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:29,802 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:29,907 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:29,907 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+06-04-2012 00:00:31,258 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:31,269 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:31,294 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:31,294 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+06-04-2012 00:00:31,304 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:31,304 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:31,317 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:31,317 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:00:31,451 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:31,452 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:31,469 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:31,469 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA 
+06-04-2012 00:00:31,474 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:31,475 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:31,491 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:31,492 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:00:31,492 INFO  - Jeu - Commit ./src/test/rdf/ on auto.
+06-04-2012 00:00:31,492 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:31,493 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:31,544 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:31,545 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:00:31,545 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:00:31,678 INFO  - Jeu - Commit ./src/test/rdf/.
+06-04-2012 00:00:31,679 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:31,680 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:31,743 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:31,744 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:00:31,744 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:00:31,749 INFO  - Jeu - Commit ./src/test/rdf/ rollback.
+06-04-2012 00:00:31,750 INFO  - Jeu - Commit ./src/test/rdf/.
+06-04-2012 00:00:31,751 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:31,754 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:31,780 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:31,864 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:54,269 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:55,742 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:55,750 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:00:55,798 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:00:55,915 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:00:59,881 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:00,041 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:00,043 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:00,060 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:00,060 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:00,061 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:00,117 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:00,121 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:00,133 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:00,150 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:00,150 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:00,151 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:00,336 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:00,337 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:00,341 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:00,379 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:00,380 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:00,381 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:00,403 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:00,403 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+06-04-2012 00:01:01,651 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:01,659 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:01,675 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:01,676 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+06-04-2012 00:01:01,681 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:01,687 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:01,697 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:01,698 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:01:01,800 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:01,801 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:01,816 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:01,816 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA 
+06-04-2012 00:01:01,820 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:01,821 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:01,877 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:01,877 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:01:01,878 INFO  - Jeu - Commit ./src/test/rdf/ on auto.
+06-04-2012 00:01:01,882 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:01,883 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:02,001 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:02,001 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:01:02,002 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:01:02,043 INFO  - Jeu - Commit ./src/test/rdf/.
+06-04-2012 00:01:02,046 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:02,047 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:02,065 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:02,066 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:01:02,066 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:01:02,077 INFO  - Jeu - Commit ./src/test/rdf/ rollback.
+06-04-2012 00:01:02,078 INFO  - Jeu - Commit ./src/test/rdf/.
+06-04-2012 00:01:02,079 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:02,100 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:01:02,136 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:01:02,183 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:01:59,854 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:01,356 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:01,371 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:01,389 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:01,623 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:05,101 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:05,261 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:05,265 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:05,321 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:05,322 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:05,325 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:05,349 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:05,382 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:05,383 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:05,400 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:05,401 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:05,402 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:05,463 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:05,463 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:05,464 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:05,511 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:05,639 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:05,645 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:05,672 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:05,672 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {?s ?p ?o}
+06-04-2012 00:02:06,889 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:06,902 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:06,916 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:06,916 INFO  - Jeu - Query ./src/test/rdf/ select - SELECT ?s WHERE {
+06-04-2012 00:02:06,922 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:06,923 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:06,936 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:06,947 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:02:07,116 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:07,117 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:07,134 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:07,134 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA 
+06-04-2012 00:02:07,138 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:07,139 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:07,159 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:07,160 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:02:07,160 INFO  - Jeu - Commit ./src/test/rdf/ on auto.
+06-04-2012 00:02:07,160 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:07,161 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:07,184 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:07,185 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:02:07,185 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:02:07,210 INFO  - Jeu - Commit ./src/test/rdf/.
+06-04-2012 00:02:07,211 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:07,212 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:07,315 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:07,315 INFO  - Jeu - Commit ./src/test/rdf/ off auto.
+06-04-2012 00:02:07,316 INFO  - Jeu - Query ./src/test/rdf/ update - DELETE DATA {?s ?p ?o}
+06-04-2012 00:02:07,321 INFO  - Jeu - Commit ./src/test/rdf/ rollback.
+06-04-2012 00:02:07,329 INFO  - Jeu - Commit ./src/test/rdf/.
+06-04-2012 00:02:07,330 INFO  - Jeu - Connection ./src/test/rdf/ off.
+06-04-2012 00:02:07,341 INFO  - Jeu - Creation  Jeu ./src/test/rdf/.
+06-04-2012 00:02:07,435 INFO  - Jeu - Import ./src/test/rdf/ : 1 file(s).
+06-04-2012 00:02:07,501 INFO  - Jeu - Connection ./src/test/rdf/ off.
