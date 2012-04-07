@@ -218,10 +218,10 @@ public class TestJeuSesame {
 			
 			j.rollback();
 			
-			assertTrue(j.getAllStatements().size() == 0);
+			assertEquals(j.getAllStatements().size(), 0);
 			
 			j.commit();
-			assertTrue(j.getAllStatements().size() == 0);
+			assertEquals(j.getAllStatements().size(), 0);
 			
 		} catch (RepositoryException e) {
 			fail();

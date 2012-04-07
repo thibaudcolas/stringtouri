@@ -1,14 +1,12 @@
 Améliorations :
-- Meilleure gestion des librairies
 - Tests non-unitaires
 
 Bugs :
-- Gestion des litéraux (entiers) dans les requêtes SPARQL ValueFactory ?
+- Gestion des littéraux (entiers) dans les requêtes SPARQL ValueFactory ?
 - Export Sesame erreur syntaxique <>
-- Maj du jeuRDF avec le nouveau RDF
 
 Possibilité de réaliser plusieurs traitements à la fois ?
 
 Paramètres dans StringToURI
 
-Tests unitaires et couverture sur Liaison
+Tests unitaires et couverture sur To
