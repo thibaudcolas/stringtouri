@@ -15,23 +15,39 @@ import org.openrdf.repository.RepositoryException;
 
 import prototype.JeuSPARQL;
 
+/**
+ * JUnit test cases on JeuSPARQL.
+ * @author Thibaud Colas.
+ * @version 07042012
+ * @see JeuSPARQL
+ */
 public class TestJeuSPARQL {
 	
+	/**
+	 * Data set to use during tests.
+	 */
 	private JeuSPARQL j;
+	/**
+	 * URL of the SPARQL endpoint.
+	 */
+	// Needs the Sesame server to be on.
 	private static final String defurl = "http://localhost:8080/openrdf-sesame/repositories/test";
+	/**
+	 * Simple test query retrieving everything.
+	 */
 	private static final String defreq = "SELECT ?s WHERE {?s ?p ?o}";
 	
 	@Before
 	public void setUp() throws Exception {
 		j = new JeuSPARQL(defurl);
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		j.shutdown();
 	}
 
-	@Test (expected=NoSuchElementException.class)
+	@Test (expected = NoSuchElementException.class)
 	public void testConstructor() {
 		assertEquals(j.getNom(), defurl);
 		assertEquals(j.getEndPoint(), defurl);
@@ -58,7 +74,7 @@ public class TestJeuSPARQL {
 		}
 	}
 	
-	@Test (expected=QueryEvaluationException.class)
+	@Test (expected = QueryEvaluationException.class)
 	public void testSPARQLSelectError() throws QueryEvaluationException {
 		try {
 			j.SPARQLQuery("SELECT ?s WHERE {");

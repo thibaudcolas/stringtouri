@@ -22,22 +22,46 @@ import prototype.JeuRDF;
 import prototype.Liaison;
 import prototype.LiaisonSimple;
 
+/**
+ * JUnit test cases on LiaisonSimple.
+ * @author Thibaud Colas.
+ * @version 07042012
+ * @see LiaisonSimple
+ */
 public class TestLiaisonSimple {
 	
+	/**
+	 * Source data set.
+	 */
 	private JeuRDF s;
+	/**
+	 * Target data set.
+	 */
 	private JeuRDF c;
+	/**
+	 * A linkage tool to test.
+	 */
 	private LiaisonSimple l;
 	
+	/**
+	 * Default URI to use when importing data.
+	 */
 	private static final String defuri = "defuri";
+	/**
+	 * Predicate to be used on the source side.
+	 */
 	private static final String defprops = "gn:name";
+	/**
+	 * Predicate to be used on the target side.
+	 */
 	private static final String defpropc = "geographis:onContinent";
 
 
 	@Before
 	public void setUp() throws Exception {
-		s = new JeuRDF("./src/test/rdf/continents.rdf","",defuri);
-		c = new JeuRDF("./src/test/rdf/countries-tolink.rdf","",defuri);
-		l = new LiaisonSimple(s, c, defprops,defpropc);
+		s = new JeuRDF("./src/test/rdf/continents.rdf", "", defuri);
+		c = new JeuRDF("./src/test/rdf/countries-tolink.rdf", "", defuri);
+		l = new LiaisonSimple(s, c, defprops, defpropc);
 	}
 
 	@After
@@ -51,8 +75,8 @@ public class TestLiaisonSimple {
 		assertEquals(l.getNom(), defprops + " - " + defpropc);
 		assertEquals(l.getPropCible(), defpropc);
 		assertEquals(l.getPropSource(), defprops);
-		assertEquals(l.getQueryCible(),"SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defpropc + " ?" + Liaison.OVAR + "}");
-		assertEquals(l.getQuerySource(),"SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defprops + " ?" + Liaison.OVAR + "}");
+		assertEquals(l.getQueryCible(), "SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defpropc + " ?" + Liaison.OVAR + "}");
+		assertEquals(l.getQuerySource(), "SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defprops + " ?" + Liaison.OVAR + "}");
 	}
 	
 	@Test
@@ -64,8 +88,8 @@ public class TestLiaisonSimple {
 		assertEquals(lbis.getNom(), defprops + " - " + defpropc);
 		assertEquals(lbis.getPropCible(), defpropc);
 		assertEquals(lbis.getPropSource(), defprops);
-		assertEquals(lbis.getQueryCible(),"SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defpropc + " ?" + Liaison.OVAR + "} LIMIT " + maxliens);
-		assertEquals(lbis.getQuerySource(),"SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defprops + " ?" + Liaison.OVAR + "} LIMIT " + maxliens);
+		assertEquals(lbis.getQueryCible(), "SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defpropc + " ?" + Liaison.OVAR + "} LIMIT " + maxliens);
+		assertEquals(lbis.getQuerySource(), "SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defprops + " ?" + Liaison.OVAR + "} LIMIT " + maxliens);
 	}
 	
 	@Test
@@ -89,7 +113,7 @@ public class TestLiaisonSimple {
 		try {
 			HashMap<String, String> result = l.getSourceData();
 			assertTrue(result.size() > 0);
-			for(String k : result.keySet()) {
+			for (String k : result.keySet()) {
 				assertFalse(k.startsWith("http://"));
 				assertTrue(result.get(k).startsWith("http://"));
 			}
@@ -103,7 +127,7 @@ public class TestLiaisonSimple {
 
 				cpt++;
 			}
-			assertEquals(cpt,result.size());
+			assertEquals(cpt, result.size());
 			tpqr.close();
 			
 		} catch (QueryEvaluationException e) {
@@ -120,7 +144,7 @@ public class TestLiaisonSimple {
 		try {
 			HashMap<String, LinkedList<String>> result = l.getCibleData();
 			assertTrue(result.size() > 0);
-			for(String k : result.keySet()) {
+			for (String k : result.keySet()) {
 				assertFalse(k.startsWith("http://"));
 				assertFalse(result.get(k).isEmpty());
 			}
@@ -147,9 +171,9 @@ public class TestLiaisonSimple {
 			HashMap<String, LinkedList<Statement>> result = l.getInterconnexion();
 			for (String suj : result.keySet()) {
 				assertTrue(suj.startsWith("http://"));
-				for (Statement s : result.get(suj)) {
-					assertEquals(s.getPredicate().stringValue(), defpropc);
-					assertEquals(s.getSubject().stringValue(), suj);
+				for (Statement st : result.get(suj)) {
+					assertEquals(st.getPredicate().stringValue(), defpropc);
+					assertEquals(st.getSubject().stringValue(), suj);
 				}
 			}
 		} catch (QueryEvaluationException e) {

@@ -22,16 +22,44 @@ import org.openrdf.repository.RepositoryException;
 
 import prototype.JeuSesame;
 
+/**
+ * JUnit test cases on JeuSesame.
+ * @author Thibaud Colas.
+ * @version 07042012
+ * @see JeuSesame
+ */
 public class TestJeuSesame {
 	
+	/**
+	 * Data set to use during tests.
+	 */
 	private JeuSesame j;
+	/**
+	 * Name of the test repository.
+	 */
 	private static final String defdep = "test";
+	/**
+	 * URL of the Sesame server.
+	 */
+	// Needs the Sesame server to be on.
 	private static final String defurl = "http://localhost:8080/openrdf-sesame";
+	/**
+	 * Default base URI for the new data.
+	 */
 	private static final String defuri = "defuri";
+	/**
+	 * Prefix for the rdf namespace.
+	 */
 	private static final String rdfpre = "rdf";
+	/**
+	 * Namespace URI for the RDF namespace.
+	 */
 	private static final String rdfuri = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+	/**
+	 * Simple test query retrieving everything.
+	 */
 	private static final String defreq = "SELECT ?s WHERE {?s ?p ?o}";
-	
+
 	@Before
 	public void setUp() throws Exception {
 		j = new JeuSesame(defurl, defdep);
@@ -43,7 +71,7 @@ public class TestJeuSesame {
 		j.shutdown();
 	}
 
-	@Test (expected=NoSuchElementException.class)
+	@Test (expected = NoSuchElementException.class)
 	public void testConstructor() {
 		assertEquals(j.getNom(), defurl + " - " + defdep);
 		assertEquals(j.getIdDepot(), defdep);
@@ -66,6 +94,7 @@ public class TestJeuSesame {
 	public void testNamespaceHandling() {
 		try {
 			assertFalse(j.getNamespaceList().isEmpty());
+			// Compté manuellement.
 			assertEquals(j.getNamespaceList().size(), 8);
 			assertEquals(j.getNamespace(rdfpre), rdfuri);
 			
@@ -77,9 +106,9 @@ public class TestJeuSesame {
 	@Test
 	public void testNamespaceAddGet() {
 		try {
-			assertEquals(null,j.getNamespace(defuri));
-			j.addNamespace(defuri, defuri+defuri);
-			assertEquals(j.getNamespace(defuri), defuri+defuri);
+			assertEquals(null, j.getNamespace(defuri));
+			j.addNamespace(defuri, defuri + defuri);
+			assertEquals(j.getNamespace(defuri), defuri + defuri);
 		} catch (RepositoryException e) {
 			fail();
 		} 
@@ -129,7 +158,7 @@ public class TestJeuSesame {
 		}
 	}
 	
-	@Test (expected=QueryEvaluationException.class)
+	@Test (expected = QueryEvaluationException.class)
 	public void testSPARQLSelectError() throws QueryEvaluationException {
 		try {
 			j.SPARQLQuery("SELECT ?s WHERE {");
@@ -160,7 +189,7 @@ public class TestJeuSesame {
 		}
 	}
 	
-	@Test (expected=UpdateExecutionException.class)
+	@Test (expected = UpdateExecutionException.class)
 	public void testSPARQLUpdateError() throws UpdateExecutionException {
 		try {
 			j.updateQuery("DELETE DATA ");
@@ -238,14 +267,14 @@ public class TestJeuSesame {
 			LinkedList<Statement> sts = j.getAllStatements();
 			assertTrue(sts.size() != 0);
 			
-			j.addStatement(new StatementImpl(new URIImpl(rdfpre+":"+defuri), new URIImpl(rdfpre+":"+defuri), new URIImpl(rdfpre+":"+defuri)));
+			j.addStatement(new StatementImpl(new URIImpl(rdfpre + ":" + defuri), new URIImpl(rdfpre + ":" + defuri), new URIImpl(rdfpre + ":" + defuri)));
 			assertEquals(sts.size() + 1, j.getAllStatements(null, null).size());
 			
 			j.addAllStatements(sts);
-			assertEquals(sts.size()+1, j.getAllStatements().size());
+			assertEquals(sts.size() + 1, j.getAllStatements().size());
 			
 			
-			j.removeStatements(null, new URIImpl(rdfpre+":"+defuri));
+			j.removeStatements(null, new URIImpl(rdfpre + ":" + defuri));
 			assertEquals(sts.size(), j.getAllStatements(null, null).size());
 			
 		} catch (RepositoryException e) {

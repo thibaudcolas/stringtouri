@@ -25,28 +25,58 @@ import org.openrdf.rio.RDFParseException;
 
 import prototype.JeuRDF;
 
+/**
+ * JUnit test cases on JeuRDF.
+ * @author Thibaud Colas.
+ * @version 07042012
+ * @see JeuRDF
+ */
 public class TestJeuRDF {
 	
+	/**
+	 * Data set to use during tests.
+	 */
 	private JeuRDF j;
+	/**
+	 * Default file to be imported.
+	 */
 	private static final String deffile = "./src/test/rdf/countries.rdf";
+	/**
+	 * Default folder to be imported.
+	 */
 	private static final String deffolder = "./src/test/rdf/";
+	/**
+	 * Default prefix while filtering files.
+	 */
 	private static final String defpre = "continents";
+	/**
+	 * Default base URI for the new data.
+	 */
 	private static final String defuri = "defuri";
+	/**
+	 * Prefix for the rdf namespace.
+	 */
 	private static final String rdfpre = "rdf";
+	/**
+	 * Namespace URI for the RDF namespace.
+	 */
 	private static final String rdfuri = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+	/**
+	 * Simple test query retrieving everything.
+	 */
 	private static final String defreq = "SELECT ?s WHERE {?s ?p ?o}";
 	
 	@Before
 	public void setUp() throws Exception {
-		j = new JeuRDF(deffolder,defpre,defuri);
+		j = new JeuRDF(deffolder, defpre, defuri);
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		j.shutdown();
 	}
 
-	@Test (expected=NoSuchElementException.class)
+	@Test (expected = NoSuchElementException.class)
 	public void testConstructor() {
 		assertEquals(j.getNom(), deffolder);
 		assertEquals(j.getBaseURI(), defuri);
@@ -57,7 +87,7 @@ public class TestJeuRDF {
 	public void testAddSourceFolder() {
 		try {
 			int tmpsize = j.getAllStatements().size();
-			j.addSource(deffile,"", defuri);
+			j.addSource(deffile, "", defuri);
 			assertTrue(tmpsize < j.getAllStatements().size());
 			
 		} catch (Exception e) {
@@ -65,10 +95,10 @@ public class TestJeuRDF {
 		}
 	}
 	
-	@Test (expected=FileNotFoundException.class)
+	@Test (expected = FileNotFoundException.class)
 	public void testAddSourceNotFound() throws IOException {
 		try {
-			j.addSource(deffolder+"notfound/","", defuri);
+			j.addSource(deffolder + "notfound/", "", defuri);
 		}
 		catch (RepositoryException e) {
 			fail();
@@ -92,9 +122,9 @@ public class TestJeuRDF {
 	@Test
 	public void testNamespaceAddGet() {
 		try {
-			assertEquals(null,j.getNamespace(defuri));
-			j.addNamespace(defuri, defuri+defuri);
-			assertEquals(j.getNamespace(defuri), defuri+defuri);
+			assertEquals(null, j.getNamespace(defuri));
+			j.addNamespace(defuri, defuri + defuri);
+			assertEquals(j.getNamespace(defuri), defuri + defuri);
 		} catch (RepositoryException e) {
 			fail();
 		} 
@@ -144,7 +174,7 @@ public class TestJeuRDF {
 		}
 	}
 	
-	@Test (expected=MalformedQueryException.class)
+	@Test (expected = MalformedQueryException.class)
 	public void testSPARQLSelectError() throws MalformedQueryException {
 		try {
 			j.SPARQLQuery("SELECT ?s WHERE {");
@@ -175,7 +205,7 @@ public class TestJeuRDF {
 		}
 	}
 	
-	@Test (expected=MalformedQueryException.class)
+	@Test (expected = MalformedQueryException.class)
 	public void testSPARQLUpdateError() throws MalformedQueryException {
 		try {
 			j.updateQuery("DELETE DATA ");
@@ -253,14 +283,14 @@ public class TestJeuRDF {
 			LinkedList<Statement> sts = j.getAllStatements();
 			assertTrue(sts.size() != 0);
 			
-			j.addStatement(new StatementImpl(new URIImpl(rdfpre+":"+defuri), new URIImpl(rdfpre+":"+defuri), new URIImpl(rdfpre+":"+defuri)));
+			j.addStatement(new StatementImpl(new URIImpl(rdfpre + ":" + defuri), new URIImpl(rdfpre + ":" + defuri), new URIImpl(rdfpre + ":" + defuri)));
 			assertEquals(sts.size() + 1, j.getAllStatements(null, null).size());
 			
 			j.addAllStatements(sts);
-			assertEquals(sts.size()+1, j.getAllStatements().size());
+			assertEquals(sts.size() + 1, j.getAllStatements().size());
 			
 			
-			j.removeStatements(null, new URIImpl(rdfpre+":"+defuri));
+			j.removeStatements(null, new URIImpl(rdfpre + ":" + defuri));
 			assertEquals(sts.size(), j.getAllStatements(null, null).size());
 			
 		} catch (RepositoryException e) {

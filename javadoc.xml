@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="javadoc">
     <target name="javadoc">
-        <javadoc access="private" additionalparam=" javadoc -linkoffline http://www.openrdf.org/doc/sesame2/api/ http://www.openrdf.org/doc/sesame2/api/&#10;javadoc -linkoffline https://logging.apache.org/log4j/1.2/apidocs/ https://logging.apache.org/log4j/1.2/apidocs/" author="true" classpath="import/commons-codec-1.4.jar:import/log4j-1.2.16.jar:import/commons-logging-1.1.1.jar:import/slf4j-api-1.6.4.jar:import/commons-httpclient-3.1.jar:import/slf4j-simple-1.6.4.jar:import/openrdf-sesame-2.6.4-onejar.jar" destdir="doc" doctitle="Module StringToURI" nodeprecated="true" nodeprecatedlist="true" noindex="true" nonavbar="false" notree="false" packagenames="prototype" source="1.6" sourcepath="src" splitindex="false" stylesheetfile="/Users/Will/Workspace/CableLink/custom-sheet.css" use="true" version="true">
+        <javadoc access="private" additionalparam=" javadoc -linkoffline http://www.openrdf.org/doc/sesame2/api/ http://www.openrdf.org/doc/sesame2/api/&#10;javadoc -linkoffline https://logging.apache.org/log4j/1.2/apidocs/ https://logging.apache.org/log4j/1.2/apidocs/" author="true" classpath="/Applications/eclipse/plugins/org.junit_4.8.2.v4_8_2_v20110321-1705/junit.jar:import/commons-codec-1.4.jar:import/log4j-1.2.16.jar:import/commons-logging-1.1.1.jar:/Applications/eclipse/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar:import/slf4j-api-1.6.4.jar:import/commons-httpclient-3.1.jar:import/slf4j-simple-1.6.4.jar:import/openrdf-sesame-2.6.4-onejar.jar" destdir="doc" doctitle="Module StringToURI" nodeprecated="true" nodeprecatedlist="true" noindex="true" nonavbar="false" notree="false" packagenames="test,prototype" source="1.6" sourcepath="src" splitindex="false" stylesheetfile="/Users/Will/Workspace/CableLink/custom-sheet.css" use="true" version="true">
             <link href="http://download.oracle.com/javase/6/docs/api/"/>
+            <link href="http://www.junit.org/junit/javadoc/4.5"/>
             <link href="file:/Users/Will/Workspace/CableLink/doc/"/>
         </javadoc>
     </target>

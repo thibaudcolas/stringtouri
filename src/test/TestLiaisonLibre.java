@@ -22,25 +22,55 @@ import prototype.JeuRDF;
 import prototype.Liaison;
 import prototype.LiaisonLibre;
 
+/**
+ * JUnit test cases on LiaisonLibre.
+ * @author Thibaud Colas.
+ * @version 07042012
+ * @see LiaisonLibre
+ */
 public class TestLiaisonLibre {
 	
+	/**
+	 * Source data set.
+	 */
 	private JeuRDF s;
+	/**
+	 * Target data set.
+	 */
 	private JeuRDF c;
+	/**
+	 * A linkage tool to test.
+	 */
 	private LiaisonLibre l;
 	
+	/**
+	 * Default URI to use when importing data.
+	 */
 	private static final String defuri = "defuri";
+	/**
+	 * Predicate to be used on the source side.
+	 */
 	private static final String defprops = "gn:name";
+	/**
+	 * Predicate to be used on the target side.
+	 */
 	private static final String defpropc = "geographis:onContinent";
+	/**
+	 * Query to be used on the source side.
+	 */
 	private static final String defqs = "SELECT ?s ?o WHERE {?s a geographis:Continent . ?s gn:name ?o}";
+	/**
+	 * Query to be used on the target side.
+	 */
 	private static final String defqc = "SELECT ?s ?o WHERE {?s geographis:onContinent ?o . ?s geographis:currency <http://telegraphis.net/data/currencies/EUR#EUR>}";
 
 
 
 	@Before
 	public void setUp() throws Exception {
-		s = new JeuRDF("./src/test/rdf/continents.rdf","",defuri);
-		c = new JeuRDF("./src/test/rdf/countries-tolink.rdf","",defuri);
-		l = new LiaisonLibre(s, c, defprops,defpropc, defqs, defqc);
+		s = new JeuRDF("./src/test/rdf/continents.rdf", "", defuri);
+		c = new JeuRDF("./src/test/rdf/countries-tolink.rdf", "", defuri);
+		l = new LiaisonLibre(s, c, defprops, defpropc, defqs, defqc);
 	}
 
 	@After
@@ -92,7 +122,7 @@ public class TestLiaisonLibre {
 		try {
 			HashMap<String, String> result = l.getSourceData();
 			assertTrue(result.size() > 0);
-			for(String k : result.keySet()) {
+			for (String k : result.keySet()) {
 				assertFalse(k.startsWith("http://"));
 				assertTrue(result.get(k).startsWith("http://"));
 			}
@@ -106,7 +136,7 @@ public class TestLiaisonLibre {
 
 				cpt++;
 			}
-			assertEquals(cpt,result.size());
+			assertEquals(cpt, result.size());
 			tpqr.close();
 			
 		} catch (QueryEvaluationException e) {
@@ -123,7 +153,7 @@ public class TestLiaisonLibre {
 		try {
 			HashMap<String, LinkedList<String>> result = l.getCibleData();
 			assertTrue(result.size() > 0);
-			for(String k : result.keySet()) {
+			for (String k : result.keySet()) {
 				assertFalse(k.startsWith("http://"));
 				assertFalse(result.get(k).isEmpty());
 			}
@@ -150,9 +180,9 @@ public class TestLiaisonLibre {
 			HashMap<String, LinkedList<Statement>> result = l.getInterconnexion();
 			for (String suj : result.keySet()) {
 				assertTrue(suj.startsWith("http://"));
-				for (Statement s : result.get(suj)) {
-					assertEquals(s.getPredicate().stringValue(), defpropc);
-					assertEquals(s.getSubject().stringValue(), suj);
+				for (Statement st : result.get(suj)) {
+					assertEquals(st.getPredicate().stringValue(), defpropc);
+					assertEquals(st.getSubject().stringValue(), suj);
 				}
 			}
 		} catch (QueryEvaluationException e) {
