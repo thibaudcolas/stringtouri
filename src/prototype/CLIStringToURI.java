@@ -4,10 +4,10 @@ package prototype;
  * Main class with user interface.
  * 
  * @author Thibaud Colas
- * @version 05042012
+ * @version 14042012
  * @see App
  */
-public class StringToURI {
+public class CLIStringToURI {
 
 	public static void main(String[] args) {
 		
