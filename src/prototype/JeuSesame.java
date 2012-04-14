@@ -12,7 +12,7 @@ import org.openrdf.repository.http.HTTPRepository;
  * @version 01042012
  * @see HTTPRepository
  */
-public class JeuSesame extends Jeu {
+public class JeuSesame extends DataSet {
 	
 	/**
 	 * The SESAME server URL.

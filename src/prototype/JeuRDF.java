@@ -15,7 +15,7 @@ import org.openrdf.sail.memory.MemoryStore;
  * @version 01042012
  * @see SailRepository
  */
-public class JeuRDF extends Jeu {
+public class JeuRDF extends DataSet {
 	
 	/**
 	 * The base data set URI.

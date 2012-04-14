@@ -27,7 +27,7 @@ public class LiaisonTypee extends Liaison {
 	 * @param ts : The source data type.
 	 * @param tc : The target data type.
 	 */
-	public LiaisonTypee(Jeu s, Jeu c, String ps, String pc, String ts, String tc) {
+	public LiaisonTypee(DataSet s, DataSet c, String ps, String pc, String ts, String tc) {
 		super(s, c, ps, pc);
 		
 		maxliens = 0;
@@ -47,7 +47,7 @@ public class LiaisonTypee extends Liaison {
 	 * @param tc : The target data type.
 	 * @param ml : The max number of links updated.
 	 */
-	public LiaisonTypee(Jeu s, Jeu c, String ps, String pc, String ts, String tc, int ml) {
+	public LiaisonTypee(DataSet s, DataSet c, String ps, String pc, String ts, String tc, int ml) {
 		super(s, c, ps, pc);
 		
 		maxliens = Math.max(ml, 0);

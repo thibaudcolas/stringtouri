@@ -24,7 +24,7 @@ public abstract class To {
 	/**
 	 * The data set to use.
 	 */
-	protected Jeu jeumaj;
+	protected DataSet jeumaj;
 	/**
 	 * The new statements produced by the interlinking process.
 	 */
@@ -49,7 +49,7 @@ public abstract class To {
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(Jeu j, String p) throws RepositoryException {
+	protected To(DataSet j, String p) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
 			LOG.info("Creation  Output " + j.getNom() + ".");
 		}
@@ -67,7 +67,7 @@ public abstract class To {
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
+	protected To(DataSet j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
 			LOG.info("Creation  Output " + j.getNom() + ".");
 		}
@@ -86,7 +86,7 @@ public abstract class To {
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
+	protected To(DataSet j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
 			LOG.info("Output " + j.getNom() + " creation.");
 		}

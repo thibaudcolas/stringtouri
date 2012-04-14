@@ -12,7 +12,7 @@ import org.openrdf.repository.sparql.SPARQLRepository;
  * @version 01042012
  * @see SPARQLRepository
  */
-public class JeuSPARQL extends Jeu {
+public class JeuSPARQL extends DataSet {
 	
 	/**
 	 * The SPARQL endpoint's URL.

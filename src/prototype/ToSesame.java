@@ -18,7 +18,7 @@ public class ToSesame extends To {
 	/**
 	 * The data set where we're going to make the updates.
 	 */
-	private Jeu destination;
+	private DataSet destination;
 	
 	/**
 	 * Lazy constructor.
@@ -26,7 +26,7 @@ public class ToSesame extends To {
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSesame(Jeu j, String p) throws RepositoryException {
+	public ToSesame(DataSet j, String p) throws RepositoryException {
 		super(j, p);
 		destination = j;
 	}
@@ -38,7 +38,7 @@ public class ToSesame extends To {
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSesame(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
+	public ToSesame(DataSet j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
 		super(j, m, p);
 		destination = j;
 	}
@@ -52,7 +52,7 @@ public class ToSesame extends To {
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSesame(Jeu j, Jeu js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
+	public ToSesame(DataSet j, DataSet js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
 		super(j, m, p, a);
 		destination = js;
 	}

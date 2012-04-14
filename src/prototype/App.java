@@ -16,7 +16,7 @@ import org.openrdf.repository.RepositoryException;
  * 
  * @author Thibaud Colas
  * @version 05042012
- * @see Jeu
+ * @see DataSet
  */
 public class App {
 	
@@ -27,11 +27,11 @@ public class App {
 	/**
 	 * Data set to which we'll link data.
 	 */
-	protected Jeu reference;
+	protected DataSet reference;
 	/**
 	 * Data set where the links will be made.
 	 */
-	protected Jeu objectif;
+	protected DataSet objectif;
 	/**
 	 * Predicate where the values are going to be replaced with external links.
 	 */
@@ -66,7 +66,7 @@ public class App {
 	 * @param ref : Source data set.
 	 * @param obj : Target data set.
 	 */
-	public App(Jeu ref, Jeu obj) {
+	public App(DataSet ref, DataSet obj) {
 		nom = ref.getNom() + " - " + obj.getNom();
 		
 		if (LOG.isInfoEnabled()) {
@@ -86,7 +86,7 @@ public class App {
 	 * @param t : Output handler.
 	 * @param a : Tells whether to output all the data or just the new statements.
 	 */
-	public App(Jeu ref, Jeu obj, String d, Liaison l, To t, boolean a) {
+	public App(DataSet ref, DataSet obj, String d, Liaison l, To t, boolean a) {
 		nom = ref.getNom() + " - " + obj.getNom();
 		
 		if (LOG.isInfoEnabled()) {

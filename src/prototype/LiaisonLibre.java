@@ -19,7 +19,7 @@ public class LiaisonLibre extends Liaison {
 	 * @param qs : The source query.
 	 * @param qc : The target query.
 	 */
-	public LiaisonLibre(Jeu s, Jeu c, String ps, String pc, String qs, String qc) {
+	public LiaisonLibre(DataSet s, DataSet c, String ps, String pc, String qs, String qc) {
 		super(s, c, ps, pc);
 		
 		maxliens = 0;
@@ -37,7 +37,7 @@ public class LiaisonLibre extends Liaison {
 	 * @param qc : The target query.
 	 * @param ml : Max number of links to create.
 	 */
-	public LiaisonLibre(Jeu s, Jeu c, String ps, String pc, String qs, String qc, int ml) {
+	public LiaisonLibre(DataSet s, DataSet c, String ps, String pc, String qs, String qc, int ml) {
 		super(s, c, ps, pc);
 		
 		maxliens = Math.max(ml, 0);

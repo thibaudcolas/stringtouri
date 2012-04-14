@@ -21,7 +21,7 @@ public class ToSPARQL extends To {
 	/**
 	 * The data set where we're going to make the updates.
 	 */
-	private Jeu destination;
+	private DataSet destination;
 	/**
 	 * Tells whether to write only inserts or delete and inserts.
 	 */
@@ -33,7 +33,7 @@ public class ToSPARQL extends To {
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSPARQL(Jeu j, String p) throws RepositoryException {
+	public ToSPARQL(DataSet j, String p) throws RepositoryException {
 		super(j, p);
 		destination = j;
 		deleteinsert = true;
@@ -46,7 +46,7 @@ public class ToSPARQL extends To {
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSPARQL(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
+	public ToSPARQL(DataSet j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
 		super(j, m, p);
 		destination = j;
 		deleteinsert = true;
@@ -61,7 +61,7 @@ public class ToSPARQL extends To {
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToSPARQL(Jeu j, Jeu js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
+	public ToSPARQL(DataSet j, DataSet js, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
 		super(j, m, p, a);
 		destination = js;
 		deleteinsert = false;

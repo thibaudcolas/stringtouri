@@ -19,7 +19,7 @@ import org.openrdf.repository.RepositoryException;
  * 
  * @author Thibaud Colas
  * @version 04042012
- * @see Jeu
+ * @see DataSet
  */
 public abstract class Liaison {
 	
@@ -34,11 +34,11 @@ public abstract class Liaison {
 	/**
 	 * Source data for new links.
 	 */
-	protected Jeu source;
+	protected DataSet source;
 	/**
 	 * Target data for new links.
 	 */
-	protected Jeu cible;
+	protected DataSet cible;
 	/**
 	 * Source predicate to lookup.
 	 */
@@ -76,7 +76,7 @@ public abstract class Liaison {
 	 * @param ps : The source predicate.
 	 * @param pc : The target predicate.
 	 */
-	protected Liaison(Jeu s, Jeu c, String ps, String pc) {
+	protected Liaison(DataSet s, DataSet c, String ps, String pc) {
 		nom = ps + " - " + pc;
 		
 		if (LOG.isInfoEnabled()) {

@@ -23,7 +23,7 @@ public class ToRDF extends To {
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToRDF(Jeu j, String p) throws RepositoryException {
+	public ToRDF(DataSet j, String p) throws RepositoryException {
 		super(j, p);
 	}
 
@@ -34,7 +34,7 @@ public class ToRDF extends To {
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToRDF(Jeu j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
+	public ToRDF(DataSet j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
 		super(j, m, p);
 	}
 	
@@ -46,7 +46,7 @@ public class ToRDF extends To {
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToRDF(Jeu j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
+	public ToRDF(DataSet j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
 		super(j, m, p, a);
 	}
 	
