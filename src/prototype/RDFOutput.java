@@ -11,43 +11,43 @@ import org.openrdf.repository.RepositoryException;
  * 
  * @author Thibaud Colas
  * @version 01042012
- * @see To
+ * @see Output
  */
-public class ToRDF extends To {
+public class RDFOutput extends Output {
 
-	private static final String BALISEXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+	private static final String XMLTAG = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 	
 	/**
 	 * Lazy constructor.
-	 * @param j : A data set.
+	 * @param ds : A data set.
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToRDF(DataSet j, String p) throws RepositoryException {
-		super(j, p);
+	public RDFOutput(DataSet ds, String p) throws RepositoryException {
+		super(ds, p);
 	}
 
 	/**
 	 * Default constructor.
-	 * @param j : A data set.
-	 * @param m : The new statements to use.
+	 * @param ds : A data set.
+	 * @param ns : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToRDF(DataSet j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
-		super(j, m, p);
+	public RDFOutput(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p) throws RepositoryException {
+		super(ds, ns, p);
 	}
 	
 	/**
 	 * Alternative constructor.
-	 * @param j : A data set.
-	 * @param m : The new statements to use.
+	 * @param ds : A data set.
+	 * @param ns : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public ToRDF(DataSet j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
-		super(j, m, p, a);
+	public RDFOutput(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, boolean a) throws RepositoryException {
+		super(ds, ns, p, a);
 	}
 	
 	
@@ -64,8 +64,8 @@ public class ToRDF extends To {
 	 * Never supposed to be called.
 	 * @throws RepositoryException Fatal error while updating the data set.
 	 */
-	public void majStatements() throws RepositoryException {
-		throw new RepositoryException("Invalid call to majStatement using RDF converter - " + jeumaj.getName());
+	public void updateDataSet() throws RepositoryException {
+		throw new RepositoryException("Invalid attempt to update using RDF writer - " + olddataset.getName());
 	}
 	
 	/**
@@ -73,7 +73,7 @@ public class ToRDF extends To {
 	 * @return RDFXML code.
 	 */
 	private String writeRDF() {
-		return BALISEXML + "<rdf:RDF \n" + writeNamespaces() 
+		return XMLTAG + "<rdf:RDF \n" + writeNamespaces() 
 				+ ">\n" + writeStatements() + "</rdf:RDF>\n";
 	}
 	
@@ -91,12 +91,12 @@ public class ToRDF extends To {
 	
 	/**
 	 * Writes a namespace on top of a RDFXML file.
-	 * @param pre : The namespace's prefix.
-	 * @param name : The namespace's URL.
+	 * @param prefix : The namespace's prefix.
+	 * @param namespaceurl : The namespace's URL.
 	 * @return A namespace ready to be written into a file.
 	 */
-	private String writeNamespace(String pre, String name) {
-		return "\txmlns:" + pre + "=\"" + name + "\"\n";
+	private String writeNamespace(String prefix, String namespaceurl) {
+		return "\txmlns:" + prefix + "=\"" + namespaceurl + "\"\n";
 	}
 	
 	/**
@@ -105,17 +105,17 @@ public class ToRDF extends To {
 	 */
 	private String writeStatements() {
 		String rdf = "";
-		String props = "";
+		String predicates = "";
 		LinkedList<Statement> tmp;
 		// Classement par sujet.
-		for (String sujet : maj.keySet()) {
-			tmp = maj.get(sujet);
+		for (String sujet : newtuples.keySet()) {
+			tmp = newtuples.get(sujet);
 			for (Statement m : tmp) {
-				props += writeProp(filterPredicate(m.getPredicate()), m.getObject().stringValue());
+				predicates += writePredicate(filterPredicate(m.getPredicate()), m.getObject().stringValue());
 			}
-			rdf += writeDesc(sujet, props);
+			rdf += writeDescription(sujet, predicates);
 			rdf += "\n";
-			props = "";
+			predicates = "";
 		}
 		
 		return rdf;
@@ -123,43 +123,43 @@ public class ToRDF extends To {
 	
 	/**
 	 * Writes a rdf:Description tag.
-	 * @param suj : The subject to be used.
-	 * @param props : Its associated predicates.
+	 * @param subject : The subject to be used.
+	 * @param predicates : Its associated predicates.
 	 * @return A rdf:Description tag as a string.
 	 */
-	private String writeDesc(String suj, String props) {
-		return "<rdf:Description rdf:about=\"" + suj + "\">\n"
-				+ props + "</rdf:Description>\n";
+	private String writeDescription(String subject, String predicates) {
+		return "<rdf:Description rdf:about=\"" + subject + "\">\n"
+				+ predicates + "</rdf:Description>\n";
 	}
 	
 	/**
 	 * Chooses whether or not to use rdf:resource.
-	 * @param prop : A predicate.
-	 * @param obj : An object.
+	 * @param predicate : A predicate.
+	 * @param object : An object.
 	 * @return A predicate - object pair.
 	 */
-	private String writeProp(String prop, String obj) {
-		return "\t" + (obj.startsWith("http://") ? writeResourceProp(prop, obj) : writeTextProp(prop, obj)) + "\n";
+	private String writePredicate(String predicate, String object) {
+		return "\t" + (object.startsWith("http://") ? writeResourcePredicate(predicate, object) : writeTextPredicate(predicate, object)) + "\n";
 	}
 	
 	/**
 	 * Writes a predicate - object pair using rdf:resource.
-	 * @param prop : A predicate.
-	 * @param obj : An object.
+	 * @param predicate : A predicate.
+	 * @param object : An object.
 	 * @return A predicate - object pair.
 	 */
-	private String writeResourceProp(String prop, String obj) {
-		return "<" + prop + " rdf:resource=\"" + obj + "\"/>";
+	private String writeResourcePredicate(String predicate, String object) {
+		return "<" + predicate + " rdf:resource=\"" + object + "\"/>";
 	}
 	
 	/**
 	 * Writes a predicate - object pair without using rdf:resource.
-	 * @param prop : A predicate.
-	 * @param obj : An object.
+	 * @param predicate : A predicate.
+	 * @param object : An object.
 	 * @return A predicate - object pair.
 	 */
-	private String writeTextProp(String prop, String obj) {
-		return "<" + prop + ">" + obj + "</" + prop + ">";
+	private String writeTextPredicate(String predicate, String object) {
+		return "<" + predicate + ">" + object + "</" + predicate + ">";
 	}
 
 }

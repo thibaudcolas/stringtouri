@@ -35,21 +35,21 @@
       <appender-ref ref="bugfile"/>      
    </logger>
  
-   <logger name="prototype.Jeu" additivity="false" >   
+   <logger name="prototype.DataSet" additivity="false" >   
       <level value="INFO" />
       <appender-ref ref="console"/>      
       <appender-ref ref="dailyfile"/>   
       <appender-ref ref="bugfile"/>          
    </logger>
    
-   <logger name="prototype.Liaison" additivity="false" >   
+   <logger name="prototype.Linkage" additivity="false" >   
       <level value="INFO" />
       <appender-ref ref="console"/>      
       <appender-ref ref="dailyfile"/>
       <appender-ref ref="bugfile"/>          
    </logger>
    
-   <logger name="prototype.To" additivity="false" >   
+   <logger name="prototype.Output" additivity="false" >   
       <level value="INFO" />
       <appender-ref ref="console"/>      
       <appender-ref ref="dailyfile"/>

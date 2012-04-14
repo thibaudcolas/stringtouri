@@ -43,7 +43,7 @@ public class App {
 	/**
 	 * Output handler, telling how the update will be processed.
 	 */
-	protected To sortie;
+	protected Output sortie;
 	
 	/**
 	 * Main Logger to record actions on pretty much everything.
@@ -70,7 +70,7 @@ public class App {
 		nom = ref.getName() + " - " + obj.getName();
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Creation App " + nom);
+			LOG.info("Created app " + nom);
 		}
 		
 		reference = ref;
@@ -86,11 +86,11 @@ public class App {
 	 * @param t : Output handler.
 	 * @param a : Tells whether to output all the data or just the new statements.
 	 */
-	public App(DataSet ref, DataSet obj, String d, Linkage l, To t, boolean a) {
+	public App(DataSet ref, DataSet obj, String d, Linkage l, Output t, boolean a) {
 		nom = ref.getName() + " - " + obj.getName();
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Creation App " + nom);
+			LOG.info("Created app " + nom);
 		}
 		
 		reference = ref;
@@ -140,7 +140,7 @@ public class App {
 	 */
 	public void setRDFOutput() {
 		try {
-			sortie = new ToRDF(objectif, datatomaj);
+			sortie = new RDFOutput(objectif, datatomaj);
 		} catch (RepositoryException e) {
 			LOG.fatal("Export " + nom + " RDF - " + e);
 			shutdown();
@@ -153,7 +153,7 @@ public class App {
 	 */
 	public void setSesameOutput() {
 		try {
-			sortie = new ToSesame(objectif, datatomaj);
+			sortie = new SesameOutput(objectif, datatomaj);
 		} catch (RepositoryException e) {
 			LOG.fatal("Export " + nom + " Sesame - " + e);
 			shutdown();
@@ -166,7 +166,7 @@ public class App {
 	 */
 	public void setSPARQLOutput() {
 		try {
-			sortie = new ToSPARQL(objectif, datatomaj);
+			sortie = new SPARQLOutput(objectif, datatomaj);
 		} catch (RepositoryException e) {
 			LOG.fatal("Export " + nom + " SPARQL - " + e);
 			shutdown();
@@ -180,7 +180,7 @@ public class App {
 	 */
 	public void initiateInterconnexion(boolean a) {
 		try {
-			sortie.setMaj(linkage.generateLinks(), a);
+			sortie.setNewTuples(linkage.generateLinks(), a);
 		} catch (RepositoryException e) {
 			LOG.fatal("Interlink " + nom + " - " + e);
 			shutdown();
@@ -209,7 +209,7 @@ public class App {
 	 */
 	public final void doUpdate() {
 		try {
-			sortie.majStatements();
+			sortie.updateDataSet();
 		} catch (RepositoryException e) {
 			LOG.fatal("Interlink " + nom + " update - " + e);
 			shutdown();

@@ -19,20 +19,20 @@ import org.openrdf.repository.RepositoryException;
  * @version 01042012
  * @see Linkage
  */
-public abstract class To {
+public abstract class Output {
 	
 	/**
 	 * The data set to use.
 	 */
-	protected DataSet jeumaj;
+	protected DataSet olddataset;
 	/**
 	 * The new statements produced by the interlinking process.
 	 */
-	protected HashMap<String, LinkedList<Statement>> maj;
+	protected HashMap<String, LinkedList<Statement>> newtuples;
 	/**
 	 * The predicate where linking has been made.
 	 */
-	protected String prop;
+	protected String predicate;
 	/**
 	 * Namespaces to be used during the process.
 	 */
@@ -41,60 +41,60 @@ public abstract class To {
 	/**
 	 * Logger to record actions on the data set.
 	 */
-	protected static final Logger LOG = Logger.getLogger(To.class.getName());
+	protected static final Logger LOG = Logger.getLogger(Output.class.getName());
 	
 	/**
 	 * Super-class lazy constructor.
-	 * @param j : A data set.
+	 * @param ds : A data set.
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(DataSet j, String p) throws RepositoryException {
+	protected Output(DataSet ds, String p) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Creation  Output " + j.getName() + ".");
+			LOG.info("Created output " + ds.getName() + ".");
 		}
 		
-		jeumaj = j;
-		prop = p;
+		olddataset = ds;
+		predicate = p;
 		handleNamespaces();
-		maj = new HashMap<String, LinkedList<Statement>>();
+		newtuples = new HashMap<String, LinkedList<Statement>>();
 	}
 	
 	/**
 	 * Super-class default constructor.
-	 * @param j : A data set.
-	 * @param m : The new statements to use.
+	 * @param ds : A data set.
+	 * @param ns : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(DataSet j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
+	protected Output(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Creation  Output " + j.getName() + ".");
+			LOG.info("Created output " + ds.getName() + ".");
 		}
 		
-		jeumaj = j;
-		prop = p;
+		olddataset = ds;
+		predicate = p;
 		handleNamespaces();
-		maj = m;
+		newtuples = ns;
 	}
 	
 	/**
 	 * Super-class alternative constructor.
-	 * @param j : A data set.
-	 * @param m : The new statements to use.
+	 * @param ds : A data set.
+	 * @param ns : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	protected To(DataSet j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
+	protected Output(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, boolean a) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Output " + j.getName() + " creation.");
+			LOG.info("Created output " + ds.getName() + ".");
 		}
 		
-		jeumaj = j;
+		olddataset = ds;
 		handleNamespaces();
-		prop = p;
-		maj = a ? getFilteredStatements(m) : m;
+		predicate = p;
+		newtuples = a ? getFilteredStatements(ns) : ns;
 	}
 	
 	/**
@@ -103,12 +103,12 @@ public abstract class To {
 	 */
 	private void handleNamespaces() throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Export " + jeumaj.getName() + " namespace retrieval.");
+			LOG.info("Export " + olddataset.getName() + " namespace retrieval.");
 		}
 		try {
 			namespaces = new HashMap<String, String>();
-			List<Namespace> nstmp = jeumaj.getNamespaceList();
-			for (Namespace n : nstmp) {
+			List<Namespace> tmpnamespaces = olddataset.getNamespaceList();
+			for (Namespace n : tmpnamespaces) {
 				namespaces.put(n.getName(), n.getPrefix());
 			}
 		} catch (RepositoryException e) {
@@ -118,47 +118,47 @@ public abstract class To {
 	
 	/**
 	 * Used to shorten a predicate into its local version.
-	 * @param p : The predicate to convert.
+	 * @param pred : The predicate to convert.
 	 * @return The predicate using a local name.
 	 */
-	protected String filterPredicate(URI p) {
-		String ns = p.getNamespace();
-		return (ns.startsWith("http://") ? namespaces.get(ns) + ":" : ns) + p.getLocalName();
+	protected String filterPredicate(URI pred) {
+		String ns = pred.getNamespace();
+		return (ns.startsWith("http://") ? namespaces.get(ns) + ":" : ns) + pred.getLocalName();
 	}
 	
 	/**
 	 * Filters statements inside the data set to update the new ones.
-	 * @param nouv : The new statements.
+	 * @param tuples : The new statements.
 	 * @return A set of up to date statements.
 	 * @throws RepositoryException Error while fetching statements.
 	 */
-	protected final HashMap<String, LinkedList<Statement>> getFilteredStatements(HashMap<String, LinkedList<Statement>> nouv) throws RepositoryException {
-		HashMap<String, LinkedList<Statement>> resultat = getAllStatements();
+	protected final HashMap<String, LinkedList<Statement>> getFilteredStatements(HashMap<String, LinkedList<Statement>> tuples) throws RepositoryException {
+		HashMap<String, LinkedList<Statement>> filteredstatements = getAllStatements();
 		LinkedList<Statement> tmpold;
 		LinkedList<Statement> tmpnew;
 		String tmpprop;
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Export " + jeumaj.getName() + " statement filtering.");
+			LOG.info("Export " + olddataset.getName() + " statement filtering.");
 		}
 		
-		for (String suj : nouv.keySet()) {
-			tmpold = resultat.get(suj);
+		for (String suj : tuples.keySet()) {
+			tmpold = filteredstatements.get(suj);
 			if (tmpold != null) {
 				tmpnew = new LinkedList<Statement>();
-				// Pour tous les anciens triplets.
+				// For all the old tuples.
 				for (Statement s : tmpold) {
 					tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
-					if (!tmpprop.equals(prop)) {
-						// On ne prend que ceux qui n'ont pas la propriété qui nous intéresse.
+					if (!tmpprop.equals(predicate)) {
+						// We only select the ones with a predicate different from ours.
 						tmpnew.add(s);
 					}
 				}
-				tmpnew.addAll(nouv.get(suj));
-				resultat.put(suj, tmpnew);
+				tmpnew.addAll(tuples.get(suj));
+				filteredstatements.put(suj, tmpnew);
 			}
 		}
-		return resultat;
+		return filteredstatements;
 	}
 	
 	/**
@@ -167,29 +167,29 @@ public abstract class To {
 	 * @throws RepositoryException Error while fetching the statements.
 	 */
 	private HashMap<String, LinkedList<Statement>> getAllStatements() throws RepositoryException {
-		HashMap<String, LinkedList<Statement>> resultat = new HashMap<String, LinkedList<Statement>>();
+		HashMap<String, LinkedList<Statement>> allstatements = new HashMap<String, LinkedList<Statement>>();
 		
-		LinkedList<Statement> tous = jeumaj.getAllStatements();
-		LinkedList<Statement> tmpmaj;
-		String tmpsuj;
-		for (Statement s : tous) {
-			tmpsuj = s.getSubject().stringValue();
-			tmpmaj = resultat.get(tmpsuj);
-			if (tmpmaj == null) {
-				tmpmaj = new LinkedList<Statement>();
-				resultat.put(tmpsuj, tmpmaj);
+		LinkedList<Statement> all = olddataset.getAllStatements();
+		LinkedList<Statement> tmptuples;
+		String tmpsubject;
+		for (Statement s : all) {
+			tmpsubject = s.getSubject().stringValue();
+			tmptuples = allstatements.get(tmpsubject);
+			if (tmptuples == null) {
+				tmptuples = new LinkedList<Statement>();
+				allstatements.put(tmpsubject, tmptuples);
 			}
-			tmpmaj.add(s);
+			tmptuples.add(s);
 		}
-		return resultat;
+		return allstatements;
 	}
 
-	public final HashMap<String, LinkedList<Statement>> getMaj() {
-		return maj;
+	public final HashMap<String, LinkedList<Statement>> getNewTuples() {
+		return newtuples;
 	}
 
-	public final void setMaj(HashMap<String, LinkedList<Statement>> m, boolean a) throws RepositoryException {
-		this.maj = a ? getFilteredStatements(m) : m;
+	public final void setNewTuples(HashMap<String, LinkedList<Statement>> nt, boolean a) throws RepositoryException {
+		this.newtuples = a ? getFilteredStatements(nt) : nt;
 	}
 
 	/**
@@ -204,5 +204,5 @@ public abstract class To {
 	 * @throws MalformedQueryException Query isn't valid.
 	 * @throws RepositoryException Fatal error while updating the data set.
 	 */
-	public abstract void majStatements() throws RepositoryException, MalformedQueryException, UpdateExecutionException;
+	public abstract void updateDataSet() throws RepositoryException, MalformedQueryException, UpdateExecutionException;
 }

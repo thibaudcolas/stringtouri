@@ -99,7 +99,7 @@ public abstract class Linkage {
 	 */
 	public HashMap<String, String> getSourceData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		// If maxlinks = 0, default sized. Otherwise, optimized size.
-		HashMap<String, String> result = new HashMap<String, String>(DEFSIZE + maxlinks);
+		HashMap<String, String> sourcedata = new HashMap<String, String>(DEFSIZE + maxlinks);
 		TupleQueryResult tqr = null;
 		BindingSet bs;
 		
@@ -115,7 +115,7 @@ public abstract class Linkage {
 			while (tqr.hasNext()) {
 				cpt++;
 				bs = tqr.next();
-				result.put(bs.getValue(OVAR).stringValue(), bs.getValue(SVAR).stringValue());
+				sourcedata.put(bs.getValue(OVAR).stringValue(), bs.getValue(SVAR).stringValue());
 			}
 			
 			if (LOG.isInfoEnabled()) {
@@ -137,7 +137,7 @@ public abstract class Linkage {
 			}
 		}
 		
-		return result;
+		return sourcedata;
 	}
 	
 	/**
@@ -150,7 +150,7 @@ public abstract class Linkage {
 	 */
 	public HashMap<String, LinkedList<String>> getTargetData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		// If maxlinks = 0, default sized. Otherwise, optimized size.
-		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(DEFSIZE + maxlinks);
+		HashMap<String, LinkedList<String>> targetdata = new HashMap<String, LinkedList<String>>(DEFSIZE + maxlinks);
 		TupleQueryResult tqr = null;
 		BindingSet bs;
 		String object;
@@ -172,15 +172,15 @@ public abstract class Linkage {
 				
 				// If the value is already inside the data set, we retrieve associated URIs in order to add one.
 				// If the value hasn't been encountered yet, we add the URI to the corresponding object.
-				if (result.containsKey(object)) {
-					subjects = new LinkedList<String>(result.get(object));
+				if (targetdata.containsKey(object)) {
+					subjects = new LinkedList<String>(targetdata.get(object));
 				}
 				else {
 					subjects = new LinkedList<String>();
 				}
 				
 				subjects.add(bs.getValue(SVAR).stringValue());
-				result.put(object, subjects);
+				targetdata.put(object, subjects);
 			}
 			
 			if (LOG.isInfoEnabled()) {
@@ -196,7 +196,7 @@ public abstract class Linkage {
 			}
 		}
 		
-		return result;
+		return targetdata;
 	}
 	
 	/**
@@ -220,16 +220,16 @@ public abstract class Linkage {
 	 */
 	public HashMap<String, LinkedList<Statement>> generateLinks() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		HashMap<String, String> sourcedata = getSourceData();
-		HashMap<String, LinkedList<String>> cibledata = getTargetData();
+		HashMap<String, LinkedList<String>> targetdata = getTargetData();
 		
 		HashMap<String, LinkedList<Statement>> newlinks = new HashMap<String, LinkedList<Statement>>();
 		LinkedList<Statement> tmplinks = new LinkedList<Statement>();
 		
 		int cpt = 0;
-		for (String objet : cibledata.keySet()) {
+		for (String objet : targetdata.keySet()) {
 			if (sourcedata.containsKey(objet)) {
 				cpt++;
-				for (String sujet : cibledata.get(objet)) {
+				for (String sujet : targetdata.get(objet)) {
 					
 					tmplinks = newlinks.get(sujet);
 					if (tmplinks == null) {
