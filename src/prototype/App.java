@@ -180,7 +180,7 @@ public class App {
 	 */
 	public void initiateInterconnexion(boolean a) {
 		try {
-			sortie.setMaj(linkage.getInterconnexion(), a);
+			sortie.setMaj(linkage.generateLinks(), a);
 		} catch (RepositoryException e) {
 			LOG.fatal("Interlink " + nom + " - " + e);
 			shutdown();

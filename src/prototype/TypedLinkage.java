@@ -12,56 +12,56 @@ public class TypedLinkage extends Linkage {
 	/**
 	 * Data type of interest within the source data set.
 	 */
-	private String typesource;
+	private String sourcetype;
 	/**
 	 * Data type of interest within the target data set.
 	 */
-	private String typecible;
+	private String targettype;
 	
 	/**
 	 * Default constructor.
 	 * @param s : The source data set.
 	 * @param c : The target data set.
-	 * @param ps : The source predicate.
-	 * @param pc : The target predicate.
-	 * @param ts : The source data type.
-	 * @param tc : The target data type.
+	 * @param sp : The source predicate.
+	 * @param tp : The target predicate.
+	 * @param st : The source data type.
+	 * @param tt : The target data type.
 	 */
-	public TypedLinkage(DataSet s, DataSet c, String ps, String pc, String ts, String tc) {
-		super(s, c, ps, pc);
+	public TypedLinkage(DataSet s, DataSet c, String sp, String tp, String st, String tt) {
+		super(s, c, sp, tp);
 		
-		maxliens = 0;
-		typesource = ts;
-		typecible = tc;
-		querysource = writeQuery(ps, ts);
-		querycible = writeQuery(pc, tc);
+		maxlinks = 0;
+		sourcetype = st;
+		targettype = tt;
+		sourcequery = writeSelectQuery(sp, st);
+		targetquery = writeSelectQuery(tp, tt);
 	}
 	
 	/**
-	 * Useless constructor.
+	 * Default constructor.
 	 * @param s : The source data set.
 	 * @param c : The target data set.
-	 * @param ps : The source predicate.
-	 * @param pc : The target predicate.
-	 * @param ts : The source data type.
-	 * @param tc : The target data type.
-	 * @param ml : The max number of links updated.
+	 * @param sp : The source predicate.
+	 * @param tp : The target predicate.
+	 * @param st : The source data type.
+	 * @param tt : The target data type.
+	 * @param ml : The max number of new links.
 	 */
-	public TypedLinkage(DataSet s, DataSet c, String ps, String pc, String ts, String tc, int ml) {
-		super(s, c, ps, pc);
+	public TypedLinkage(DataSet s, DataSet c, String sp, String tp, String st, String tt, int ml) {
+		super(s, c, sp, tp);
 		
-		maxliens = Math.max(ml, 0);
-		typesource = ts;
-		typecible = tc;
-		querysource = writeQuery(ps, ts);
-		querycible = writeQuery(pc, tc);
+		maxlinks = Math.max(ml, 0);
+		sourcetype = st;
+		targettype = tt;
+		sourcequery = writeSelectQuery(sp, st);
+		targetquery = writeSelectQuery(tp, tt);
 	}
 	
-	public final String getTypeSource() {
-		return typesource;
+	public final String getSourceType() {
+		return sourcetype;
 	}
 	
-	public final String getTypeCible() {
-		return typecible;
+	public final String getTargetType() {
+		return targettype;
 	}
 }

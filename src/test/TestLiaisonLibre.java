@@ -80,12 +80,12 @@ public class TestLiaisonLibre {
 
 	@Test
 	public void testConstructor() {
-		assertEquals(l.getMaxLiens(), 0);
-		assertEquals(l.getNom(), defprops + " - " + defpropc);
-		assertEquals(l.getPropCible(), defpropc);
-		assertEquals(l.getPropSource(), defprops);
-		assertEquals(l.getQueryCible(), defqc);
-		assertEquals(l.getQuerySource(), defqs);
+		assertEquals(l.getMaxLinks(), 0);
+		assertEquals(l.getName(), defprops + " - " + defpropc);
+		assertEquals(l.getTargetPredicate(), defpropc);
+		assertEquals(l.getSourcePredicate(), defprops);
+		assertEquals(l.getTargetQuery(), defqc);
+		assertEquals(l.getSourceQuery(), defqs);
 	}
 	
 	@Test
@@ -93,18 +93,18 @@ public class TestLiaisonLibre {
 		final int maxliens = 100;
 		
 		FreeLinkage lbis = new FreeLinkage(s, c, defprops, defpropc, defqs, defqc, maxliens);
-		assertEquals(lbis.getMaxLiens(), maxliens);
-		assertEquals(lbis.getNom(), defprops + " - " + defpropc);
-		assertEquals(lbis.getPropCible(), defpropc);
-		assertEquals(lbis.getPropSource(), defprops);
-		assertEquals(l.getQueryCible(), defqc);
-		assertEquals(l.getQuerySource(), defqs);
+		assertEquals(lbis.getMaxLinks(), maxliens);
+		assertEquals(lbis.getName(), defprops + " - " + defpropc);
+		assertEquals(lbis.getTargetPredicate(), defpropc);
+		assertEquals(lbis.getSourcePredicate(), defprops);
+		assertEquals(l.getTargetQuery(), defqc);
+		assertEquals(l.getSourceQuery(), defqs);
 	}
 	
 	@Test
 	public void testBindingCheck() {
 		try {
-			assertTrue(l.hasCorrectBindingNames(s.selectQuery(l.getQuerySource())));
+			assertTrue(l.hasCorrectBindingNames(s.selectQuery(l.getSourceQuery())));
 			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
 			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.SVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
 			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " ?" + Linkage.PVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
@@ -127,7 +127,7 @@ public class TestLiaisonLibre {
 				assertTrue(result.get(k).startsWith("http://"));
 			}
 			
-			TupleQueryResult tpqr = s.selectQuery(l.getQuerySource());
+			TupleQueryResult tpqr = s.selectQuery(l.getSourceQuery());
 			int cpt = 0;
 			while (tpqr.hasNext()) {
 				BindingSet bs = tpqr.next();
@@ -151,14 +151,14 @@ public class TestLiaisonLibre {
 	@Test
 	public void testCibleData() {
 		try {
-			HashMap<String, LinkedList<String>> result = l.getCibleData();
+			HashMap<String, LinkedList<String>> result = l.getTargetData();
 			assertTrue(result.size() > 0);
 			for (String k : result.keySet()) {
 				assertFalse(k.startsWith("http://"));
 				assertFalse(result.get(k).isEmpty());
 			}
 			
-			TupleQueryResult tpqr = c.selectQuery(l.getQueryCible());
+			TupleQueryResult tpqr = c.selectQuery(l.getTargetQuery());
 			while (tpqr.hasNext()) {
 				BindingSet bs = tpqr.next();
 				assertTrue(result.containsKey(bs.getBinding(Linkage.OVAR).getValue().stringValue()));
@@ -177,7 +177,7 @@ public class TestLiaisonLibre {
 	@Test
 	public void testInterconnexion() {
 		try {
-			HashMap<String, LinkedList<Statement>> result = l.getInterconnexion();
+			HashMap<String, LinkedList<Statement>> result = l.generateLinks();
 			for (String suj : result.keySet()) {
 				assertTrue(suj.startsWith("http://"));
 				for (Statement st : result.get(suj)) {

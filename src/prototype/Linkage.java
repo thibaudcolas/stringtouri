@@ -30,7 +30,7 @@ public abstract class Linkage {
 	/**
 	 * Linkage name for display purposes.
 	 */
-	protected String nom;
+	protected String name;
 	/**
 	 * Source data for new links.
 	 */
@@ -38,29 +38,29 @@ public abstract class Linkage {
 	/**
 	 * Target data for new links.
 	 */
-	protected DataSet cible;
+	protected DataSet target;
 	/**
 	 * Source predicate to lookup.
 	 */
-	protected String propsource;
+	protected String sourcepredicate;
 	/**
 	 * Target predicate which will be modified.
 	 */
-	protected String propcible;
+	protected String targetpredicate;
 	
 	/**
 	 * Query submited to the source data.
 	 */
-	protected String querysource;
+	protected String sourcequery;
 	/**
 	 * Query submited to the target data.
 	 */
-	protected String querycible;
+	protected String targetquery;
 	
 	/**
 	 * Max number of new links to be made.
 	 */
-	protected int maxliens;
+	protected int maxlinks;
 	
 	/**
 	 * Logger to record actions on the data set.
@@ -72,21 +72,21 @@ public abstract class Linkage {
 	/**
 	 * Super-class constructor used to log initialization of the linkages.
 	 * @param s : The source data set.
-	 * @param c : The target data set.
-	 * @param ps : The source predicate.
-	 * @param pc : The target predicate.
+	 * @param t : The target data set.
+	 * @param sp : The source predicate.
+	 * @param tp : The target predicate.
 	 */
-	protected Linkage(DataSet s, DataSet c, String ps, String pc) {
-		nom = ps + " - " + pc;
+	protected Linkage(DataSet s, DataSet t, String sp, String tp) {
+		name = sp + " - " + tp;
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Creation  Liaison " + nom + ".");
+			LOG.info("Created linkage " + name + ".");
 		}
 		
 		source = s;
-		cible = c;
-		propsource = ps;
-		propcible = pc;
+		target = t;
+		sourcepredicate = sp;
+		targetpredicate = tp;
 	}
 	
 	/**
@@ -98,42 +98,42 @@ public abstract class Linkage {
 	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
 	public HashMap<String, String> getSourceData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
-		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
-		HashMap<String, String> result = new HashMap<String, String>(DEFSIZE + maxliens);
-		TupleQueryResult tupqres = null;
+		// If maxlinks = 0, default sized. Otherwise, optimized size.
+		HashMap<String, String> result = new HashMap<String, String>(DEFSIZE + maxlinks);
+		TupleQueryResult tqr = null;
 		BindingSet bs;
 		
 		try {
-			tupqres = source.selectQuery(querysource);
+			tqr = source.selectQuery(sourcequery);
 
-			if (!hasCorrectBindingNames(tupqres)) {
-				throw new MalformedQueryException("Wrong query result bindings - " + querysource);
+			if (!hasCorrectBindingNames(tqr)) {
+				throw new MalformedQueryException("Wrong query result bindings - " + sourcequery);
 			}
 			
 			int cpt = 0;
-			// Pour toutes les lignes de résultat.
-			while (tupqres.hasNext()) {
+			// For every result binding (line).
+			while (tqr.hasNext()) {
 				cpt++;
-				bs = tupqres.next();
+				bs = tqr.next();
 				result.put(bs.getValue(OVAR).stringValue(), bs.getValue(SVAR).stringValue());
 			}
 			
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Predicate " + propsource + " has " + cpt + " statement(s) in " + source.getName() + ".");
+				LOG.info("Predicate " + sourcepredicate + " has " + cpt + " statement(s) in " + source.getName() + ".");
 			}
 		}
 		catch (QueryEvaluationException e) {
-			throw new QueryEvaluationException("Query : " + querysource, e);
+			throw new QueryEvaluationException("Query : " + sourcequery, e);
 		}
 		catch (RepositoryException e) {
-			throw new RepositoryException("Repository issue while fetching data - " + propsource, e);
+			throw new RepositoryException("Repository issue while fetching data - " + sourcepredicate, e);
 		}
 		catch (MalformedQueryException e) {
-			throw new MalformedQueryException("Query : " + querysource, e);
+			throw new MalformedQueryException("Query : " + sourcequery, e);
 		}
 		finally {
-			if (tupqres != null) {
-				tupqres.close();
+			if (tqr != null) {
+				tqr.close();
 			}
 		}
 		
@@ -148,51 +148,51 @@ public abstract class Linkage {
 	 * @throws RepositoryException Repository error while fetching data.
 	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
-	public HashMap<String, LinkedList<String>> getCibleData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
-		// Si maxliens = 0, dimensionnement par défaut. Sinon, dimensionnement plus optimal.
-		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(DEFSIZE + maxliens);
-		TupleQueryResult tupqres = null;
+	public HashMap<String, LinkedList<String>> getTargetData() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
+		// If maxlinks = 0, default sized. Otherwise, optimized size.
+		HashMap<String, LinkedList<String>> result = new HashMap<String, LinkedList<String>>(DEFSIZE + maxlinks);
+		TupleQueryResult tqr = null;
 		BindingSet bs;
-		String obj;
+		String object;
 		LinkedList<String> subjects;
 		
 		try {
-			tupqres = cible.selectQuery(querycible);
+			tqr = target.selectQuery(targetquery);
 			
-			if (!hasCorrectBindingNames(tupqres)) {
-				throw new QueryEvaluationException("Wrong query result bindings - " + querycible);
+			if (!hasCorrectBindingNames(tqr)) {
+				throw new QueryEvaluationException("Wrong query result bindings - " + targetquery);
 			}
 
 			int cpt = 0;
-			// Pour toutes les lignes de résultat.
-			while (tupqres.hasNext()) {
+			// For every result binding (line).
+			while (tqr.hasNext()) {
 				cpt++;
-				bs = tupqres.next();
-				obj = bs.getValue(OVAR).stringValue();
+				bs = tqr.next();
+				object = bs.getValue(OVAR).stringValue();
 				
-				// Si la valeur est déjà présente dans le jeu, on prend les URI associées et on va en rajouter une.
-				// Si la valeur n'est pas encore référencée, on ajoute l'URI de l'objet qui l'utilise.
-				if (result.containsKey(obj)) {
-					subjects = new LinkedList<String>(result.get(obj));
+				// If the value is already inside the data set, we retrieve associated URIs in order to add one.
+				// If the value hasn't been encountered yet, we add the URI to the corresponding object.
+				if (result.containsKey(object)) {
+					subjects = new LinkedList<String>(result.get(object));
 				}
 				else {
 					subjects = new LinkedList<String>();
 				}
 				
 				subjects.add(bs.getValue(SVAR).stringValue());
-				result.put(obj, subjects);
+				result.put(object, subjects);
 			}
 			
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Predicate " + propcible + " has " + cpt + " statement(s) in " + cible.getName() + ".");
+				LOG.info("Predicate " + targetpredicate + " has " + cpt + " statement(s) in " + target.getName() + ".");
 			}
 		}
 		catch (RepositoryException e) {
-			throw new RepositoryException("While fetching data - " + propsource, e);
+			throw new RepositoryException("While fetching data - " + sourcepredicate, e);
 		}
 		finally {
-			if (tupqres != null) {
-				tupqres.close();
+			if (tqr != null) {
+				tqr.close();
 			}
 		}
 		
@@ -218,12 +218,12 @@ public abstract class Linkage {
 	 * @throws RepositoryException Repository error while fetching data.
 	 * @throws MalformedQueryException Wrong query result bindings.
 	 */
-	public HashMap<String, LinkedList<Statement>> getInterconnexion() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
+	public HashMap<String, LinkedList<Statement>> generateLinks() throws QueryEvaluationException, RepositoryException, MalformedQueryException {
 		HashMap<String, String> sourcedata = getSourceData();
-		HashMap<String, LinkedList<String>> cibledata = getCibleData();
+		HashMap<String, LinkedList<String>> cibledata = getTargetData();
 		
-		HashMap<String, LinkedList<Statement>> maj = new HashMap<String, LinkedList<Statement>>();
-		LinkedList<Statement> tmpmaj = new LinkedList<Statement>();
+		HashMap<String, LinkedList<Statement>> newlinks = new HashMap<String, LinkedList<Statement>>();
+		LinkedList<Statement> tmplinks = new LinkedList<Statement>();
 		
 		int cpt = 0;
 		for (String objet : cibledata.keySet()) {
@@ -231,78 +231,78 @@ public abstract class Linkage {
 				cpt++;
 				for (String sujet : cibledata.get(objet)) {
 					
-					tmpmaj = maj.get(sujet);
-					if (tmpmaj == null) {
-						tmpmaj = new LinkedList<Statement>();
-						maj.put(sujet, tmpmaj);
+					tmplinks = newlinks.get(sujet);
+					if (tmplinks == null) {
+						tmplinks = new LinkedList<Statement>();
+						newlinks.put(sujet, tmplinks);
 					}
-					// propcible est la seule propriété pour laquelle on a des triplets.
-					tmpmaj.add(new StatementImpl(new URIImpl(sujet), new URIImpl(propcible), new URIImpl(sourcedata.get(objet))));
+					// targetpredicate is the only predicate for which we have tuples here.
+					tmplinks.add(new StatementImpl(new URIImpl(sujet), new URIImpl(targetpredicate), new URIImpl(sourcedata.get(objet))));
 				}
 			}
 		}
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Predicate " + propcible + " and " + propsource + " have " + cpt + " common statement(s) in " + nom + ".");
+			LOG.info("Predicate " + targetpredicate + " and " + sourcepredicate + " have " + cpt + " common statement(s) in " + name + ".");
 		}
 		
-		return maj;
+		return newlinks;
 	}
 	
 	/**
 	 * Writes a SPARQL query to retrieve subject - object pairs for a given predicate.
-	 * @param p : The predicate to use, including its local namespace.
-	 * @return La requête SPARQL finale.
+	 * @param predicate : The predicate to use, including its local namespace.
+	 * @return The full SPARQL query.
 	 */
-	public String writeQuery(String p) {
+	public String writeSelectQuery(String predicate) {
 		return "SELECT ?" + SVAR + " ?" + OVAR + " "
-			+ "WHERE {?" + SVAR + " " + p + " ?" + OVAR + "}" 
-			+ (maxliens > 0 ? " LIMIT " + maxliens : "");
+			+ "WHERE {?" + SVAR + " " + predicate + " ?" + OVAR + "}" 
+			+ (maxlinks > 0 ? " LIMIT " + maxlinks : "");
 	}
 	
 	/**
 	 * Writes a SPARQL query to retrieve subject - object pairs for a given predicate.
 	 * The subject will also be of a given type.
-	 * @param p : The predicate to use, including its local namespace.
-	 * @param t : The subject's data type.
-	 * @return La requête SPARQL finale.
+	 * @param predicate : The predicate to use, including its local namespace.
+	 * @param type : The subject's data type.
+	 * @return The full SPARQL query.
 	 */
-	public String writeQuery(String p, String t) {
-		String type = t.equals("") ? "" : "?" + SVAR + " a " + t + " . ";
+	public String writeSelectQuery(String predicate, String type) {
+		String typecheck = type.equals("") ? "" : "?" + SVAR + " a " + type + " . ";
 		return "SELECT ?" + SVAR + " ?" + OVAR + " "
-			+ "WHERE {" +  type  +  "?" + SVAR + " " + p + " ?" + OVAR + "}" 
-			+ (maxliens > 0 ? " LIMIT " + maxliens : "");
+			+ "WHERE {" +  typecheck  +  "?" + SVAR + " " + predicate + " ?" + OVAR + "}" 
+			+ (maxlinks > 0 ? " LIMIT " + maxlinks : "");
 	}
 	
-	public final String getNom() {
-		return nom;
+	public final String getName() {
+		return name;
 	}
 	
-	public final String getPropSource() {
-		return propsource;
+	public final String getSourcePredicate() {
+		return sourcepredicate;
 	}
 	
-	public final String getPropCible() {
-		return propcible;
+	public final String getTargetPredicate() {
+		return targetpredicate;
 	}
 	
-	public final String getQuerySource() {
-		return querysource;
+	public final String getSourceQuery() {
+		return sourcequery;
 	}
 	
-	public final String getQueryCible() {
-		return querycible;
+	public final String getTargetQuery() {
+		return targetquery;
 	}
 	
-	public final int getMaxLiens() {
-		return maxliens;
+	public final int getMaxLinks() {
+		return maxlinks;
 	}
 	
 	/**
 	 * Proper stop of both data sets.
 	 */
 	public void shutdown() {
-		cible.shutdown();
+		target.shutdown();
 		source.shutdown();
 	}
 }

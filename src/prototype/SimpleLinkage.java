@@ -13,30 +13,30 @@ public class SimpleLinkage extends Linkage {
 	 * Default constructor.
 	 * @param s : The source data set.
 	 * @param c : The target data set.
-	 * @param ps : The source predicate.
-	 * @param pc : The target predicate.
+	 * @param sp : The source predicate.
+	 * @param tp : The target predicate.
 	 */
-	public SimpleLinkage(DataSet s, DataSet c, String ps, String pc) {
-		super(s, c, ps, pc);
+	public SimpleLinkage(DataSet s, DataSet c, String sp, String tp) {
+		super(s, c, sp, tp);
 		
-		maxliens = 0;
-		querysource = writeQuery(ps);
-		querycible = writeQuery(pc);
+		maxlinks = 0;
+		sourcequery = writeSelectQuery(sp);
+		targetquery = writeSelectQuery(tp);
 	}
 	
 	/**
 	 * Useless constructor.
 	 * @param s : The source data set.
 	 * @param c : The target data set.
-	 * @param ps : The source predicate.
-	 * @param pc : The target predicate.
+	 * @param sp : The source predicate.
+	 * @param tp : The target predicate.
 	 * @param ml : The max number of links updated.
 	 */
-	public SimpleLinkage(DataSet s, DataSet c, String ps, String pc, int ml) {
-		super(s, c, ps, pc);
+	public SimpleLinkage(DataSet s, DataSet c, String sp, String tp, int ml) {
+		super(s, c, sp, tp);
 		
-		maxliens = Math.max(ml, 0);
-		querysource = writeQuery(ps);
-		querycible = writeQuery(pc);
+		maxlinks = Math.max(ml, 0);
+		sourcequery = writeSelectQuery(sp);
+		targetquery = writeSelectQuery(tp);
 	}
 }

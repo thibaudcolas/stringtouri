@@ -71,12 +71,12 @@ public class TestLiaisonSimple {
 
 	@Test
 	public void testConstructor() {
-		assertEquals(l.getMaxLiens(), 0);
-		assertEquals(l.getNom(), defprops + " - " + defpropc);
-		assertEquals(l.getPropCible(), defpropc);
-		assertEquals(l.getPropSource(), defprops);
-		assertEquals(l.getQueryCible(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}");
-		assertEquals(l.getQuerySource(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defprops + " ?" + Linkage.OVAR + "}");
+		assertEquals(l.getMaxLinks(), 0);
+		assertEquals(l.getName(), defprops + " - " + defpropc);
+		assertEquals(l.getTargetPredicate(), defpropc);
+		assertEquals(l.getSourcePredicate(), defprops);
+		assertEquals(l.getTargetQuery(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}");
+		assertEquals(l.getSourceQuery(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defprops + " ?" + Linkage.OVAR + "}");
 	}
 	
 	@Test
@@ -84,18 +84,18 @@ public class TestLiaisonSimple {
 		final int maxliens = 100;
 		
 		SimpleLinkage lbis = new SimpleLinkage(s, c, defprops, defpropc, maxliens);
-		assertEquals(lbis.getMaxLiens(), maxliens);
-		assertEquals(lbis.getNom(), defprops + " - " + defpropc);
-		assertEquals(lbis.getPropCible(), defpropc);
-		assertEquals(lbis.getPropSource(), defprops);
-		assertEquals(lbis.getQueryCible(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "} LIMIT " + maxliens);
-		assertEquals(lbis.getQuerySource(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defprops + " ?" + Linkage.OVAR + "} LIMIT " + maxliens);
+		assertEquals(lbis.getMaxLinks(), maxliens);
+		assertEquals(lbis.getName(), defprops + " - " + defpropc);
+		assertEquals(lbis.getTargetPredicate(), defpropc);
+		assertEquals(lbis.getSourcePredicate(), defprops);
+		assertEquals(lbis.getTargetQuery(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "} LIMIT " + maxliens);
+		assertEquals(lbis.getSourceQuery(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defprops + " ?" + Linkage.OVAR + "} LIMIT " + maxliens);
 	}
 	
 	@Test
 	public void testBindingCheck() {
 		try {
-			assertTrue(l.hasCorrectBindingNames(s.selectQuery(l.getQuerySource())));
+			assertTrue(l.hasCorrectBindingNames(s.selectQuery(l.getSourceQuery())));
 			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
 			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.SVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
 			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " ?" + Linkage.PVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
@@ -118,7 +118,7 @@ public class TestLiaisonSimple {
 				assertTrue(result.get(k).startsWith("http://"));
 			}
 			
-			TupleQueryResult tpqr = s.selectQuery(l.getQuerySource());
+			TupleQueryResult tpqr = s.selectQuery(l.getSourceQuery());
 			int cpt = 0;
 			while (tpqr.hasNext()) {
 				BindingSet bs = tpqr.next();
@@ -142,14 +142,14 @@ public class TestLiaisonSimple {
 	@Test
 	public void testCibleData() {
 		try {
-			HashMap<String, LinkedList<String>> result = l.getCibleData();
+			HashMap<String, LinkedList<String>> result = l.getTargetData();
 			assertTrue(result.size() > 0);
 			for (String k : result.keySet()) {
 				assertFalse(k.startsWith("http://"));
 				assertFalse(result.get(k).isEmpty());
 			}
 			
-			TupleQueryResult tpqr = c.selectQuery(l.getQueryCible());
+			TupleQueryResult tpqr = c.selectQuery(l.getTargetQuery());
 			while (tpqr.hasNext()) {
 				BindingSet bs = tpqr.next();
 				assertTrue(result.containsKey(bs.getBinding(Linkage.OVAR).getValue().stringValue()));
@@ -168,7 +168,7 @@ public class TestLiaisonSimple {
 	@Test
 	public void testInterconnexion() {
 		try {
-			HashMap<String, LinkedList<Statement>> result = l.getInterconnexion();
+			HashMap<String, LinkedList<Statement>> result = l.generateLinks();
 			for (String suj : result.keySet()) {
 				assertTrue(suj.startsWith("http://"));
 				for (Statement st : result.get(suj)) {
