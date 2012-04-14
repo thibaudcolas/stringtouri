@@ -46,3 +46,33 @@
 14-04-2012 03:30:12,630 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
 14-04-2012 03:30:12,641 INFO  - DataSet - Connection ./rdf/insee/ off.
 14-04-2012 03:30:12,641 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
+14-04-2012 05:35:47,206 INFO  - DataSet - Created data set ./rdf/insee/.
+14-04-2012 05:35:47,982 INFO  - DataSet - Import ./rdf/insee/ : 1 file(s).
+14-04-2012 05:35:47,984 INFO  - DataSet - Created data set ./rdf/Brute3.rdf.
+14-04-2012 05:35:48,041 INFO  - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
+14-04-2012 05:35:48,041 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+14-04-2012 05:35:48,042 INFO  - Linkage - Created linkage geo:nom - tt:Région.
+14-04-2012 05:35:48,043 INFO  - Output - Created output ./rdf/Brute3.rdf.
+14-04-2012 05:35:48,043 INFO  - Output - Export ./rdf/Brute3.rdf namespace retrieval.
+14-04-2012 05:35:48,051 INFO  - DataSet - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+14-04-2012 05:35:48,611 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+14-04-2012 05:35:48,612 INFO  - DataSet - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+14-04-2012 05:35:48,614 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+14-04-2012 05:35:48,615 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+14-04-2012 05:35:48,617 INFO  - DataSet - Connection ./rdf/insee/ off.
+14-04-2012 05:35:48,617 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
+14-04-2012 05:37:22,107 INFO  - DataSet - Created data set ./rdf/insee/.
+14-04-2012 05:37:22,521 INFO  - DataSet - Import ./rdf/insee/ : 1 file(s).
+14-04-2012 05:37:22,521 INFO  - DataSet - Created data set ./rdf/Brute3.rdf.
+14-04-2012 05:37:22,583 INFO  - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
+14-04-2012 05:37:22,583 INFO  - App - Creation AppRDF ./rdf/insee/ - ./rdf/Brute3.rdf
+14-04-2012 05:37:22,585 INFO  - Linkage - Created linkage geo:nom - tt:Région.
+14-04-2012 05:37:22,585 INFO  - Output - Created output ./rdf/Brute3.rdf.
+14-04-2012 05:37:22,586 INFO  - Output - Export ./rdf/Brute3.rdf namespace retrieval.
+14-04-2012 05:37:22,593 INFO  - DataSet - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s a geo:Region . ?s geo:nom ?o}
+14-04-2012 05:37:23,015 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+14-04-2012 05:37:23,015 INFO  - DataSet - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+14-04-2012 05:37:23,026 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+14-04-2012 05:37:23,027 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+14-04-2012 05:37:23,029 INFO  - DataSet - Connection ./rdf/insee/ off.
+14-04-2012 05:37:23,029 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.

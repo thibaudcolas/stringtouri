@@ -13,20 +13,20 @@ public class SPARQLApp extends App {
 
 	/**
 	 * Constructor for two SPARQL endpoints.
-	 * @param urlref : Source data set endpoint.
-	 * @param urlobj : Target data set endpoints.
+	 * @param rurl : Source data set endpoint.
+	 * @param gurl : Target data set endpoints.
 	 */
-	public SPARQLApp(String urlref, String urlobj) {
+	public SPARQLApp(String rurl, String gurl) {
 		super();
 		
 		try {
-			reference = new SPARQLDataSet(urlref);
-			objectif = new SPARQLDataSet(urlobj);
+			reference = new SPARQLDataSet(rurl);
+			goal = new SPARQLDataSet(gurl);
 			
-			nom = reference.getName() + " - " + objectif.getName();
+			name = reference.getName() + " - " + goal.getName();
 	
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Creation AppRDF " + nom);
+				LOG.info("Creation AppRDF " + name);
 			}
 		}
 		catch (RepositoryException e) {

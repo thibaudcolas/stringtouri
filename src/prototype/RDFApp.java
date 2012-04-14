@@ -16,22 +16,22 @@ public class RDFApp extends App {
 
 	/**
 	 * Default constructor.
-	 * @param refpath : Filepath to source data.
-	 * @param objpath : Filepath to target data.
-	 * @param reffilter : Name filter.
-	 * @param objfilter : Name filter.
+	 * @param rpath : Filepath to source data.
+	 * @param gpath : Filepath to target data.
+	 * @param rfilter : Name filter.
+	 * @param gfilter : Name filter.
 	 */
-	public RDFApp(String refpath, String objpath, String reffilter, String objfilter) {
+	public RDFApp(String rpath, String gpath, String rfilter, String gfilter) {
 		super();
 		
 		try {
-			reference = new RDFDataSet(refpath, reffilter, "");
-			objectif = new RDFDataSet(objpath, objfilter, "");
+			reference = new RDFDataSet(rpath, rfilter, "");
+			goal = new RDFDataSet(gpath, gfilter, "");
 			
-			nom = reference.getName() + " - " + objectif.getName();
+			name = reference.getName() + " - " + goal.getName();
 	
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Creation AppRDF " + nom);
+				LOG.info("Creation AppRDF " + name);
 			}
 		}
 		catch (RepositoryException e) {

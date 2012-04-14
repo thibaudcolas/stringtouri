@@ -13,20 +13,20 @@ public class SesameApp extends App {
 
 	/**
 	 * Simple constructor.
-	 * @param urlref : URL to source SESAME repository.
-	 * @param urlobj : URL to target SESAME repository.
+	 * @param rurl : URL to reference SESAME repository.
+	 * @param gurl : URL to goal SESAME repository.
 	 */
-	public SesameApp(String urlref, String urlobj) {
+	public SesameApp(String rurl, String gurl) {
 		super();
 		
 		try {
-			reference = new SPARQLDataSet(urlref);
-			objectif = new SPARQLDataSet(urlobj);
+			reference = new SPARQLDataSet(rurl);
+			goal = new SPARQLDataSet(gurl);
 			
-			nom = reference.getName() + " - " + objectif.getName();
+			name = reference.getName() + " - " + goal.getName();
 	
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Creation AppRDF " + nom);
+				LOG.info("Creation AppRDF " + name);
 			}
 		}
 		catch (RepositoryException e) {
@@ -39,20 +39,20 @@ public class SesameApp extends App {
 	/**
 	 * Default constructor.
 	 * @param urlsesame : URL to SESAME server.
-	 * @param depotref : Source repository identifier.
-	 * @param depotobj : Target repository identifier.
+	 * @param sid : Source repository identifier.
+	 * @param gid : Goal repository identifier.
 	 */
-	public SesameApp(String urlsesame, String depotref, String depotobj) {
+	public SesameApp(String urlsesame, String sid, String gid) {
 		super();
 		
 		try {
-			reference = new SesameDataSet(urlsesame, depotref);
-			objectif = new SesameDataSet(urlsesame, depotobj);
+			reference = new SesameDataSet(urlsesame, sid);
+			goal = new SesameDataSet(urlsesame, gid);
 			
-			nom = reference.getName() + " - " + objectif.getName();
+			name = reference.getName() + " - " + goal.getName();
 	
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Creation AppRDF " + nom);
+				LOG.info("Creation AppRDF " + name);
 			}
 		}
 		catch (RepositoryException e) {
