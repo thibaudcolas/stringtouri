@@ -17,30 +17,30 @@ public class SPARQLDataSet extends DataSet {
 	/**
 	 * The SPARQL endpoint's URL.
 	 */
-	private String endpoint;
+	private String endpointurl;
 	
 	/**
 	 * Default constructor.
-	 * @param ep : SPARQL endpoint URL.
+	 * @param url : SPARQL endpoint URL.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	public SPARQLDataSet(String ep) throws RepositoryException {
-		super(ep);
+	public SPARQLDataSet(String url) throws RepositoryException {
+		super(url);
 		try {	
-			endpoint = ep;
-			rep = new SPARQLRepository(ep);
-			rep.initialize();
+			endpointurl = url;
+			repository = new SPARQLRepository(url);
+			repository.initialize();
 			
 			queries = new LinkedList<String>();
 			
-			con = rep.getConnection();
+			connection = repository.getConnection();
 		} 
 		catch (RepositoryException e) {
-			throw new RepositoryException("While creating new JeuSPARQL - " + ep, e);
+			throw new RepositoryException("While creating new JeuSPARQL - " + url, e);
 		}
 	}
 	
-	public final String getEndPoint() {
-		return endpoint;
+	public final String getEndpointURL() {
+		return endpointurl;
 	}
 }

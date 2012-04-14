@@ -37,15 +37,15 @@ public abstract class DataSet {
 	/**
 	 * Data set name for display.
 	 */
-	protected String nom;
+	protected String name;
 	/** 
 	 * Repository where the data is stored.
 	 */
-	protected Repository rep;
+	protected Repository repository;
 	/**
 	 * Connection to the data set's repository.
 	 */
-	protected RepositoryConnection con;
+	protected RepositoryConnection connection;
 	
 	/**
 	 * History of all the queries submited to the data set.
@@ -62,87 +62,85 @@ public abstract class DataSet {
 	 * @param n : name of the data set.
 	 */
 	protected DataSet(String n) {
-		nom = n;
+		name = n;
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Creation  Jeu " + nom + ".");
+			LOG.info("Created data set " + name + ".");
 		}
 	}
 	
 	/**
 	 * Adds given file(s) to the repository.
-	 * @param source : Path to the given folder/file.
-	 * @param start : String to filter filenames with.
+	 * @param path : Path to the given folder/file.
+	 * @param prefix : String to filter filenames with.
 	 * @param baseuri : Base URI for the new data.
 	 * @throws IOException If the submitted filepath isn't usable.
 	 * @throws RDFParseException If the RDF data inside the file(s) isn't well-formed.
 	 * @throws RepositoryException Internal repository error.
 	 */
-	public void addSource(String source, String start, String baseuri) throws RepositoryException, RDFParseException, IOException {
-		File src = new File(source);
+	public void addTuples(String path, String prefix, String baseuri) throws RepositoryException, RDFParseException, IOException {
+		File source = new File(path);
 		int nbimport = 0;
 		
-		if (src.exists()) {
-			// Cas src est un répertoire.
-			if (src.isDirectory()) {
+		if (source.exists()) {
+			// If source is a folder, we'll get every rdf file within.
+			if (source.isDirectory()) {
 				
-				// On ne prend que les fichiers rdf.
-				FilenameFilter fil = new FilenameFilter() {
-				    public boolean accept(File d, String n) {
-				        return !n.startsWith(".") && n.endsWith(".rdf");
+				FilenameFilter filenamefilter = new FilenameFilter() {
+				    public boolean accept(File folder, String filename) {
+				        return !filename.startsWith(".") && filename.endsWith(".rdf");
 				    }
 				};
 				
-				File[] rdflist = src.listFiles(fil);
+				File[] rdflist = source.listFiles(filenamefilter);
 				for (File f : rdflist) {
-					if (f.getName().startsWith(start)) {
-						// Ajout du fichier au format RDFXML.
-						con.add(f, baseuri, RDFFormat.RDFXML);
+					if (f.getName().startsWith(prefix)) {
+						// RDFXML tuples are added to the repository.
+						connection.add(f, baseuri, RDFFormat.RDFXML);
 						nbimport++;
 					}
 				}	
 			}
-			// Cas src est un fichier.
+			// If source is a single file.
 			else {
-				// Ajout du fichier au format RDFXML.
-				con.add(src, baseuri, RDFFormat.RDFXML);
+				connection.add(source, baseuri, RDFFormat.RDFXML);
 				nbimport++;
 			}
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Import " + nom + " : " + nbimport + " file(s).");
+				LOG.info("Import " + name + " : " + nbimport + " file(s).");
 			}
 		}
 		else {
-			throw new FileNotFoundException("Import " + nom + " : " + source + " not found.");
+			throw new FileNotFoundException("Import " + name + " : " + path + " not found.");
 		}
 	}
 	
 	/**
 	 * Adds a namespace to the repository.
-	 * @param label : Namespaces' prefix.
+	 * @param prefix : Namespaces' prefix.
 	 * @param uri : Namespaces' full name.
 	 * @throws RepositoryException If the new binding fails (repository unwritable).
 	 */
-	public final void addNamespace(String label, String uri) throws RepositoryException {
-		con.setNamespace(label, uri);
+	public final void addNamespace(String prefix, String uri) throws RepositoryException {
+		connection.setNamespace(prefix, uri);
 	}
 	
 	/**
 	 * Recovers the namespace matching a prefix.
-	 * @param pre : The prefix of the namespace.
+	 * @param prefix : The prefix of the namespace.
 	 * @return The namespace as a string.
 	 * @throws RepositoryException Error while reading the namespace.
 	 */
-	public final String getNamespace(String pre) throws RepositoryException {
-		return con.getNamespace(pre);
+	public final String getNamespace(String prefix) throws RepositoryException {
+		return connection.getNamespace(prefix);
 	}
 	
 	/**
 	 * Erases all namespaces from the repository.
 	 * @throws RepositoryException Error while erasing all the namespaces.
 	 */
-	public void razNamespaces() throws RepositoryException {
-		con.clearNamespaces();
+	public void resetNamespaces() throws RepositoryException {
+		connection.clearNamespaces();
 	}
 	
 	/**
@@ -151,7 +149,7 @@ public abstract class DataSet {
 	 * @throws RepositoryException Error while reading the namespaces.
 	 */
 	public final List<Namespace> getNamespaceList() throws RepositoryException {
-		return con.getNamespaces().asList();
+		return connection.getNamespaces().asList();
 	}
 	
 	/**
@@ -176,26 +174,26 @@ public abstract class DataSet {
 	 * @throws RepositoryException Error while accessing the repository.
 	 * @throws QueryEvaluationException Query result isn't valid.
 	 */
-	public TupleQueryResult SPARQLQuery(String query) throws RepositoryException, MalformedQueryException, QueryEvaluationException {
+	public TupleQueryResult selectQuery(String query) throws RepositoryException, MalformedQueryException, QueryEvaluationException {
 		TupleQuery tq;
-		TupleQueryResult tpq;
+		TupleQueryResult tqr;
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Query " + nom + " select - " + query);
+			LOG.info("Query " + name + " select - " + query);
 		}
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
 		queries.add(query);
 		
 		try {
-			tq = con.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
-			tpq = tq.evaluate();
+			tq = connection.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
+			tqr = tq.evaluate();
 		}
 		catch (MalformedQueryException e) {
 			throw new MalformedQueryException("Query : " + query, e);
 		} catch (QueryEvaluationException e) {
 			throw new QueryEvaluationException("Query : " + query, e);
 		}
-	    return tpq;
+	    return tqr;
 	}
 	
 	/**
@@ -207,13 +205,13 @@ public abstract class DataSet {
 	 */
 	public void updateQuery(String query) throws RepositoryException, UpdateExecutionException, MalformedQueryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Query " + nom + " update - " + query);
+			LOG.info("Query " + name + " update - " + query);
 		}
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
 		queries.add(query);
 		
 		try {
-			Update up = con.prepareUpdate(QueryLanguage.SPARQL, getPrefixes() + query);
+			Update up = connection.prepareUpdate(QueryLanguage.SPARQL, getPrefixes() + query);
 		    up.execute();
 		}
 		catch (MalformedQueryException e) {
@@ -245,46 +243,46 @@ public abstract class DataSet {
 	 * @throws RepositoryException Problem during retrieval.
 	 */
 	public final LinkedList<Statement> getAllStatements() throws RepositoryException {
-		return new LinkedList<Statement>(con.getStatements(null, null, null, true).asList());
+		return new LinkedList<Statement>(connection.getStatements(null, null, null, true).asList());
 	}
 	
 	/**
 	 * Recovers statements according to criteria.
-	 * @param r : The subject we want to use.
-	 * @param u : The predicat to use.
+	 * @param subject : The subject we want to use.
+	 * @param predicate : The predicat to use.
 	 * @return Statements which have r as subject and u as predicat.
 	 * @throws RepositoryException Problem during retrieval.
 	 */
-	public final LinkedList<Statement> getAllStatements(Resource r, URI u) throws RepositoryException {
-		return new LinkedList<Statement>(con.getStatements(r, u, null, true).asList());
+	public final LinkedList<Statement> getAllStatements(Resource subject, URI predicate) throws RepositoryException {
+		return new LinkedList<Statement>(connection.getStatements(subject, predicate, null, true).asList());
 	}
 	
 	/**
 	 * Adds a set of statements to the repository.
-	 * @param sts : The statements to add.
+	 * @param statements : The statements to add.
 	 * @throws RepositoryException Repository not writable.
 	 */
-	public final void addAllStatements(Iterable<Statement> sts) throws RepositoryException {
-		con.add(sts);
+	public final void addAllStatements(Iterable<Statement> statements) throws RepositoryException {
+		connection.add(statements);
 	}
 	
 	/**
 	 * Adds a single statement to the repository.
-	 * @param s : The statement.
+	 * @param statement : The statement.
 	 * @throws RepositoryException Repository not writable.
 	 */
-	public final void addStatement(Statement s) throws RepositoryException {
-		con.add(s);
+	public final void addStatement(Statement statement) throws RepositoryException {
+		connection.add(statement);
 	}
 	
 	/**
 	 * Removes numerous statements from the repository according to criteria.
-	 * @param r : The subject we want to use.
-	 * @param u : The predicat to use.
+	 * @param subject : The subject we want to use.
+	 * @param predicate : The predicat to use.
 	 * @throws RepositoryException Repository not writable.
 	 */
-	public final void removeStatements(Resource r, URI u) throws RepositoryException {
-		con.remove(r, u, null);
+	public final void removeStatements(Resource subject, URI predicate) throws RepositoryException {
+		connection.remove(subject, predicate, null);
 	}
 	
 	/**
@@ -292,14 +290,14 @@ public abstract class DataSet {
 	 */
 	public final void shutdown() {
 		try {
-			con.close();
-			rep.shutDown();
+			connection.close();
+			repository.shutDown();
 			
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Connection " + nom + " " + (con.isOpen() ? "still on" : "off") + ".");
+				LOG.info("Connection " + name + " " + (connection.isOpen() ? "still on" : "off") + ".");
 			}
 		} catch (RepositoryException e) {
-			LOG.warn("Connection " + nom + " failed to be closed - " + e);
+			LOG.warn("Connection " + name + " failed to be closed - " + e);
 		}
 	}
 	
@@ -308,14 +306,14 @@ public abstract class DataSet {
 	 */
 	public final void commit() {
 		try {
-			con.commit();
+			connection.commit();
 			
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Commit " + nom + ".");
+				LOG.info("Commit " + name + ".");
 			}
 			
 		} catch (RepositoryException e) {
-			LOG.error("Commit " + nom + " error - " + e);
+			LOG.error("Commit " + name + " error - " + e);
 		}
 	}
 	
@@ -324,30 +322,29 @@ public abstract class DataSet {
 	 * @return Status of autocommit.
 	 */
 	public final boolean isAutoCommit() {
-		boolean ret;
+		boolean status = false;
 		try {
-			ret = con.isAutoCommit();
+			status = connection.isAutoCommit();
 		} catch (RepositoryException e) {
-			LOG.error("Commit " + nom + " checking error - " + e);
-			ret = false;
+			LOG.error("Commit " + name + " checking error - " + e);
 		}
-		return ret;
+		return status;
 	}
 	
 	/**
 	 * Sets auto commit (i.e one commit for each update) on or off.
-	 * @param on : Autocommit status.
+	 * @param status : Autocommit status.
 	 */
-	public final void setAutoCommit(boolean on) {
+	public final void setAutoCommit(boolean status) {
 		try {
-			con.setAutoCommit(on);
+			connection.setAutoCommit(status);
 			
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Commit " + nom + " " + (on ? "on" : "off") + " auto.");
+				LOG.info("Commit " + name + " " + (status ? "on" : "off") + " auto.");
 			}
 			
 		} catch (RepositoryException e) {
-			LOG.error("Commit " + nom + " " + (on ? "on" : "off") + " auto error - " + e);
+			LOG.error("Commit " + name + " " + (status ? "on" : "off") + " auto error - " + e);
 		}
 	}
 	
@@ -356,18 +353,18 @@ public abstract class DataSet {
 	 */
 	public final void rollback() {
 		try {
-			con.rollback();
+			connection.rollback();
 			
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Commit " + nom + " rollback.");
+				LOG.info("Commit " + name + " rollback.");
 			}
 			
 		} catch (RepositoryException e) {
-			LOG.error("Commit " + nom + " rollback error - " + e);
+			LOG.error("Commit " + name + " rollback error - " + e);
 		}
 	}
 	
-	public final String getNom() {
-		return nom;
+	public final String getName() {
+		return name;
 	}
 }

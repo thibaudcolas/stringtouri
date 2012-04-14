@@ -78,7 +78,7 @@ public class TestJeuRDF {
 
 	@Test (expected = NoSuchElementException.class)
 	public void testConstructor() {
-		assertEquals(j.getNom(), deffolder);
+		assertEquals(j.getName(), deffolder);
 		assertEquals(j.getBaseURI(), defuri);
 		j.getLastQuery();
 	}
@@ -87,7 +87,7 @@ public class TestJeuRDF {
 	public void testAddSourceFolder() {
 		try {
 			int tmpsize = j.getAllStatements().size();
-			j.addSource(deffile, "", defuri);
+			j.addTuples(deffile, "", defuri);
 			assertTrue(tmpsize < j.getAllStatements().size());
 			
 		} catch (Exception e) {
@@ -98,7 +98,7 @@ public class TestJeuRDF {
 	@Test (expected = FileNotFoundException.class)
 	public void testAddSourceNotFound() throws IOException {
 		try {
-			j.addSource(deffolder + "notfound/", "", defuri);
+			j.addTuples(deffolder + "notfound/", "", defuri);
 		}
 		catch (RepositoryException e) {
 			fail();
@@ -133,7 +133,7 @@ public class TestJeuRDF {
 	@Test
 	public void testNamespaceRaz() {
 		try {
-			j.razNamespaces();
+			j.resetNamespaces();
 			assertEquals(j.getNamespaceList().size(), 0);
 		} catch (RepositoryException e) {
 			fail();
@@ -148,7 +148,7 @@ public class TestJeuRDF {
 			assertTrue(tmppref.contains(rdfpre));
 			assertTrue(tmppref.contains(rdfuri));
 			
-			j.razNamespaces();
+			j.resetNamespaces();
 			assertEquals("", j.getPrefixes());
 		} catch (RepositoryException e) {
 			fail();
@@ -158,7 +158,7 @@ public class TestJeuRDF {
 	@Test
 	public void testSPARQLSelect() {
 		try {
-			TupleQueryResult tpq = j.SPARQLQuery(defreq);
+			TupleQueryResult tpq = j.selectQuery(defreq);
 			
 			assertEquals(defreq, j.getLastQuery());
 			assertEquals(1, j.getQueries().size());
@@ -177,7 +177,7 @@ public class TestJeuRDF {
 	@Test (expected = MalformedQueryException.class)
 	public void testSPARQLSelectError() throws MalformedQueryException {
 		try {
-			j.SPARQLQuery("SELECT ?s WHERE {");
+			j.selectQuery("SELECT ?s WHERE {");
 			
 			fail();
 		} catch (RepositoryException e) {

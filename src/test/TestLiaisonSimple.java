@@ -95,10 +95,10 @@ public class TestLiaisonSimple {
 	@Test
 	public void testBindingCheck() {
 		try {
-			assertTrue(l.hasCorrectBindingNames(s.SPARQLQuery(l.getQuerySource())));
-			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
-			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Linkage.SVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
-			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " ?" + Linkage.PVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
+			assertTrue(l.hasCorrectBindingNames(s.selectQuery(l.getQuerySource())));
+			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
+			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.SVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
+			assertFalse(l.hasCorrectBindingNames(s.selectQuery("SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " ?" + Linkage.PVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
 		} catch (RepositoryException e) {
 			fail();
 		} catch (MalformedQueryException e) {
@@ -118,7 +118,7 @@ public class TestLiaisonSimple {
 				assertTrue(result.get(k).startsWith("http://"));
 			}
 			
-			TupleQueryResult tpqr = s.SPARQLQuery(l.getQuerySource());
+			TupleQueryResult tpqr = s.selectQuery(l.getQuerySource());
 			int cpt = 0;
 			while (tpqr.hasNext()) {
 				BindingSet bs = tpqr.next();
@@ -149,7 +149,7 @@ public class TestLiaisonSimple {
 				assertFalse(result.get(k).isEmpty());
 			}
 			
-			TupleQueryResult tpqr = c.SPARQLQuery(l.getQueryCible());
+			TupleQueryResult tpqr = c.selectQuery(l.getQueryCible());
 			while (tpqr.hasNext()) {
 				BindingSet bs = tpqr.next();
 				assertTrue(result.containsKey(bs.getBinding(Linkage.OVAR).getValue().stringValue()));

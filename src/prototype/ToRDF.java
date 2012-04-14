@@ -65,7 +65,7 @@ public class ToRDF extends To {
 	 * @throws RepositoryException Fatal error while updating the data set.
 	 */
 	public void majStatements() throws RepositoryException {
-		throw new RepositoryException("Invalid call to majStatement using RDF converter - " + jeumaj.getNom());
+		throw new RepositoryException("Invalid call to majStatement using RDF converter - " + jeumaj.getName());
 	}
 	
 	/**

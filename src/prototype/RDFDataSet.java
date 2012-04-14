@@ -24,28 +24,28 @@ public class RDFDataSet extends DataSet {
 	
 	/**
 	 * Simple constructor.
-	 * @param source : Source file / folder.
-	 * @param start : Filter on the filenames to import.
+	 * @param path : Source file / folder.
+	 * @param prefix : Prefix of the filenames to import.
 	 * @param uri : Base URI for the data.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 * @throws IOException File/folder error.
 	 * @throws RDFParseException File(s) content isn't correct RDFXML.
 	 */
-	public RDFDataSet(String source, String start, String uri) throws RepositoryException, IOException, RDFParseException {
-		super(source);
+	public RDFDataSet(String path, String prefix, String uri) throws RepositoryException, IOException, RDFParseException {
+		super(path);
 		try {
 			baseuri = uri;
 			queries = new LinkedList<String>();
 			
-			rep = new SailRepository(new MemoryStore());
-			rep.initialize();
+			repository = new SailRepository(new MemoryStore());
+			repository.initialize();
 			
-			con = rep.getConnection();
+			connection = repository.getConnection();
 			
-			addSource(source, start, baseuri);
+			addTuples(path, prefix, baseuri);
 		} 
 		catch (RepositoryException e) {
-			throw new RepositoryException("While creating new JeuRDF - " + source, e);
+			throw new RepositoryException("While creating new JeuRDF - " + path, e);
 		}
 	}
 	

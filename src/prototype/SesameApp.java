@@ -23,7 +23,7 @@ public class SesameApp extends App {
 			reference = new SPARQLDataSet(urlref);
 			objectif = new SPARQLDataSet(urlobj);
 			
-			nom = reference.getNom() + " - " + objectif.getNom();
+			nom = reference.getName() + " - " + objectif.getName();
 	
 			if (LOG.isInfoEnabled()) {
 				LOG.info("Creation AppRDF " + nom);
@@ -49,7 +49,7 @@ public class SesameApp extends App {
 			reference = new SesameDataSet(urlsesame, depotref);
 			objectif = new SesameDataSet(urlsesame, depotobj);
 			
-			nom = reference.getNom() + " - " + objectif.getNom();
+			nom = reference.getName() + " - " + objectif.getName();
 	
 			if (LOG.isInfoEnabled()) {
 				LOG.info("Creation AppRDF " + nom);

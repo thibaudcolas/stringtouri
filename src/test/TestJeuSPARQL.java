@@ -49,8 +49,8 @@ public class TestJeuSPARQL {
 
 	@Test (expected = NoSuchElementException.class)
 	public void testConstructor() {
-		assertEquals(j.getNom(), defurl);
-		assertEquals(j.getEndPoint(), defurl);
+		assertEquals(j.getName(), defurl);
+		assertEquals(j.getEndpointURL(), defurl);
 		
 		j.getLastQuery();
 	}
@@ -58,7 +58,7 @@ public class TestJeuSPARQL {
 	@Test
 	public void testSPARQLSelect() {
 		try {
-			TupleQueryResult tpq = j.SPARQLQuery(defreq);
+			TupleQueryResult tpq = j.selectQuery(defreq);
 			
 			assertEquals(defreq, j.getLastQuery());
 			assertEquals(1, j.getQueries().size());
@@ -77,7 +77,7 @@ public class TestJeuSPARQL {
 	@Test (expected = QueryEvaluationException.class)
 	public void testSPARQLSelectError() throws QueryEvaluationException {
 		try {
-			j.SPARQLQuery("SELECT ?s WHERE {");
+			j.selectQuery("SELECT ?s WHERE {");
 			
 			fail();
 		} catch (RepositoryException e) {

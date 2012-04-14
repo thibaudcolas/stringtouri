@@ -63,7 +63,7 @@ public class TestJeuSesame {
 	@Before
 	public void setUp() throws Exception {
 		j = new SesameDataSet(defurl, defdep);
-		j.addSource("./src/test/rdf/", "continents", defurl);
+		j.addTuples("./src/test/rdf/", "continents", defurl);
 	}
 
 	@After
@@ -73,16 +73,16 @@ public class TestJeuSesame {
 
 	@Test (expected = NoSuchElementException.class)
 	public void testConstructor() {
-		assertEquals(j.getNom(), defurl + " - " + defdep);
-		assertEquals(j.getIdDepot(), defdep);
-		assertEquals(j.getURLSesame(), defurl);
+		assertEquals(j.getName(), defurl + " - " + defdep);
+		assertEquals(j.getRepositoryID(), defdep);
+		assertEquals(j.getServerURL(), defurl);
 		
 		try {
 			String tmpurl = "http://localhost:8080/openrdf-sesame/repositories/test";
 			SesameDataSet jbis = new SesameDataSet(tmpurl);
-			assertEquals(jbis.getNom(), tmpurl);
-			assertEquals(jbis.getIdDepot(), tmpurl);
-			assertEquals(jbis.getURLSesame(), tmpurl);
+			assertEquals(jbis.getName(), tmpurl);
+			assertEquals(jbis.getRepositoryID(), tmpurl);
+			assertEquals(jbis.getServerURL(), tmpurl);
 		} catch (RepositoryException e) {
 			fail();
 		}
@@ -117,7 +117,7 @@ public class TestJeuSesame {
 	@Test
 	public void testNamespaceRaz() {
 		try {
-			j.razNamespaces();
+			j.resetNamespaces();
 			assertEquals(j.getNamespaceList().size(), 0);
 		} catch (RepositoryException e) {
 			fail();
@@ -132,7 +132,7 @@ public class TestJeuSesame {
 			assertTrue(tmppref.contains(rdfpre));
 			assertTrue(tmppref.contains(rdfuri));
 			
-			j.razNamespaces();
+			j.resetNamespaces();
 			assertEquals("", j.getPrefixes());
 		} catch (RepositoryException e) {
 			fail();
@@ -142,7 +142,7 @@ public class TestJeuSesame {
 	@Test
 	public void testSPARQLSelect() {
 		try {
-			TupleQueryResult tpq = j.SPARQLQuery(defreq);
+			TupleQueryResult tpq = j.selectQuery(defreq);
 			
 			assertEquals(defreq, j.getLastQuery());
 			assertEquals(1, j.getQueries().size());
@@ -161,7 +161,7 @@ public class TestJeuSesame {
 	@Test (expected = QueryEvaluationException.class)
 	public void testSPARQLSelectError() throws QueryEvaluationException {
 		try {
-			j.SPARQLQuery("SELECT ?s WHERE {");
+			j.selectQuery("SELECT ?s WHERE {");
 			
 			fail();
 		} catch (RepositoryException e) {

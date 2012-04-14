@@ -123,7 +123,7 @@ public class ToSPARQL extends To {
 		LinkedList<String> queries = deleteinsert ? getDeleteInsertQueries() : getInsertQueries();
 
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Update " + destination.getNom() + " using SPARQL queries.");
+			LOG.info("Update " + destination.getName() + " using SPARQL queries.");
 		}
 		
 		//On veut être sûr d'effectuer soit tous les changements, soit aucun.
@@ -136,7 +136,7 @@ public class ToSPARQL extends To {
 		} 
 		catch (RepositoryException e) {
 			destination.rollback();
-			throw new RepositoryException("While SPARQL updating statements - " + destination.getNom(), e);
+			throw new RepositoryException("While SPARQL updating statements - " + destination.getName(), e);
 		} 
 		catch (MalformedQueryException e) {
 			destination.rollback();

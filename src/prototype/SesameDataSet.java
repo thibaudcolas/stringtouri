@@ -6,7 +6,7 @@ import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.http.HTTPRepository;
 
 /**
- * A data set stored inside a local or remote SESAME server.
+ * A data set stored inside a local or remote Sesame server.
  * 
  * @author Thibaud Colas
  * @version 01042012
@@ -15,64 +15,64 @@ import org.openrdf.repository.http.HTTPRepository;
 public class SesameDataSet extends DataSet {
 	
 	/**
-	 * The SESAME server URL.
+	 * The Sesame server URL.
 	 */
-	private String sesame;
+	private String serverurl;
 	/**
 	 * The identifier of the repository.
 	 */
-	private String depot;
+	private String repositoryid;
 	
 	/**
 	 * Lazy constructor.
-	 * @param sd : Direct URL to the SESAME repository.
+	 * @param repositoryurl : Direct URL to the Sesame repository.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	public SesameDataSet(String sd) throws RepositoryException {
-		super(sd);
+	public SesameDataSet(String repositoryurl) throws RepositoryException {
+		super(repositoryurl);
 		try {
-			sesame = sd;
-			depot = sd;
-			rep = new HTTPRepository(sd);
-			rep.initialize();
+			serverurl = repositoryurl;
+			repositoryid = repositoryurl;
+			repository = new HTTPRepository(repositoryurl);
+			repository.initialize();
 			
 			queries = new LinkedList<String>();
 			
-			con = rep.getConnection();
+			connection = repository.getConnection();
 		} 
 		catch (RepositoryException e) {
-			throw new RepositoryException("While creating new JeuSesame - " + sd, e);
+			throw new RepositoryException("While creating new JeuSesame - " + repositoryurl, e);
 		}
 	}
 	
 	/**
 	 * Default constructor.
-	 * @param s : SESAME server's URL.
-	 * @param d : Repository id.
+	 * @param url : Sesame server's URL.
+	 * @param identifier : Repository id.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	public SesameDataSet(String s, String d) throws RepositoryException {
-		super(s + " - " + d);
+	public SesameDataSet(String url, String identifier) throws RepositoryException {
+		super(url + " - " + identifier);
 		try {	
-			sesame = s;
-			depot = d;
-			rep = new HTTPRepository(sesame, depot);
-			rep.initialize();
+			serverurl = url;
+			repositoryid = identifier;
+			repository = new HTTPRepository(serverurl, repositoryid);
+			repository.initialize();
 			
 			queries = new LinkedList<String>();
 			
-			con = rep.getConnection();
+			connection = repository.getConnection();
 		} 
 		catch (RepositoryException e) {
-			throw new RepositoryException("While creating new JeuSesame - " + s + " " + d, e);
+			throw new RepositoryException("While creating new JeuSesame - " + url + " " + identifier, e);
 		}
 	}
 	
-	public final String getURLSesame() {
-		return sesame;
+	public final String getServerURL() {
+		return serverurl;
 	}
 	
-	public final String getIdDepot() {
-		return depot;
+	public final String getRepositoryID() {
+		return repositoryid;
 	}
 }

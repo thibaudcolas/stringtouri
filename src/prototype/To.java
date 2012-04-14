@@ -51,7 +51,7 @@ public abstract class To {
 	 */
 	protected To(DataSet j, String p) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Creation  Output " + j.getNom() + ".");
+			LOG.info("Creation  Output " + j.getName() + ".");
 		}
 		
 		jeumaj = j;
@@ -69,7 +69,7 @@ public abstract class To {
 	 */
 	protected To(DataSet j, HashMap<String, LinkedList<Statement>> m, String p) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Creation  Output " + j.getNom() + ".");
+			LOG.info("Creation  Output " + j.getName() + ".");
 		}
 		
 		jeumaj = j;
@@ -88,7 +88,7 @@ public abstract class To {
 	 */
 	protected To(DataSet j, HashMap<String, LinkedList<Statement>> m, String p, boolean a) throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Output " + j.getNom() + " creation.");
+			LOG.info("Output " + j.getName() + " creation.");
 		}
 		
 		jeumaj = j;
@@ -103,7 +103,7 @@ public abstract class To {
 	 */
 	private void handleNamespaces() throws RepositoryException {
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Export " + jeumaj.getNom() + " namespace retrieval.");
+			LOG.info("Export " + jeumaj.getName() + " namespace retrieval.");
 		}
 		try {
 			namespaces = new HashMap<String, String>();
@@ -139,7 +139,7 @@ public abstract class To {
 		String tmpprop;
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Export " + jeumaj.getNom() + " statement filtering.");
+			LOG.info("Export " + jeumaj.getName() + " statement filtering.");
 		}
 		
 		for (String suj : nouv.keySet()) {

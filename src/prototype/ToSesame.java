@@ -92,7 +92,7 @@ public class ToSesame extends To {
 		LinkedList<Statement> tmpnew;
 		
 		if (LOG.isInfoEnabled()) {
-			LOG.info("Update " + destination.getNom() + " using Sesame statements.");
+			LOG.info("Update " + destination.getName() + " using Sesame statements.");
 		}
 		
 		try {
@@ -104,7 +104,7 @@ public class ToSesame extends To {
 				destination.addAllStatements(tmpnew);
 			}
 		} catch (RepositoryException e) {
-			throw new RepositoryException("While updating statements - " + destination.getNom(), e);
+			throw new RepositoryException("While updating statements - " + destination.getName(), e);
 		}
 	}
 }

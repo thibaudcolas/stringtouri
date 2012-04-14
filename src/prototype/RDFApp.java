@@ -28,7 +28,7 @@ public class RDFApp extends App {
 			reference = new RDFDataSet(refpath, reffilter, "");
 			objectif = new RDFDataSet(objpath, objfilter, "");
 			
-			nom = reference.getNom() + " - " + objectif.getNom();
+			nom = reference.getName() + " - " + objectif.getName();
 	
 			if (LOG.isInfoEnabled()) {
 				LOG.info("Creation AppRDF " + nom);

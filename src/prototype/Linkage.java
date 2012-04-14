@@ -104,7 +104,7 @@ public abstract class Linkage {
 		BindingSet bs;
 		
 		try {
-			tupqres = source.SPARQLQuery(querysource);
+			tupqres = source.selectQuery(querysource);
 
 			if (!hasCorrectBindingNames(tupqres)) {
 				throw new MalformedQueryException("Wrong query result bindings - " + querysource);
@@ -119,7 +119,7 @@ public abstract class Linkage {
 			}
 			
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Predicate " + propsource + " has " + cpt + " statement(s) in " + source.getNom() + ".");
+				LOG.info("Predicate " + propsource + " has " + cpt + " statement(s) in " + source.getName() + ".");
 			}
 		}
 		catch (QueryEvaluationException e) {
@@ -157,7 +157,7 @@ public abstract class Linkage {
 		LinkedList<String> subjects;
 		
 		try {
-			tupqres = cible.SPARQLQuery(querycible);
+			tupqres = cible.selectQuery(querycible);
 			
 			if (!hasCorrectBindingNames(tupqres)) {
 				throw new QueryEvaluationException("Wrong query result bindings - " + querycible);
@@ -184,7 +184,7 @@ public abstract class Linkage {
 			}
 			
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Predicate " + propcible + " has " + cpt + " statement(s) in " + cible.getNom() + ".");
+				LOG.info("Predicate " + propcible + " has " + cpt + " statement(s) in " + cible.getName() + ".");
 			}
 		}
 		catch (RepositoryException e) {

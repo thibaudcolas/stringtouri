@@ -67,7 +67,7 @@ public class App {
 	 * @param obj : Target data set.
 	 */
 	public App(DataSet ref, DataSet obj) {
-		nom = ref.getNom() + " - " + obj.getNom();
+		nom = ref.getName() + " - " + obj.getName();
 		
 		if (LOG.isInfoEnabled()) {
 			LOG.info("Creation App " + nom);
@@ -87,7 +87,7 @@ public class App {
 	 * @param a : Tells whether to output all the data or just the new statements.
 	 */
 	public App(DataSet ref, DataSet obj, String d, Linkage l, To t, boolean a) {
-		nom = ref.getNom() + " - " + obj.getNom();
+		nom = ref.getName() + " - " + obj.getName();
 		
 		if (LOG.isInfoEnabled()) {
 			LOG.info("Creation App " + nom);
