@@ -9,19 +9,19 @@ import org.openrdf.repository.RepositoryException;
  * @version 05042012
  * @see App
  */
-public class AppSPARQL extends App {
+public class SPARQLApp extends App {
 
 	/**
 	 * Constructor for two SPARQL endpoints.
 	 * @param urlref : Source data set endpoint.
 	 * @param urlobj : Target data set endpoints.
 	 */
-	public AppSPARQL(String urlref, String urlobj) {
+	public SPARQLApp(String urlref, String urlobj) {
 		super();
 		
 		try {
-			reference = new JeuSPARQL(urlref);
-			objectif = new JeuSPARQL(urlobj);
+			reference = new SPARQLDataSet(urlref);
+			objectif = new SPARQLDataSet(urlobj);
 			
 			nom = reference.getNom() + " - " + objectif.getNom();
 	

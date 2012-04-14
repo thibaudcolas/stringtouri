@@ -18,30 +18,30 @@ import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryException;
 
-import prototype.JeuRDF;
-import prototype.Liaison;
-import prototype.LiaisonLibre;
+import prototype.RDFDataSet;
+import prototype.Linkage;
+import prototype.FreeLinkage;
 
 /**
  * JUnit test cases on LiaisonLibre.
  * @author Thibaud Colas.
  * @version 07042012
- * @see LiaisonLibre
+ * @see FreeLinkage
  */
 public class TestLiaisonLibre {
 	
 	/**
 	 * Source data set.
 	 */
-	private JeuRDF s;
+	private RDFDataSet s;
 	/**
 	 * Target data set.
 	 */
-	private JeuRDF c;
+	private RDFDataSet c;
 	/**
 	 * A linkage tool to test.
 	 */
-	private LiaisonLibre l;
+	private FreeLinkage l;
 	
 	/**
 	 * Default URI to use when importing data.
@@ -68,9 +68,9 @@ public class TestLiaisonLibre {
 
 	@Before
 	public void setUp() throws Exception {
-		s = new JeuRDF("./src/test/rdf/continents.rdf", "", defuri);
-		c = new JeuRDF("./src/test/rdf/countries-tolink.rdf", "", defuri);
-		l = new LiaisonLibre(s, c, defprops, defpropc, defqs, defqc);
+		s = new RDFDataSet("./src/test/rdf/continents.rdf", "", defuri);
+		c = new RDFDataSet("./src/test/rdf/countries-tolink.rdf", "", defuri);
+		l = new FreeLinkage(s, c, defprops, defpropc, defqs, defqc);
 	}
 
 	@After
@@ -92,7 +92,7 @@ public class TestLiaisonLibre {
 	public void testOtherConstructor() {
 		final int maxliens = 100;
 		
-		LiaisonLibre lbis = new LiaisonLibre(s, c, defprops, defpropc, defqs, defqc, maxliens);
+		FreeLinkage lbis = new FreeLinkage(s, c, defprops, defpropc, defqs, defqc, maxliens);
 		assertEquals(lbis.getMaxLiens(), maxliens);
 		assertEquals(lbis.getNom(), defprops + " - " + defpropc);
 		assertEquals(lbis.getPropCible(), defpropc);
@@ -105,9 +105,9 @@ public class TestLiaisonLibre {
 	public void testBindingCheck() {
 		try {
 			assertTrue(l.hasCorrectBindingNames(s.SPARQLQuery(l.getQuerySource())));
-			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Liaison.OVAR + " WHERE {?" + Liaison.SVAR + " " + defpropc + " ?" + Liaison.OVAR + "}")));
-			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Liaison.SVAR + " WHERE {?" + Liaison.SVAR + " " + defpropc + " ?" + Liaison.OVAR + "}")));
-			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Liaison.SVAR + " ?" + Liaison.OVAR + " ?" + Liaison.PVAR + " WHERE {?" + Liaison.SVAR + " " + defpropc + " ?" + Liaison.OVAR + "}")));
+			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
+			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Linkage.SVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
+			assertFalse(l.hasCorrectBindingNames(s.SPARQLQuery("SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " ?" + Linkage.PVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}")));
 		} catch (RepositoryException e) {
 			fail();
 		} catch (MalformedQueryException e) {
@@ -131,8 +131,8 @@ public class TestLiaisonLibre {
 			int cpt = 0;
 			while (tpqr.hasNext()) {
 				BindingSet bs = tpqr.next();
-				assertTrue(result.containsKey(bs.getBinding(Liaison.OVAR).getValue().stringValue()));
-				assertTrue(result.containsValue(bs.getBinding(Liaison.SVAR).getValue().stringValue()));
+				assertTrue(result.containsKey(bs.getBinding(Linkage.OVAR).getValue().stringValue()));
+				assertTrue(result.containsValue(bs.getBinding(Linkage.SVAR).getValue().stringValue()));
 
 				cpt++;
 			}
@@ -161,7 +161,7 @@ public class TestLiaisonLibre {
 			TupleQueryResult tpqr = c.SPARQLQuery(l.getQueryCible());
 			while (tpqr.hasNext()) {
 				BindingSet bs = tpqr.next();
-				assertTrue(result.containsKey(bs.getBinding(Liaison.OVAR).getValue().stringValue()));
+				assertTrue(result.containsKey(bs.getBinding(Linkage.OVAR).getValue().stringValue()));
 			}
 			tpqr.close();
 			

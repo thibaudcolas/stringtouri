@@ -12,7 +12,7 @@ import org.openrdf.repository.sparql.SPARQLRepository;
  * @version 01042012
  * @see SPARQLRepository
  */
-public class JeuSPARQL extends DataSet {
+public class SPARQLDataSet extends DataSet {
 	
 	/**
 	 * The SPARQL endpoint's URL.
@@ -24,7 +24,7 @@ public class JeuSPARQL extends DataSet {
 	 * @param ep : SPARQL endpoint URL.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	public JeuSPARQL(String ep) throws RepositoryException {
+	public SPARQLDataSet(String ep) throws RepositoryException {
 		super(ep);
 		try {	
 			endpoint = ep;

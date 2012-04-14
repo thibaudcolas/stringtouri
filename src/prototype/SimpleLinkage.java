@@ -5,9 +5,9 @@ package prototype;
  * 
  * @author Thibaud Colas
  * @version 01042012
- * @see Liaison
+ * @see Linkage
  */
-public class LiaisonSimple extends Liaison {
+public class SimpleLinkage extends Linkage {
 	
 	/**
 	 * Default constructor.
@@ -16,7 +16,7 @@ public class LiaisonSimple extends Liaison {
 	 * @param ps : The source predicate.
 	 * @param pc : The target predicate.
 	 */
-	public LiaisonSimple(DataSet s, DataSet c, String ps, String pc) {
+	public SimpleLinkage(DataSet s, DataSet c, String ps, String pc) {
 		super(s, c, ps, pc);
 		
 		maxliens = 0;
@@ -32,7 +32,7 @@ public class LiaisonSimple extends Liaison {
 	 * @param pc : The target predicate.
 	 * @param ml : The max number of links updated.
 	 */
-	public LiaisonSimple(DataSet s, DataSet c, String ps, String pc, int ml) {
+	public SimpleLinkage(DataSet s, DataSet c, String ps, String pc, int ml) {
 		super(s, c, ps, pc);
 		
 		maxliens = Math.max(ml, 0);

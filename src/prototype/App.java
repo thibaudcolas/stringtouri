@@ -39,7 +39,7 @@ public class App {
 	/**
 	 * Linking component managing linking rules to apply.
 	 */
-	protected Liaison linkage;
+	protected Linkage linkage;
 	/**
 	 * Output handler, telling how the update will be processed.
 	 */
@@ -86,7 +86,7 @@ public class App {
 	 * @param t : Output handler.
 	 * @param a : Tells whether to output all the data or just the new statements.
 	 */
-	public App(DataSet ref, DataSet obj, String d, Liaison l, To t, boolean a) {
+	public App(DataSet ref, DataSet obj, String d, Linkage l, To t, boolean a) {
 		nom = ref.getNom() + " - " + obj.getNom();
 		
 		if (LOG.isInfoEnabled()) {
@@ -107,7 +107,7 @@ public class App {
 	 * @param objectifprop : Type of predicate to look for in the target data set.
 	 */
 	public void setLiaisonSimple(String referenceprop, String objectifprop) {
-		linkage = new LiaisonSimple(reference, objectif, referenceprop, objectifprop);
+		linkage = new SimpleLinkage(reference, objectif, referenceprop, objectifprop);
 		datatomaj = objectifprop;
 	}
 	
@@ -119,7 +119,7 @@ public class App {
 	 * @param objectiftype : Type of the values on target side.
 	 */
 	public void setLiaisonTypee(String referenceprop, String objectifprop, String referencetype, String objectiftype) {
-		linkage = new LiaisonTypee(reference, objectif, referenceprop, objectifprop, referencetype, objectiftype);
+		linkage = new TypedLinkage(reference, objectif, referenceprop, objectifprop, referencetype, objectiftype);
 		datatomaj = objectifprop;
 	}
 	
@@ -131,7 +131,7 @@ public class App {
 	 * @param objectifquery : SPARQL query to be made.
 	 */
 	public void setLiaisonLibre(String referenceprop, String objectifprop, String referencequery, String objectifquery) {
-		linkage = new LiaisonLibre(reference, objectif, referenceprop, objectifprop, referencequery, objectifquery);
+		linkage = new FreeLinkage(reference, objectif, referenceprop, objectifprop, referencequery, objectifquery);
 		datatomaj = objectifprop;
 	}
 	

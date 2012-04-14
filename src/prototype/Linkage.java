@@ -21,7 +21,7 @@ import org.openrdf.repository.RepositoryException;
  * @version 04042012
  * @see DataSet
  */
-public abstract class Liaison {
+public abstract class Linkage {
 	
 	public static final String SVAR = "s";
 	public static final String PVAR = "p";
@@ -65,7 +65,7 @@ public abstract class Liaison {
 	/**
 	 * Logger to record actions on the data set.
 	 */
-	protected static final Logger LOG = Logger.getLogger(Liaison.class.getName());
+	protected static final Logger LOG = Logger.getLogger(Linkage.class.getName());
 	
 	private static final int DEFSIZE = 100;
 	
@@ -76,7 +76,7 @@ public abstract class Liaison {
 	 * @param ps : The source predicate.
 	 * @param pc : The target predicate.
 	 */
-	protected Liaison(DataSet s, DataSet c, String ps, String pc) {
+	protected Linkage(DataSet s, DataSet c, String ps, String pc) {
 		nom = ps + " - " + pc;
 		
 		if (LOG.isInfoEnabled()) {

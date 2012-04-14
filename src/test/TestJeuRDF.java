@@ -23,20 +23,20 @@ import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.rio.RDFParseException;
 
-import prototype.JeuRDF;
+import prototype.RDFDataSet;
 
 /**
  * JUnit test cases on JeuRDF.
  * @author Thibaud Colas.
  * @version 07042012
- * @see JeuRDF
+ * @see RDFDataSet
  */
 public class TestJeuRDF {
 	
 	/**
 	 * Data set to use during tests.
 	 */
-	private JeuRDF j;
+	private RDFDataSet j;
 	/**
 	 * Default file to be imported.
 	 */
@@ -68,7 +68,7 @@ public class TestJeuRDF {
 	
 	@Before
 	public void setUp() throws Exception {
-		j = new JeuRDF(deffolder, defpre, defuri);
+		j = new RDFDataSet(deffolder, defpre, defuri);
 	}
 	
 	@After

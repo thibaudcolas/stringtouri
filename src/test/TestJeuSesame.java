@@ -20,20 +20,20 @@ import org.openrdf.query.TupleQueryResult;
 import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
 
-import prototype.JeuSesame;
+import prototype.SesameDataSet;
 
 /**
  * JUnit test cases on JeuSesame.
  * @author Thibaud Colas.
  * @version 07042012
- * @see JeuSesame
+ * @see SesameDataSet
  */
 public class TestJeuSesame {
 	
 	/**
 	 * Data set to use during tests.
 	 */
-	private JeuSesame j;
+	private SesameDataSet j;
 	/**
 	 * Name of the test repository.
 	 */
@@ -62,7 +62,7 @@ public class TestJeuSesame {
 
 	@Before
 	public void setUp() throws Exception {
-		j = new JeuSesame(defurl, defdep);
+		j = new SesameDataSet(defurl, defdep);
 		j.addSource("./src/test/rdf/", "continents", defurl);
 	}
 
@@ -79,7 +79,7 @@ public class TestJeuSesame {
 		
 		try {
 			String tmpurl = "http://localhost:8080/openrdf-sesame/repositories/test";
-			JeuSesame jbis = new JeuSesame(tmpurl);
+			SesameDataSet jbis = new SesameDataSet(tmpurl);
 			assertEquals(jbis.getNom(), tmpurl);
 			assertEquals(jbis.getIdDepot(), tmpurl);
 			assertEquals(jbis.getURLSesame(), tmpurl);

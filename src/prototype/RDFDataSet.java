@@ -15,7 +15,7 @@ import org.openrdf.sail.memory.MemoryStore;
  * @version 01042012
  * @see SailRepository
  */
-public class JeuRDF extends DataSet {
+public class RDFDataSet extends DataSet {
 	
 	/**
 	 * The base data set URI.
@@ -31,7 +31,7 @@ public class JeuRDF extends DataSet {
 	 * @throws IOException File/folder error.
 	 * @throws RDFParseException File(s) content isn't correct RDFXML.
 	 */
-	public JeuRDF(String source, String start, String uri) throws RepositoryException, IOException, RDFParseException {
+	public RDFDataSet(String source, String start, String uri) throws RepositoryException, IOException, RDFParseException {
 		super(source);
 		try {
 			baseuri = uri;

@@ -12,7 +12,7 @@ import org.openrdf.repository.http.HTTPRepository;
  * @version 01042012
  * @see HTTPRepository
  */
-public class JeuSesame extends DataSet {
+public class SesameDataSet extends DataSet {
 	
 	/**
 	 * The SESAME server URL.
@@ -28,7 +28,7 @@ public class JeuSesame extends DataSet {
 	 * @param sd : Direct URL to the SESAME repository.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	public JeuSesame(String sd) throws RepositoryException {
+	public SesameDataSet(String sd) throws RepositoryException {
 		super(sd);
 		try {
 			sesame = sd;
@@ -51,7 +51,7 @@ public class JeuSesame extends DataSet {
 	 * @param d : Repository id.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 */
-	public JeuSesame(String s, String d) throws RepositoryException {
+	public SesameDataSet(String s, String d) throws RepositoryException {
 		super(s + " - " + d);
 		try {	
 			sesame = s;

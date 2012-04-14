@@ -6,9 +6,9 @@ package prototype;
  * 
  * @author Thibaud Colas
  * @version 01042012
- * @see Liaison
+ * @see Linkage
  */
-public class LiaisonLibre extends Liaison {
+public class FreeLinkage extends Linkage {
 	
 	/**
 	 * Default constructor.
@@ -19,7 +19,7 @@ public class LiaisonLibre extends Liaison {
 	 * @param qs : The source query.
 	 * @param qc : The target query.
 	 */
-	public LiaisonLibre(DataSet s, DataSet c, String ps, String pc, String qs, String qc) {
+	public FreeLinkage(DataSet s, DataSet c, String ps, String pc, String qs, String qc) {
 		super(s, c, ps, pc);
 		
 		maxliens = 0;
@@ -37,7 +37,7 @@ public class LiaisonLibre extends Liaison {
 	 * @param qc : The target query.
 	 * @param ml : Max number of links to create.
 	 */
-	public LiaisonLibre(DataSet s, DataSet c, String ps, String pc, String qs, String qc, int ml) {
+	public FreeLinkage(DataSet s, DataSet c, String ps, String pc, String qs, String qc, int ml) {
 		super(s, c, ps, pc);
 		
 		maxliens = Math.max(ml, 0);

@@ -17,7 +17,7 @@ import org.openrdf.repository.RepositoryException;
  * 
  * @author Thibaud Colas
  * @version 01042012
- * @see Liaison
+ * @see Linkage
  */
 public abstract class To {
 	

@@ -9,19 +9,19 @@ import org.openrdf.repository.RepositoryException;
  * @version 04042012
  * @see App
  */
-public class AppSesame extends App {
+public class SesameApp extends App {
 
 	/**
 	 * Simple constructor.
 	 * @param urlref : URL to source SESAME repository.
 	 * @param urlobj : URL to target SESAME repository.
 	 */
-	public AppSesame(String urlref, String urlobj) {
+	public SesameApp(String urlref, String urlobj) {
 		super();
 		
 		try {
-			reference = new JeuSPARQL(urlref);
-			objectif = new JeuSPARQL(urlobj);
+			reference = new SPARQLDataSet(urlref);
+			objectif = new SPARQLDataSet(urlobj);
 			
 			nom = reference.getNom() + " - " + objectif.getNom();
 	
@@ -42,12 +42,12 @@ public class AppSesame extends App {
 	 * @param depotref : Source repository identifier.
 	 * @param depotobj : Target repository identifier.
 	 */
-	public AppSesame(String urlsesame, String depotref, String depotobj) {
+	public SesameApp(String urlsesame, String depotref, String depotobj) {
 		super();
 		
 		try {
-			reference = new JeuSesame(urlsesame, depotref);
-			objectif = new JeuSesame(urlsesame, depotobj);
+			reference = new SesameDataSet(urlsesame, depotref);
+			objectif = new SesameDataSet(urlsesame, depotobj);
 			
 			nom = reference.getNom() + " - " + objectif.getNom();
 	

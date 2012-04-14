@@ -13,20 +13,20 @@ import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryException;
 
-import prototype.JeuSPARQL;
+import prototype.SPARQLDataSet;
 
 /**
  * JUnit test cases on JeuSPARQL.
  * @author Thibaud Colas.
  * @version 07042012
- * @see JeuSPARQL
+ * @see SPARQLDataSet
  */
 public class TestJeuSPARQL {
 	
 	/**
 	 * Data set to use during tests.
 	 */
-	private JeuSPARQL j;
+	private SPARQLDataSet j;
 	/**
 	 * URL of the SPARQL endpoint.
 	 */
@@ -39,7 +39,7 @@ public class TestJeuSPARQL {
 	
 	@Before
 	public void setUp() throws Exception {
-		j = new JeuSPARQL(defurl);
+		j = new SPARQLDataSet(defurl);
 	}
 	
 	@After

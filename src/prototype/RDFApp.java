@@ -12,7 +12,7 @@ import org.openrdf.rio.RDFParseException;
  * @version 05042012
  * @see App
  */
-public class AppRDF extends App {
+public class RDFApp extends App {
 
 	/**
 	 * Default constructor.
@@ -21,12 +21,12 @@ public class AppRDF extends App {
 	 * @param reffilter : Name filter.
 	 * @param objfilter : Name filter.
 	 */
-	public AppRDF(String refpath, String objpath, String reffilter, String objfilter) {
+	public RDFApp(String refpath, String objpath, String reffilter, String objfilter) {
 		super();
 		
 		try {
-			reference = new JeuRDF(refpath, reffilter, "");
-			objectif = new JeuRDF(objpath, objfilter, "");
+			reference = new RDFDataSet(refpath, reffilter, "");
+			objectif = new RDFDataSet(objpath, objfilter, "");
 			
 			nom = reference.getNom() + " - " + objectif.getNom();
 	
