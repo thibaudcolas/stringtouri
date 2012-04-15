@@ -26,7 +26,7 @@ public class SPARQLApp extends App {
 			name = reference.getName() + " - " + goal.getName();
 	
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Creation AppRDF " + name);
+				LOG.info("Created SPARQLApp " + name);
 			}
 		}
 		catch (RepositoryException e) {

@@ -6,6 +6,7 @@ Tests grande échelle :
 Applications :
 - Stand-alone ligne de commande
 - Stand-alone interface web
+- Stand-alone Swing
 - Dans Datalift
 
 Bugs :

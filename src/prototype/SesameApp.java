@@ -26,7 +26,7 @@ public class SesameApp extends App {
 			name = reference.getName() + " - " + goal.getName();
 	
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Creation AppRDF " + name);
+				LOG.info("Created SesameApp " + name);
 			}
 		}
 		catch (RepositoryException e) {

@@ -13,7 +13,7 @@ import org.apache.commons.cli.ParseException;
  * @version 14042012
  * @see App
  */
-public class CLIStringToURI {
+public class RDFToRDF {
 
 	public static void main(String[] args) {
         Options opt = new Options();

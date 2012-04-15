@@ -31,7 +31,7 @@ public class RDFApp extends App {
 			name = reference.getName() + " - " + goal.getName();
 	
 			if (LOG.isInfoEnabled()) {
-				LOG.info("Creation AppRDF " + name);
+				LOG.info("Created RDFApp " + name);
 			}
 		}
 		catch (RepositoryException e) {
