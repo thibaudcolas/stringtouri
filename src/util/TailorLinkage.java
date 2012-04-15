@@ -8,7 +8,7 @@ package util;
  * @version 01042012
  * @see Linkage
  */
-public class FreeLinkage extends Linkage {
+public class TailorLinkage extends Linkage {
 	
 	/**
 	 * Default constructor.
@@ -19,7 +19,7 @@ public class FreeLinkage extends Linkage {
 	 * @param sq : The source query.
 	 * @param tq : The target query.
 	 */
-	public FreeLinkage(DataSet s, DataSet c, String sp, String tp, String sq, String tq) {
+	public TailorLinkage(DataSet s, DataSet c, String sp, String tp, String sq, String tq) {
 		super(s, c, sp, tp);
 		
 		maxlinks = 0;
@@ -37,7 +37,7 @@ public class FreeLinkage extends Linkage {
 	 * @param tq : The target query.
 	 * @param ml : Max number of new links to create.
 	 */
-	public FreeLinkage(DataSet s, DataSet c, String ps, String pc, String sq, String tq, int ml) {
+	public TailorLinkage(DataSet s, DataSet c, String ps, String pc, String sq, String tq, int ml) {
 		super(s, c, ps, pc);
 		
 		maxlinks = Math.max(ml, 0);

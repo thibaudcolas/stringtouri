@@ -13,16 +13,14 @@ import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryException;
 
-import util.SPARQLDataSet;
-
 
 /**
- * JUnit test cases on JeuSPARQL.
+ * JUnit test cases on SPARQLDataSet.
  * @author Thibaud Colas.
  * @version 07042012
  * @see SPARQLDataSet
  */
-public class TestJeuSPARQL {
+public class SPARQLDataSetTest {
 	
 	/**
 	 * Data set to use during tests.

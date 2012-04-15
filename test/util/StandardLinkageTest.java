@@ -18,18 +18,14 @@ import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryException;
 
-import util.Linkage;
-import util.RDFDataSet;
-import util.SimpleLinkage;
-
 
 /**
- * JUnit test cases on LiaisonSimple.
+ * JUnit test cases on StandardLinkage.
  * @author Thibaud Colas.
  * @version 07042012
- * @see SimpleLinkage
+ * @see StandardLinkage
  */
-public class TestLiaisonSimple {
+public class StandardLinkageTest {
 	
 	/**
 	 * Source data set.
@@ -42,7 +38,7 @@ public class TestLiaisonSimple {
 	/**
 	 * A linkage tool to test.
 	 */
-	private SimpleLinkage l;
+	private StandardLinkage l;
 	
 	/**
 	 * Default URI to use when importing data.
@@ -60,9 +56,9 @@ public class TestLiaisonSimple {
 
 	@Before
 	public void setUp() throws Exception {
-		s = new RDFDataSet("./src/test/rdf/continents.rdf", "", defuri);
-		c = new RDFDataSet("./src/test/rdf/countries-tolink.rdf", "", defuri);
-		l = new SimpleLinkage(s, c, defprops, defpropc);
+		s = new RDFDataSet("./test/util/rdf/continents.rdf", "", defuri);
+		c = new RDFDataSet("./test/util/rdf/countries-tolink.rdf", "", defuri);
+		l = new StandardLinkage(s, c, defprops, defpropc);
 	}
 
 	@After
@@ -84,7 +80,7 @@ public class TestLiaisonSimple {
 	public void testOtherConstructor() {
 		final int maxliens = 100;
 		
-		SimpleLinkage lbis = new SimpleLinkage(s, c, defprops, defpropc, maxliens);
+		StandardLinkage lbis = new StandardLinkage(s, c, defprops, defpropc, maxliens);
 		assertEquals(lbis.getMaxLinks(), maxliens);
 		assertEquals(lbis.getName(), defprops + " - " + defpropc);
 		assertEquals(lbis.getTargetPredicate(), defpropc);

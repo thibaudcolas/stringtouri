@@ -1,5 +1,6 @@
-package util;
+package app;
 
+import util.*;
 
 /**
  * Temporary main test class.

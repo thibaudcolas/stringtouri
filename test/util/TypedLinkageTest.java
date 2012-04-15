@@ -18,18 +18,14 @@ import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryException;
 
-import util.FreeLinkage;
-import util.Linkage;
-import util.RDFDataSet;
-
 
 /**
- * JUnit test cases on LiaisonLibre.
+ * JUnit test cases on TypedLinkage.
  * @author Thibaud Colas.
  * @version 07042012
- * @see FreeLinkage
+ * @see TypedLinkage
  */
-public class TestLiaisonLibre {
+public class TypedLinkageTest {
 	
 	/**
 	 * Source data set.
@@ -42,7 +38,7 @@ public class TestLiaisonLibre {
 	/**
 	 * A linkage tool to test.
 	 */
-	private FreeLinkage l;
+	private TypedLinkage l;
 	
 	/**
 	 * Default URI to use when importing data.
@@ -57,21 +53,21 @@ public class TestLiaisonLibre {
 	 */
 	private static final String defpropc = "geographis:onContinent";
 	/**
-	 * Query to be used on the source side.
+	 * Type to be used on the source side.
 	 */
-	private static final String defqs = "SELECT ?s ?o WHERE {?s a geographis:Continent . ?s gn:name ?o}";
+	private static final String deftypes = "geographis:Continent";
 	/**
-	 * Query to be used on the target side.
+	 * Type to be used on the target side.
 	 */
-	private static final String defqc = "SELECT ?s ?o WHERE {?s geographis:onContinent ?o . ?s geographis:currency <http://telegraphis.net/data/currencies/EUR#EUR>}";
+	private static final String deftypec = "";
 
 
 
 	@Before
 	public void setUp() throws Exception {
-		s = new RDFDataSet("./src/test/rdf/continents.rdf", "", defuri);
-		c = new RDFDataSet("./src/test/rdf/countries-tolink.rdf", "", defuri);
-		l = new FreeLinkage(s, c, defprops, defpropc, defqs, defqc);
+		s = new RDFDataSet("./test/util/rdf/continents.rdf", "", defuri);
+		c = new RDFDataSet("./test/util/rdf/countries-tolink.rdf", "", defuri);
+		l = new TypedLinkage(s, c, defprops, defpropc, deftypes, deftypec);
 	}
 
 	@After
@@ -85,21 +81,25 @@ public class TestLiaisonLibre {
 		assertEquals(l.getName(), defprops + " - " + defpropc);
 		assertEquals(l.getTargetPredicate(), defpropc);
 		assertEquals(l.getSourcePredicate(), defprops);
-		assertEquals(l.getTargetQuery(), defqc);
-		assertEquals(l.getSourceQuery(), defqs);
+		assertEquals(l.getTargetType(), deftypec);
+		assertEquals(l.getSourceType(), deftypes);
+		assertEquals(l.getTargetQuery(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "}");
+		assertEquals(l.getSourceQuery(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " a " + deftypes + " . ?" + Linkage.SVAR + " " + defprops + " ?" + Linkage.OVAR + "}");
 	}
 	
 	@Test
 	public void testOtherConstructor() {
 		final int maxliens = 100;
 		
-		FreeLinkage lbis = new FreeLinkage(s, c, defprops, defpropc, defqs, defqc, maxliens);
+		TypedLinkage lbis = new TypedLinkage(s, c, defprops, defpropc, deftypes, deftypec, maxliens);
 		assertEquals(lbis.getMaxLinks(), maxliens);
 		assertEquals(lbis.getName(), defprops + " - " + defpropc);
 		assertEquals(lbis.getTargetPredicate(), defpropc);
 		assertEquals(lbis.getSourcePredicate(), defprops);
-		assertEquals(l.getTargetQuery(), defqc);
-		assertEquals(l.getSourceQuery(), defqs);
+		assertEquals(l.getTargetType(), deftypec);
+		assertEquals(l.getSourceType(), deftypes);
+		assertEquals(lbis.getTargetQuery(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " " + defpropc + " ?" + Linkage.OVAR + "} LIMIT " + maxliens);
+		assertEquals(lbis.getSourceQuery(), "SELECT ?" + Linkage.SVAR + " ?" + Linkage.OVAR + " WHERE {?" + Linkage.SVAR + " a " + deftypes + " . ?" + Linkage.SVAR + " " + defprops + " ?" + Linkage.OVAR + "} LIMIT " + maxliens);
 	}
 	
 	@Test

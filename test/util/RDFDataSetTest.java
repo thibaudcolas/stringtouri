@@ -23,16 +23,13 @@ import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.rio.RDFParseException;
 
-import util.RDFDataSet;
-
-
 /**
- * JUnit test cases on JeuRDF.
+ * JUnit test cases on RDFDataSet.
  * @author Thibaud Colas.
  * @version 07042012
  * @see RDFDataSet
  */
-public class TestJeuRDF {
+public class RDFDataSetTest {
 	
 	/**
 	 * Data set to use during tests.
@@ -41,11 +38,11 @@ public class TestJeuRDF {
 	/**
 	 * Default file to be imported.
 	 */
-	private static final String deffile = "./src/test/rdf/countries.rdf";
+	private static final String deffile = "./test/util/rdf/countries.rdf";
 	/**
 	 * Default folder to be imported.
 	 */
-	private static final String deffolder = "./src/test/rdf/";
+	private static final String deffolder = "./test/util/rdf/";
 	/**
 	 * Default prefix while filtering files.
 	 */

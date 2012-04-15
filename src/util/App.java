@@ -107,7 +107,7 @@ public class App {
 	 * @param goalpredicate : Type of predicate to look for in the target data set.
 	 */
 	public void useSimpleLinkage(String referencepredicate, String goalpredicate) {
-		linkage = new SimpleLinkage(reference, goal, referencepredicate, goalpredicate);
+		linkage = new StandardLinkage(reference, goal, referencepredicate, goalpredicate);
 		updatedpredicate = goalpredicate;
 	}
 	
@@ -131,7 +131,7 @@ public class App {
 	 * @param goalquery : SPARQL query to be made.
 	 */
 	public void useFreeLinkage(String referencepredicate, String goalpredicate, String referencequery, String goalquery) {
-		linkage = new FreeLinkage(reference, goal, referencepredicate, goalpredicate, referencequery, goalquery);
+		linkage = new TailorLinkage(reference, goal, referencepredicate, goalpredicate, referencequery, goalquery);
 		updatedpredicate = goalpredicate;
 	}
 	
