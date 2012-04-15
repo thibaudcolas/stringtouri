@@ -12,7 +12,7 @@ import org.apache.commons.cli.ParseException;
  * Test class with user interface.
  * 
  * @author Thibaud Colas
- * @version 14042012
+ * @version 15042012
  * @see App
  */
 public class RDFToRDF {
