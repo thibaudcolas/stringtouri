@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:code="http://www.telegraphis.net/ontology/measurement/code#" xmlns:geographis="http://www.telegraphis.net/ontology/geography/geography#" xmlns:gn="http://www.geonames.org/ontology#" xmlns:measurement="http://www.telegraphis.net/ontology/measurement/measurement#" xmlns:metric="http://www.telegraphis.net/ontology/measurement/metric#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:quantity="http://www.telegraphis.net/ontology/measurement/quantity#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <geographis:Continent rdf:about="http://www.telegraphis.net/data/continents/AF#AF">
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#L"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#L.CONT"/>
+    <gn:name xml:lang="en">Africa</gn:name>
+    <gn:population>922011000</gn:population>
+    <geographis:landArea>
+      <measurement:Measurement>
+        <measurement:quantityMeasured rdf:resource="http://www.telegraphis.net/ontology/measurement/quantity#Area"/>
+        <measurement:unit rdf:resource="http://www.telegraphis.net/ontology/measurement/metric#SquareKilometre"/>
+        <rdf:value>30221532.0</rdf:value>
+      </measurement:Measurement>
+    </geographis:landArea>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://www.telegraphis.net/data/continents/codeSchemes#geonames"/>
+        <rdf:value>AF</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Africa"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6255146/"/>
+  </geographis:Continent>
+  <geographis:Continent rdf:about="http://www.telegraphis.net/data/continents/AS#AS">
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#L"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#L.CONT"/>
+    <gn:name xml:lang="en">Asia</gn:name>
+    <gn:population>3879000000</gn:population>
+    <geographis:landArea>
+      <measurement:Measurement>
+        <measurement:quantityMeasured rdf:resource="http://www.telegraphis.net/ontology/measurement/quantity#Area"/>
+        <measurement:unit rdf:resource="http://www.telegraphis.net/ontology/measurement/metric#SquareKilometre"/>
+        <rdf:value>44579000.0</rdf:value>
+      </measurement:Measurement>
+    </geographis:landArea>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://www.telegraphis.net/data/continents/codeSchemes#geonames"/>
+        <rdf:value>AS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Asia"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6255147/"/>
+  </geographis:Continent>
+  <geographis:Continent rdf:about="http://www.telegraphis.net/data/continents/EU#EU">
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#L"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#L.CONT"/>
+    <gn:name xml:lang="en">Europe</gn:name>
+    <gn:population>731000000</gn:population>
+    <geographis:landArea>
+      <measurement:Measurement>
+        <measurement:quantityMeasured rdf:resource="http://www.telegraphis.net/ontology/measurement/quantity#Area"/>
+        <measurement:unit rdf:resource="http://www.telegraphis.net/ontology/measurement/metric#SquareKilometre"/>
+        <rdf:value>10180000.0</rdf:value>
+      </measurement:Measurement>
+    </geographis:landArea>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://www.telegraphis.net/data/continents/codeSchemes#geonames"/>
+        <rdf:value>EU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Europe"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6255148/"/>
+  </geographis:Continent>
+  <geographis:Continent rdf:about="http://www.telegraphis.net/data/continents/NA#NA">
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#L"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#L.CONT"/>
+    <gn:name xml:lang="en">North America</gn:name>
+    <gn:population>528720588</gn:population>
+    <geographis:landArea>
+      <measurement:Measurement>
+        <measurement:quantityMeasured rdf:resource="http://www.telegraphis.net/ontology/measurement/quantity#Area"/>
+        <measurement:unit rdf:resource="http://www.telegraphis.net/ontology/measurement/metric#SquareKilometre"/>
+        <rdf:value>24709000.0</rdf:value>
+      </measurement:Measurement>
+    </geographis:landArea>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://www.telegraphis.net/data/continents/codeSchemes#geonames"/>
+        <rdf:value>NA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/North_America"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6255149/"/>
+  </geographis:Continent>
+  <geographis:Continent rdf:about="http://www.telegraphis.net/data/continents/SA#SA">
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#L"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#L.CONT"/>
+    <gn:name xml:lang="en">South America</gn:name>
+    <gn:population>382000000</gn:population>
+    <geographis:landArea>
+      <measurement:Measurement>
+        <measurement:quantityMeasured rdf:resource="http://www.telegraphis.net/ontology/measurement/quantity#Area"/>
+        <measurement:unit rdf:resource="http://www.telegraphis.net/ontology/measurement/metric#SquareKilometre"/>
+        <rdf:value>17840000.0</rdf:value>
+      </measurement:Measurement>
+    </geographis:landArea>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://www.telegraphis.net/data/continents/codeSchemes#geonames"/>
+        <rdf:value>SA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/South_America"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6255150/"/>
+  </geographis:Continent>
+  <geographis:Continent rdf:about="http://www.telegraphis.net/data/continents/OC#OC">
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#L"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#L.CONT"/>
+    <gn:name xml:lang="en">Oceania</gn:name>
+    <gn:population>32000000</gn:population>
+    <geographis:landArea>
+      <measurement:Measurement>
+        <measurement:quantityMeasured rdf:resource="http://www.telegraphis.net/ontology/measurement/quantity#Area"/>
+        <measurement:unit rdf:resource="http://www.telegraphis.net/ontology/measurement/metric#SquareKilometre"/>
+        <rdf:value>9008458.0</rdf:value>
+      </measurement:Measurement>
+    </geographis:landArea>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://www.telegraphis.net/data/continents/codeSchemes#geonames"/>
+        <rdf:value>OC</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Oceania"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6255151/"/>
+  </geographis:Continent>
+  <geographis:Continent rdf:about="http://www.telegraphis.net/data/continents/AN#AN">
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#L"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#L.CONT"/>
+    <gn:name xml:lang="en">Antarctica</gn:name>
+    <gn:population>0</gn:population>
+    <geographis:landArea>
+      <measurement:Measurement>
+        <measurement:quantityMeasured rdf:resource="http://www.telegraphis.net/ontology/measurement/quantity#Area"/>
+        <measurement:unit rdf:resource="http://www.telegraphis.net/ontology/measurement/metric#SquareKilometre"/>
+        <rdf:value>14000000.0</rdf:value>
+      </measurement:Measurement>
+    </geographis:landArea>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://www.telegraphis.net/data/continents/codeSchemes#geonames"/>
+        <rdf:value>AN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Antarctica"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6255152/"/>
+  </geographis:Continent>
+</rdf:RDF>
