@@ -76,3 +76,4 @@
 14-04-2012 05:37:23,027 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
 14-04-2012 05:37:23,029 INFO  - DataSet - Connection ./rdf/insee/ off.
 14-04-2012 05:37:23,029 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
+14-04-2012 21:09:31,805 INFO  - DataSet - Created data set null.

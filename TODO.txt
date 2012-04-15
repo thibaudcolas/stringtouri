@@ -18,3 +18,18 @@ Améliorations :
 
 TODO :
 - Tests unitaires et couverture sur To
+
+Refactoring :
+- Package contenant les classes "utilitaires"
+- Package contenant les classes "applicatives"
+- Package contenant les tests unitaires
+- Package contenant les tests grande échelle
+
+Javadoc :
+- A limiter au coeur de l'application
+
+Fichiers annexe :
+- Licence.txt
+- Readme.txt
+- Bugs.txt
+- Version.txt
