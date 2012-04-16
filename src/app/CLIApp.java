@@ -35,7 +35,7 @@ public abstract class CLIApp {
 		opt.addOption("version", false, "print the version number");
 		opt.addOption("about", false, "print related information");
 		opt.addOption("quiet", false, "be quiet");
-		opt.addOption("verbose", false, "be verbose (default)");
+		opt.addOption("verbose", false, "be verbose - default");
 		opt.addOption("debug", false, "print debugging information");
 	}
 	

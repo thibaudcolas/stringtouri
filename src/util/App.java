@@ -306,8 +306,13 @@ public class App {
 	 * Shuts down both data sets.
 	 */
 	public void shutdown() {
-		reference.shutdown();
-		goal.shutdown();
+		if (reference != null) {
+			reference.shutdown();
+		}
+		if (goal != null) {
+			goal.shutdown();
+		}
+		
 		if (LOG.isInfoEnabled()) {
 			LOG.info("Shutdown app " + name);
 		}

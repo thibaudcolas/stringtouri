@@ -19,7 +19,8 @@ TODO :
 - Tests unitaires et couverture sur To
 - App benchmark
 - Tests benchmark
-- Ajout cible resultat dans TestApp - RDFToRDF
 - Ajout javadoc CLIApp, RDFToRDF
+- Corriger problème encodage
 - Ecrire readme
-- 
+- .sh RDF qui rappatrie les options
+- .sh Sesame qui permet de définir un serveur par défaut / répertoires par défaut

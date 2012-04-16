@@ -82,3 +82,21 @@
 16-04-2012 09:16:56,208 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
 16-04-2012 09:16:56,209 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
 16-04-2012 09:16:56,213 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 10:23:19,624 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 10:23:19,629 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 10:23:19,629 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 10:23:19,629 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
+16-04-2012 10:23:19,631 INFO  - App - Export ./rdf/insee/ - ./rdf/Brute3.rdf output - test.rdf
+16-04-2012 10:23:19,633 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 10:26:54,966 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 10:26:54,969 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 10:26:54,969 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 10:26:54,970 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
+16-04-2012 10:26:54,972 INFO  - App - Export ./rdf/insee/ - ./rdf/Brute3.rdf output - test.rdf
+16-04-2012 10:26:54,974 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 10:34:56,100 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 10:34:56,103 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 10:34:56,103 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 10:34:56,104 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
+16-04-2012 10:34:56,108 INFO  - App - Export ./rdf/insee/ - ./rdf/Brute3.rdf output - test.rdf
+16-04-2012 10:34:56,110 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf

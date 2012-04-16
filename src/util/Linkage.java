@@ -299,8 +299,12 @@ public abstract class Linkage {
 	 * Proper stop of both data sets.
 	 */
 	public void shutdown() {
-		target.shutdown();
-		source.shutdown();
+		if (source != null) {
+			source.shutdown();
+		}
+		if (target != null) {
+			target.shutdown();
+		}
 	}
 	
 	/**
