@@ -2,6 +2,7 @@ package util;
 
 import java.util.LinkedList;
 
+import org.apache.log4j.Level;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.sparql.SPARQLRepository;
 
@@ -26,6 +27,28 @@ public class SPARQLDataSet extends DataSet {
 	 */
 	public SPARQLDataSet(String url) throws RepositoryException {
 		super(url);
+		try {	
+			endpointurl = url;
+			repository = new SPARQLRepository(url);
+			repository.initialize();
+			
+			queries = new LinkedList<String>();
+			
+			connection = repository.getConnection();
+		} 
+		catch (RepositoryException e) {
+			throw new RepositoryException("While creating new JeuSPARQL - " + url, e);
+		}
+	}
+	
+	/**
+	 * Default constructor with logging selection.
+	 * @param url : SPARQL endpoint URL.
+	 * @param logging : Logging level to use.
+	 * @throws RepositoryException The initialization has failed and no recovery is possible.
+	 */
+	public SPARQLDataSet(String url, Level logging) throws RepositoryException {
+		super(url, logging);
 		try {	
 			endpointurl = url;
 			repository = new SPARQLRepository(url);

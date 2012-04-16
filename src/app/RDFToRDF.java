@@ -1,12 +1,13 @@
 package app;
 
-import util.*;
-
 import org.apache.commons.cli.BasicParser;
-import org.apache.commons.cli.Options;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+
+import util.App;
+import util.RDFApp;
 
 /**
  * Test class with user interface.
@@ -21,8 +22,8 @@ public class RDFToRDF {
         Options opt = new Options();
 
         opt.addOption("h", false, "Print help for this application");
-        opt.addOption("s", true, "Absolute path to the source RDFXML file(s)");
-        opt.addOption("t", true, "Absolute path to the target RDFXML file(s)");
+        opt.addOption("s", true, "Path to the source RDFXML file(s)");
+        opt.addOption("t", true, "Path to the target RDFXML file(s)");
         opt.addOption("sp", true, "Predicate to look for inside source data set");
         opt.addOption("tp", true, "Predicate to look for inside target data set");	
         opt.addOption("st", false, "Data type inside the source data set");
@@ -38,7 +39,7 @@ public class RDFToRDF {
 	            f.printHelp("CLI StringToURI", opt);
 	        }
 	        else {
-	        	App rdfapp = new RDFApp(cl.getOptionValue("s"), cl.getOptionValue("t"), "", "");
+	        	RDFApp rdfapp = new RDFApp(cl.getOptionValue("s"), cl.getOptionValue("t"), "", "");
 	        	rdfapp.useTypedLinkage(cl.getOptionValue("sp"), cl.getOptionValue("tp"), (cl.hasOption("st") ? cl.getOptionValue("st") : ""), (cl.hasOption("tt") ? cl.getOptionValue("tt") : ""));
 	        	rdfapp.useRDFOutput();
 	        	rdfapp.generateNewLinks(true);
@@ -48,7 +49,7 @@ public class RDFToRDF {
         
         } catch (ParseException e) {
             f.printHelp("CLI StringToURI", opt);
-            //TODO better
+            System.exit(0);
 		}
 	}
 }

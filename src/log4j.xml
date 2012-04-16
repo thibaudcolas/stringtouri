@@ -3,17 +3,16 @@
  
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
  
-   <!-- Threshold to be set to OFF when deploying. -->
    <appender name="console" class="org.apache.log4j.ConsoleAppender">
-      <param name="Threshold" value="DEBUG" />
+      <param name="Threshold" value="WARN"/>
       <layout class="org.apache.log4j.PatternLayout">
-         <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n" />
+         <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n"/>
       </layout>
    </appender>
  
    <appender name="dailyfile" class="org.apache.log4j.DailyRollingFileAppender">
-    <param name="Threshold" value="INFO" />
-    <param name="File" value="./log/cablelink.log"/>
+    <param name="Threshold" value="DEBUG"/>
+    <param name="File" value="./log/dailyjob.log"/>
     <param name="DatePattern" value=".dd-MM-yyyy"/>
     <layout class="org.apache.log4j.PatternLayout"> 
       <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n"/>
@@ -21,35 +20,35 @@
    </appender>
    
    <appender name="bugfile" class="org.apache.log4j.RollingFileAppender">
-    <param name="Threshold" value="WARN" />
-    <param name="File" value="./log/bugs.log" />
+    <param name="Threshold" value="WARN"/>
+    <param name="File" value="./log/bugs.log"/>
     <layout class="org.apache.log4j.PatternLayout"> 
       <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n"/>
     </layout>
    </appender>
 
-   <logger name="prototype.App" additivity="false" >   
+   <logger name="util.App" additivity="false" >   
       <level value="INFO" />
       <appender-ref ref="console"/>      
       <appender-ref ref="dailyfile"/>
       <appender-ref ref="bugfile"/>      
    </logger>
  
-   <logger name="prototype.DataSet" additivity="false" >   
+   <logger name="util.DataSet" additivity="false" >   
       <level value="INFO" />
       <appender-ref ref="console"/>      
       <appender-ref ref="dailyfile"/>   
       <appender-ref ref="bugfile"/>          
    </logger>
    
-   <logger name="prototype.Linkage" additivity="false" >   
+   <logger name="util.Linkage" additivity="false" >   
       <level value="INFO" />
       <appender-ref ref="console"/>      
       <appender-ref ref="dailyfile"/>
       <appender-ref ref="bugfile"/>          
    </logger>
    
-   <logger name="prototype.Output" additivity="false" >   
+   <logger name="util.Output" additivity="false" >   
       <level value="INFO" />
       <appender-ref ref="console"/>      
       <appender-ref ref="dailyfile"/>

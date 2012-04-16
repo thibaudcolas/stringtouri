@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Resource;
@@ -64,8 +65,22 @@ public abstract class DataSet {
 	protected DataSet(String n) {
 		name = n;
 		
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Created data set " + name + ".");
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Created data set " + name + ".");
+		}
+	}
+	
+	/**
+	 * Super-class constructor used to log initialization of the data sets.
+	 * @param n : name of the data set.
+	 * @param logging : Logging level to use.
+	 */
+	protected DataSet(String n, Level logging) {
+		name = n;
+		LOG.setLevel(logging);
+		
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Created data set " + name + ".");
 		}
 	}
 	
@@ -106,8 +121,8 @@ public abstract class DataSet {
 				connection.add(source, baseuri, RDFFormat.RDFXML);
 				nbimport++;
 			}
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Import " + name + " : " + nbimport + " file(s).");
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Import " + name + " : " + nbimport + " file(s).");
 			}
 		}
 		else {
@@ -178,8 +193,8 @@ public abstract class DataSet {
 		TupleQuery tq;
 		TupleQueryResult tqr;
 		
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Query " + name + " select - " + query);
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Query " + name + " select - " + query);
 		}
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
 		queries.add(query);
@@ -204,8 +219,8 @@ public abstract class DataSet {
 	 * @throws UpdateExecutionException Query update isn't valid.
 	 */
 	public void updateQuery(String query) throws RepositoryException, UpdateExecutionException, MalformedQueryException {
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Query " + name + " update - " + query);
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Query " + name + " update - " + query);
 		}
 		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
 		queries.add(query);
@@ -293,8 +308,8 @@ public abstract class DataSet {
 			connection.close();
 			repository.shutDown();
 			
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Connection " + name + " " + (connection.isOpen() ? "still on" : "off") + ".");
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Connection " + name + " " + (connection.isOpen() ? "still on" : "off") + ".");
 			}
 		} catch (RepositoryException e) {
 			LOG.warn("Connection " + name + " failed to be closed - " + e);
@@ -308,8 +323,8 @@ public abstract class DataSet {
 		try {
 			connection.commit();
 			
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Commit " + name + ".");
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Commit " + name + ".");
 			}
 			
 		} catch (RepositoryException e) {
@@ -339,8 +354,8 @@ public abstract class DataSet {
 		try {
 			connection.setAutoCommit(status);
 			
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Commit " + name + " " + (status ? "on" : "off") + " auto.");
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Commit " + name + " " + (status ? "on" : "off") + " auto.");
 			}
 			
 		} catch (RepositoryException e) {
@@ -355,8 +370,8 @@ public abstract class DataSet {
 		try {
 			connection.rollback();
 			
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Commit " + name + " rollback.");
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Commit " + name + " rollback.");
 			}
 			
 		} catch (RepositoryException e) {
@@ -366,5 +381,13 @@ public abstract class DataSet {
 	
 	public final String getName() {
 		return name;
+	}
+	
+	/**
+	 * Allows to set the logging level for this component.
+	 * @param level : The logging level.
+	 */
+	public void setLoggingLevel(Level level) {
+		LOG.setLevel(level);
 	}
 }

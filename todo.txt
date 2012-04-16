@@ -7,18 +7,19 @@ Tests grande échelle :
 - http://dbpedia.org/sparql
 
 Applications :
-- Stand-alone ligne de commande
+- Stand-alones ligne de commande
+- Appli plusieurs traitements successifs
 - Stand-alone interface web
-- Stand-alone Swing
 - Dans Datalift
 
 Bugs :
-- Gestion des littéraux (entiers) dans les requêtes SPARQL ValueFactory ?
 - Export Sesame erreur syntaxique <>
-
-Améliorations :
-- Possibilité de réaliser plusieurs traitements successifs
-- Gestion des paramètres (ligne de commande)
 
 TODO :
 - Tests unitaires et couverture sur To
+- App benchmark
+- Tests benchmark
+- Ajout cible resultat dans TestApp - RDFToRDF
+- Ajout javadoc CLIApp, RDFToRDF
+- Ecrire readme
+- 

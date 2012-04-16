@@ -3,6 +3,7 @@ package util;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.openrdf.model.Statement;
 import org.openrdf.model.impl.StatementImpl;
@@ -70,7 +71,7 @@ public abstract class Linkage {
 	private static final int DEFSIZE = 100;
 	
 	/**
-	 * Super-class constructor used to log initialization of the linkages.
+	 * Super-class constructor.
 	 * @param s : The source data set.
 	 * @param t : The target data set.
 	 * @param sp : The source predicate.
@@ -78,10 +79,6 @@ public abstract class Linkage {
 	 */
 	protected Linkage(DataSet s, DataSet t, String sp, String tp) {
 		name = sp + " - " + tp;
-		
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Created linkage " + name + ".");
-		}
 		
 		source = s;
 		target = t;
@@ -304,5 +301,13 @@ public abstract class Linkage {
 	public void shutdown() {
 		target.shutdown();
 		source.shutdown();
+	}
+	
+	/**
+	 * Allows to set the logging level for this component.
+	 * @param level : The logging level.
+	 */
+	public void setLoggingLevel(Level level) {
+		LOG.setLevel(level);
 	}
 }

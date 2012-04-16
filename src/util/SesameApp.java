@@ -1,5 +1,6 @@
 package util;
 
+import org.apache.log4j.Level;
 import org.openrdf.repository.RepositoryException;
 
 /**
@@ -25,8 +26,34 @@ public class SesameApp extends App {
 			
 			name = reference.getName() + " - " + goal.getName();
 	
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Created SesameApp " + name);
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Created SesameApp " + name);
+			}
+		}
+		catch (RepositoryException e) {
+			LOG.fatal(e);
+			shutdown();
+			System.exit(CODERE);
+		}
+	}
+	
+	/**
+	 * Simple constructor with logging selection.
+	 * @param rurl : URL to reference SESAME repository.
+	 * @param gurl : URL to goal SESAME repository.
+	 * @param logging : Log level to use.
+	 */
+	public SesameApp(String rurl, String gurl, Level logging) {
+		super(logging);
+		
+		try {
+			reference = new SPARQLDataSet(rurl, logging);
+			goal = new SPARQLDataSet(gurl, logging);
+			
+			name = reference.getName() + " - " + goal.getName();
+	
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Created SesameApp " + name);
 			}
 		}
 		catch (RepositoryException e) {
@@ -51,8 +78,35 @@ public class SesameApp extends App {
 			
 			name = reference.getName() + " - " + goal.getName();
 	
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Creation AppRDF " + name);
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Creation AppRDF " + name);
+			}
+		}
+		catch (RepositoryException e) {
+			LOG.fatal(e);
+			shutdown();
+			System.exit(CODERE);
+		}
+	}
+	
+	/**
+	 * Default constructor with logging selection.
+	 * @param urlsesame : URL to SESAME server.
+	 * @param sid : Source repository identifier.
+	 * @param gid : Goal repository identifier.
+	 * @param logging : Log level to use.
+	 */
+	public SesameApp(String urlsesame, String sid, String gid, Level logging) {
+		super(logging);
+		
+		try {
+			reference = new SesameDataSet(urlsesame, sid, logging);
+			goal = new SesameDataSet(urlsesame, gid, logging);
+			
+			name = reference.getName() + " - " + goal.getName();
+	
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Creation AppRDF " + name);
 			}
 		}
 		catch (RepositoryException e) {

@@ -133,33 +133,27 @@ public class RDFOutput extends Output {
 	}
 	
 	/**
-	 * Chooses whether or not to use rdf:resource.
+	 * Writes the predicate line as needed, handling URI, boolean, string and integer values.
 	 * @param predicate : A predicate.
 	 * @param object : An object.
 	 * @return A predicate - object pair.
 	 */
 	private String writePredicate(String predicate, String object) {
-		return "\t" + (object.startsWith("http://") ? writeResourcePredicate(predicate, object) : writeTextPredicate(predicate, object)) + "\n";
+		String rdf;
+		if (object.startsWith("http://")) {
+			rdf = "<" + predicate + " rdf:resource=\"" + object + "\"/>";
+		}
+		else if (object.equals("true") || object.equals("false")){
+			rdf = "<" + predicate + " rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + object + "</" + predicate + ">";
+		}
+		else {
+			try {
+				rdf = "<" + predicate + " rdf:datatype=\"http://www.w3.org/2001/XMLSchema#int\">" + Integer.parseInt(object) + "</" + predicate + ">";
+			}
+			catch (NumberFormatException e) {
+				rdf = "<" + predicate + ">" + object + "</" + predicate + ">";
+			}
+		}
+		return "\t" + rdf + "\n";
 	}
-	
-	/**
-	 * Writes a predicate - object pair using rdf:resource.
-	 * @param predicate : A predicate.
-	 * @param object : An object.
-	 * @return A predicate - object pair.
-	 */
-	private String writeResourcePredicate(String predicate, String object) {
-		return "<" + predicate + " rdf:resource=\"" + object + "\"/>";
-	}
-	
-	/**
-	 * Writes a predicate - object pair without using rdf:resource.
-	 * @param predicate : A predicate.
-	 * @param object : An object.
-	 * @return A predicate - object pair.
-	 */
-	private String writeTextPredicate(String predicate, String object) {
-		return "<" + predicate + ">" + object + "</" + predicate + ">";
-	}
-
 }

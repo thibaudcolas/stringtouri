@@ -1,12 +1,13 @@
 package app;
 
-import util.*;
+import util.App;
+import util.RDFApp;
 
 /**
  * Temporary main test class.
  * 
  * @author Thibaud Colas
- * @version 05042012
+ * @version 15042012
  */
 public class Prototype {
 	
@@ -15,7 +16,7 @@ public class Prototype {
 		App test = new RDFApp("./rdf/insee/", "./rdf/Brute3.rdf", "regions", "");
 		test.useTypedLinkage("geo:nom", "tt:Région", "geo:Region", "");
 		test.useSPARQLOutput();
-		test.generateNewLinks(false);
+		test.generateNewLinks(true);
 		System.out.println(test.getOutput());
 		test.shutdown();
 	}

@@ -3,6 +3,7 @@ package util;
 import java.io.IOException;
 import java.util.LinkedList;
 
+import org.apache.log4j.Level;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.sail.SailRepository;
 import org.openrdf.rio.RDFParseException;
@@ -33,6 +34,34 @@ public class RDFDataSet extends DataSet {
 	 */
 	public RDFDataSet(String path, String prefix, String uri) throws RepositoryException, IOException, RDFParseException {
 		super(path);
+		try {
+			baseuri = uri;
+			queries = new LinkedList<String>();
+			
+			repository = new SailRepository(new MemoryStore());
+			repository.initialize();
+			
+			connection = repository.getConnection();
+			
+			addTuples(path, prefix, baseuri);
+		} 
+		catch (RepositoryException e) {
+			throw new RepositoryException("While creating new JeuRDF - " + path, e);
+		}
+	}
+	
+	/**
+	 * Simple constructor with logging selection;
+	 * @param path : Source file / folder.
+	 * @param prefix : Prefix of the filenames to import.
+	 * @param uri : Base URI for the data.
+	 * @param logging : Logging level to use.
+	 * @throws RepositoryException The initialization has failed and no recovery is possible.
+	 * @throws IOException File/folder error.
+	 * @throws RDFParseException File(s) content isn't correct RDFXML.
+	 */
+	public RDFDataSet(String path, String prefix, String uri, Level logging) throws RepositoryException, IOException, RDFParseException {
+		super(path, logging);
 		try {
 			baseuri = uri;
 			queries = new LinkedList<String>();

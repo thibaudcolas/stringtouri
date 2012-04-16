@@ -1,5 +1,5 @@
 /**
- * Ready to be used applications.
+ * Ready to use applications.
  * 
  * @author Thibaud Colas.
  * @version 15042012

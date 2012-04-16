@@ -1,0 +1,84 @@
+16-04-2012 08:39:03,711 INFO  - DataSet - Import ./rdf/insee/ : 2 file(s).
+16-04-2012 08:39:03,762 INFO  - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
+16-04-2012 08:39:03,763 INFO  - App - Created RDFApp ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 08:39:04,287 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 08:39:04,289 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 08:39:04,290 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 08:39:04,293 INFO  - DataSet - Connection ./rdf/insee/ off.
+16-04-2012 08:39:04,293 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
+16-04-2012 08:41:33,656 INFO  - DataSet - Import ./rdf/insee/ : 2 file(s).
+16-04-2012 08:41:33,854 INFO  - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
+16-04-2012 08:41:34,499 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 08:41:34,514 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 08:41:34,515 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 08:41:34,519 INFO  - DataSet - Connection ./rdf/insee/ off.
+16-04-2012 08:41:34,519 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
+16-04-2012 08:43:58,109 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 08:43:58,114 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 08:43:58,115 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 08:43:58,119 INFO  - DataSet - Connection ./rdf/insee/ off.
+16-04-2012 08:43:58,119 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
+16-04-2012 08:45:01,339 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 08:45:01,346 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 08:45:01,346 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 08:45:01,350 INFO  - App - Shutdown ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 08:57:56,234 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 08:57:56,240 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 08:57:56,242 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 08:57:56,247 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 09:00:31,369 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 09:00:31,376 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 09:00:31,377 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 09:00:31,383 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 09:07:48,380 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 09:07:48,385 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 09:07:48,386 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 09:07:48,389 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 09:09:07,505 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 09:09:07,510 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 09:09:07,511 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 09:09:07,512 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
+16-04-2012 09:09:07,514 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 09:09:24,224 DEBUG - DataSet - Created data set ./rdf/insee/.
+16-04-2012 09:09:25,348 DEBUG - DataSet - Import ./rdf/insee/ : 2 file(s).
+16-04-2012 09:09:25,348 DEBUG - DataSet - Created data set ./rdf/Brute3.rdf.
+16-04-2012 09:09:25,440 DEBUG - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
+16-04-2012 09:09:25,440 DEBUG - App - Created RDFApp ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 09:09:25,443 DEBUG - App - Created typed linkage ./rdf/insee/ - ./rdf/Brute3.rdf.
+16-04-2012 09:09:25,452 DEBUG - App - Created RDF output ./rdf/Brute3.rdf.
+16-04-2012 09:09:25,452 DEBUG - App - Export ./rdf/Brute3.rdf namespace retrieval.
+16-04-2012 09:09:25,452 DEBUG - DataSet - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s geo:nom ?o}
+16-04-2012 09:09:25,840 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 09:09:25,840 DEBUG - DataSet - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+16-04-2012 09:09:25,842 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 09:09:25,843 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 09:09:25,844 DEBUG - Output - Export ./rdf/Brute3.rdf statement filtering.
+16-04-2012 09:09:25,844 DEBUG - Output - Output ./rdf/Brute3.rdf ready to be used.
+16-04-2012 09:09:25,844 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
+16-04-2012 09:09:25,847 DEBUG - DataSet - Connection ./rdf/insee/ off.
+16-04-2012 09:09:25,847 DEBUG - DataSet - Connection ./rdf/Brute3.rdf off.
+16-04-2012 09:09:25,847 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 09:09:57,723 DEBUG - DataSet - Created data set ./rdf/insee/.
+16-04-2012 09:09:58,763 DEBUG - DataSet - Import ./rdf/insee/ : 2 file(s).
+16-04-2012 09:09:58,764 DEBUG - DataSet - Created data set ./rdf/Brute3.rdf.
+16-04-2012 09:09:58,842 DEBUG - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
+16-04-2012 09:09:58,842 DEBUG - App - Created RDFApp ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 09:09:58,844 DEBUG - App - Created typed linkage ./rdf/insee/ - ./rdf/Brute3.rdf.
+16-04-2012 09:09:58,887 DEBUG - App - Created RDF output ./rdf/Brute3.rdf.
+16-04-2012 09:09:58,887 DEBUG - App - Export ./rdf/Brute3.rdf namespace retrieval.
+16-04-2012 09:09:58,888 DEBUG - DataSet - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s geo:nom ?o}
+16-04-2012 09:09:59,318 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 09:09:59,319 DEBUG - DataSet - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
+16-04-2012 09:09:59,321 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 09:09:59,322 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 09:09:59,323 DEBUG - Output - Export ./rdf/Brute3.rdf statement filtering.
+16-04-2012 09:09:59,323 DEBUG - Output - Output ./rdf/Brute3.rdf ready to be used.
+16-04-2012 09:09:59,323 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
+16-04-2012 09:09:59,327 DEBUG - DataSet - Connection ./rdf/insee/ off.
+16-04-2012 09:09:59,327 DEBUG - DataSet - Connection ./rdf/Brute3.rdf off.
+16-04-2012 09:09:59,327 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+16-04-2012 09:16:56,204 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
+16-04-2012 09:16:56,207 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+16-04-2012 09:16:56,208 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+16-04-2012 09:16:56,209 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
+16-04-2012 09:16:56,213 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf

@@ -19,6 +19,8 @@
 		<tt:AccessibilitéDuRéseauAuxPersonnesHandicapées rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</tt:AccessibilitéDuRéseauAuxPersonnesHandicapées>
 		<tt:AdresseWeb>http://www.05voyageurs.com</tt:AdresseWeb>
 		<tt:AccessibilitéDuSiteWebAuxPersonnesHandicapées rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</tt:AccessibilitéDuSiteWebAuxPersonnesHandicapées>
+		<tt:Test rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tt:Test>
+
 		
 	 </rdf:Description>
 	 

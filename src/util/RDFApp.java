@@ -2,6 +2,7 @@ package util;
 
 import java.io.IOException;
 
+import org.apache.log4j.Level;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.rio.RDFParseException;
 
@@ -29,9 +30,45 @@ public class RDFApp extends App {
 			goal = new RDFDataSet(gpath, gfilter, "");
 			
 			name = reference.getName() + " - " + goal.getName();
+			
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Created RDFApp " + name);
+			}
+		}
+		catch (RepositoryException e) {
+			LOG.fatal(e);
+			shutdown();
+			System.exit(CODERE);
+		} catch (RDFParseException e) {
+			LOG.fatal(e);
+			shutdown();
+			System.exit(CODEIO);
+		} catch (IOException e) {
+			LOG.fatal(e);
+			shutdown();
+			System.exit(CODEIO);
+		}
+	}
 	
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Created RDFApp " + name);
+	/**
+	 * Default constructor with logging selection
+	 * @param rpath : Filepath to source data.
+	 * @param gpath : Filepath to target data.
+	 * @param rfilter : Name filter.
+	 * @param gfilter : Name filter.
+	 * @param logging : Log level to use.
+	 */
+	public RDFApp(String rpath, String gpath, String rfilter, String gfilter, Level logging) {
+		super(logging);
+		
+		try {
+			reference = new RDFDataSet(rpath, rfilter, "", logging);
+			goal = new RDFDataSet(gpath, gfilter, "", logging);
+			
+			name = reference.getName() + " - " + goal.getName();
+			
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Created RDFApp " + name);
 			}
 		}
 		catch (RepositoryException e) {

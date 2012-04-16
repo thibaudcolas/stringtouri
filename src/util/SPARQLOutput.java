@@ -122,8 +122,8 @@ public class SPARQLOutput extends Output {
 	public void updateDataSet() throws RepositoryException, MalformedQueryException, UpdateExecutionException {
 		LinkedList<String> queries = deleteinsert ? getDeleteInsertQueries() : getInsertQueries();
 
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Update " + goal.getName() + " using SPARQL queries.");
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Update " + goal.getName() + " using SPARQL queries.");
 		}
 		
 		//On veut être sûr d'effectuer soit tous les changements, soit aucun.
@@ -163,7 +163,7 @@ public class SPARQLOutput extends Output {
 		// DELETE + INSERT are combined to optimize bandwith use.
 		for (Statement s : newtuples.get(subject)) {
 			tmppred = filterPredicate(s.getPredicate());
-			query += " " + tmppred + " <" + s.getObject().stringValue() + "> ;";
+			query += " " + tmppred + " " + filterObject(s.getObject()) + " ;";
 		}
 		return query.substring(0, query.length() - 1) + ". } WHERE { <" + subject + "> " + predicate + " ?o }";
 	}
@@ -202,9 +202,21 @@ public class SPARQLOutput extends Output {
 	 */
 	protected String filterObject(Value value) {
 		String o = value.stringValue();
-		//FIXME Gestion des valeurs littérales
-		return (o.startsWith("http://") ? "<" + o + ">" 
-				: o.equals("true") || o.equals("false") ? o 
-						: "\"" + o + "\"");
+		String resobject;
+		if (o.startsWith("http://")) {
+			resobject = "<" + o + ">";
+		}
+		else if (o.equals("true") || o.equals("false")){
+			resobject = o;
+		}
+		else {
+			try {
+				resobject = "" + Integer.parseInt(o);
+			}
+			catch (NumberFormatException e) {
+				resobject = "\"" + o + "\"";
+			}
+		}
+		return resobject;
 	}
 }

@@ -1,5 +1,6 @@
 package util;
 
+import org.apache.log4j.Level;
 import org.openrdf.repository.RepositoryException;
 
 /**
@@ -25,8 +26,34 @@ public class SPARQLApp extends App {
 			
 			name = reference.getName() + " - " + goal.getName();
 	
-			if (LOG.isInfoEnabled()) {
-				LOG.info("Created SPARQLApp " + name);
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Created SPARQLApp " + name);
+			}
+		}
+		catch (RepositoryException e) {
+			LOG.fatal(e);
+			shutdown();
+			System.exit(CODERE);
+		}
+	}
+	
+	/**
+	 * Constructor for two SPARQL endpoints with logging selection.
+	 * @param rurl : Source data set endpoint.
+	 * @param gurl : Target data set endpoints.
+	 * @param logging : Log level to use.
+	 */
+	public SPARQLApp(String rurl, String gurl, Level logging) {
+		super(logging);
+		
+		try {
+			reference = new SPARQLDataSet(rurl, logging);
+			goal = new SPARQLDataSet(gurl);
+			
+			name = reference.getName() + " - " + goal.getName();
+	
+			if (LOG.isDebugEnabled()) {
+				LOG.debug("Created SPARQLApp " + name);
 			}
 		}
 		catch (RepositoryException e) {

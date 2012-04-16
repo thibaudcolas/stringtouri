@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Statement;
@@ -50,10 +51,6 @@ public abstract class Output {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected Output(DataSet ds, String p) throws RepositoryException {
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Created output " + ds.getName() + ".");
-		}
-		
 		olddataset = ds;
 		predicate = p;
 		handleNamespaces();
@@ -68,10 +65,6 @@ public abstract class Output {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected Output(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p) throws RepositoryException {
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Created output " + ds.getName() + ".");
-		}
-		
 		olddataset = ds;
 		predicate = p;
 		handleNamespaces();
@@ -87,10 +80,6 @@ public abstract class Output {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	protected Output(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, boolean a) throws RepositoryException {
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Created output " + ds.getName() + ".");
-		}
-		
 		olddataset = ds;
 		handleNamespaces();
 		predicate = p;
@@ -102,9 +91,6 @@ public abstract class Output {
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
 	private void handleNamespaces() throws RepositoryException {
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Export " + olddataset.getName() + " namespace retrieval.");
-		}
 		try {
 			namespaces = new HashMap<String, String>();
 			List<Namespace> tmpnamespaces = olddataset.getNamespaceList();
@@ -138,8 +124,8 @@ public abstract class Output {
 		LinkedList<Statement> tmpnew;
 		String tmpprop;
 		
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Export " + olddataset.getName() + " statement filtering.");
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Export " + olddataset.getName() + " statement filtering.");
 		}
 		
 		for (String suj : tuples.keySet()) {
@@ -190,6 +176,9 @@ public abstract class Output {
 
 	public final void setNewTuples(HashMap<String, LinkedList<Statement>> nt, boolean a) throws RepositoryException {
 		this.newtuples = a ? getFilteredStatements(nt) : nt;
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Output " + olddataset.getName() + " ready to be used.");
+		}
 	}
 
 	/**
@@ -205,4 +194,12 @@ public abstract class Output {
 	 * @throws RepositoryException Fatal error while updating the data set.
 	 */
 	public abstract void updateDataSet() throws RepositoryException, MalformedQueryException, UpdateExecutionException;
+	
+	/**
+	 * Allows to set the logging level for this component.
+	 * @param level : The logging level.
+	 */
+	public void setLoggingLevel(Level level) {
+		LOG.setLevel(level);
+	}
 }

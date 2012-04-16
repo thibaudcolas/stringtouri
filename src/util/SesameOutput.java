@@ -91,8 +91,8 @@ public class SesameOutput extends Output {
 	public void updateDataSet() throws RepositoryException {
 		LinkedList<Statement> newlinks;
 		
-		if (LOG.isInfoEnabled()) {
-			LOG.info("Update " + goal.getName() + " using Sesame statements.");
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Update " + goal.getName() + " using Sesame statements.");
 		}
 		
 		try {

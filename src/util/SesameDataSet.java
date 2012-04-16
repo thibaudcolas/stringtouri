@@ -2,6 +2,7 @@ package util;
 
 import java.util.LinkedList;
 
+import org.apache.log4j.Level;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.http.HTTPRepository;
 
@@ -53,6 +54,53 @@ public class SesameDataSet extends DataSet {
 	 */
 	public SesameDataSet(String url, String identifier) throws RepositoryException {
 		super(url + " - " + identifier);
+		try {	
+			serverurl = url;
+			repositoryid = identifier;
+			repository = new HTTPRepository(serverurl, repositoryid);
+			repository.initialize();
+			
+			queries = new LinkedList<String>();
+			
+			connection = repository.getConnection();
+		} 
+		catch (RepositoryException e) {
+			throw new RepositoryException("While creating new JeuSesame - " + url + " " + identifier, e);
+		}
+	}
+	
+	/**
+	 * Lazy constructor.
+	 * @param repositoryurl : Direct URL to the Sesame repository.
+	 * @param logging : Logging level to use.
+	 * @throws RepositoryException The initialization has failed and no recovery is possible.
+	 */
+	public SesameDataSet(String repositoryurl, Level logging) throws RepositoryException {
+		super(repositoryurl, logging);
+		try {
+			serverurl = repositoryurl;
+			repositoryid = repositoryurl;
+			repository = new HTTPRepository(repositoryurl);
+			repository.initialize();
+			
+			queries = new LinkedList<String>();
+			
+			connection = repository.getConnection();
+		} 
+		catch (RepositoryException e) {
+			throw new RepositoryException("While creating new JeuSesame - " + repositoryurl, e);
+		}
+	}
+	
+	/**
+	 * Default constructor.
+	 * @param url : Sesame server's URL.
+	 * @param identifier : Repository id.
+	 * @param logging : Logging level to use.
+	 * @throws RepositoryException The initialization has failed and no recovery is possible.
+	 */
+	public SesameDataSet(String url, String identifier, Level logging) throws RepositoryException {
+		super(url + " - " + identifier, logging);
 		try {	
 			serverurl = url;
 			repositoryid = identifier;
