@@ -7,7 +7,7 @@ import util.RDFApp;
  * Temporary main test class.
  * 
  * @author Thibaud Colas
- * @version 15042012
+ * @version 16042012
  */
 public class Prototype {
 	

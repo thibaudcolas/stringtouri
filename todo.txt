@@ -20,7 +20,6 @@ TODO :
 - App benchmark
 - Tests benchmark
 - Ajout javadoc CLIApp, RDFToRDF
-- Corriger problème encodage
 - Ecrire readme
 - .sh RDF qui rappatrie les options
 - .sh Sesame qui permet de définir un serveur par défaut / répertoires par défaut

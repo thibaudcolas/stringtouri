@@ -1,9 +1,10 @@
 package util;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -45,6 +46,10 @@ public class App {
 	 * Output handler, telling how the update will be processed.
 	 */
 	protected Output output;
+	/**
+	 * Charset to use when writing data.
+	 */
+	protected String charset;
 	/**
 	 * Logging level to use at runtime.
 	 */
@@ -195,7 +200,7 @@ public class App {
 	 */
 	public void useRDFOutput() {
 		try {
-			output = new RDFOutput(goal, updatedpredicate);
+			output = new RDFOutput(goal, updatedpredicate, charset);
 			output.setLoggingLevel(logginglevel);
 			if (LOG.isDebugEnabled()) {
 				LOG.debug("Created RDF output " + goal.getName() + ".");
@@ -329,9 +334,10 @@ public class App {
 				f.createNewFile();
 			}
 			if (f.isFile() && f.canWrite()) {
-				BufferedWriter res = new BufferedWriter(new FileWriter(path));
-				res.write(output.getOutput());
-				res.close();
+				// The charset is really important in order to get proper data.
+				Writer out = new OutputStreamWriter(new FileOutputStream(f), charset);
+				out.write(output.getOutput());
+				out.close();
 				
 				if (LOG.isInfoEnabled()) {
 					LOG.info("Export " + name + " output - " + path);
@@ -349,10 +355,26 @@ public class App {
 	}
 	
 	/**
+	 * Allows to set the charset to use.
+	 * @param c : The desired charset.
+	 */
+	public void setCharset(String c) {
+		charset = c;
+		
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Export " + name + " with charset " + c);
+		}
+	}
+	
+	/**
 	 * Allows to set the logging level.
 	 * @param level : The logging level.
 	 */
 	public void setLoggingLevel(Level level) {
 		LOG.setLevel(level);
+		
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Log " + LOG.getName() + " set to " + level);
+		}
 	}
 }

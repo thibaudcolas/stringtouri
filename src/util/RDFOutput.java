@@ -15,16 +15,18 @@ import org.openrdf.repository.RepositoryException;
  */
 public class RDFOutput extends Output {
 
-	private static final String XMLTAG = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+	private String charset;
 	
 	/**
 	 * Lazy constructor.
 	 * @param ds : A data set.
 	 * @param p : The predicate for which we want to update values.
+	 * @param c : Charset to use when writing RDF.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public RDFOutput(DataSet ds, String p) throws RepositoryException {
+	public RDFOutput(DataSet ds, String p, String c) throws RepositoryException {
 		super(ds, p);
+		charset = c;
 	}
 
 	/**
@@ -32,10 +34,12 @@ public class RDFOutput extends Output {
 	 * @param ds : A data set.
 	 * @param ns : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
+	 * @param c : Charset to use when writing RDF.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public RDFOutput(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p) throws RepositoryException {
+	public RDFOutput(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, String c) throws RepositoryException {
 		super(ds, ns, p);
+		charset = c;
 	}
 	
 	/**
@@ -43,11 +47,13 @@ public class RDFOutput extends Output {
 	 * @param ds : A data set.
 	 * @param ns : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
+	 * @param c : Charset to use when writing RDF.
 	 * @param a : Tells wether to process all of the statements within the data set or just the new ones.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public RDFOutput(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, boolean a) throws RepositoryException {
+	public RDFOutput(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, String c, boolean a) throws RepositoryException {
 		super(ds, ns, p, a);
+		charset = c;
 	}
 	
 	
@@ -73,8 +79,9 @@ public class RDFOutput extends Output {
 	 * @return RDFXML code.
 	 */
 	private String writeRDF() {
-		return XMLTAG + "<rdf:RDF \n" + writeNamespaces() 
-				+ ">\n" + writeStatements() + "</rdf:RDF>\n";
+		return "<?xml version=\"1.0\" encoding=\"" + charset + "\"?>\n" 
+				+ "<rdf:RDF \n" + writeNamespaces() + ">\n" 
+				+ writeStatements() + "</rdf:RDF>\n";
 	}
 	
 	/**
@@ -151,7 +158,7 @@ public class RDFOutput extends Output {
 				rdf = "<" + predicate + " rdf:datatype=\"http://www.w3.org/2001/XMLSchema#int\">" + Integer.parseInt(object) + "</" + predicate + ">";
 			}
 			catch (NumberFormatException e) {
-				rdf = "<" + predicate + ">" + object + "</" + predicate + ">";
+				rdf = "<" + predicate + ">" + object.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;") + "</" + predicate + ">";
 			}
 		}
 		return "\t" + rdf + "\n";
