@@ -17,10 +17,10 @@ public class RDFSiri extends CLIApp {
 		terminalname = "rdfsiri.jar";
 		displayname = "(RDF)Siri";
 		version = "1.0.0";
-		about = "I'm " + displayname + ", your personal assistant, ask me everything.\n" +
-				"- Just kidding, in fact I can create links between two RDF data sets.\n" +
-				"I use RDFXML files and generate my links in RDFXML.\n" +
-				"Please have fun generating RDFXML links !";
+		about = "I'm " + displayname + ", your personal assistant, ask me everything.\n" 
+				+ "- Just kidding, in fact I can create links between two RDF data sets.\n" 
+				+ "I use RDFXML files and generate my links in RDFXML.\n" 
+				+ "Please have fun generating RDFXML links !";
 	}
 	
 	/**

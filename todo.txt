@@ -16,10 +16,9 @@ Bugs :
 - Export Sesame erreur syntaxique <>
 
 TODO :
-- Tests unitaires et couverture sur To
+- Tests unitaires et couverture sur Output
 - App benchmark
 - Tests benchmark
-- Ajout javadoc CLIApp, RDFToRDF
 - Ecrire readme
 - .sh RDF qui rappatrie les options
 - .sh Sesame qui permet de définir un serveur par défaut / répertoires par défaut
