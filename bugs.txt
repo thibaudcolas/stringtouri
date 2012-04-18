@@ -1,2 +1,7 @@
 StringToURI known bugs
 ------------------------------------------------------------------------
+
+- In SesameOutput :
+-- While trying to update data using the Statement class,
+-- the new statements aren't written as the old ones inside the repository :
+-- they are surrounded by <>, thus they doesn't replace the older.

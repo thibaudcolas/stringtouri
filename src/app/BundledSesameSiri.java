@@ -3,19 +3,19 @@ package app;
 import util.SesameApp;
 
 /**
- * Command Line application combined with a Sesame server.
+ * Bundled command line application updating links inside a Sesame server.
  * 
  * @author Thibaud Colas
- * @version 16042012
+ * @version 18042012
  */
-public class SesameSiri extends CLIApp {
+public class BundledSesameSiri extends CLIApp {
 
 	/**
 	 * Initiates the application's information.
 	 */
 	private static void initApp() {
-		terminalname = "sesamesiri.jar";
-		displayname = "(Sesame)Siri";
+		terminalname = "bundledsesamesiri.jar";
+		displayname = "Bundled(Sesame)Siri";
 		version = "1.0.0";
 		about = "I'm " + displayname + ", your personal assistant, ask me everything.\n" 
 				+ "- Just kidding, in fact I can create links between two Sesame data sets.\n" 
@@ -46,7 +46,6 @@ public class SesameSiri extends CLIApp {
 		if (cl.hasOption("sesame") && cl.hasOption("s") && cl.hasOption("t") && cl.hasOption("sp") && cl.hasOption("tp")) {
 
 			String sesameserver = cl.getOptionValue("sesame");
-			if (!cl.hasOption("quiet")) System.out.println("\n-- Processing data from " + sesameserver + "\n");
 			String sourcetype = cl.hasOption("st") ? cl.getOptionValue("st") : "";
 			String targettype = cl.hasOption("tt") ? cl.getOptionValue("tt") : "";
 			
@@ -54,29 +53,24 @@ public class SesameSiri extends CLIApp {
 			app = new SesameApp(sesameserver, cl.getOptionValue("s"), cl.getOptionValue("t"), logginglevel);
 			app.useTypedLinkage(cl.getOptionValue("sp"), cl.getOptionValue("tp"), sourcetype, targettype);
 			
-			if (!cl.hasOption("quiet")) System.out.println("-- Interlinking on " + cl.getOptionValue("sp") + " - " + cl.getOptionValue("tp") + "\n");
+			app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");
 			app.useSPARQLOutput();
 			app.generateNewLinks(false);
 			
 			if (cl.hasOption("out")) {
-				app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");
 				app.storeOutput(cl.getOptionValue("out"));
-				if (!cl.hasOption("quiet")) System.out.println("-- SPARQL queries stored in " + cl.getOptionValue("out") + "\n");
 			}
 			else {
-				if (!cl.hasOption("quiet")) System.out.println("-- SPARQL queries :\n");
 				System.out.println("\n\n" + app.getOutput() + "\n\n");
 			}
 			
 			// It is possible to generate the queries without doing any real update.
 			if (cl.hasOption("update")) {
 				app.updateData();
-				if (!cl.hasOption("quiet")) System.out.println("-- Data updated in " + cl.getOptionValue("t") + "\n");
 			}
 		}
 		else {
-			if (!cl.hasOption("quiet")) System.out.println("Error - not enough parameters\n");
-			printHelp();
+			System.out.println("\n\nInternal error - please check the logs.\n");
 		}
 	}
 	

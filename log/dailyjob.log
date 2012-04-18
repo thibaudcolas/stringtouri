@@ -1,102 +1,54 @@
-16-04-2012 08:39:03,711 INFO  - DataSet - Import ./rdf/insee/ : 2 file(s).
-16-04-2012 08:39:03,762 INFO  - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
-16-04-2012 08:39:03,763 INFO  - App - Created RDFApp ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 08:39:04,287 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 08:39:04,289 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 08:39:04,290 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 08:39:04,293 INFO  - DataSet - Connection ./rdf/insee/ off.
-16-04-2012 08:39:04,293 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
-16-04-2012 08:41:33,656 INFO  - DataSet - Import ./rdf/insee/ : 2 file(s).
-16-04-2012 08:41:33,854 INFO  - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
-16-04-2012 08:41:34,499 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 08:41:34,514 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 08:41:34,515 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 08:41:34,519 INFO  - DataSet - Connection ./rdf/insee/ off.
-16-04-2012 08:41:34,519 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
-16-04-2012 08:43:58,109 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 08:43:58,114 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 08:43:58,115 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 08:43:58,119 INFO  - DataSet - Connection ./rdf/insee/ off.
-16-04-2012 08:43:58,119 INFO  - DataSet - Connection ./rdf/Brute3.rdf off.
-16-04-2012 08:45:01,339 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 08:45:01,346 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 08:45:01,346 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 08:45:01,350 INFO  - App - Shutdown ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 08:57:56,234 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 08:57:56,240 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 08:57:56,242 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 08:57:56,247 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 09:00:31,369 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 09:00:31,376 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 09:00:31,377 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 09:00:31,383 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 09:07:48,380 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 09:07:48,385 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 09:07:48,386 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 09:07:48,389 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 09:09:07,505 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 09:09:07,510 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 09:09:07,511 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 09:09:07,512 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
-16-04-2012 09:09:07,514 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 09:09:24,224 DEBUG - DataSet - Created data set ./rdf/insee/.
-16-04-2012 09:09:25,348 DEBUG - DataSet - Import ./rdf/insee/ : 2 file(s).
-16-04-2012 09:09:25,348 DEBUG - DataSet - Created data set ./rdf/Brute3.rdf.
-16-04-2012 09:09:25,440 DEBUG - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
-16-04-2012 09:09:25,440 DEBUG - App - Created RDFApp ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 09:09:25,443 DEBUG - App - Created typed linkage ./rdf/insee/ - ./rdf/Brute3.rdf.
-16-04-2012 09:09:25,452 DEBUG - App - Created RDF output ./rdf/Brute3.rdf.
-16-04-2012 09:09:25,452 DEBUG - App - Export ./rdf/Brute3.rdf namespace retrieval.
-16-04-2012 09:09:25,452 DEBUG - DataSet - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s geo:nom ?o}
-16-04-2012 09:09:25,840 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 09:09:25,840 DEBUG - DataSet - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-16-04-2012 09:09:25,842 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 09:09:25,843 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 09:09:25,844 DEBUG - Output - Export ./rdf/Brute3.rdf statement filtering.
-16-04-2012 09:09:25,844 DEBUG - Output - Output ./rdf/Brute3.rdf ready to be used.
-16-04-2012 09:09:25,844 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
-16-04-2012 09:09:25,847 DEBUG - DataSet - Connection ./rdf/insee/ off.
-16-04-2012 09:09:25,847 DEBUG - DataSet - Connection ./rdf/Brute3.rdf off.
-16-04-2012 09:09:25,847 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 09:09:57,723 DEBUG - DataSet - Created data set ./rdf/insee/.
-16-04-2012 09:09:58,763 DEBUG - DataSet - Import ./rdf/insee/ : 2 file(s).
-16-04-2012 09:09:58,764 DEBUG - DataSet - Created data set ./rdf/Brute3.rdf.
-16-04-2012 09:09:58,842 DEBUG - DataSet - Import ./rdf/Brute3.rdf : 1 file(s).
-16-04-2012 09:09:58,842 DEBUG - App - Created RDFApp ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 09:09:58,844 DEBUG - App - Created typed linkage ./rdf/insee/ - ./rdf/Brute3.rdf.
-16-04-2012 09:09:58,887 DEBUG - App - Created RDF output ./rdf/Brute3.rdf.
-16-04-2012 09:09:58,887 DEBUG - App - Export ./rdf/Brute3.rdf namespace retrieval.
-16-04-2012 09:09:58,888 DEBUG - DataSet - Query ./rdf/insee/ select - SELECT ?s ?o WHERE {?s geo:nom ?o}
-16-04-2012 09:09:59,318 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 09:09:59,319 DEBUG - DataSet - Query ./rdf/Brute3.rdf select - SELECT ?s ?o WHERE {?s tt:Région ?o}
-16-04-2012 09:09:59,321 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 09:09:59,322 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 09:09:59,323 DEBUG - Output - Export ./rdf/Brute3.rdf statement filtering.
-16-04-2012 09:09:59,323 DEBUG - Output - Output ./rdf/Brute3.rdf ready to be used.
-16-04-2012 09:09:59,323 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
-16-04-2012 09:09:59,327 DEBUG - DataSet - Connection ./rdf/insee/ off.
-16-04-2012 09:09:59,327 DEBUG - DataSet - Connection ./rdf/Brute3.rdf off.
-16-04-2012 09:09:59,327 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 09:16:56,204 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 09:16:56,207 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 09:16:56,208 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 09:16:56,209 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
-16-04-2012 09:16:56,213 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 10:23:19,624 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 10:23:19,629 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 10:23:19,629 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 10:23:19,629 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
-16-04-2012 10:23:19,631 INFO  - App - Export ./rdf/insee/ - ./rdf/Brute3.rdf output - test.rdf
-16-04-2012 10:23:19,633 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 10:26:54,966 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 10:26:54,969 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 10:26:54,969 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 10:26:54,970 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
-16-04-2012 10:26:54,972 INFO  - App - Export ./rdf/insee/ - ./rdf/Brute3.rdf output - test.rdf
-16-04-2012 10:26:54,974 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
-16-04-2012 10:34:56,100 INFO  - Linkage - Predicate geo:nom has 569 statement(s) in ./rdf/insee/.
-16-04-2012 10:34:56,103 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
-16-04-2012 10:34:56,103 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
-16-04-2012 10:34:56,104 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
-16-04-2012 10:34:56,108 INFO  - App - Export ./rdf/insee/ - ./rdf/Brute3.rdf output - test.rdf
-16-04-2012 10:34:56,110 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+18-04-2012 22:56:29,676 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 22:56:29,700 INFO  - Linkage - Predicate passim:cityThrough has 31 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 22:56:29,702 INFO  - Linkage - Predicate passim:cityThrough and geo:nom have 31 common statement(s) in geo:nom - passim:cityThrough.
+18-04-2012 22:56:29,702 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 22:59:28,876 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 22:59:28,929 INFO  - Linkage - Predicate passim:cityThrough has 31 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 22:59:28,931 INFO  - Linkage - Predicate passim:cityThrough and geo:nom have 31 common statement(s) in geo:nom - passim:cityThrough.
+18-04-2012 22:59:28,931 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 22:59:28,937 INFO  - App - Export http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre output - /Users/Will/Desktop/test.txt
+18-04-2012 22:59:28,938 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre
+18-04-2012 22:59:55,908 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 22:59:56,022 INFO  - Linkage - Predicate passim:cityThrough has 31 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 22:59:56,025 INFO  - Linkage - Predicate passim:cityThrough and geo:nom have 31 common statement(s) in geo:nom - passim:cityThrough.
+18-04-2012 22:59:56,025 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 22:59:56,030 INFO  - App - Export http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre output - /Users/Will/Desktop/test.txt
+18-04-2012 22:59:56,032 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre
+18-04-2012 23:00:10,576 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 23:00:10,600 INFO  - Linkage - Predicate passim:cityThrough has 31 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 23:00:10,602 INFO  - Linkage - Predicate passim:cityThrough and geo:nom have 31 common statement(s) in geo:nom - passim:cityThrough.
+18-04-2012 23:00:10,676 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 23:00:10,697 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre
+18-04-2012 23:02:28,818 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 23:02:28,848 INFO  - Linkage - Predicate passim:cityThrough has 31 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 23:02:28,850 INFO  - Linkage - Predicate passim:cityThrough and geo:nom have 31 common statement(s) in geo:nom - passim:cityThrough.
+18-04-2012 23:02:28,850 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 23:02:28,883 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre
+18-04-2012 23:03:08,152 INFO  - Linkage - Predicate geo:nom has 0 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 23:03:08,180 INFO  - Linkage - Predicate passim:department has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 23:03:08,181 INFO  - Linkage - Predicate passim:department and geo:nom have 0 common statement(s) in geo:nom - passim:department.
+18-04-2012 23:03:08,181 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 23:03:08,182 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre
+18-04-2012 23:04:36,069 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 23:04:36,091 INFO  - Linkage - Predicate passim:centerTown has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 23:04:36,110 INFO  - Linkage - Predicate passim:centerTown and geo:nom have 1 common statement(s) in geo:nom - passim:centerTown.
+18-04-2012 23:04:36,110 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 23:04:36,114 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre
+18-04-2012 23:04:57,914 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 23:04:57,972 INFO  - Linkage - Predicate passim:centerTown has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 23:04:57,974 INFO  - Linkage - Predicate passim:centerTown and geo:nom have 1 common statement(s) in geo:nom - passim:centerTown.
+18-04-2012 23:04:57,974 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 23:04:58,282 INFO  - App - Data set http://localhost:8080/openrdf-sesame/ - passim-propre updated.
+18-04-2012 23:04:58,285 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre
+18-04-2012 23:04:59,040 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 23:04:59,062 INFO  - Linkage - Predicate passim:centerTown has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 23:04:59,062 INFO  - Linkage - Predicate passim:centerTown and geo:nom have 0 common statement(s) in geo:nom - passim:centerTown.
+18-04-2012 23:04:59,065 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 23:04:59,066 INFO  - App - Data set http://localhost:8080/openrdf-sesame/ - passim-propre updated.
+18-04-2012 23:04:59,068 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre
+18-04-2012 23:05:57,053 INFO  - Linkage - Predicate geo:nom has 343 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee.
+18-04-2012 23:05:57,086 INFO  - Linkage - Predicate passim:centerTown has 4 statement(s) in http://localhost:8080/openrdf-sesame/ - passim-propre.
+18-04-2012 23:05:57,086 INFO  - Linkage - Predicate passim:centerTown and geo:nom have 0 common statement(s) in geo:nom - passim:centerTown.
+18-04-2012 23:05:57,087 INFO  - App - New links from http://localhost:8080/openrdf-sesame/ - geo-insee to http://localhost:8080/openrdf-sesame/ - passim-propre retrieved.
+18-04-2012 23:05:57,087 INFO  - App - Data set http://localhost:8080/openrdf-sesame/ - passim-propre updated.
+18-04-2012 23:05:57,088 INFO  - App - Shutdown app http://localhost:8080/openrdf-sesame/ - geo-insee - http://localhost:8080/openrdf-sesame/ - passim-propre

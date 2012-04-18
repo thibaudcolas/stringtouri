@@ -14,8 +14,8 @@ public class BundledRDFSiri extends CLIApp {
 	 * Initiates the application's information.
 	 */
 	private static void initApp() {
-		terminalname = "rdfsiri.jar";
-		displayname = "(RDF)Siri";
+		terminalname = "bundledrdfsiri.jar";
+		displayname = "Bundled(RDF)Siri";
 		version = "1.0.0";
 		about = "I'm " + displayname + ", your personal assistant, ask me everything.\n" 
 				+ "- Just kidding, in fact I can create links between two RDF data sets.\n" 
