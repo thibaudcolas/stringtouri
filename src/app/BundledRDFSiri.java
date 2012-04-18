@@ -3,12 +3,12 @@ package app;
 import util.RDFApp;
 
 /**
- * Command line application to process RDFXML data sets and create new RDFXML.
+ * Bundled command line application to process RDFXML data sets and create new RDFXML.
  * 
  * @author Thibaud Colas
- * @version 16042012
+ * @version 17042012
  */
-public class RDFSiri extends CLIApp {
+public class BundledRDFSiri extends CLIApp {
 
 	/**
 	 * Initiates the application's information.
@@ -44,7 +44,6 @@ public class RDFSiri extends CLIApp {
 	private static void handleUsefulOptions() {
 		if (cl.hasOption("s") && cl.hasOption("t") && cl.hasOption("sp") && cl.hasOption("tp")) {
 
-			if (!cl.hasOption("quiet")) System.out.println("\nHello sir, I'm " + displayname + ", let's get started.");
 			String sourcetype = cl.hasOption("st") ? cl.getOptionValue("st") : "";
 			String targettype = cl.hasOption("tt") ? cl.getOptionValue("tt") : "";
 			
@@ -52,7 +51,6 @@ public class RDFSiri extends CLIApp {
 			app = new RDFApp(cl.getOptionValue("s"), cl.getOptionValue("t"), "", "", logginglevel);
 			
 			app.useTypedLinkage(cl.getOptionValue("sp"), cl.getOptionValue("tp"), sourcetype, targettype);
-			if (!cl.hasOption("quiet")) System.out.println("Creating new links using my best algorithms, sir.");
 			// Always set charset before generating links.
 			app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");
 			app.useRDFOutput();
@@ -64,12 +62,9 @@ public class RDFSiri extends CLIApp {
 			else {
 				System.out.println("\n\n" + app.getOutput() + "\n\n");
 			}
-			
-			if (!cl.hasOption("quiet")) System.out.println("Oh boy ! Your orders have been executed, sir.\n");
 		}
 		else {
-			if (!cl.hasOption("quiet")) System.out.println("Oh dear, looks like you forgot something.\n");
-			printHelp();
+			System.out.println("\n\nInternal error - please check the logs.\n");
 		}
 	}
 	

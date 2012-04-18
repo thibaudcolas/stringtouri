@@ -22,3 +22,4 @@ TODO :
 - Ecrire readme
 - .sh RDF qui rappatrie les options
 - .sh Sesame qui permet de définir un serveur par défaut / répertoires par défaut
+- Écrire interfaces

@@ -1,25 +1,25 @@
 package app;
 
-import util.RDFApp;
+import util.SesameApp;
 
 /**
- * Command line application to process RDFXML data sets and create new RDFXML.
+ * Command Line application combined with a Sesame server.
  * 
  * @author Thibaud Colas
  * @version 16042012
  */
-public class RDFSiri extends CLIApp {
+public class SesameSiri extends CLIApp {
 
 	/**
 	 * Initiates the application's information.
 	 */
 	private static void initApp() {
-		terminalname = "rdfsiri.jar";
-		displayname = "(RDF)Siri";
+		terminalname = "sesamesiri.jar";
+		displayname = "(Sesame)Siri";
 		version = "1.0.0";
 		about = "I'm " + displayname + ", your personal assistant, ask me everything.\n" 
 				+ "- Just kidding, in fact I can create links between two RDF data sets.\n" 
-				+ "I use RDFXML files and generate my links in RDFXML.\n" 
+				+ "I use a Sesame server and generate my links between two of its repositories.\n" 
 				+ "Please have fun generating RDF links !\n";
 	}
 	
@@ -27,48 +27,47 @@ public class RDFSiri extends CLIApp {
 	 * Adds customized options for this application.
 	 */
 	private static void addUsefulOptions() {
-		opt.addOption("s", true, "source file/folder path - required");
-		opt.addOption("t", true, "target file/folder path - required");
+		opt.addOption("ses", true, "server URL - required");
+		opt.addOption("s", true, "source repository identifier - required");
+		opt.addOption("t", true, "target repository identifier - required");
         opt.addOption("sp", true, "source data set predicate - required");
         opt.addOption("tp", true, "target data set predicate - required");
         opt.addOption("st", true, "source data set objects type");
         opt.addOption("tt", true, "target data set objects type");
-        opt.addOption("enc", true, "charset to use when writing data");
-        opt.addOption("out", true, "file to store the result at");
-        opt.addOption("all", false, "process everything, not just new links");
+        opt.addOption("out", true, "to supply if you just want to export the SPARQL queries");
+        opt.addOption("all", false, "process everything, not just new links (to ");
 	}
 	
 	/**
 	 * Handles customized options.
 	 */
 	private static void handleUsefulOptions() {
-		if (cl.hasOption("s") && cl.hasOption("t") && cl.hasOption("sp") && cl.hasOption("tp")) {
+		if (cl.hasOption("ses") && cl.hasOption("s") && cl.hasOption("t") && cl.hasOption("sp") && cl.hasOption("tp")) {
 
-			if (!cl.hasOption("quiet")) System.out.println("\nHello sir, I'm " + displayname + ", let's get started.");
+			String sesameserver = cl.getOptionValue("ses");
+			if (!cl.hasOption("quiet")) System.out.println("\n-- Processing data from " + sesameserver + "\n");
 			String sourcetype = cl.hasOption("st") ? cl.getOptionValue("st") : "";
 			String targettype = cl.hasOption("tt") ? cl.getOptionValue("tt") : "";
 			
 			// We need to give the desired logginglevel to the app, which will dispatch it to its sub classes.
-			app = new RDFApp(cl.getOptionValue("s"), cl.getOptionValue("t"), "", "", logginglevel);
-			
+			app = new SesameApp(sesameserver, cl.getOptionValue("s"), cl.getOptionValue("t"), logginglevel);
 			app.useTypedLinkage(cl.getOptionValue("sp"), cl.getOptionValue("tp"), sourcetype, targettype);
-			if (!cl.hasOption("quiet")) System.out.println("Creating new links using my best algorithms, sir.");
-			// Always set charset before generating links.
-			app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");
-			app.useRDFOutput();
+			
+			if (!cl.hasOption("quiet")) System.out.println("-- Interlinking on " + sourcetype + " - " + targettype + "\n");
+			app.useSPARQLOutput();
 			app.generateNewLinks(cl.hasOption("all"));
 			
 			if (cl.hasOption("out")) {
 				app.storeOutput(cl.getOptionValue("out"));
+				if (!cl.hasOption("quiet")) System.out.println("-- SPARQL queries stored in " + cl.getOptionValue("out") + "\n");
 			}
 			else {
-				System.out.println("\n\n" + app.getOutput() + "\n\n");
+				app.updateData();
+				if (!cl.hasOption("quiet")) System.out.println("-- Data updated in " + cl.getOptionValue("t") + "\n");
 			}
-			
-			if (!cl.hasOption("quiet")) System.out.println("Oh boy ! Your orders have been executed, sir.\n");
 		}
 		else {
-			if (!cl.hasOption("quiet")) System.out.println("Oh dear, looks like you forgot something.\n");
+			if (!cl.hasOption("quiet")) System.out.println("Error - not enough parameters\n");
 			printHelp();
 		}
 	}
