@@ -53,7 +53,7 @@ public class BundledRDFSiri extends CLIApp {
 			app.useTypedLinkage(cl.getOptionValue("sp"), cl.getOptionValue("tp"), sourcetype, targettype);
 			// Always set charset before generating links.
 			app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");
-			app.useRDFOutput();
+			app.useRDFOutput(cl.getOptionValue("t"));
 			
 			if (cl.hasOption("out")) {
 				app.storeOutput(cl.getOptionValue("out"));

@@ -55,7 +55,7 @@ public class RDFSiri extends CLIApp {
 			if (!cl.hasOption("quiet")) System.out.println("Creating new links using my best algorithms, sir.");
 			// Always set charset before generating links.
 			app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");
-			app.useRDFOutput();
+			app.useRDFOutput(cl.getOptionValue("t"));
 			
 			if (cl.hasOption("out")) {
 				app.storeOutput(cl.getOptionValue("out"));

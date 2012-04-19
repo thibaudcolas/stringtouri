@@ -157,7 +157,7 @@ public class SPARQLOutput extends Output {
 	 * @param statements : Statements to be used.
 	 * @return Query as string.
 	 */
-	public String writeDeleteInsertQuery(String subject, LinkedList<Statement> statements) {
+	private String writeDeleteInsertQuery(String subject, LinkedList<Statement> statements) {
 		String query = "DELETE { <" + subject + "> " + linkingpredicate + " ?o } INSERT { <" + subject + ">";
 		String tmppred;
 		// DELETE + INSERT are combined to optimize bandwith use.
@@ -174,7 +174,7 @@ public class SPARQLOutput extends Output {
 	 * @param statements : Statements to be used.
 	 * @return Query as string.
 	 */
-	public String writeInsertQuery(String subject, LinkedList<Statement> statements) {
+	private String writeInsertQuery(String subject, LinkedList<Statement> statements) {
 		String query = "INSERT DATA { <" + subject + ">";
 		String tmppred;
 		
@@ -190,6 +190,7 @@ public class SPARQLOutput extends Output {
 	 * Writes a SPARQL DELETE query.
 	 * @param subject : The query's subject.
 	 * @return Query as string.
+	 * @deprecated
 	 */
 	public String writeDeleteQuery(String subject) {
 		return "DELETE DATA { <" + subject + "> " + linkingpredicate + " ?o }";
@@ -200,7 +201,7 @@ public class SPARQLOutput extends Output {
 	 * @param value : The value of the object.
 	 * @return A well-written object.
 	 */
-	protected String filterObject(Value value) {
+	private String filterObject(Value value) {
 		String o = value.stringValue();
 		String resobject;
 		if (o.startsWith("http://")) {

@@ -198,9 +198,9 @@ public class App {
 	/**
 	 * Sets output to be RDFXML.
 	 */
-	public void useRDFOutput() {
+	public void useRDFOutput(String filepath) {
 		try {
-			output = new RDFOutput(goal, updatedpredicate, charset);
+			output = new RDFOutput(goal, updatedpredicate, charset, filepath);
 			output.setLoggingLevel(logginglevel);
 			if (LOG.isDebugEnabled()) {
 				LOG.debug("Created RDF output " + goal.getName() + ".");
@@ -258,7 +258,7 @@ public class App {
 	 * Starts the interlinking process.
 	 * @param a : Tells wheter to process all the statements or just the updated ones.
 	 */
-	private void generateNewLinks(boolean a) {
+	protected void generateNewLinks(boolean a) {
 		try {
 			output.setNewTuples(linkage.generateLinks(), a);
 			if (LOG.isInfoEnabled()) {

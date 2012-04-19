@@ -83,11 +83,12 @@ public class SesameOutput extends Output {
 		return text;
 	}
 	
-	//FIXME URI propriété écrite avec/sans <>.
 	/**
 	 * Updates the data set statements by overwriting the old ones with the new ones.
 	 * @throws RepositoryException Fatal error while updating the statements.
+	 * @deprecated
 	 */
+	//FIXME Predicate URI wrote with/without surrounding <>.
 	public void updateDataSet() throws RepositoryException {
 		LinkedList<Statement> newlinks;
 		

@@ -291,3 +291,9 @@
 19-04-2012 15:00:27,731 DEBUG - Output - Output ./rdf/Brute3.rdf ready to be used.
 19-04-2012 15:00:27,731 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
 19-04-2012 15:00:27,734 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+19-04-2012 15:28:35,639 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 15:28:35,743 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 15:28:35,747 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 15:28:35,747 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 15:33:15,982 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 15:33:16,004 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf

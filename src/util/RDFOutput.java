@@ -19,18 +19,27 @@ import org.openrdf.repository.RepositoryException;
  */
 public class RDFOutput extends Output {
 
+	/**
+	 * Charset to use when writing data.
+	 */
 	private String charset;
+	/**
+	 * RDFXML file where data is going to be updated.
+	 */
+	private String filepath;
 	
 	/**
 	 * Lazy constructor.
 	 * @param ds : A data set.
 	 * @param p : The predicate for which we want to update values.
 	 * @param c : Charset to use when writing RDF.
+	 * @param fp : Path to the RDFXML file to use.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public RDFOutput(DataSet ds, String p, String c) throws RepositoryException {
+	public RDFOutput(DataSet ds, String p, String c, String fp) throws RepositoryException {
 		super(ds, p);
 		charset = c;
+		filepath = fp;
 	}
 
 	/**
@@ -39,24 +48,27 @@ public class RDFOutput extends Output {
 	 * @param ns : The new statements to use.
 	 * @param p : The predicate for which we want to update values.
 	 * @param c : Charset to use when writing RDF.
+	 * @param fp : Path to the RDFXML file to use.
 	 * @throws RepositoryException Error while fetching namespaces.
 	 */
-	public RDFOutput(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, String c) throws RepositoryException {
+	public RDFOutput(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, String c, String fp) throws RepositoryException {
 		super(ds, ns, p);
 		charset = c;
+		filepath = fp;
 	}
 	
 	/**
 	 * Retrieves the output of the process as RDFXML.
 	 * @return The RDFXML output.
 	 */
+	//FIXME Refactoring + ajout \t
 	@Override
 	public String getOutput() {
 		String content = "";
 		try {
 		// Open the file that is the first 
 		  // command line parameter
-		  FileInputStream fstream = new FileInputStream("./rdf/t2.rdf");
+		  FileInputStream fstream = new FileInputStream(filepath);
 		  // Get the object of DataInputStream
 		  DataInputStream in = new DataInputStream(fstream);
 		  BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -96,7 +108,6 @@ public class RDFOutput extends Output {
 			e.printStackTrace();
 		}
 		return content;
-		//return writeRDF();
 	}
 	
 	/**
@@ -113,8 +124,7 @@ public class RDFOutput extends Output {
 	 * @return RDFXML code.
 	 * @deprecated
 	 */
-	@SuppressWarnings("unused")
-	private String writeRDF() {
+	public String writeRDF() {
 		return "<?xml version=\"1.0\" encoding=\"" + charset + "\"?>\n" 
 				+ "<rdf:RDF \n" + writeNamespaces() + ">\n" 
 				+ writeStatements() + "</rdf:RDF>\n";
@@ -181,6 +191,7 @@ public class RDFOutput extends Output {
 	 * @param predicatestring : The predicate of the statement.
 	 * @param objectstring : The object of the statement.
 	 * @return True if the link is a RDF URI.
+	 * @deprecated
 	 */
 	//FIXME Isn't able to recognize existing interlinkings.
 	private boolean isRDFResource(String subjectstring, String predicatestring, String objectstring) {
@@ -194,13 +205,14 @@ public class RDFOutput extends Output {
 	 * Writes the predicate line as needed, handling URI, boolean, string and integer values.
 	 * @param statement : The statement to be written.
 	 * @return A predicate - object pair.
+	 * @deprecated
 	 */
-	private String writePredicate(Statement s) {
-		String predicatestring = filterPredicate(s.getPredicate());
-		String objectstring = s.getObject().stringValue();
+	private String writePredicate(Statement statement) {
+		String predicatestring = filterPredicate(statement.getPredicate());
+		String objectstring = statement.getObject().stringValue();
 		
 		String rdf;
-		if (objectstring.startsWith("http://") && isRDFResource(s.getSubject().stringValue(), predicatestring, objectstring)) {
+		if (objectstring.startsWith("http://") && isRDFResource(statement.getSubject().stringValue(), predicatestring, objectstring)) {
 			rdf = "<" + predicatestring + " rdf:resource=\"" + objectstring + "\"/>";
 		}
 		else if (objectstring.equals("true") || objectstring.equals("false")){

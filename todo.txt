@@ -15,7 +15,7 @@ TODO :
 - App benchmark
 - Tests benchmark
 - Optimisations d'échelle
-- Ajouts des deprecated
+- Refactoring getOutput
 
 Oui, ce serait bien de tester sur d'autres jeux de données, tu peux en
 récupérer sur opendata.montpelliernumerique ou sur data.gouv.fr et les
