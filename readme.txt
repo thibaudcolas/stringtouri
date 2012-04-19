@@ -36,4 +36,3 @@ System requirements :
 - Commons CLI 1.2 for the CLI apps
 - Log4j
 - JUnit 4 for the unit tests 
-
