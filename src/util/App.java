@@ -211,12 +211,14 @@ public class App {
 			shutdown();
 			System.exit(CODERE);
 		}
+		generateNewLinks(false);
 	}
 	
 	/**
 	 * Sets output to be new Sesame statements.
+	 * @param a : Tells wheter to process all the statements or just the updated ones.
 	 */
-	public void useSesameOutput() {
+	public void useSesameOutput(boolean a) {
 		try {
 			output = new SesameOutput(goal, updatedpredicate);
 			output.setLoggingLevel(logginglevel);
@@ -229,12 +231,14 @@ public class App {
 			shutdown();
 			System.exit(CODERE);
 		}
+		generateNewLinks(a);
 	}
 	
 	/**
 	 * Sets output to be SPARQL Update queries.
+	 * @param a : Tells wheter to process all the statements or just the updated ones.
 	 */
-	public void useSPARQLOutput() {
+	public void useSPARQLOutput(boolean a) {
 		try {
 			output = new SPARQLOutput(goal, updatedpredicate);
 			output.setLoggingLevel(logginglevel);
@@ -247,13 +251,14 @@ public class App {
 			shutdown();
 			System.exit(CODERE);
 		}
+		generateNewLinks(a);
 	}
 	
 	/**
 	 * Starts the interlinking process.
 	 * @param a : Tells wheter to process all the statements or just the updated ones.
 	 */
-	public void generateNewLinks(boolean a) {
+	private void generateNewLinks(boolean a) {
 		try {
 			output.setNewTuples(linkage.generateLinks(), a);
 			if (LOG.isInfoEnabled()) {

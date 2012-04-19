@@ -55,8 +55,7 @@ public class SesameSiri extends CLIApp {
 			app.useTypedLinkage(cl.getOptionValue("sp"), cl.getOptionValue("tp"), sourcetype, targettype);
 			
 			if (!cl.hasOption("quiet")) System.out.println("-- Interlinking on " + cl.getOptionValue("sp") + " - " + cl.getOptionValue("tp") + "\n");
-			app.useSPARQLOutput();
-			app.generateNewLinks(false);
+			app.useSPARQLOutput(false);
 			
 			if (cl.hasOption("out")) {
 				app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");

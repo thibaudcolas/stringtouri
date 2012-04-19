@@ -33,7 +33,7 @@ public abstract class Output {
 	/**
 	 * The predicate where linking has been made.
 	 */
-	protected String predicate;
+	protected String linkingpredicate;
 	/**
 	 * Namespaces to be used during the process.
 	 */
@@ -52,7 +52,7 @@ public abstract class Output {
 	 */
 	protected Output(DataSet ds, String p) throws RepositoryException {
 		olddataset = ds;
-		predicate = p;
+		linkingpredicate = p;
 		handleNamespaces();
 		newtuples = new HashMap<String, LinkedList<Statement>>();
 	}
@@ -66,7 +66,7 @@ public abstract class Output {
 	 */
 	protected Output(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p) throws RepositoryException {
 		olddataset = ds;
-		predicate = p;
+		linkingpredicate = p;
 		handleNamespaces();
 		newtuples = ns;
 	}
@@ -82,7 +82,7 @@ public abstract class Output {
 	protected Output(DataSet ds, HashMap<String, LinkedList<Statement>> ns, String p, boolean a) throws RepositoryException {
 		olddataset = ds;
 		handleNamespaces();
-		predicate = p;
+		linkingpredicate = p;
 		newtuples = a ? getFilteredStatements(ns) : ns;
 	}
 	
@@ -135,7 +135,7 @@ public abstract class Output {
 				// For all the old tuples.
 				for (Statement s : tmpold) {
 					tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
-					if (!tmpprop.equals(predicate)) {
+					if (!tmpprop.equals(linkingpredicate)) {
 						// We only select the ones with a predicate different from ours.
 						tmpnew.add(s);
 					}

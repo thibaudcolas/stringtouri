@@ -56,7 +56,6 @@ public class RDFSiri extends CLIApp {
 			// Always set charset before generating links.
 			app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");
 			app.useRDFOutput();
-			app.generateNewLinks(cl.hasOption("all"));
 			
 			if (cl.hasOption("out")) {
 				app.storeOutput(cl.getOptionValue("out"));

@@ -158,14 +158,14 @@ public class SPARQLOutput extends Output {
 	 * @return Query as string.
 	 */
 	public String writeDeleteInsertQuery(String subject, LinkedList<Statement> statements) {
-		String query = "DELETE { <" + subject + "> " + predicate + " ?o } INSERT { <" + subject + ">";
+		String query = "DELETE { <" + subject + "> " + linkingpredicate + " ?o } INSERT { <" + subject + ">";
 		String tmppred;
 		// DELETE + INSERT are combined to optimize bandwith use.
 		for (Statement s : newtuples.get(subject)) {
 			tmppred = filterPredicate(s.getPredicate());
 			query += " " + tmppred + " " + filterObject(s.getObject()) + " ;";
 		}
-		return query.substring(0, query.length() - 1) + ". } WHERE { <" + subject + "> " + predicate + " ?o }";
+		return query.substring(0, query.length() - 1) + ". } WHERE { <" + subject + "> " + linkingpredicate + " ?o }";
 	}
 	
 	/**
@@ -192,7 +192,7 @@ public class SPARQLOutput extends Output {
 	 * @return Query as string.
 	 */
 	public String writeDeleteQuery(String subject) {
-		return "DELETE DATA { <" + subject + "> " + predicate + " ?o }";
+		return "DELETE DATA { <" + subject + "> " + linkingpredicate + " ?o }";
 	}
 	
 	/**

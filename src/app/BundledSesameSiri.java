@@ -54,8 +54,7 @@ public class BundledSesameSiri extends CLIApp {
 			app.useTypedLinkage(cl.getOptionValue("sp"), cl.getOptionValue("tp"), sourcetype, targettype);
 			
 			app.setCharset(cl.hasOption("enc") ? cl.getOptionValue("enc") : "UTF-8");
-			app.useSPARQLOutput();
-			app.generateNewLinks(false);
+			app.useSPARQLOutput(false);
 			
 			if (cl.hasOption("out")) {
 				app.storeOutput(cl.getOptionValue("out"));
