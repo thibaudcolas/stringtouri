@@ -30,7 +30,7 @@ public class SampleCLIApp extends CLIApp {
 	 */
 	private static void handleUsefulOptions() {
 		if (cl.hasOption("s")) {
-			
+			System.out.println("Do something");
 		}
 		else {
 			System.out.println("\n\nInternal error - please check the logs.\n");

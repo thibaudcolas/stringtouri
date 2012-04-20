@@ -3,6 +3,8 @@ package util;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -61,52 +63,72 @@ public class RDFOutput extends Output {
 	 * Retrieves the output of the process as RDFXML.
 	 * @return The RDFXML output.
 	 */
-	//FIXME Refactoring + ajout \t
 	@Override
 	public String getOutput() {
+		return rewriteFile();
+	}
+	
+	/**
+	 * Reads the RDFXML file where the changes will be made and updates lines.
+	 * @return The new RDFXML file.
+	 */
+	private String rewriteFile() {
 		String content = "";
+		FileInputStream fstream;
+		DataInputStream instream;
+		BufferedReader breader;
+		
 		try {
-		// Open the file that is the first 
-		  // command line parameter
-		  FileInputStream fstream = new FileInputStream(filepath);
-		  // Get the object of DataInputStream
-		  DataInputStream in = new DataInputStream(fstream);
-		  BufferedReader br = new BufferedReader(new InputStreamReader(in));
-		  String strLine;
-		  //Read File Line By Line
-		  String newline = "";
-		  String tmpobj = "";
-		  String tmpsubj = "";
-		  LinkedList<Statement> tmpupdates = null;
-		  int cptupdates = 0;
-		  int cpt = 0;
-		  while ((strLine = br.readLine()) != null)   {
-			  if (strLine.contains("rdf:about")) {
-				  tmpsubj = strLine.split("\"")[1];
-				  tmpupdates = newtuples.get(tmpsubj);
-				  //System.out.println(tmpupdates);
-				  cptupdates = 0;
-				  newline = strLine;
-				  cpt++;
-				  System.out.println(cpt);
-			  }
-			  else if (strLine.contains(linkingpredicate)) {
-				  //System.out.println(strLine);
-				  tmpobj = tmpupdates != null ? tmpupdates.get(cptupdates).getObject().stringValue() : "";
-				  newline = (!"".equals(tmpobj)) ? "<" + linkingpredicate + " rdf:resource=\"" + tmpobj  + "\"/>" : strLine;
-				  cptupdates++;
-			  }
-			  else {
-				  newline = strLine;
-			  }
-			  content += newline + "\n";
-		  }
-		  //Close the input stream
-		  in.close();
+			// Line by line file readers.
+			fstream = new FileInputStream(filepath);
+			instream = new DataInputStream(fstream);
+			breader = new BufferedReader(new InputStreamReader(instream));
+			
+			String line;
+			String newline = "";
+			LinkedList<Statement> tmpupdates = null;
+			int cptupdates = 0;
+
+					  
+			String tmpobj = "";
+		  			  
+		  	// We fetch the entire file.
+		  	while ((line = breader.readLine()) != null)   {
+		  		// Case one : line is a subject.
+		  		if (line.contains("rdf:about")) {
+		  			//Retrieve the subject and the associated statements.
+		  			tmpupdates = newtuples.get(line.split("\"")[1]);
+		  			cptupdates = 0;
+		  			
+		  			newline = line;
+		  		}
+		  		// Case two : the line has to be updated.
+		  		else if (line.contains(linkingpredicate)) {
+		  			// We take the new object.
+		  			tmpobj = tmpupdates != null ? tmpupdates.get(cptupdates).getObject().stringValue() : "";
+					cptupdates++;
+
+					//FIXME Indentation
+		  			newline = (!"".equals(tmpobj)) ? (line.substring(0, line.lastIndexOf("\t") + 2) + "<" + linkingpredicate + " rdf:resource=\"" + tmpobj  + "\"/>") : line;
+		  		}
+		  		// Third case : every other line.
+		  		else {
+		  			newline = line;
+		  		}
+		  		
+		  		content += newline + "\n";
+		  	}
+		  
+		  	if (breader != null) breader.close();
+		  	if (instream != null) instream.close();
+		  	if (fstream != null) fstream.close();
+		}	
+		catch (FileNotFoundException e) {
+			LOG.fatal(e);
+		} catch (IOException e) {
+			LOG.fatal(e);
 		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		return content;
 	}
 	
@@ -215,7 +237,7 @@ public class RDFOutput extends Output {
 		if (objectstring.startsWith("http://") && isRDFResource(statement.getSubject().stringValue(), predicatestring, objectstring)) {
 			rdf = "<" + predicatestring + " rdf:resource=\"" + objectstring + "\"/>";
 		}
-		else if (objectstring.equals("true") || objectstring.equals("false")){
+		else if (objectstring.equals("true") || objectstring.equals("false")) {
 			rdf = "<" + predicatestring + " rdf:datatype=\"http://www.w3.org/2001/XMLSchema#boolean\">" + objectstring + "</" + predicatestring + ">";
 		}
 		else {

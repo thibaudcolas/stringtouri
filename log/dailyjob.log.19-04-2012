@@ -1,0 +1,299 @@
+19-04-2012 09:18:28,230 INFO  - Linkage - Predicate geo:nom has 542 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:18:28,238 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:18:28,238 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:18:28,402 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:18:51,275 INFO  - App - Export ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:18:51,301 INFO  - App - Shutdown app ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf
+19-04-2012 09:24:04,286 INFO  - Linkage - Predicate geo:nom has 542 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:24:04,290 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:24:04,290 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:24:04,456 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:24:27,582 INFO  - App - Export ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:24:27,603 INFO  - App - Shutdown app ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf
+19-04-2012 09:25:51,411 INFO  - Linkage - Predicate geo:nom has 542 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:25:51,415 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:25:51,415 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:25:51,600 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:26:14,777 INFO  - App - Export ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:26:14,793 INFO  - App - Shutdown app ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf
+19-04-2012 09:27:03,094 INFO  - Linkage - Predicate geo:nom has 542 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:27:03,098 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:27:03,098 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:27:03,361 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:27:55,386 INFO  - Linkage - Predicate geo:nom has 542 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:27:55,391 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:27:55,391 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:27:55,562 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:28:16,841 INFO  - Linkage - Predicate geo:nom has 542 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:28:16,846 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:28:16,846 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:28:17,064 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:30:06,267 INFO  - Linkage - Predicate geo:nom has 542 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:30:06,271 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:30:06,272 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:30:06,485 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:30:29,398 INFO  - App - Export ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:30:29,415 INFO  - App - Shutdown app ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf
+19-04-2012 09:32:12,545 INFO  - Linkage - Predicate geo:nom has 542 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:32:12,548 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:32:12,548 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:32:12,792 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:32:35,888 INFO  - App - Export ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:32:35,893 INFO  - App - Shutdown app ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf
+19-04-2012 09:33:28,128 INFO  - Linkage - Predicate geo:nom has 100 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:33:28,131 INFO  - Linkage - Predicate tt:department has 0 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:33:28,131 INFO  - Linkage - Predicate tt:department and geo:nom have 0 common statement(s) in geo:nom - tt:department.
+19-04-2012 09:33:28,318 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:33:51,291 INFO  - App - Export ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:33:51,318 INFO  - App - Shutdown app ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf
+19-04-2012 09:34:28,980 INFO  - Linkage - Predicate geo:nom has 100 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:34:29,070 INFO  - Linkage - Predicate tt:departement has 1274 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:34:29,098 INFO  - Linkage - Predicate tt:departement and geo:nom have 100 common statement(s) in geo:nom - tt:departement.
+19-04-2012 09:34:29,223 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:34:49,844 INFO  - Linkage - Predicate geo:nom has 100 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:34:49,991 INFO  - Linkage - Predicate tt:departement has 1274 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:34:49,995 INFO  - Linkage - Predicate tt:departement and geo:nom have 100 common statement(s) in geo:nom - tt:departement.
+19-04-2012 09:34:50,117 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:35:30,673 INFO  - Linkage - Predicate geo:nom has 100 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:35:30,738 INFO  - Linkage - Predicate tt:departement has 1274 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:35:30,788 INFO  - Linkage - Predicate tt:departement and geo:nom have 100 common statement(s) in geo:nom - tt:departement.
+19-04-2012 09:35:30,921 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:37:09,417 INFO  - Linkage - Predicate geo:nom has 100 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:37:09,473 INFO  - Linkage - Predicate tt:departement has 1274 statement(s) in ./rdf/t.rdf.
+19-04-2012 09:37:09,508 INFO  - Linkage - Predicate tt:departement and geo:nom have 100 common statement(s) in geo:nom - tt:departement.
+19-04-2012 09:37:09,640 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t.rdf retrieved.
+19-04-2012 09:37:33,395 INFO  - App - Export ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:37:33,405 INFO  - App - Shutdown app ./rdf/insee/departements-2011.rdf - ./rdf/t.rdf
+19-04-2012 09:39:18,830 INFO  - Linkage - Predicate geo:nom has 100 statement(s) in ./rdf/insee/departements-2011.rdf.
+19-04-2012 09:39:18,941 INFO  - Linkage - Predicate tt:departement has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 09:39:18,948 INFO  - Linkage - Predicate tt:departement and geo:nom have 100 common statement(s) in geo:nom - tt:departement.
+19-04-2012 09:39:19,169 INFO  - App - New links from ./rdf/insee/departements-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 09:39:38,886 INFO  - App - Export ./rdf/insee/departements-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:39:38,899 INFO  - App - Shutdown app ./rdf/insee/departements-2011.rdf - ./rdf/t2.rdf
+19-04-2012 09:40:17,216 INFO  - Linkage - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
+19-04-2012 09:40:17,377 INFO  - Linkage - Predicate tt:ville has 1126 statement(s) in ./rdf/t2.rdf.
+19-04-2012 09:40:17,381 INFO  - Linkage - Predicate tt:ville and geo:nom have 90 common statement(s) in geo:nom - tt:ville.
+19-04-2012 09:40:17,698 INFO  - App - New links from ./rdf/insee/ to ./rdf/t2.rdf retrieved.
+19-04-2012 09:40:36,913 INFO  - App - Export ./rdf/insee/ - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:40:36,922 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/t2.rdf
+19-04-2012 09:41:24,279 INFO  - Linkage - Predicate geo:nom has 100 statement(s) in ./rdf/insee/.
+19-04-2012 09:41:24,296 INFO  - Linkage - Predicate tt:listeCommune has 259 statement(s) in /Users/Will/Desktop/test.rdf.
+19-04-2012 09:41:24,297 INFO  - Linkage - Predicate tt:listeCommune and geo:nom have 18 common statement(s) in geo:nom - tt:listeCommune.
+19-04-2012 09:41:24,477 INFO  - App - New links from ./rdf/insee/ to /Users/Will/Desktop/test.rdf retrieved.
+19-04-2012 09:41:43,959 INFO  - App - Export ./rdf/insee/ - /Users/Will/Desktop/test.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:41:43,982 INFO  - App - Shutdown app ./rdf/insee/ - /Users/Will/Desktop/test.rdf
+19-04-2012 09:49:46,284 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 09:49:46,394 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 09:49:46,398 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 09:49:46,536 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 09:50:06,582 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:50:06,586 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 09:54:31,702 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 09:54:31,838 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 09:54:31,844 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 09:54:32,043 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 09:54:51,627 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 09:54:51,644 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 10:15:43,744 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:15:43,862 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:15:43,865 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:15:44,002 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:16:03,668 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 10:16:03,677 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 10:17:16,215 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:17:16,322 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:17:16,327 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:17:16,467 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:18:21,649 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:18:21,817 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:18:21,823 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:18:22,003 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:18:49,316 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 10:18:49,360 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 10:21:06,997 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:21:07,171 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:21:07,176 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:21:07,412 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:21:27,274 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 10:21:27,290 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 10:22:42,041 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:22:42,132 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:22:42,136 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:22:42,284 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:31:12,658 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:31:12,818 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:31:12,823 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:31:12,994 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:39:02,149 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:39:02,273 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:39:02,290 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:39:02,454 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:39:15,506 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:39:15,631 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:39:15,635 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:39:15,769 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:41:29,247 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:41:29,329 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:41:29,334 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:41:29,481 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:46:15,009 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:46:15,173 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:46:15,177 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:46:15,359 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:46:44,665 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 10:46:44,683 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 10:54:29,983 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 10:54:30,099 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 10:54:30,102 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 10:54:30,248 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 10:54:50,577 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 10:54:50,592 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 11:02:21,567 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 11:02:21,695 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 11:02:21,703 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 11:02:21,983 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 11:02:47,413 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 11:02:47,457 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 11:10:29,336 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 11:10:29,370 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 11:10:29,372 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 11:10:29,572 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 11:11:24,751 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 11:11:24,782 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 11:11:24,786 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 11:11:24,912 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 11:11:54,024 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 11:11:54,057 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 11:11:54,058 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 11:11:54,170 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 11:12:01,763 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 11:12:01,795 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 11:12:01,797 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 11:12:01,894 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 11:13:33,166 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 11:13:33,197 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 11:13:33,198 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 11:13:33,303 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 11:13:43,468 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 11:13:43,471 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+19-04-2012 11:16:11,688 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 11:16:11,720 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 11:16:11,722 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 11:16:11,875 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 11:16:22,444 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 11:16:22,459 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+19-04-2012 11:17:00,510 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 11:17:00,541 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 11:17:00,543 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 11:17:00,631 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 11:17:10,822 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 11:17:10,829 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+19-04-2012 11:20:58,287 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 11:20:58,452 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 11:20:58,457 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 11:20:58,641 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 11:21:26,995 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 11:21:27,003 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 13:27:05,007 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 13:27:05,115 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 13:27:05,118 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 13:27:05,259 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 13:27:07,817 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 13:27:07,830 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 13:29:10,406 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 13:29:10,528 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 13:29:10,533 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 13:29:10,703 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 13:29:11,116 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 13:29:11,120 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 13:29:55,512 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 13:29:55,600 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 13:29:55,604 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 13:29:55,757 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 13:33:17,139 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 13:33:17,289 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 13:33:17,293 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 13:33:17,432 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 13:34:24,405 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 13:34:24,500 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 13:34:24,504 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 13:34:24,648 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 13:34:48,420 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 13:34:48,574 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 13:34:48,579 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 13:34:48,804 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 13:39:42,229 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 13:39:42,259 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 14:20:04,337 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 14:20:04,372 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 14:20:04,374 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 14:20:04,554 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 14:20:34,382 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:20:34,385 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+19-04-2012 14:24:12,491 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 14:24:12,519 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 14:24:12,520 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 14:24:12,721 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 14:24:44,910 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:24:44,934 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+19-04-2012 14:26:19,796 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+19-04-2012 14:26:19,826 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+19-04-2012 14:26:19,829 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+19-04-2012 14:26:19,830 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+19-04-2012 14:26:50,005 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:26:50,009 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+19-04-2012 14:28:26,297 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 14:28:26,403 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 14:28:26,408 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 14:28:26,408 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 14:28:26,427 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:28:26,431 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 14:29:14,524 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 14:29:14,723 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 14:29:14,729 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 14:29:14,729 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 14:29:14,747 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:29:14,818 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 14:30:23,382 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 14:30:23,507 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 14:30:23,511 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 14:30:23,511 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 14:30:23,515 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:30:23,520 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 14:31:08,366 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 14:31:08,497 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 14:31:08,501 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 14:31:08,501 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 14:31:08,505 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:31:08,509 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 14:33:55,883 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 14:33:56,036 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 14:33:56,041 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 14:33:56,042 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 14:33:56,058 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:33:56,067 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 14:34:52,423 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 14:34:52,622 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 14:34:52,628 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 14:34:52,629 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 14:34:52,645 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:34:52,649 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 14:35:25,207 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 14:35:25,318 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 14:35:25,321 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 14:35:25,321 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 14:40:03,180 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 14:40:03,205 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+19-04-2012 15:00:27,723 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/.
+19-04-2012 15:00:27,730 INFO  - Linkage - Predicate tt:Région has 1 statement(s) in ./rdf/Brute3.rdf.
+19-04-2012 15:00:27,730 INFO  - Linkage - Predicate tt:Région and geo:nom have 1 common statement(s) in geo:nom - tt:Région.
+19-04-2012 15:00:27,731 DEBUG - Output - Export ./rdf/Brute3.rdf statement filtering.
+19-04-2012 15:00:27,731 DEBUG - Output - Output ./rdf/Brute3.rdf ready to be used.
+19-04-2012 15:00:27,731 INFO  - App - New links from ./rdf/insee/ to ./rdf/Brute3.rdf retrieved.
+19-04-2012 15:00:27,734 INFO  - App - Shutdown app ./rdf/insee/ - ./rdf/Brute3.rdf
+19-04-2012 15:28:35,639 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+19-04-2012 15:28:35,743 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+19-04-2012 15:28:35,747 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+19-04-2012 15:28:35,747 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+19-04-2012 15:33:15,982 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+19-04-2012 15:33:16,004 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf

@@ -102,7 +102,7 @@ public abstract class CLIApp {
 	 * Handle rules for the display options (number of prints to be done).
 	 */
 	protected static void handleDisplayOptions() {
-		if(cl.hasOption("verbose")) {
+		if (cl.hasOption("verbose")) {
 			logginglevel = Level.INFO;
 		}
 		else if (cl.hasOption("debug")) {

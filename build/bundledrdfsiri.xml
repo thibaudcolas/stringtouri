@@ -3,7 +3,7 @@
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <target name="create_run_jar">
-        <jar destfile="/Users/Will/Desktop/dev/bundledrdfsiri.jar" filesetmanifest="mergewithoutmain">
+        <jar destfile="/Users/Will/Desktop/bundledrdfsiri.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="app.BundledRDFSiri"/>
                 <attribute name="Class-Path" value="."/>

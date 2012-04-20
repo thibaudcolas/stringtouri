@@ -197,6 +197,7 @@ public class App {
 	
 	/**
 	 * Sets output to be RDFXML.
+	 * @param filepath : Path to the file to update.
 	 */
 	public void useRDFOutput(String filepath) {
 		try {

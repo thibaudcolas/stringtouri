@@ -207,7 +207,7 @@ public class SPARQLOutput extends Output {
 		if (o.startsWith("http://")) {
 			resobject = "<" + o + ">";
 		}
-		else if (o.equals("true") || o.equals("false")){
+		else if (o.equals("true") || o.equals("false")) {
 			resobject = o;
 		}
 		else {
