@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import org.apache.log4j.Level;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.sail.SailRepository;
+import org.openrdf.rio.RDFFormat;
 import org.openrdf.rio.RDFParseException;
 import org.openrdf.sail.memory.MemoryStore;
 
@@ -28,11 +29,12 @@ public class RDFDataSet extends DataSet {
 	 * @param path : Source file / folder.
 	 * @param prefix : Prefix of the filenames to import.
 	 * @param uri : Base URI for the data.
+	 * @param format : Format of the given file(s).
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 * @throws IOException File/folder error.
 	 * @throws RDFParseException File(s) content isn't correct RDFXML.
 	 */
-	public RDFDataSet(String path, String prefix, String uri) throws RepositoryException, IOException, RDFParseException {
+	public RDFDataSet(String path, String prefix, String uri, RDFFormat format) throws RepositoryException, IOException, RDFParseException {
 		super(path);
 		try {
 			baseuri = uri;
@@ -43,7 +45,7 @@ public class RDFDataSet extends DataSet {
 			
 			connection = repository.getConnection();
 			
-			addTuples(path, prefix, baseuri);
+			addTuples(path, prefix, baseuri, format);
 		} 
 		catch (RepositoryException e) {
 			throw new RepositoryException("While creating new JeuRDF - " + path, e);
@@ -55,12 +57,13 @@ public class RDFDataSet extends DataSet {
 	 * @param path : Source file / folder.
 	 * @param prefix : Prefix of the filenames to import.
 	 * @param uri : Base URI for the data.
+	 * @param format : Format of the given file(s).
 	 * @param logging : Logging level to use.
 	 * @throws RepositoryException The initialization has failed and no recovery is possible.
 	 * @throws IOException File/folder error.
 	 * @throws RDFParseException File(s) content isn't correct RDFXML.
 	 */
-	public RDFDataSet(String path, String prefix, String uri, Level logging) throws RepositoryException, IOException, RDFParseException {
+	public RDFDataSet(String path, String prefix, String uri, RDFFormat format, Level logging) throws RepositoryException, IOException, RDFParseException {
 		super(path, logging);
 		try {
 			baseuri = uri;
@@ -71,7 +74,7 @@ public class RDFDataSet extends DataSet {
 			
 			connection = repository.getConnection();
 			
-			addTuples(path, prefix, baseuri);
+			addTuples(path, prefix, baseuri, format);
 		} 
 		catch (RepositoryException e) {
 			throw new RepositoryException("While creating new JeuRDF - " + path, e);

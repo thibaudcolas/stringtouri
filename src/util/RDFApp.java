@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Level;
 import org.openrdf.repository.RepositoryException;
+import org.openrdf.rio.RDFFormat;
 import org.openrdf.rio.RDFParseException;
 
 /**
@@ -26,8 +27,8 @@ public class RDFApp extends App {
 		super();
 		
 		try {
-			reference = new RDFDataSet(rpath, rfilter, "");
-			goal = new RDFDataSet(gpath, gfilter, "");
+			reference = new RDFDataSet(rpath, rfilter, "", RDFFormat.RDFXML);
+			goal = new RDFDataSet(gpath, gfilter, "", RDFFormat.RDFXML);
 			
 			name = reference.getName() + " - " + goal.getName();
 			
@@ -62,8 +63,8 @@ public class RDFApp extends App {
 		super(logging);
 		
 		try {
-			reference = new RDFDataSet(rpath, rfilter, "", logging);
-			goal = new RDFDataSet(gpath, gfilter, "", logging);
+			reference = new RDFDataSet(rpath, rfilter, "", RDFFormat.RDFXML, logging);
+			goal = new RDFDataSet(gpath, gfilter, "", RDFFormat.RDFXML, logging);
 			
 			name = reference.getName() + " - " + goal.getName();
 			

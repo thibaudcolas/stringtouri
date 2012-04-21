@@ -17,6 +17,7 @@ import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryException;
+import org.openrdf.rio.RDFFormat;
 
 
 /**
@@ -56,8 +57,8 @@ public class StandardLinkageTest {
 
 	@Before
 	public void setUp() throws Exception {
-		s = new RDFDataSet("./test/util/rdf/continents.rdf", "", defuri);
-		c = new RDFDataSet("./test/util/rdf/countries-tolink.rdf", "", defuri);
+		s = new RDFDataSet("./test/util/rdf/continents.rdf", "", defuri, RDFFormat.RDFXML);
+		c = new RDFDataSet("./test/util/rdf/countries-tolink.rdf", "", defuri, RDFFormat.RDFXML);
 		l = new StandardLinkage(s, c, defprops, defpropc);
 	}
 

@@ -21,6 +21,7 @@ import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
+import org.openrdf.rio.RDFFormat;
 import org.openrdf.rio.RDFParseException;
 
 /**
@@ -66,7 +67,7 @@ public class RDFDataSetTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		j = new RDFDataSet(deffolder, defpre, defuri);
+		j = new RDFDataSet(deffolder, defpre, defuri, RDFFormat.RDFXML);
 	}
 	
 	@After
@@ -84,7 +85,7 @@ public class RDFDataSetTest {
 	public void testAddSourceFolder() {
 		try {
 			int tmpsize = j.getAllStatements().size();
-			j.addTuples(deffile, "", defuri);
+			j.addRDFXMLTuples(deffile, "", defuri);
 			assertTrue(tmpsize < j.getAllStatements().size());
 			
 		} catch (RepositoryException e) {
@@ -99,7 +100,7 @@ public class RDFDataSetTest {
 	@Test (expected = FileNotFoundException.class)
 	public void testAddSourceNotFound() throws IOException {
 		try {
-			j.addTuples(deffolder + "notfound/", "", defuri);
+			j.addRDFXMLTuples(deffolder + "notfound/", "", defuri);
 		}
 		catch (RepositoryException e) {
 			fail();

@@ -89,11 +89,12 @@ public abstract class DataSet {
 	 * @param path : Path to the given folder/file.
 	 * @param prefix : String to filter filenames with.
 	 * @param baseuri : Base URI for the new data.
+	 * @param format : Format of the file(s).
 	 * @throws IOException If the submitted filepath isn't usable.
 	 * @throws RDFParseException If the RDF data inside the file(s) isn't well-formed.
 	 * @throws RepositoryException Internal repository error.
 	 */
-	public void addTuples(String path, String prefix, String baseuri) throws RepositoryException, RDFParseException, IOException {
+	public void addTuples(String path, String prefix, String baseuri, RDFFormat format) throws RepositoryException, RDFParseException, IOException {
 		File source = new File(path);
 		int nbimport = 0;
 		
@@ -103,7 +104,7 @@ public abstract class DataSet {
 				
 				FilenameFilter filenamefilter = new FilenameFilter() {
 				    public boolean accept(File folder, String filename) {
-				        return !filename.startsWith(".") && filename.endsWith(".rdf");
+				        return !filename.startsWith(".") && (filename.endsWith("rdf") || filename.endsWith("owl") || filename.endsWith("nt") || filename.endsWith("ttl") || filename.endsWith("n3"));
 				    }
 				};
 				
@@ -111,7 +112,7 @@ public abstract class DataSet {
 				for (File f : rdflist) {
 					if (f.getName().startsWith(prefix)) {
 						// RDFXML tuples are added to the repository.
-						connection.add(f, baseuri, RDFFormat.RDFXML);
+						connection.add(f, baseuri, format);
 						nbimport++;
 					}
 				}	
@@ -129,6 +130,59 @@ public abstract class DataSet {
 			throw new FileNotFoundException("Import " + name + " : " + path + " not found.");
 		}
 	}
+	
+	/**
+	 * Adds given RDFXML file(s) to the repository.
+	 * @param path : Path to the given folder/file.
+	 * @param prefix : String to filter filenames with.
+	 * @param baseuri : Base URI for the new data.
+	 * @throws IOException If the submitted filepath isn't usable.
+	 * @throws RDFParseException If the RDF data inside the file(s) isn't well-formed.
+	 * @throws RepositoryException Internal repository error.
+	 */
+	public void addRDFXMLTuples(String path, String prefix, String baseuri) throws RepositoryException, RDFParseException, IOException {
+		addTuples(path, prefix, baseuri, RDFFormat.RDFXML);
+	}
+	
+	/**
+	 * Adds given Turtle file(s) to the repository.
+	 * @param path : Path to the given folder/file.
+	 * @param prefix : String to filter filenames with.
+	 * @param baseuri : Base URI for the new data.
+	 * @throws IOException If the submitted filepath isn't usable.
+	 * @throws RDFParseException If the RDF data inside the file(s) isn't well-formed.
+	 * @throws RepositoryException Internal repository error.
+	 */
+	public void addTurtleTuples(String path, String prefix, String baseuri) throws RepositoryException, RDFParseException, IOException {
+		addTuples(path, prefix, baseuri, RDFFormat.TURTLE);
+	}
+	
+	/**
+	 * Adds given NTriples file(s) to the repository.
+	 * @param path : Path to the given folder/file.
+	 * @param prefix : String to filter filenames with.
+	 * @param baseuri : Base URI for the new data.
+	 * @throws IOException If the submitted filepath isn't usable.
+	 * @throws RDFParseException If the RDF data inside the file(s) isn't well-formed.
+	 * @throws RepositoryException Internal repository error.
+	 */
+	public void addNTriplesTuples(String path, String prefix, String baseuri) throws RepositoryException, RDFParseException, IOException {
+		addTuples(path, prefix, baseuri, RDFFormat.NTRIPLES);
+	}
+	
+	/**
+	 * Adds given N3 file(s) to the repository.
+	 * @param path : Path to the given folder/file.
+	 * @param prefix : String to filter filenames with.
+	 * @param baseuri : Base URI for the new data.
+	 * @throws IOException If the submitted filepath isn't usable.
+	 * @throws RDFParseException If the RDF data inside the file(s) isn't well-formed.
+	 * @throws RepositoryException Internal repository error.
+	 */
+	public void addNThreeTuples(String path, String prefix, String baseuri) throws RepositoryException, RDFParseException, IOException {
+		addTuples(path, prefix, baseuri, RDFFormat.N3);
+	}
+		
 	
 	/**
 	 * Adds a namespace to the repository.

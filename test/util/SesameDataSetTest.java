@@ -61,7 +61,7 @@ public class SesameDataSetTest {
 	@Before
 	public void setUp() throws Exception {
 		j = new SesameDataSet(defurl, defdep);
-		j.addTuples("./test/util/rdf/", "continents", defurl);
+		j.addRDFXMLTuples("./test/util/rdf/", "continents", defurl);
 	}
 
 	@After
