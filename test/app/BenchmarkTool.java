@@ -34,10 +34,28 @@ public class BenchmarkTool {
 		return System.currentTimeMillis() - start + "ms";
 	}
 	
-	private static final void benchDataSetCreation() throws RepositoryException, RDFParseException, IOException {
+	private static final void benchEmptySesameDataSetCreation() throws RepositoryException, RDFParseException, IOException {
 		long start = System.currentTimeMillis();
 		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "geo-insee-all");
-		LOG.trace("Creating a SesameDataSet from a local server with an empty repository - " + millisLength(start));
+		LOG.trace("Creating a SesameDataSet from a local server with an empty repository (0) - " + millisLength(start));
+	}
+	
+	private static final void benchSmallSesameDataSetCreation() throws RepositoryException, RDFParseException, IOException {
+		long start = System.currentTimeMillis();
+		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "continents");
+		LOG.trace("Creating a SesameDataSet from a local server with a small repository (146) - " + millisLength(start));
+	}
+	
+	private static final void benchMediumSesameDataSetCreation() throws RepositoryException, RDFParseException, IOException {
+		long start = System.currentTimeMillis();
+		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "countries");
+		LOG.trace("Creating a SesameDataSet from a local server with a medium repository (12k) - " + millisLength(start));
+	}
+	
+	private static final void benchBigSesameDataSetCreation() throws RepositoryException, RDFParseException, IOException {
+		long start = System.currentTimeMillis();
+		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "geo-insee-all");
+		LOG.trace("Creating a SesameDataSet from a local server with a big repository (560k) - " + millisLength(start));
 	}
 	
 	private static final void benchLinkageCreation() {
@@ -52,7 +70,25 @@ public class BenchmarkTool {
 		
 	}
 	
-	private static final void benchDataImport() throws RepositoryException, RDFParseException, IOException {
+	private static final void benchEmptySesameDataImport() throws RepositoryException, RDFParseException, IOException {
+		long start = System.currentTimeMillis();
+		source.addTuples("/Users/Will/Desktop/empty.rdf", "", "http://test.test/empty/");
+		LOG.trace("Adding 0 tuples from 1 RDFXML file - " + millisLength(start));
+	}
+	
+	private static final void benchMediumSesameDataImport() throws RepositoryException, RDFParseException, IOException {
+		long start = System.currentTimeMillis();
+		source.addTuples("/Users/Will/Desktop/countries-tolink.rdf", "", "http://telegraphis.net/countries/");
+		LOG.trace("Adding 12K tuples from 1 RDFXML file - " + millisLength(start));
+	}
+	
+	private static final void benchSmallSesameDataImport() throws RepositoryException, RDFParseException, IOException {
+		long start = System.currentTimeMillis();
+		source.addTuples("/Users/Will/Desktop/continents.rdf", "", "http://telegraphis.net/continents/");
+		LOG.trace("Adding 146 tuples from 1 RDFXML file - " + millisLength(start));
+	}
+	
+	private static final void benchBigSesameDataImport() throws RepositoryException, RDFParseException, IOException {
 		long start = System.currentTimeMillis();
 		source.addTuples("/Users/Will/Desktop/insee-geo/", "", "http://rdf.insee.fr/geo/");
 		LOG.trace("Adding 590K tuples from 200 RDFXML files - " + millisLength(start));
@@ -88,8 +124,7 @@ public class BenchmarkTool {
 		LOG.trace("Start benchmarking - " + start + "ms");
 		
 		try {
-			benchDataSetCreation();
-			benchDataImport();
+
 		}
 		catch (Exception e) {
 			e.printStackTrace();

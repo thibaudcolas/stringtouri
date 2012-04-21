@@ -18,3 +18,51 @@
 21-04-2012 02:15:59,514 TRACE - BenchmarkTool - Benchmarking length - 607ms
 21-04-2012 02:16:16,533 TRACE - BenchmarkTool - Start benchmarking - 1334967376532ms
 21-04-2012 02:16:16,867 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with an empty repository - 333ms
+21-04-2012 02:46:06,151 TRACE - BenchmarkTool - Adding 590K tuples from 200 RDFXML files - 1789265ms
+21-04-2012 02:46:06,230 TRACE - BenchmarkTool - End benchmarking - 1334969166225ms
+21-04-2012 02:46:06,231 TRACE - BenchmarkTool - Benchmarking length - 1789693ms
+21-04-2012 02:52:05,743 TRACE - BenchmarkTool - Start benchmarking - 1334969525739ms
+21-04-2012 02:52:06,054 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a big repository - 310ms
+21-04-2012 02:52:06,057 TRACE - BenchmarkTool - End benchmarking - 1334969526057ms
+21-04-2012 02:52:06,058 TRACE - BenchmarkTool - Benchmarking length - 318ms
+21-04-2012 02:59:18,948 TRACE - BenchmarkTool - Start benchmarking - 1334969958946ms
+21-04-2012 02:59:19,215 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a small repository - 264ms
+21-04-2012 02:59:19,216 TRACE - BenchmarkTool - End benchmarking - 1334969959216ms
+21-04-2012 02:59:19,216 TRACE - BenchmarkTool - Benchmarking length - 270ms
+21-04-2012 03:01:11,520 TRACE - BenchmarkTool - Start benchmarking - 1334970071518ms
+21-04-2012 03:01:11,533 TRACE - BenchmarkTool - End benchmarking - 1334970071533ms
+21-04-2012 03:01:11,533 TRACE - BenchmarkTool - Benchmarking length - 15ms
+21-04-2012 03:01:44,324 TRACE - BenchmarkTool - Start benchmarking - 1334970104235ms
+21-04-2012 03:01:44,574 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a small repository - 242ms
+21-04-2012 03:01:44,652 TRACE - BenchmarkTool - End benchmarking - 1334970104652ms
+21-04-2012 03:01:44,652 TRACE - BenchmarkTool - Benchmarking length - 417ms
+21-04-2012 03:02:13,017 TRACE - BenchmarkTool - Start benchmarking - 1334970133013ms
+21-04-2012 03:02:13,308 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a small repository - 286ms
+21-04-2012 03:02:13,602 TRACE - BenchmarkTool - Adding 146 tuples from 1 RDFXML file - 293ms
+21-04-2012 03:02:13,602 TRACE - BenchmarkTool - End benchmarking - 1334970133602ms
+21-04-2012 03:02:13,602 TRACE - BenchmarkTool - Benchmarking length - 589ms
+21-04-2012 03:02:29,202 TRACE - BenchmarkTool - Start benchmarking - 1334970149201ms
+21-04-2012 03:02:29,432 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a small repository - 212ms
+21-04-2012 03:02:29,605 TRACE - BenchmarkTool - Adding 146 tuples from 1 RDFXML file - 172ms
+21-04-2012 03:02:29,605 TRACE - BenchmarkTool - End benchmarking - 1334970149605ms
+21-04-2012 03:02:29,606 TRACE - BenchmarkTool - Benchmarking length - 404ms
+21-04-2012 03:03:00,514 TRACE - BenchmarkTool - Start benchmarking - 1334970180513ms
+21-04-2012 03:03:00,919 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a small repository - 392ms
+21-04-2012 03:03:01,107 TRACE - BenchmarkTool - Adding 146 tuples from 1 RDFXML file - 187ms
+21-04-2012 03:03:01,107 TRACE - BenchmarkTool - End benchmarking - 1334970181107ms
+21-04-2012 03:03:01,108 TRACE - BenchmarkTool - Benchmarking length - 594ms
+21-04-2012 03:08:12,239 TRACE - BenchmarkTool - Start benchmarking - 1334970492238ms
+21-04-2012 03:08:12,541 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a medium repository (12k) - 300ms
+21-04-2012 03:08:12,542 TRACE - BenchmarkTool - End benchmarking - 1334970492542ms
+21-04-2012 03:08:12,543 TRACE - BenchmarkTool - Benchmarking length - 304ms
+21-04-2012 03:11:17,581 TRACE - BenchmarkTool - Start benchmarking - 1334970677579ms
+21-04-2012 03:11:17,789 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a medium repository (12k) - 206ms
+21-04-2012 03:11:18,054 TRACE - BenchmarkTool - Adding 0 tuples from 1 RDFXML file - 265ms
+21-04-2012 03:11:19,109 TRACE - BenchmarkTool - Adding 12K tuples from 1 RDFXML file - 1055ms
+21-04-2012 03:11:19,109 TRACE - BenchmarkTool - End benchmarking - 1334970679109ms
+21-04-2012 03:11:19,109 TRACE - BenchmarkTool - Benchmarking length - 1530ms
+21-04-2012 03:12:38,956 TRACE - BenchmarkTool - Start benchmarking - 1334970758954ms
+21-04-2012 03:12:39,581 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a medium repository (12k) - 618ms
+21-04-2012 03:12:40,682 TRACE - BenchmarkTool - Adding 12K tuples from 1 RDFXML file - 1098ms
+21-04-2012 03:12:40,682 TRACE - BenchmarkTool - End benchmarking - 1334970760682ms
+21-04-2012 03:12:40,683 TRACE - BenchmarkTool - Benchmarking length - 1728ms
