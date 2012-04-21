@@ -84,8 +84,6 @@ public class SesameDataSetTest {
 		} catch (RepositoryException e) {
 			fail();
 		}
-		
-		j.getLastQuery();
 	}
 	
 	@Test
@@ -142,8 +140,6 @@ public class SesameDataSetTest {
 		try {
 			TupleQueryResult tpq = j.selectQuery(defreq);
 			
-			assertEquals(defreq, j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
 			assertEquals(tpq.getBindingNames().get(0), "s");
 			
 			tpq.close();
@@ -174,8 +170,6 @@ public class SesameDataSetTest {
 		try {
 			j.updateQuery("DELETE DATA {?s ?p ?o}");
 			
-			assertEquals("DELETE DATA {?s ?p ?o}", j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
 			assertEquals(j.getAllStatements().size(), 0);
 			
 		} catch (RepositoryException e) {
@@ -216,8 +210,6 @@ public class SesameDataSetTest {
 			
 			j.updateQuery("DELETE DATA {?s ?p ?o}");
 			
-			assertEquals("DELETE DATA {?s ?p ?o}", j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
 			assertEquals(j.getAllStatements().size(), 0);
 			
 			j.commit();
@@ -239,8 +231,6 @@ public class SesameDataSetTest {
 			
 			j.updateQuery("DELETE DATA {?s ?p ?o}");
 			
-			assertEquals("DELETE DATA {?s ?p ?o}", j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
 			assertEquals(j.getAllStatements().size(), 0);
 			
 			j.rollback();

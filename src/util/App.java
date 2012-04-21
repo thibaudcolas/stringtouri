@@ -218,6 +218,7 @@ public class App {
 	/**
 	 * Sets output to be new Sesame statements.
 	 * @param a : Tells wheter to process all the statements or just the updated ones.
+	 * @deprecated
 	 */
 	public void useSesameOutput(boolean a) {
 		try {
@@ -284,7 +285,7 @@ public class App {
 	 * Gets a String output of the interlinking.
 	 * @return Output as a string containing statements / RDFXML / queries.
 	 */
-	public String getOutput() {
+	public final String getOutput() {
 		return output.getOutput();
 	}
 	
@@ -316,7 +317,7 @@ public class App {
 	/**
 	 * Shuts down both data sets.
 	 */
-	public void shutdown() {
+	public final void shutdown() {
 		if (reference != null) {
 			reference.shutdown();
 		}
@@ -364,7 +365,7 @@ public class App {
 	 * Allows to set the charset to use.
 	 * @param c : The desired charset.
 	 */
-	public void setCharset(String c) {
+	public final void setCharset(String c) {
 		charset = c;
 		
 		if (LOG.isDebugEnabled()) {
@@ -376,7 +377,7 @@ public class App {
 	 * Allows to set the logging level.
 	 * @param level : The logging level.
 	 */
-	public void setLoggingLevel(Level level) {
+	public final void setLoggingLevel(Level level) {
 		LOG.setLevel(level);
 		
 		if (LOG.isDebugEnabled()) {

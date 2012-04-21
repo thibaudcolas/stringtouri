@@ -152,6 +152,7 @@ public abstract class Linkage {
 		BindingSet bs;
 		String object;
 		LinkedList<String> subjects;
+		LinkedList<String> tmpsubjects;
 		
 		try {
 			tqr = target.selectQuery(targetquery);
@@ -165,16 +166,13 @@ public abstract class Linkage {
 			while (tqr.hasNext()) {
 				cpt++;
 				bs = tqr.next();
+				
 				object = bs.getValue(OVAR).stringValue();
 				
 				// If the value is already inside the data set, we retrieve associated URIs in order to add one.
 				// If the value hasn't been encountered yet, we add the URI to the corresponding object.
-				if (targetdata.containsKey(object)) {
-					subjects = new LinkedList<String>(targetdata.get(object));
-				}
-				else {
-					subjects = new LinkedList<String>();
-				}
+				tmpsubjects = targetdata.get(object);
+				subjects = tmpsubjects == null ? new LinkedList<String>() : new LinkedList<String>(tmpsubjects);
 				
 				subjects.add(bs.getValue(SVAR).stringValue());
 				targetdata.put(object, subjects);
@@ -219,22 +217,22 @@ public abstract class Linkage {
 		HashMap<String, String> sourcedata = getSourceData();
 		HashMap<String, LinkedList<String>> targetdata = getTargetData();
 		
-		HashMap<String, LinkedList<Statement>> newlinks = new HashMap<String, LinkedList<Statement>>();
-		LinkedList<Statement> tmplinks = new LinkedList<Statement>();
+		HashMap<String, LinkedList<Statement>> newlinks = new HashMap<String, LinkedList<Statement>>(targetdata.size());
+		LinkedList<Statement> tmplinks;
 		
 		int cpt = 0;
-		for (String objet : targetdata.keySet()) {
-			if (sourcedata.containsKey(objet)) {
+		for (String object : targetdata.keySet()) {
+			if (sourcedata.containsKey(object)) {
 				cpt++;
-				for (String sujet : targetdata.get(objet)) {
+				for (String subject : targetdata.get(object)) {
 					
-					tmplinks = newlinks.get(sujet);
+					tmplinks = newlinks.get(subject);
 					if (tmplinks == null) {
 						tmplinks = new LinkedList<Statement>();
-						newlinks.put(sujet, tmplinks);
+						newlinks.put(subject, tmplinks);
 					}
 					// targetpredicate is the only predicate for which we have tuples here.
-					tmplinks.add(new StatementImpl(new URIImpl(sujet), new URIImpl(targetpredicate), new URIImpl(sourcedata.get(objet))));
+					tmplinks.add(new StatementImpl(new URIImpl(subject), new URIImpl(targetpredicate), new URIImpl(sourcedata.get(object))));
 				}
 			}
 		}

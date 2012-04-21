@@ -154,7 +154,7 @@ public abstract class DataSet {
 	 * Erases all namespaces from the repository.
 	 * @throws RepositoryException Error while erasing all the namespaces.
 	 */
-	public void resetNamespaces() throws RepositoryException {
+	public final void resetNamespaces() throws RepositoryException {
 		connection.clearNamespaces();
 	}
 	
@@ -196,8 +196,6 @@ public abstract class DataSet {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Query " + name + " select - " + query);
 		}
-		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
-		queries.add(query);
 		
 		try {
 			tq = connection.prepareTupleQuery(QueryLanguage.SPARQL, getPrefixes() + query);
@@ -222,8 +220,6 @@ public abstract class DataSet {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Query " + name + " update - " + query);
 		}
-		// Ajout de la requête brute à l'historique puis ajout des PREFIX dans la requête finale.
-		queries.add(query);
 		
 		try {
 			Update up = connection.prepareUpdate(QueryLanguage.SPARQL, getPrefixes() + query);
@@ -234,22 +230,6 @@ public abstract class DataSet {
 		} catch (UpdateExecutionException e) {
 			throw new UpdateExecutionException("Query : " + query, e);
 		}
-	}
-	
-	/**
-	 * Retrieves the last query sent to the data set.
-	 * @return A query as a string.
-	 */
-	public final String getLastQuery() {
-		return queries.getLast(); 
-	}
-	
-	/**
-	 * Retrieves all the queries ever made to the data set.
-	 * @return A list of queries.
-	 */
-	public final LinkedList<String> getQueries() {
-		return queries;
 	}
 	
 	/**

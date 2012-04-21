@@ -50,8 +50,6 @@ public class SPARQLDataSetTest {
 	public void testConstructor() {
 		assertEquals(j.getName(), defurl);
 		assertEquals(j.getEndpointURL(), defurl);
-		
-		j.getLastQuery();
 	}
 	
 	@Test
@@ -59,8 +57,6 @@ public class SPARQLDataSetTest {
 		try {
 			TupleQueryResult tpq = j.selectQuery(defreq);
 			
-			assertEquals(defreq, j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
 			assertEquals(tpq.getBindingNames().get(0), "s");
 			
 			tpq.close();

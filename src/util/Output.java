@@ -134,7 +134,7 @@ public abstract class Output {
 				tmpnew = new LinkedList<Statement>();
 				// For all the old tuples.
 				for (Statement s : tmpold) {
-					tmpprop = namespaces.get(s.getPredicate().getNamespace()) + ":" + s.getPredicate().getLocalName(); 
+					tmpprop = filterPredicate(s.getPredicate()); 
 					if (!tmpprop.equals(linkingpredicate)) {
 						// We only select the ones with a predicate different from ours.
 						tmpnew.add(s);
@@ -153,13 +153,14 @@ public abstract class Output {
 	 * @throws RepositoryException Error while fetching the statements.
 	 */
 	private HashMap<String, LinkedList<Statement>> getAllStatements() throws RepositoryException {
-		HashMap<String, LinkedList<Statement>> allstatements = new HashMap<String, LinkedList<Statement>>();
-		
 		LinkedList<Statement> all = olddataset.getAllStatements();
 		LinkedList<Statement> tmptuples;
+		HashMap<String, LinkedList<Statement>> allstatements = new HashMap<String, LinkedList<Statement>>(all.size());
+	
 		String tmpsubject;
 		for (Statement s : all) {
 			tmpsubject = s.getSubject().stringValue();
+			
 			tmptuples = allstatements.get(tmpsubject);
 			if (tmptuples == null) {
 				tmptuples = new LinkedList<Statement>();

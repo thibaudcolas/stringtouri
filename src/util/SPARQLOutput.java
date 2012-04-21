@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 import org.openrdf.model.Statement;
-import org.openrdf.model.Value;
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
@@ -93,7 +92,7 @@ public class SPARQLOutput extends Output {
 	private LinkedList<String> getDeleteInsertQueries() {
 		LinkedList<String> queries = new LinkedList<String>();
 		for (String subject : newtuples.keySet()) {
-			queries.add(writeDeleteInsertQuery(subject, newtuples.get(subject)));
+			queries.add(writeDeleteInsertQuery(subject));
 		}
 		
 		return queries;
@@ -106,7 +105,7 @@ public class SPARQLOutput extends Output {
 	private LinkedList<String> getInsertQueries() {
 		LinkedList<String> queries = new LinkedList<String>();
 		for (String subject : newtuples.keySet()) {
-			queries.add(writeInsertQuery(subject, newtuples.get(subject)));
+			queries.add(writeInsertQuery(subject));
 		}
 		
 		return queries;
@@ -154,16 +153,14 @@ public class SPARQLOutput extends Output {
 	/**
 	 * Writes a shortened SPARQL DELETE+INSERT query.
 	 * @param subject : The query's subject.
-	 * @param statements : Statements to be used.
 	 * @return Query as string.
 	 */
-	private String writeDeleteInsertQuery(String subject, LinkedList<Statement> statements) {
+	private String writeDeleteInsertQuery(String subject) {
 		String query = "DELETE { <" + subject + "> " + linkingpredicate + " ?o } INSERT { <" + subject + ">";
-		String tmppred;
+		
 		// DELETE + INSERT are combined to optimize bandwith use.
 		for (Statement s : newtuples.get(subject)) {
-			tmppred = filterPredicate(s.getPredicate());
-			query += " " + tmppred + " " + filterObject(s.getObject()) + " ;";
+			query += " " + filterPredicate(s.getPredicate()) + " " + filterObject(s.getObject().stringValue()) + " ;";
 		}
 		return query.substring(0, query.length() - 1) + ". } WHERE { <" + subject + "> " + linkingpredicate + " ?o }";
 	}
@@ -171,17 +168,14 @@ public class SPARQLOutput extends Output {
 	/**
 	 * Writes a SPARQL INSERT query.
 	 * @param subject : The query's subject.
-	 * @param statements : Statements to be used.
 	 * @return Query as string.
 	 */
-	private String writeInsertQuery(String subject, LinkedList<Statement> statements) {
+	private String writeInsertQuery(String subject) {
 		String query = "INSERT DATA { <" + subject + ">";
-		String tmppred;
 		
 		// Adds multiple tuples with the same subject at the same time.
-		for (Statement s : statements) {
-			tmppred = filterPredicate(s.getPredicate());
-			query += " " + tmppred + " " + filterObject(s.getObject()) + " ;";
+		for (Statement s : newtuples.get(subject)) {
+			query += " " + filterPredicate(s.getPredicate()) + " " + filterObject(s.getObject().stringValue()) + " ;";
 		}
 		return query.substring(0, query.length() - 1) + ". }";
 	}
@@ -198,26 +192,25 @@ public class SPARQLOutput extends Output {
 	
 	/**
 	 * Converts an object into its correct SPARQL syntax.
-	 * @param value : The value of the object.
+	 * @param obj : The object as a string.
 	 * @return A well-written object.
 	 */
-	private String filterObject(Value value) {
-		String o = value.stringValue();
-		String resobject;
-		if (o.startsWith("http://")) {
-			resobject = "<" + o + ">";
+	private String filterObject(String obj) {
+		String ret;
+		if (obj.startsWith("http://")) {
+			ret = "<" + obj + ">";
 		}
-		else if (o.equals("true") || o.equals("false")) {
-			resobject = o;
+		else if (obj.equals("true") || obj.equals("false")) {
+			ret = obj;
 		}
 		else {
 			try {
-				resobject = "" + Integer.parseInt(o);
+				ret = "" + Integer.parseInt(obj);
 			}
 			catch (NumberFormatException e) {
-				resobject = "\"" + o + "\"";
+				ret = "\"" + obj + "\"";
 			}
 		}
-		return resobject;
+		return ret;
 	}
 }

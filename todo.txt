@@ -7,15 +7,12 @@ Tests grande échelle :
 - http://dbpedia.org/sparql
 
 Applications :
-- Stand-alone interface web
 - Dans Datalift
 
 TODO :
 - Tests unitaires et couverture sur Output
 - App benchmark
 - Tests benchmark
-- Optimisations d'échelle
-- Refactoring getOutput
 
 Oui, ce serait bien de tester sur d'autres jeux de données, tu peux en
 récupérer sur opendata.montpelliernumerique ou sur data.gouv.fr et les

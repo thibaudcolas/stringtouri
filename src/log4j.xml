@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
-<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
-	debug="false">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
 
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<param name="Threshold" value="WARN" />
@@ -27,7 +26,22 @@
 			<param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n" />
 		</layout>
 	</appender>
-
+	
+	<appender name="benchmarkconsole" class="org.apache.log4j.ConsoleAppender">
+        <param name="Threshold" value="TRACE" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n" />
+        </layout>
+    </appender>
+    
+    <appender name="benchmarkfile" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="TRACE" />
+        <param name="File" value="./log/bench.log" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n" />
+        </layout>
+    </appender>
+    
 	<logger name="util.App" additivity="false">
 		<level value="INFO" />
 		<appender-ref ref="console" />
@@ -71,5 +85,11 @@
 		<appender-ref ref="dailyfile" />
 		<appender-ref ref="bugfile" />
 	</logger>
+	
+	<logger name="app.BenchmarkTool" additivity="false">
+       <level value="TRACE"/>
+       <appender-ref ref="benchmarkconsole" />
+       <appender-ref ref="benchmarkfile" />
+    </logger>
 
 </log4j:configuration>

@@ -74,23 +74,14 @@ public class RDFOutput extends Output {
 	 */
 	private String rewriteFile() {
 		String content = "";
-		FileInputStream fstream;
-		DataInputStream instream;
-		BufferedReader breader;
-		
 		try {
-			// Line by line file readers.
-			fstream = new FileInputStream(filepath);
-			instream = new DataInputStream(fstream);
-			breader = new BufferedReader(new InputStreamReader(instream));
+			// Line by line file reader.
+			BufferedReader breader = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(filepath))));
 			
 			String line;
-			String newline = "";
 			LinkedList<Statement> tmpupdates = null;
 			int cptupdates = 0;
-
-					  
-			String tmpobj = "";
+			String tmpobj;
 		  			  
 		  	// We fetch the entire file.
 		  	while ((line = breader.readLine()) != null)   {
@@ -100,7 +91,7 @@ public class RDFOutput extends Output {
 		  			tmpupdates = newtuples.get(line.split("\"")[1]);
 		  			cptupdates = 0;
 		  			
-		  			newline = line;
+		  			content += line;
 		  		}
 		  		// Case two : the line has to be updated.
 		  		else if (line.contains(linkingpredicate)) {
@@ -108,20 +99,18 @@ public class RDFOutput extends Output {
 		  			tmpobj = tmpupdates != null ? tmpupdates.get(cptupdates).getObject().stringValue() : "";
 					cptupdates++;
 
-					//FIXME Indentation
-		  			newline = (!"".equals(tmpobj)) ? (line.substring(0, line.lastIndexOf("\t") + 2) + "<" + linkingpredicate + " rdf:resource=\"" + tmpobj  + "\"/>") : line;
+					//TODO Indentation \t not managed
+		  			content += (!"".equals(tmpobj)) ? (line.substring(0, line.lastIndexOf("\t") + 2) + "<" + linkingpredicate + " rdf:resource=\"" + tmpobj  + "\"/>") : line;
 		  		}
 		  		// Third case : every other line.
 		  		else {
-		  			newline = line;
+		  			content += line;
 		  		}
 		  		
-		  		content += newline + "\n";
+		  		content += "\n";
 		  	}
 		  
-		  	if (breader != null) breader.close();
-		  	if (instream != null) instream.close();
-		  	if (fstream != null) fstream.close();
+		  	breader.close();
 		}	
 		catch (FileNotFoundException e) {
 			LOG.fatal(e);
@@ -215,7 +204,7 @@ public class RDFOutput extends Output {
 	 * @return True if the link is a RDF URI.
 	 * @deprecated
 	 */
-	//FIXME Isn't able to recognize existing interlinkings.
+	//TODO Isn't able to recognize existing interlinkings.
 	private boolean isRDFResource(String subjectstring, String predicatestring, String objectstring) {
 		return predicatestring.equals(linkingpredicate)
 				|| predicatestring.equals("owl:sameAs")

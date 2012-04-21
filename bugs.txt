@@ -5,3 +5,9 @@ StringToURI known bugs
 -- While trying to update data using the Statement class,
 -- the new statements aren't written as the old ones inside the repository :
 -- they are surrounded by <>, thus they doesn't replace the older.
+
+- In RDFOutput :
+-- The old (deprecated) output doesn't manage existing interlinkings.
+
+- In RDFOutput :
+-- Line indentation isn't managed by the new output.

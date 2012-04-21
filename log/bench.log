@@ -1,0 +1,20 @@
+20-04-2012 20:31:39,821 TRACE - BenchmarkTool - Start benchmarking - 1334946699817
+20-04-2012 20:31:39,846 TRACE - BenchmarkTool - End benchmarking - 1334946699845
+20-04-2012 20:31:39,847 TRACE - BenchmarkTool - Benchmarking length - 28
+20-04-2012 20:32:28,592 TRACE - BenchmarkTool - Start benchmarking - 1334946748585ms
+20-04-2012 20:32:28,598 TRACE - BenchmarkTool - End benchmarking - 1334946748598ms
+20-04-2012 20:32:28,599 TRACE - BenchmarkTool - Benchmarking length - 13ms
+21-04-2012 02:15:16,449 TRACE - BenchmarkTool - Start benchmarking - 1334967316447ms
+21-04-2012 02:15:16,915 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with an empty repository - 439ms
+21-04-2012 02:15:16,919 TRACE - BenchmarkTool - End benchmarking - 1334967316919ms
+21-04-2012 02:15:16,920 TRACE - BenchmarkTool - Benchmarking length - 472ms
+21-04-2012 02:15:40,552 TRACE - BenchmarkTool - Start benchmarking - 1334967340551ms
+21-04-2012 02:15:40,895 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with an empty repository - 333ms
+21-04-2012 02:15:40,895 TRACE - BenchmarkTool - End benchmarking - 1334967340895ms
+21-04-2012 02:15:40,896 TRACE - BenchmarkTool - Benchmarking length - 344ms
+21-04-2012 02:15:58,908 TRACE - BenchmarkTool - Start benchmarking - 1334967358907ms
+21-04-2012 02:15:59,504 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with an empty repository - 589ms
+21-04-2012 02:15:59,514 TRACE - BenchmarkTool - End benchmarking - 1334967359514ms
+21-04-2012 02:15:59,514 TRACE - BenchmarkTool - Benchmarking length - 607ms
+21-04-2012 02:16:16,533 TRACE - BenchmarkTool - Start benchmarking - 1334967376532ms
+21-04-2012 02:16:16,867 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with an empty repository - 333ms

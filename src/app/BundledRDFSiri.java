@@ -35,7 +35,6 @@ public class BundledRDFSiri extends CLIApp {
         opt.addOption("tt", true, "target data set objects type");
         opt.addOption("enc", true, "charset to use when writing data");
         opt.addOption("out", true, "file to store the result at");
-        opt.addOption("all", false, "process everything, not just new links");
 	}
 	
 	/**

@@ -78,7 +78,6 @@ public class RDFDataSetTest {
 	public void testConstructor() {
 		assertEquals(j.getName(), deffolder);
 		assertEquals(j.getBaseURI(), defuri);
-		j.getLastQuery();
 	}
 	
 	@Test
@@ -88,7 +87,11 @@ public class RDFDataSetTest {
 			j.addTuples(deffile, "", defuri);
 			assertTrue(tmpsize < j.getAllStatements().size());
 			
-		} catch (Exception e) {
+		} catch (RepositoryException e) {
+			fail();
+		} catch (RDFParseException e) {
+			fail();
+		} catch (IOException e) {
 			fail();
 		}
 	}
@@ -157,9 +160,7 @@ public class RDFDataSetTest {
 	public void testSPARQLSelect() {
 		try {
 			TupleQueryResult tpq = j.selectQuery(defreq);
-			
-			assertEquals(defreq, j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
+		
 			assertEquals(tpq.getBindingNames().get(0), "s");
 			
 			tpq.close();
@@ -190,8 +191,6 @@ public class RDFDataSetTest {
 		try {
 			j.updateQuery("DELETE DATA {?s ?p ?o}");
 			
-			assertEquals("DELETE DATA {?s ?p ?o}", j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
 			assertEquals(j.getAllStatements().size(), 0);
 			
 		} catch (RepositoryException e) {
@@ -232,8 +231,6 @@ public class RDFDataSetTest {
 			
 			j.updateQuery("DELETE DATA {?s ?p ?o}");
 			
-			assertEquals("DELETE DATA {?s ?p ?o}", j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
 			assertEquals(j.getAllStatements().size(), 0);
 			
 			j.commit();
@@ -255,8 +252,6 @@ public class RDFDataSetTest {
 			
 			j.updateQuery("DELETE DATA {?s ?p ?o}");
 			
-			assertEquals("DELETE DATA {?s ?p ?o}", j.getLastQuery());
-			assertEquals(1, j.getQueries().size());
 			assertEquals(j.getAllStatements().size(), 0);
 			
 			j.rollback();

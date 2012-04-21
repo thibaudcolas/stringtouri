@@ -12,6 +12,7 @@ import org.openrdf.repository.RepositoryException;
  * @author Thibaud Colas
  * @version 01042012
  * @see Output
+ * @deprecated
  */
 public class SesameOutput extends Output {
 
@@ -69,6 +70,7 @@ public class SesameOutput extends Output {
 	/**
 	 * Retrieves what's going to be changed and how (added, removed).
 	 * @return String describing the update.
+	 * @deprecated
 	 */
 	private String getNewLinks() {
 		LinkedList<Statement> newlinks;
