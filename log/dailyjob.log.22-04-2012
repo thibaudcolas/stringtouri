@@ -1,0 +1,90 @@
+22-04-2012 03:35:12,206 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:35:12,226 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:35:12,241 INFO  - Linkage - Predicate gn:name has 0 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:35:12,256 INFO  - Linkage - Predicate gn:name has 0 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:35:12,275 INFO  - Linkage - Predicate geo:name has 0 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:35:12,293 INFO  - Linkage - Predicate geo:name has 0 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:38:11,409 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:38:11,424 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:38:11,513 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:38:11,638 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:38:13,138 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:38:14,684 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:39:24,991 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:39:25,011 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:39:25,081 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:39:25,225 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:39:26,300 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:39:27,272 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:39:35,139 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:39:35,158 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:39:35,241 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:39:35,336 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:39:36,478 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:39:37,416 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:42:47,731 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:42:47,747 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:42:47,749 INFO  - Linkage - Predicate gn:name and gn:name have 7 common statement(s) in gn:name - gn:name.
+22-04-2012 03:42:47,821 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:42:47,923 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:42:47,929 INFO  - Linkage - Predicate geographis:isoShortName and geographis:isoShortName have 418 common statement(s) in geographis:isoShortName - geographis:isoShortName.
+22-04-2012 03:42:48,943 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:42:50,076 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:42:50,766 INFO  - Linkage - Predicate geo:nom and geo:nom have 35347 common statement(s) in geo:nom - geo:nom.
+22-04-2012 03:42:56,020 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:42:56,035 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:42:56,037 INFO  - Linkage - Predicate gn:name and gn:name have 7 common statement(s) in gn:name - gn:name.
+22-04-2012 03:42:56,101 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:42:56,201 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:42:56,206 INFO  - Linkage - Predicate geographis:isoShortName and geographis:isoShortName have 418 common statement(s) in geographis:isoShortName - geographis:isoShortName.
+22-04-2012 03:42:57,253 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:42:58,105 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:42:58,489 INFO  - Linkage - Predicate geo:nom and geo:nom have 35347 common statement(s) in geo:nom - geo:nom.
+22-04-2012 03:44:33,466 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:44:33,481 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:44:33,483 INFO  - Linkage - Predicate gn:name and gn:name have 7 common statement(s) in gn:name - gn:name.
+22-04-2012 03:44:33,547 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:44:33,625 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:44:33,629 INFO  - Linkage - Predicate geographis:isoShortName and geographis:isoShortName have 418 common statement(s) in geographis:isoShortName - geographis:isoShortName.
+22-04-2012 03:44:34,721 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:44:36,015 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:44:36,655 INFO  - Linkage - Predicate geo:nom and geo:nom have 35347 common statement(s) in geo:nom - geo:nom.
+22-04-2012 03:45:22,020 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:45:22,053 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:45:22,057 INFO  - Linkage - Predicate gn:name and gn:name have 7 common statement(s) in gn:name - gn:name.
+22-04-2012 03:45:22,158 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:45:22,275 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:45:22,328 INFO  - Linkage - Predicate geographis:isoShortName and geographis:isoShortName have 418 common statement(s) in geographis:isoShortName - geographis:isoShortName.
+22-04-2012 03:45:23,427 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:45:24,619 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:45:26,283 INFO  - Linkage - Predicate geo:nom and geo:nom have 35347 common statement(s) in geo:nom - geo:nom.
+22-04-2012 03:46:40,938 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:46:40,959 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 03:46:40,961 INFO  - Linkage - Predicate gn:name and gn:name have 7 common statement(s) in gn:name - gn:name.
+22-04-2012 03:46:41,088 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:46:41,212 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 03:46:41,218 INFO  - Linkage - Predicate geographis:isoShortName and geographis:isoShortName have 418 common statement(s) in geographis:isoShortName - geographis:isoShortName.
+22-04-2012 03:46:42,418 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:46:43,340 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 03:46:43,699 INFO  - Linkage - Predicate geo:nom and geo:nom have 35347 common statement(s) in geo:nom - geo:nom.
+22-04-2012 04:03:41,273 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 04:03:41,294 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 04:03:41,298 INFO  - Linkage - Predicate gn:name and gn:name have 7 common statement(s) in gn:name - gn:name.
+22-04-2012 04:03:41,434 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 04:03:41,496 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 04:03:41,546 INFO  - Linkage - Predicate geographis:isoShortName and geographis:isoShortName have 418 common statement(s) in geographis:isoShortName - geographis:isoShortName.
+22-04-2012 04:03:43,518 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 04:03:45,374 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 04:03:46,822 INFO  - Linkage - Predicate geo:nom and geo:nom have 35347 common statement(s) in geo:nom - geo:nom.
+22-04-2012 12:05:34,555 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 12:05:34,571 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 12:05:34,573 INFO  - Linkage - Predicate gn:name and gn:name have 7 common statement(s) in gn:name - gn:name.
+22-04-2012 12:08:41,421 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 12:08:41,438 INFO  - Linkage - Predicate gn:name has 7 statement(s) in http://localhost:8080/openrdf-sesame/ - continents.
+22-04-2012 12:08:41,440 INFO  - Linkage - Predicate gn:name and gn:name have 7 common statement(s) in gn:name - gn:name.
+22-04-2012 12:08:41,732 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 12:08:41,825 INFO  - Linkage - Predicate geographis:isoShortName has 492 statement(s) in http://localhost:8080/openrdf-sesame/ - countries.
+22-04-2012 12:08:41,830 INFO  - Linkage - Predicate geographis:isoShortName and geographis:isoShortName have 418 common statement(s) in geographis:isoShortName - geographis:isoShortName.
+22-04-2012 12:10:09,702 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 12:10:10,394 INFO  - Linkage - Predicate geo:nom has 41185 statement(s) in http://localhost:8080/openrdf-sesame/ - geo-insee-all.
+22-04-2012 12:10:10,819 INFO  - Linkage - Predicate geo:nom and geo:nom have 35347 common statement(s) in geo:nom - geo:nom.

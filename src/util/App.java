@@ -342,7 +342,7 @@ public class App {
 			}
 			if (f.isFile() && f.canWrite()) {
 				// The charset is really important in order to get proper data.
-				Writer out = new OutputStreamWriter(new FileOutputStream(f), charset);
+				Writer out = new OutputStreamWriter(new FileOutputStream(f), charset != null ? charset : "utf-8");
 				out.write(output.getOutput());
 				out.close();
 				

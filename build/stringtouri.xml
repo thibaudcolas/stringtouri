@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project CableLink">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="/Users/Will/Desktop/stringtouri.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="app.StringToURI"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="/Users/Will/Workspace/CableLink/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Users/Will/Workspace/CableLink/import/commons-codec-1.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Users/Will/Workspace/CableLink/import/commons-httpclient-3.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Users/Will/Workspace/CableLink/import/openrdf-sesame-2.6.4-onejar.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Users/Will/Workspace/CableLink/import/log4j-1.2.16.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Users/Will/Workspace/CableLink/import/slf4j-api-1.6.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Users/Will/Workspace/CableLink/import/slf4j-simple-1.6.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Users/Will/Workspace/CableLink/import/commons-logging-1.1.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse/plugins/org.junit_4.8.2.v4_8_2_v20110321-1705/junit.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Users/Will/Workspace/CableLink/import/commons-cli-1.2.jar"/>
+        </jar>
+    </target>
+</project>

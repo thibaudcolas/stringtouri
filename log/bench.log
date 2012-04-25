@@ -66,3 +66,187 @@
 21-04-2012 03:12:40,682 TRACE - BenchmarkTool - Adding 12K tuples from 1 RDFXML file - 1098ms
 21-04-2012 03:12:40,682 TRACE - BenchmarkTool - End benchmarking - 1334970760682ms
 21-04-2012 03:12:40,683 TRACE - BenchmarkTool - Benchmarking length - 1728ms
+22-04-2012 03:00:01,263 TRACE - BenchmarkTool - Start benchmarking - 1335056401254ms
+22-04-2012 03:00:01,666 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a big repository (560k) - 401ms
+22-04-2012 03:00:02,006 TRACE - BenchmarkTool - Querying 0 tuples from within 590K tuples - 330ms
+22-04-2012 03:00:02,033 TRACE - BenchmarkTool - Querying 100 tuples from within 590K tuples - 27ms
+22-04-2012 03:00:04,331 TRACE - BenchmarkTool - Querying 36k tuples from within 590K tuples - 2298ms
+22-04-2012 03:00:12,151 TRACE - BenchmarkTool - Querying 590k tuples from within 590K tuples - 7819ms
+22-04-2012 03:00:12,152 TRACE - BenchmarkTool - End benchmarking - 1335056412152ms
+22-04-2012 03:00:12,152 TRACE - BenchmarkTool - Benchmarking length - 10898ms
+22-04-2012 03:09:27,039 TRACE - BenchmarkTool - Start benchmarking - 1335056967037ms
+22-04-2012 03:09:27,242 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a medium repository (12k) - 199ms
+22-04-2012 03:09:27,523 TRACE - BenchmarkTool - Querying 0 tuples from within 12K tuples - 279ms
+22-04-2012 03:09:27,544 TRACE - BenchmarkTool - Querying 50 tuples from within 12K tuples - 21ms
+22-04-2012 03:09:27,584 TRACE - BenchmarkTool - Querying 500 tuples from within 12K tuples - 40ms
+22-04-2012 03:09:27,954 TRACE - BenchmarkTool - Querying 12k tuples from within 12K tuples - 369ms
+22-04-2012 03:09:27,955 TRACE - BenchmarkTool - End benchmarking - 1335056967955ms
+22-04-2012 03:09:27,955 TRACE - BenchmarkTool - Benchmarking length - 918ms
+22-04-2012 03:09:38,472 TRACE - BenchmarkTool - Start benchmarking - 1335056978448ms
+22-04-2012 03:09:38,645 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a medium repository (12k) - 171ms
+22-04-2012 03:09:38,832 TRACE - BenchmarkTool - Querying 0 tuples from within 12K tuples - 187ms
+22-04-2012 03:09:38,855 TRACE - BenchmarkTool - Querying 50 tuples from within 12K tuples - 22ms
+22-04-2012 03:09:38,905 TRACE - BenchmarkTool - Querying 500 tuples from within 12K tuples - 50ms
+22-04-2012 03:09:39,075 TRACE - BenchmarkTool - Querying 12k tuples from within 12K tuples - 169ms
+22-04-2012 03:09:39,076 TRACE - BenchmarkTool - End benchmarking - 1335056979076ms
+22-04-2012 03:09:39,076 TRACE - BenchmarkTool - Benchmarking length - 628ms
+22-04-2012 03:11:12,541 TRACE - BenchmarkTool - Start benchmarking - 1335057072540ms
+22-04-2012 03:11:12,752 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a big repository (560k) - 210ms
+22-04-2012 03:11:12,979 TRACE - BenchmarkTool - Querying 0 tuples from within 590K tuples - 227ms
+22-04-2012 03:11:12,998 TRACE - BenchmarkTool - Querying 100 tuples from within 590K tuples - 19ms
+22-04-2012 03:11:13,684 TRACE - BenchmarkTool - Querying 36k tuples from within 590K tuples - 685ms
+22-04-2012 03:11:16,083 TRACE - BenchmarkTool - Querying 590k tuples from within 590K tuples - 2393ms
+22-04-2012 03:11:16,084 TRACE - BenchmarkTool - End benchmarking - 1335057076083ms
+22-04-2012 03:11:16,085 TRACE - BenchmarkTool - Benchmarking length - 3543ms
+22-04-2012 03:15:35,077 TRACE - BenchmarkTool - Start benchmarking - 1335057335053ms
+22-04-2012 03:15:35,280 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a small repository (146) - 201ms
+22-04-2012 03:15:35,523 TRACE - BenchmarkTool - Querying 0 tuples from within 146 tuples - 243ms
+22-04-2012 03:15:35,540 TRACE - BenchmarkTool - Querying 1 tuple from within 146 tuples - 16ms
+22-04-2012 03:15:35,557 TRACE - BenchmarkTool - Querying 7 tuples from within 146 tuples - 16ms
+22-04-2012 03:15:35,574 TRACE - BenchmarkTool - Querying 146 tuples from within 146 tuples - 17ms
+22-04-2012 03:15:35,575 TRACE - BenchmarkTool - End benchmarking - 1335057335575ms
+22-04-2012 03:15:35,575 TRACE - BenchmarkTool - Benchmarking length - 522ms
+22-04-2012 03:17:43,226 TRACE - BenchmarkTool - Start benchmarking - 1335057463224ms
+22-04-2012 03:17:43,457 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with an empty repository (0) - 228ms
+22-04-2012 03:17:43,735 TRACE - BenchmarkTool - Querying 0 tuples from within 0 tuples - 277ms
+22-04-2012 03:17:43,735 TRACE - BenchmarkTool - End benchmarking - 1335057463735ms
+22-04-2012 03:17:43,735 TRACE - BenchmarkTool - Benchmarking length - 511ms
+22-04-2012 03:28:30,637 TRACE - BenchmarkTool - Start benchmarking - 1335058110636ms
+22-04-2012 03:28:30,978 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with an empty repository (0) - 1ms
+22-04-2012 03:28:30,979 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 0ms
+22-04-2012 03:28:30,980 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:28:30,981 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:28:30,981 TRACE - BenchmarkTool - End benchmarking - 1335058110981ms
+22-04-2012 03:28:30,981 TRACE - BenchmarkTool - Benchmarking length - 345ms
+22-04-2012 03:32:35,782 TRACE - BenchmarkTool - Start benchmarking - 1335058355780ms
+22-04-2012 03:32:36,165 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with an empty repository (0) - 1ms
+22-04-2012 03:32:36,489 TRACE - BenchmarkTool - End benchmarking - 1335058356489ms
+22-04-2012 03:32:36,489 TRACE - BenchmarkTool - Benchmarking length - 709ms
+22-04-2012 03:33:28,235 TRACE - BenchmarkTool - Start benchmarking - 1335058408234ms
+22-04-2012 03:33:28,465 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with an empty repository (0) - 1ms
+22-04-2012 03:33:28,840 TRACE - BenchmarkTool - End benchmarking - 1335058408840ms
+22-04-2012 03:33:28,841 TRACE - BenchmarkTool - Benchmarking length - 606ms
+22-04-2012 03:33:51,482 TRACE - BenchmarkTool - Start benchmarking - 1335058431476ms
+22-04-2012 03:33:51,725 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with an empty repository (0) - 1ms
+22-04-2012 03:33:52,126 TRACE - BenchmarkTool - End benchmarking - 1335058432126ms
+22-04-2012 03:33:52,135 TRACE - BenchmarkTool - Benchmarking length - 650ms
+22-04-2012 03:34:05,483 TRACE - BenchmarkTool - Start benchmarking - 1335058445482ms
+22-04-2012 03:34:05,771 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with an empty repository (0) - 3ms
+22-04-2012 03:34:06,107 TRACE - BenchmarkTool - End benchmarking - 1335058446106ms
+22-04-2012 03:34:06,125 TRACE - BenchmarkTool - Benchmarking length - 624ms
+22-04-2012 03:34:48,764 TRACE - BenchmarkTool - Start benchmarking - 1335058488763ms
+22-04-2012 03:34:48,962 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 1ms
+22-04-2012 03:34:49,246 TRACE - BenchmarkTool - End benchmarking - 1335058489246ms
+22-04-2012 03:34:49,300 TRACE - BenchmarkTool - Benchmarking length - 483ms
+22-04-2012 03:35:11,477 TRACE - BenchmarkTool - Start benchmarking - 1335058511475ms
+22-04-2012 03:35:11,936 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 1ms
+22-04-2012 03:35:12,226 TRACE - BenchmarkTool - Retrieving data from both data sources of a small linkage (146 - 146) - 290ms
+22-04-2012 03:35:12,227 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:35:12,256 TRACE - BenchmarkTool - Retrieving data from both data sources of a medium linkage (12k - 12k) - 29ms
+22-04-2012 03:35:12,256 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:35:12,294 TRACE - BenchmarkTool - Retrieving data from both data sources of a big linkage (560k - 560k) - 37ms
+22-04-2012 03:35:12,294 TRACE - BenchmarkTool - End benchmarking - 1335058512294ms
+22-04-2012 03:35:12,294 TRACE - BenchmarkTool - Benchmarking length - 819ms
+22-04-2012 03:38:10,900 TRACE - BenchmarkTool - Start benchmarking - 1335058690898ms
+22-04-2012 03:38:11,126 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 2ms
+22-04-2012 03:38:11,425 TRACE - BenchmarkTool - Retrieving data from both data sources of a small linkage (146 - 146) - 298ms
+22-04-2012 03:38:11,425 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:38:11,638 TRACE - BenchmarkTool - Retrieving data from both data sources of a medium linkage (12k - 12k) - 213ms
+22-04-2012 03:38:11,639 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:38:14,687 TRACE - BenchmarkTool - Retrieving data from both data sources of a big linkage (560k - 560k) - 3048ms
+22-04-2012 03:38:14,687 TRACE - BenchmarkTool - End benchmarking - 1335058694687ms
+22-04-2012 03:38:14,687 TRACE - BenchmarkTool - Benchmarking length - 3789ms
+22-04-2012 03:39:24,518 TRACE - BenchmarkTool - Start benchmarking - 1335058764517ms
+22-04-2012 03:39:24,718 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 1ms
+22-04-2012 03:39:25,011 TRACE - BenchmarkTool - Retrieving data from both data sources of a small linkage (7 - 7) - 292ms
+22-04-2012 03:39:25,011 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:39:25,226 TRACE - BenchmarkTool - Retrieving data from both data sources of a medium linkage (500 - 500) - 214ms
+22-04-2012 03:39:25,226 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:39:27,272 TRACE - BenchmarkTool - Retrieving data from both data sources of a big linkage (40k - 40k) - 2045ms
+22-04-2012 03:39:27,273 TRACE - BenchmarkTool - End benchmarking - 1335058767273ms
+22-04-2012 03:39:27,273 TRACE - BenchmarkTool - Benchmarking length - 2756ms
+22-04-2012 03:39:34,693 TRACE - BenchmarkTool - Start benchmarking - 1335058774691ms
+22-04-2012 03:39:34,912 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 1ms
+22-04-2012 03:39:35,159 TRACE - BenchmarkTool - Retrieving data from both data sources of a small linkage (7 - 7) - 247ms
+22-04-2012 03:39:35,160 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:39:35,337 TRACE - BenchmarkTool - Retrieving data from both data sources of a medium linkage (500 - 500) - 177ms
+22-04-2012 03:39:35,338 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:39:37,416 TRACE - BenchmarkTool - Retrieving data from both data sources of a big linkage (40k - 40k) - 2078ms
+22-04-2012 03:39:37,417 TRACE - BenchmarkTool - End benchmarking - 1335058777416ms
+22-04-2012 03:39:37,417 TRACE - BenchmarkTool - Benchmarking length - 2725ms
+22-04-2012 03:42:47,279 TRACE - BenchmarkTool - Start benchmarking - 1335058967278ms
+22-04-2012 03:42:47,484 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 1ms
+22-04-2012 03:42:47,749 TRACE - BenchmarkTool - Matching data from both data sources of a small linkage (7 - 7) - 265ms
+22-04-2012 03:42:47,749 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:42:47,929 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (500 - 500) - 179ms
+22-04-2012 03:42:47,930 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:42:50,766 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (40k - 40k) - 2835ms
+22-04-2012 03:42:50,767 TRACE - BenchmarkTool - End benchmarking - 1335058970767ms
+22-04-2012 03:42:50,767 TRACE - BenchmarkTool - Benchmarking length - 3489ms
+22-04-2012 03:42:55,622 TRACE - BenchmarkTool - Start benchmarking - 1335058975620ms
+22-04-2012 03:42:55,806 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 1ms
+22-04-2012 03:42:56,037 TRACE - BenchmarkTool - Matching data from both data sources of a small linkage (7 - 7) - 231ms
+22-04-2012 03:42:56,037 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:42:56,207 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (500 - 500) - 169ms
+22-04-2012 03:42:56,207 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:42:58,506 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (40k - 40k) - 2298ms
+22-04-2012 03:42:58,507 TRACE - BenchmarkTool - End benchmarking - 1335058978507ms
+22-04-2012 03:42:58,507 TRACE - BenchmarkTool - Benchmarking length - 2887ms
+22-04-2012 03:44:32,931 TRACE - BenchmarkTool - Start benchmarking - 1335059072929ms
+22-04-2012 03:44:33,204 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 1ms
+22-04-2012 03:44:33,483 TRACE - BenchmarkTool - Matching data from both data sources of a small linkage (7 - 7) - 279ms
+22-04-2012 03:44:33,483 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:44:33,630 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (500 - 500) - 146ms
+22-04-2012 03:44:33,638 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:44:36,655 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (40k - 40k) - 3016ms
+22-04-2012 03:44:36,698 TRACE - BenchmarkTool - End benchmarking - 1335059076670ms
+22-04-2012 03:44:36,733 TRACE - BenchmarkTool - Benchmarking length - 3741ms
+22-04-2012 03:45:21,487 TRACE - BenchmarkTool - Start benchmarking - 1335059121479ms
+22-04-2012 03:45:21,798 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 1ms
+22-04-2012 03:45:22,057 TRACE - BenchmarkTool - Matching data from both data sources of a small linkage (7 - 7) - 259ms
+22-04-2012 03:45:22,058 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:45:22,329 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (500 - 500) - 271ms
+22-04-2012 03:45:22,329 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:45:26,283 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (40k - 40k) - 3954ms
+22-04-2012 03:45:26,286 TRACE - BenchmarkTool - End benchmarking - 1335059126286ms
+22-04-2012 03:45:26,286 TRACE - BenchmarkTool - Benchmarking length - 4807ms
+22-04-2012 03:46:40,077 TRACE - BenchmarkTool - Start benchmarking - 1335059200075ms
+22-04-2012 03:46:40,579 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a small repository (146) - 0ms
+22-04-2012 03:46:40,963 TRACE - BenchmarkTool - Matching data from both data sources of a small linkage (7 - 7) - 383ms
+22-04-2012 03:46:40,964 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a medium repository (12k) - 0ms
+22-04-2012 03:46:41,218 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (500 - 500) - 254ms
+22-04-2012 03:46:41,219 TRACE - BenchmarkTool - Creating a TypedLinkage from a local server with a big repository (560k) - 0ms
+22-04-2012 03:46:43,699 TRACE - BenchmarkTool - Matching data from both data sources of a medium linkage (40k - 40k) - 2480ms
+22-04-2012 03:46:43,700 TRACE - BenchmarkTool - End benchmarking - 1335059203700ms
+22-04-2012 03:46:43,701 TRACE - BenchmarkTool - Benchmarking length - 3625ms
+22-04-2012 03:58:12,635 TRACE - BenchmarkTool - Start benchmarking - 1335059892634ms
+22-04-2012 03:58:13,227 TRACE - BenchmarkTool - Creating a SPARQLOutput from a small linkage (7) - 196ms
+22-04-2012 03:58:13,236 TRACE - BenchmarkTool - Creating a SPARQLOutput from a medium linkage (500) - 5ms
+22-04-2012 03:58:13,242 TRACE - BenchmarkTool - Creating a SPARQLOutput from a big linkage (40k) - 5ms
+22-04-2012 03:58:13,243 TRACE - BenchmarkTool - End benchmarking - 1335059893243ms
+22-04-2012 03:58:13,243 TRACE - BenchmarkTool - Benchmarking length - 609ms
+22-04-2012 04:03:40,675 TRACE - BenchmarkTool - Start benchmarking - 1335060220673ms
+22-04-2012 04:03:41,211 TRACE - BenchmarkTool - Creating a SPARQLOutput from a small linkage (7) - 276ms
+22-04-2012 04:03:41,303 TRACE - BenchmarkTool - Writing output queries for a small linkage (7 - 7) - 5ms
+22-04-2012 04:03:41,311 TRACE - BenchmarkTool - Creating a SPARQLOutput from a medium linkage (500) - 7ms
+22-04-2012 04:03:41,993 TRACE - BenchmarkTool - Writing output queries for a medium linkage (500 - 500) - 447ms
+22-04-2012 04:03:42,004 TRACE - BenchmarkTool - Creating a SPARQLOutput from a big linkage (40k) - 7ms
+22-04-2012 06:57:39,765 TRACE - BenchmarkTool - Writing output queries for a big linkage (40k - 40k) - 10432942ms
+22-04-2012 06:57:39,767 TRACE - BenchmarkTool - End benchmarking - 1335070659767ms
+22-04-2012 06:57:39,768 TRACE - BenchmarkTool - Benchmarking length - 10439094ms
+22-04-2012 12:05:34,100 TRACE - BenchmarkTool - Start benchmarking - 1335089134099ms
+22-04-2012 12:05:34,515 TRACE - BenchmarkTool - Creating a SPARQLOutput from a small linkage (7) - 204ms
+22-04-2012 12:05:34,887 TRACE - BenchmarkTool - Updating data of a small linkage (7 - 7) - 314ms
+22-04-2012 12:05:34,887 TRACE - BenchmarkTool - End benchmarking - 1335089134887ms
+22-04-2012 12:05:34,887 TRACE - BenchmarkTool - Benchmarking length - 788ms
+22-04-2012 12:08:40,931 TRACE - BenchmarkTool - Start benchmarking - 1335089320929ms
+22-04-2012 12:08:41,390 TRACE - BenchmarkTool - Creating a SPARQLOutput from a small linkage (7) - 231ms
+22-04-2012 12:08:41,653 TRACE - BenchmarkTool - Updating data of a small linkage (7 - 7) - 213ms
+22-04-2012 12:08:41,661 TRACE - BenchmarkTool - Creating a SPARQLOutput from a medium linkage (500) - 7ms
+22-04-2012 12:10:08,826 TRACE - BenchmarkTool - Updating data of a medium linkage (500 - 500) - 86996ms
+22-04-2012 12:10:08,829 TRACE - BenchmarkTool - Creating a SPARQLOutput from a big linkage (40k) - 3ms
+24-04-2012 04:32:26,896 TRACE - BenchmarkTool - Start benchmarking - 1335234746895ms
+24-04-2012 04:32:27,151 TRACE - BenchmarkTool - Creating a SesameDataSet from a local server with a big repository (560k) - 253ms
+24-04-2012 04:57:55,802 TRACE - BenchmarkTool - Adding 590K tuples from 200 RDFXML files - 1528650ms
+24-04-2012 04:57:55,813 TRACE - BenchmarkTool - End benchmarking - 1335236275813ms
+24-04-2012 04:57:55,813 TRACE - BenchmarkTool - Benchmarking length - 1528918ms

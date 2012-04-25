@@ -223,6 +223,7 @@ public abstract class Linkage {
 		int cpt = 0;
 		for (String object : targetdata.keySet()) {
 			if (sourcedata.containsKey(object)) {
+				//TODO Count errors ?
 				cpt++;
 				for (String subject : targetdata.get(object)) {
 					

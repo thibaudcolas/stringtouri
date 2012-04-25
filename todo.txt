@@ -1,36 +1,12 @@
 StringToURI todo
 ------------------------------------------------------------------------
 
-Tests grande échelle :
+Scale tests :
 - http://openuplabs.tso.co.uk/sparql
 - http://telegraphis.net/data/
 - http://dbpedia.org/sparql
-
-Applications :
-- Dans Datalift
+- http://data.lirmm.fr/openrdf-workbench/repositories/IGN-RGC
 
 TODO :
-- Tests unitaires et couverture sur Output
-- App benchmark
-- Tests benchmark
-
-Oui, ce serait bien de tester sur d'autres jeux de données, tu peux en
-récupérer sur opendata.montpelliernumerique ou sur data.gouv.fr et les
-faire correspondre avec les données de l'INSEE.
-Le référentiel des communes de l'IGN me semble être un bon exemple
-(http://data.lirmm.fr/openrdf-workbench/repositories/IGN-RGC et
-http://data.lirmm.fr/openrdf-workbench/repositories/IGN-RGC/explore?resource=%3ACommune34172)
-Le département y est donné comme un entier, qui pourrait être remplacée
-par l'URI du département dans le jeu de données INSEE.
-
-
-Sur le Wiki:
-- Ce serait bien de mettre un exemple avec éventuellement un graphique
-
-
-Pur le rapport j'attends la description du problème, la solution
-proposée, la description de l'outil implémentée, les expérimentations
-réalisées (avec stats sur la taille des datasets), il faut vérifier la
-qualité de l'outil (si les liens trouvés sont bons), et finalement les
-évolutions possibles. Je n'ai pas de prérequis de taille pour le
-rapport. Court et précis est mieux que long et inutile.
+- Unit tests and code coverage on Output.
+- Add ways to produce Turtle and N3 files in RDFOutput.

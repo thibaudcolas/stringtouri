@@ -1,0 +1,75 @@
+20-04-2012 00:47:58,736 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+20-04-2012 00:47:58,845 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+20-04-2012 00:47:58,849 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+20-04-2012 00:47:58,849 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+20-04-2012 00:50:32,950 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+20-04-2012 00:50:33,048 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+20-04-2012 00:50:33,053 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+20-04-2012 00:50:33,054 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+20-04-2012 00:52:05,516 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+20-04-2012 00:52:05,684 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+20-04-2012 00:52:05,688 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+20-04-2012 00:52:05,688 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+20-04-2012 00:53:15,935 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+20-04-2012 00:53:16,058 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+20-04-2012 00:53:16,063 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+20-04-2012 00:53:16,063 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+20-04-2012 00:57:48,814 INFO  - App - Export ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf output - /Users/Will/Desktop/test.rdf
+20-04-2012 00:57:48,851 INFO  - App - Shutdown app ./rdf/insee/regions-2011.rdf - ./rdf/t2.rdf
+20-04-2012 03:09:39,808 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+20-04-2012 03:09:39,834 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+20-04-2012 03:09:39,836 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+20-04-2012 03:09:39,836 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+20-04-2012 03:10:19,277 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+20-04-2012 03:10:19,298 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+20-04-2012 14:33:58,975 INFO  - Linkage - Predicate geo:nom has 26 statement(s) in ./rdf/insee/regions-2011.rdf.
+20-04-2012 14:33:59,527 INFO  - Linkage - Predicate tt:region has 1274 statement(s) in ./rdf/t2.rdf.
+20-04-2012 14:33:59,539 INFO  - Linkage - Predicate tt:region and geo:nom have 21 common statement(s) in geo:nom - tt:region.
+20-04-2012 14:33:59,540 INFO  - App - New links from ./rdf/insee/regions-2011.rdf to ./rdf/t2.rdf retrieved.
+20-04-2012 14:35:39,142 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+20-04-2012 14:35:39,163 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+20-04-2012 14:35:39,165 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+20-04-2012 14:35:39,165 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+20-04-2012 14:36:10,677 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+20-04-2012 14:36:10,685 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+20-04-2012 14:38:53,742 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+20-04-2012 14:38:53,942 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+20-04-2012 14:38:53,944 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+20-04-2012 14:38:53,944 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+20-04-2012 14:43:31,683 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+20-04-2012 14:43:31,714 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+20-04-2012 14:43:31,716 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+20-04-2012 14:43:31,716 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+20-04-2012 14:44:11,987 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+20-04-2012 14:44:11,993 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+20-04-2012 14:50:27,569 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+20-04-2012 14:52:08,262 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+20-04-2012 14:52:08,397 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+20-04-2012 14:52:08,399 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+20-04-2012 14:52:08,399 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+20-04-2012 14:52:50,944 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+20-04-2012 14:52:51,163 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+20-04-2012 14:57:28,966 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+20-04-2012 14:57:28,997 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+20-04-2012 14:57:28,999 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+20-04-2012 14:57:28,999 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+20-04-2012 14:58:08,848 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+20-04-2012 14:58:08,856 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+20-04-2012 16:06:06,966 INFO  - Linkage - Predicate gn:name has 7 statement(s) in ./rdf/continents.rdf.
+20-04-2012 16:06:07,013 INFO  - Linkage - Predicate geographis:onContinent has 246 statement(s) in ./rdf/countries-tolink.rdf.
+20-04-2012 16:06:07,014 INFO  - Linkage - Predicate geographis:onContinent and gn:name have 7 common statement(s) in gn:name - geographis:onContinent.
+20-04-2012 16:06:07,015 INFO  - App - New links from ./rdf/continents.rdf to ./rdf/countries-tolink.rdf retrieved.
+20-04-2012 16:06:48,884 INFO  - App - Export ./rdf/continents.rdf - ./rdf/countries-tolink.rdf output - /Users/Will/Desktop/test.rdf
+20-04-2012 16:06:48,892 INFO  - App - Shutdown app ./rdf/continents.rdf - ./rdf/countries-tolink.rdf
+20-04-2012 19:38:57,553 INFO  - App - Start benchmarking - 1334943537552
+20-04-2012 20:18:35,739 FATAL - App - Start benchmarking - 1334945915737
+20-04-2012 20:18:44,682 ERROR - App - Start benchmarking - 1334945924671
+20-04-2012 20:18:50,979 WARN  - App - Start benchmarking - 1334945930977
+20-04-2012 20:18:57,659 INFO  - App - Start benchmarking - 1334945937658
+20-04-2012 20:19:15,475 INFO  - App - Start benchmarking - 1334945955474
+20-04-2012 20:19:23,953 WARN  - App - Start benchmarking - 1334945963951
+20-04-2012 20:28:18,630 WARN  - App - Start benchmarking - 1334946498629
+20-04-2012 20:28:49,096 INFO  - App - Start benchmarking - 1334946529095
+20-04-2012 20:29:34,250 INFO  - App - Start benchmarking - 1334946574247
+20-04-2012 20:29:44,648 WARN  - App - Start benchmarking - 1334946584647
+20-04-2012 20:29:55,361 INFO  - App - Start benchmarking - 1334946595360
