@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>StringToURI - A linked data publishing tool</title>
+    <meta name="description" content="Overview of the StringToURI data interlinking module, a M1 AIGLE TER project at the UM2 University, Montpellier"/>
+    <meta name="keywords" content="StringToURI, semantic web, TER, UM2, interlinking, linked data"/>
+    <meta name="author" content="TER 2012 - Thibaud Colas"/>
+    <style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}body{line-height:1;width:980px;text-align:left;font:62.5% Arial, sans-serif;margin:20px auto;background:#fff;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:none;}:focus{outline:0;}ins{text-decoration:none;}del{text-decoration:line-through;}table{border-collapse:collapse;border-spacing:0;}html{text-align:center;background:#fff;}hr{clear:both;visibility:hidden;}
+
+      body {background:#fff;border:1px solid #ccc;box-shadow:0 0 25px #ccc;-moz-box-shadow:0 0 25px #ccc;-webkit-box-shadow:0 0 25px #ccc;}
+
+      a {color:#777;}
+      a:hover, a:focus {text-decoration:none;color:#172983;}
+      a:active {position:relative;top:1px;}
+      
+      h1 {margin:10px 20px 0 50px;font:bold 800% sans-serif;color:#049FE0;text-shadow:0 0 5px rgba(0,0,0,0.3);}
+      h2 {text-transform:uppercase;font:bold 130% sans-serif;color:#172983;margin:10px 0;}
+      strong{color:#575757;}
+      
+      #menu {list-style:none;height:35px;margin:auto 20px;padding:0 20px;background:#eee;border:1px solid #eee;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;}
+      #menu li {font-size:140%;padding:10px 8px;float:right;}
+      #menu li:last-child {float:left;padding-right:40px;border-right:1px solid #ccc;}
+      #menu li a {text-decoration:none;width:90px;color:#172983;text-align:center;display:block;border-bottom:1px solid #ccc;margin:auto 10px;}
+      #menu li a:hover, #menu li a:focus {color:#333;border-bottom:none;text-shadow:0 0 5px rgba(0,0,0,0.2);}
+            
+      #contenu {text-align:justify;padding:20px 20px 0;font-size:130%;line-height:1.3;color:#555;}
+      #contenu h3 {margin:10px 0 5px; font-size:120%;}
+      #contenu li:before {content:'-';margin-right:15px;}
+      #contenu dt{font-weight:bold; display:inline;}
+      #contenu dt:before{content:'>';margin-right:15px;}
+      
+      #footer {margin:20px;border-top:1px solid #ccc;}
+      #footer p {margin:10px auto;text-align:center;font-size:110%;color:#999;letter-spacing:0.5px;}
+    </style>
+  </head>
+  <body>
+    <div id="header">
+    	<h1>StringToURI</h1>
+      <ul id="menu">
+        <li><a href="#links">Links</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#example">Example</a></li>
+        <li><a href="#innerworking">Inner working</a></li>
+        <li><a href="#overview">Overview</a></li>
+        <li><h3>A linked data publishing tool</h3></li>
+      </ul>
+    </div>
+    <div id="contenu">
+    
+      <h2 id="overview">Overview</h2>
+      <p>StringToURI is a simple link generation framework that helps linking two related data sets on the web of data. Given two predicates in two different data sets, it matches the values of the predicates on each side and replaces old string values by URIs inside the updated data set.</p>
+      <p>This module was made in order to work within <a href="http://datalift.org/" title="The Datalift website">Datalift</a>, a linked data publishing platform. However, it can also be used as a stand-alone application or in other environments.</p>
+      <h3>Use cases</h3>
+      <p>Its classes can be used in different fashions :</p>
+      <ul>
+      	<li>Ideally embedded inside a Sesame-based linked open data publishing platform like Datalift.</li>
+      	<li>As a stand-alone  command-line tool, by setting its parameters manually.</li>
+      	<li>Wrapped inside an existing workflow.</li>
+      </ul>
+      
+      <h3>Workflow</h3>
+      <img src="workflow.jpg" alt="The StringToURI workflow with its input, output and three components"/>
+      
+      <h2 id="innerworking">Inner working</h2>
+      <p>To generate links, StringToURI is built around the <a href="http://www.openrdf.org/doc/sesame/users/ch07.html">Sesame Java API</a>, relying mainly on : <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/repository/Repository.html">Repository</a>, <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/repository/RepositoryConnection.html">RepositoryConnection</a>, <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/model/Statement.html">Statement</a>, <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/query/TupleQuery.html">TupleQuery</a>, <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/query/Update.html">Update</a>.<p>
+      <p>StringToURI's source code is divided into three components :</p>
+      <ul>
+      	<li>The data set handlers.</li>
+      	<li>The values matching process.</li>
+      	<li>And the handling of the new links (export / direct update).</li>
+      </ul>
+      <h3>Data sets management</h3>
+      <p>StringToURI manages three kinds of data source :</p>
+      <ul>
+      	<li>One/multiple local RDFXML files, the data set is stored temporarily during runtime and can be updated.</li>
+      	<li>A repository on a local/remote Sesame server, where the data is stored and every modification is permanent.</li>
+      	<li>A SPARQL endpoint, data are fetched and updated with SPARQL queries.</li>
+      </ul>
+      <p>Those data sets are based on the Repository class and managed by RepositoryConnection. RepositoryConnection is used to handle the data set's namespaces, to send select / update queries, to retrieve tuples according to different criteria, or to manage data modification with a commit manager.</p>
+      <h3>Generating links</h3>
+      <p>An interlinking process can have different levels of customization :</p>
+      <ul>
+      	<li>Simple linkage, dealing with only two predicates and matching their values.</li>
+      	<li>Typed linkage, matching values for predicates of subjects of the given types.</li>
+      	<li>Tailor linkage, allowing any criteria by using a SPARQL SELECT query written directly by the user.</li>
+      </ul>
+      <p>For now, the match process only retains equal values without any measurement of similarity. If there is any match, a list of new tuples is created where the target predicate now has a link as object, this link corresponding to the value in the reference data set.</p>
+      <h3>Export the output</h3>
+      <p>Once the new links are generated, they can be used in two ways : by retrieving and storing them for later use, or by directly updating the data.</p>
+      <ul>
+      	<li>Export as RDFXML, rdf:resource links for predicates of a rdf:Description.</li>
+      	<li>Export every tuple as RDFXML, replacing the old values by the new links.</li>
+      	<li>Export of the SPARQL  DELETE/INSERT queries.</li>
+      	<li>SPARQL queries directly submited to a given Sesame server / endpoint.</li>
+      	<li>Export of the modifications as tuples each preceded by +/-.</li>
+      </ul>		
+      <p>Those output types are designed for different use cases, it is fairly easy to create new ones to satisfy new needs.</p>
+
+      <h2 id="example">An example</h2>
+      <p>The <a href="http://www.passim.info/"><acronym title="Portail Annuaire des Sites et des Services sur la Mobilité">PASSIM</acronym></a> data set is a french public transport directory. Its data is available as a <a href="http://www.passim.info/spip.php?page=page&id_article=13">CSV file</a> which contains 1400 transportation services and data related to these services : coverage of the service, main city, area, website, etc.</p>
+      <p>PASSIM data has been converted to <a href="http://data.lirmm.fr/passim.html">raw RDFXML</a> with <a href="http://datalift.org/">Datalift</a> using a custom-made <a href="http://data.lirmm.fr/ontologies/passim">PASSIM ontology</a> and now we want to link it with the <a href="http://rdf.insee.fr/geo/">Geo INSEE data set</a>, managed by the french official statistics and census office, the <a href="http://www.insee.fr/fr/"><acronym title="Institut National des Statistiques et des Etudes Economiques">INSEE</acronym></a>.</p>
+      <p>The passim:region predicate is already linked to french regions in DBPedia, but we still have to link passim:department, passim:centerTown and passim:cityThrough respectively to the geo:Departement and geo:Commune classes in the Geo INSEE ontology :</p>
+      <ul>
+      	<li>passim:departement has the same values as the geo:nom predicate of the geo:Departement class.</li>
+      	<li>passim:cityThrough and passim:centerTown will be linked with geo:Commune using its geo:nom predicate.</li>
+      </ul>
+      <p>In order to create our new links, we will first set up two <strong>DataSets</strong></p>
+
+      <h2 id="requirements">System requirements</h2>
+      <p>To develop StringToURI :</p>
+      <ul>
+      	<li><a href="http://www.oracle.com/technetwork/java/javase/overview/index.html">Java SE 1.6</a></li>
+      	<li><a href="https://logging.apache.org/log4j/1.2/">Log4J 1.2.16</a></li>
+      	<li><a href="http://www.openrdf.org/">OpenRDF Sesame 2.6.4</a> and its dependencies :</li>
+      	<li><a href="https://commons.apache.org/codec/">Commons Codec 1.4</a></li>
+      	<li><a href="https://hc.apache.org/httpclient-3.x/">Commons HTTPClient 3.1</a></li>
+      	<li><a href="https://commons.apache.org/logging/">Commons Logging 1.1.1</a></li>
+      	<li><a href="http://www.slf4j.org/">SLF4J API 1.6.4</a></li>
+      	<li><a href="http://www.slf4j.org/">SLF4J Simple 1.6.4</a></li>
+      </ul>
+      <p>To install a Sesame server :</p>
+      <ul>
+      	<li><a href="https://tomcat.apache.org/">Tomcat 6</a> or any other Java web server.</li>
+      </ul>
+      <p>Were used during creation :</p>
+      <ul>
+      	<li><a href="http://www.eclipse.org/">Eclipse Indigo</a></li>
+      	<li><a href="http://eclipse-cs.sourceforge.net/">Checkstyle plugin</a></li>
+      	<li><a href="http://www.eclemma.org/">EclEmma plugin</a></li>
+      	<li><a href="http://www.junit.org/">JUnit 4</a></li>
+      </ul>
+
+      <h2 id="links">Useful links</h2>
+      <dl>
+      	<dd>Javadoc</dd><dt><a href="http://stringtouri.assembla.me">http://stringtouri.assembla.me</a></dt>
+      	<dd>SVN Repository</dd><dt><a href="http://subversion.assembla.com/svn/stringtouri/">http://subversion.assembla.com/svn/stringtouri/</a></dt>
+      	<dd>Wiki</dd><dt><a href="http://www.assembla.com/spaces/neptunetordf/wiki/StringToURI">http://www.assembla.com/spaces/neptunetordf/wiki/StringToURI</a></dt>
+      	<dd>Related files</dd><dt><a href="http://www.assembla.com/spaces/neptunetordf/documents">http://www.assembla.com/spaces/neptunetordf/documents</a></dt>
+      	<dd>Sesame API Javadoc</dd><dt><a href="http://www.openrdf.org/doc/sesame2/api/">http://www.openrdf.org/doc/sesame2/api/</a></dt>
+      	<dd>Sesame user guide</dd><dt><a href="http://www.openrdf.org/doc/sesame2/users/">http://www.openrdf.org/doc/sesame2/users/</a></dt>
+      	<dd>Interesting data sets</dd><dt><a href="http://telegraphis.net/data/">http://telegraphis.net/data/</a></dt>
+      	<dd>Datalift project</dd><dt><a href="http://datalift.org/">http://datalift.org/</a></dt>
+      </dl>
+    <div id="footer">
+      <p>The StringToURI module - A <acronym title="Travail Experimental de Recherche">TER</acronym> project by <a href="http://www.thibaud-colas.fr/" rel="author">Thibaud Colas</a> - Directed by Mr <a href="http://www.scharffe.fr/">Fran&ccedil;ois Scharffe</a> - At <a href="http://www.univ-montp2.fr/">Universit&eacute; Montpellier 2</a></p>
+    </div>
+  </body>
+</html>
