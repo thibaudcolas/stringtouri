@@ -26,7 +26,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
       #menu li a:hover, #menu li a:focus {color:#333;border-bottom:none;text-shadow:0 0 5px rgba(0,0,0,0.2);}
             
       #contenu {text-align:justify;padding:20px 20px 0;font-size:130%;line-height:1.3;color:#555;}
-      #contenu h3 {margin:10px 0 5px; font-size:120%;}
+      #contenu h3 {margin:5px 0; font-size:120%;}
       #contenu li:before {content:'-';margin-right:15px;}
       #contenu dt{font-weight:bold; display:inline;}
       #contenu dt:before{content:'>';margin-right:15px;}
@@ -101,12 +101,16 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
       <h2 id="example">An example</h2>
       <p>The <a href="http://www.passim.info/"><acronym title="Portail Annuaire des Sites et des Services sur la Mobilité">PASSIM</acronym></a> data set is a french public transport directory. Its data is available as a <a href="http://www.passim.info/spip.php?page=page&id_article=13">CSV file</a> which contains 1400 transportation services and data related to these services : coverage of the service, main city, area, website, etc.</p>
       <p>PASSIM data has been converted to <a href="http://data.lirmm.fr/passim.html">raw RDFXML</a> with <a href="http://datalift.org/">Datalift</a> using a custom-made <a href="http://data.lirmm.fr/ontologies/passim">PASSIM ontology</a> and now we want to link it with the <a href="http://rdf.insee.fr/geo/">Geo INSEE data set</a>, managed by the french official statistics and census office, the <a href="http://www.insee.fr/fr/"><acronym title="Institut National des Statistiques et des Etudes Economiques">INSEE</acronym></a>.</p>
+      <h3>The data state</h3>
       <p>The passim:region predicate is already linked to french regions in DBPedia, but we still have to link passim:department, passim:centerTown and passim:cityThrough respectively to the geo:Departement and geo:Commune classes in the Geo INSEE ontology :</p>
       <ul>
       	<li>passim:departement has the same values as the geo:nom predicate of the geo:Departement class.</li>
       	<li>passim:cityThrough and passim:centerTown will be linked with geo:Commune using its geo:nom predicate.</li>
       </ul>
-      <p>In order to create our new links, we will first set up two <a href="http://stringtouri-javadoc.assembla.me/util/DataSet.html">DataSets</a>. If the data isn't already stored inside, we can add it by calling <a href="http://stringtouri-javadoc.assembla.me/util/DataSet.html#addRDFXMLTuples(java.lang.String,%20java.lang.String,%20java.lang.String)">addRDFXMLTuples</a> with the path to our RDFXML files as parameters.</p>
+      <h3>Creating DataSets</h3>
+      <p>In order to create our new links, we will first set up two <a href="http://stringtouri-javadoc.assembla.me/util/DataSet.html">DataSets</a>. The kind of DataSet to use depends on your specific needs, but i'd seem logic to use a SesameDataSet if you are using a SesameServer and to use a RDFDataSet otherwise. If the data isn't already stored inside, we can add it by calling <a href="http://stringtouri-javadoc.assembla.me/util/DataSet.html#addRDFXMLTuples(java.lang.String,%20java.lang.String,%20java.lang.String)">addRDFXMLTuples</a> with the path to our RDFXML files as parameters.</p>
+      <h3>Linking them together</h3>
+      <p>To create our links, we need to create a new <a href="http://stringtouri-javadoc.assembla.me/util/Linkage.html">Linkage</a>. In our specific case, we have to find values of the given predicates for specific types, thus we'll use a <a href="http://stringtouri-javadoc.assembla.me/util/TypedLinkage.html">TypedLinkage</a>.</p>
 
       <h2 id="requirements">System requirements</h2>
       <p>To develop StringToURI :</p>
