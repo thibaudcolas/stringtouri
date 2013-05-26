@@ -36,3 +36,20 @@ System requirements :
 - Commons CLI 1.2 for the CLI apps
 - Log4j
 - JUnit 4 for the unit tests 
+
+StringToURI changelog
+------------------------------------------------------------------------
+
+StringToURI 1.0.0, 30-04-2012
+------------------------
+- Initial release
+
+StringToURI 1.1.0, 11-07-2012
+------------------------
+- New package architecture
+- Now using sesame 2.6.7
+- SesameOutput is no longer supported
+- RDFOutput is no longer supported
+- Datasets can now specify a context to use.
+- Linkages can now use contexts inside their queries.
+- Output can now display the new tuples as lists of strings.
