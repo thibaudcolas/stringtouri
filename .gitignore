@@ -1,0 +1,6 @@
+*.class
+.checkstyle
+.classpath
+.settings/
+.project
+.DS_Store
