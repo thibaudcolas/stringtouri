@@ -1,6 +1,3 @@
-StringToURI licence
-------------------------------------------------------------------------
-
 CeCILL FREE SOFTWARE LICENSE AGREEMENT
 
 
