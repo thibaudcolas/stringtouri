@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="WARN" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="dailyfile" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File" value="./log/stringtouri.log" />
+		<param name="DatePattern" value=".dd-MM-yyyy" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="benchmarkconsole" class="org.apache.log4j.ConsoleAppender">
+        <param name="Threshold" value="TRACE" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n" />
+        </layout>
+    </appender>
+    
+    <appender name="benchmarkfile" class="org.apache.log4j.RollingFileAppender">
+        <param name="Threshold" value="TRACE" />
+        <param name="File" value="./log/stringtouri-benchmark.log" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{dd-MM-yyyy HH:mm:ss,SSS} %-5p - %c{1} - %m%n" />
+        </layout>
+    </appender>
+    
+	<logger name="me.assembla.stringtouri.App" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="console" />
+		<appender-ref ref="dailyfile" />
+	</logger>
+
+	<logger name="me.assembla.stringtouri.dataset.Dataset" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="console" />
+		<appender-ref ref="dailyfile" />
+	</logger>
+
+	<logger name="me.assembla.stringtouri.linkage.Linkage" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="console" />
+		<appender-ref ref="dailyfile" />
+	</logger>
+
+	<logger name="me.assembla.stringtouri.output.Output" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="console" />
+		<appender-ref ref="dailyfile" />
+	</logger>
+
+	<!-- To shut up commons httpclient conflict with log4j. -->
+	<logger name="org.apache.commons.httpclient" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="console" />
+		<appender-ref ref="dailyfile" />
+	</logger>
+
+	<!-- To shut up commons httpclient conflict with log4j. -->
+	<logger name="httpclient.wire" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="console" />
+		<appender-ref ref="dailyfile" />
+	</logger>
+	
+	<logger name="me.assembla.stringtouri.test.BenchmarkTool" additivity="false">
+       <level value="TRACE"/>
+       <appender-ref ref="benchmarkconsole" />
+       <appender-ref ref="benchmarkfile" />
+    </logger>
+
+</log4j:configuration>
