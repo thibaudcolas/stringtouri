@@ -1,20 +1,19 @@
-package app;
+package me.assembla.stringtouri.test;
 
 import java.io.IOException;
+
+import me.assembla.stringtouri.dataset.Dataset;
+import me.assembla.stringtouri.dataset.SesameDataset;
+import me.assembla.stringtouri.linkage.Linkage;
+import me.assembla.stringtouri.linkage.TypedLinkage;
+import me.assembla.stringtouri.output.Output;
+import me.assembla.stringtouri.output.SPARQLOutput;
 
 import org.apache.log4j.Logger;
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
-import org.openrdf.query.UpdateExecutionException;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.rio.RDFParseException;
-
-import util.DataSet;
-import util.Linkage;
-import util.Output;
-import util.SPARQLOutput;
-import util.SesameDataSet;
-import util.TypedLinkage;
 
 /**
  * Benchmarking class.
@@ -29,8 +28,8 @@ public class BenchmarkTool {
 	 */
 	private static final Logger LOG = Logger.getLogger(BenchmarkTool.class.getName());
 	
-	private static DataSet source;
-	private static DataSet target;
+	private static Dataset source;
+	private static Dataset target;
 	private static Linkage linkage;
 	private static Output output;
 	
@@ -38,107 +37,79 @@ public class BenchmarkTool {
 		return System.currentTimeMillis() - start + "ms";
 	}
 	
-	private static final void benchEmptySesameDataSetCreation() throws RepositoryException, RDFParseException, IOException {
+	private static final void benchEmptySesameDatasetCreation() throws RepositoryException, RDFParseException, IOException {
 		long start = System.currentTimeMillis();
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "empty");
-		LOG.trace("Creating a SesameDataSet from a local server with an empty repository (0) - " + millisLength(start));
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/empty", "empty");
+		LOG.trace("Creating a SesameDataset from a local server with an empty repository (0) - " + millisLength(start));
 	}
 	
-	private static final void benchSmallSesameDataSetCreation() throws RepositoryException, RDFParseException, IOException {
+	private static final void benchSmallSesameDatasetCreation() throws RepositoryException, RDFParseException, IOException {
 		long start = System.currentTimeMillis();
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "continents");
-		LOG.trace("Creating a SesameDataSet from a local server with a small repository (146) - " + millisLength(start));
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/continents", "file://continents.rdf");
+		LOG.trace("Creating a SesameDataset from a local server with a small repository (146) - " + millisLength(start));
 	}
 	
-	private static final void benchMediumSesameDataSetCreation() throws RepositoryException, RDFParseException, IOException {
+	private static final void benchMediumSesameDatasetCreation() throws RepositoryException, RDFParseException, IOException {
 		long start = System.currentTimeMillis();
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "countries");
-		LOG.trace("Creating a SesameDataSet from a local server with a medium repository (12k) - " + millisLength(start));
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/countries", "countries");
+		LOG.trace("Creating a SesameDataset from a local server with a medium repository (12k) - " + millisLength(start));
 	}
 	
-	private static final void benchBigSesameDataSetCreation() throws RepositoryException, RDFParseException, IOException {
+	private static final void benchBigSesameDatasetCreation() throws RepositoryException, RDFParseException, IOException {
 		long start = System.currentTimeMillis();
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "geo-insee-all");
-		LOG.trace("Creating a SesameDataSet from a local server with a big repository (560k) - " + millisLength(start));
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/geo-insee-all", "geo-insee-all");
+		LOG.trace("Creating a SesameDataset from a local server with a big repository (560k) - " + millisLength(start));
 	}
 	
 	private static final void benchSmallLinkageCreation() throws RepositoryException {
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "continents");
-		target = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "continents");
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/continents", "file://continents.rdf");
+		target = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/continents", "file://continents.rdf");
 		long start = System.currentTimeMillis();
 		linkage = new TypedLinkage(source, target, "gn:name", "gn:name", "geographis:Continent", "geographis:Continent");
 		LOG.trace("Creating a TypedLinkage from a local server with a small repository (146) - " + millisLength(start));
 	}
 	
 	private static final void benchMediumLinkageCreation() throws RepositoryException {
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "countries");
-		target = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "countries");
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/countries", "countries");
+		target = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/countries", "countries");
 		long start = System.currentTimeMillis();
 		linkage = new TypedLinkage(source, target, "geographis:isoShortName", "geographis:isoShortName", "gn:Country", "gn:Country");
 		LOG.trace("Creating a TypedLinkage from a local server with a medium repository (12k) - " + millisLength(start));
 	}
 	
 	private static final void benchBigLinkageCreation() throws RepositoryException {
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "geo-insee-all");
-		target = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "geo-insee-all");
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/geo-insee-all", "geo-insee-all");
+		target = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/geo-insee-all", "geo-insee-all");
 		long start = System.currentTimeMillis();
 		linkage = new TypedLinkage(source, target, "geo:nom", "geo:nom", "", "");
 		LOG.trace("Creating a TypedLinkage from a local server with a big repository (560k) - " + millisLength(start));
 	}
 	
 	private static final void benchSmallSPARQLOutputCreation() throws RepositoryException {
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "continents");
-		target = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "continents");
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/continents", "file://continents.rdf");
+		target = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/continents", "file://continents.rdf");
 		linkage = new TypedLinkage(source, target, "gn:name", "gn:name", "geographis:Continent", "geographis:Continent");
 		long start = System.currentTimeMillis();
-		output = new SPARQLOutput(target, "gn:name");
+		output = new SPARQLOutput(target, "continents", "gn:name", "gn:name");
 		LOG.trace("Creating a SPARQLOutput from a small linkage (7) - " + millisLength(start));
 	}
 	
 	private static final void benchMediumSPARQLOutputCreation() throws RepositoryException {
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "countries");
-		target = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "countries");
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/countries", "countries");
+		target = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/countries", "countries");
 		linkage = new TypedLinkage(source, target, "geographis:isoShortName", "geographis:isoShortName", "gn:Country", "gn:Country");
 		long start = System.currentTimeMillis();
-		output = new SPARQLOutput(target, "geographis:isoShortName");
+		output = new SPARQLOutput(target, "countries", "geographis:isoShortName", "geographis:isoShortName");
 		LOG.trace("Creating a SPARQLOutput from a medium linkage (500) - " + millisLength(start));
 	}
 	
 	private static final void benchBigSPARQLOutputCreation() throws RepositoryException {
-		source = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "geo-insee-all");
-		target = new SesameDataSet("http://localhost:8080/openrdf-sesame/", "geo-insee-all");
+		source = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/geo-insee-all", "geo-insee-all");
+		target = new SesameDataset("http://localhost:8080/openrdf-sesame/repositories/geo-insee-all", "geo-insee-all");
 		linkage = new TypedLinkage(source, target, "geo:nom", "geo:nom", "", "");
 		long start = System.currentTimeMillis();
-		output = new SPARQLOutput(target, "geo:nom");
+		output = new SPARQLOutput(target, "geo-insee-all", "geo:nom", "geo:nom");
 		LOG.trace("Creating a SPARQLOutput from a big linkage (40k) - " + millisLength(start));
-	}
-	
-	private static final void benchAppCreation() {
-		
-	}
-	
-	private static final void benchEmptySesameDataImport() throws RepositoryException, RDFParseException, IOException {
-		long start = System.currentTimeMillis();
-		source.addRDFXMLTuples("/Users/Will/Desktop/empty.rdf", "", "http://test.test/empty/");
-		LOG.trace("Adding 0 tuples from 1 RDFXML file - " + millisLength(start));
-	}
-	
-	private static final void benchMediumSesameDataImport() throws RepositoryException, RDFParseException, IOException {
-		long start = System.currentTimeMillis();
-		source.addRDFXMLTuples("/Users/Will/Desktop/countries-tolink.rdf", "", "http://telegraphis.net/countries/");
-		LOG.trace("Adding 12K tuples from 1 RDFXML file - " + millisLength(start));
-	}
-	
-	private static final void benchSmallSesameDataImport() throws RepositoryException, RDFParseException, IOException {
-		long start = System.currentTimeMillis();
-		source.addRDFXMLTuples("/Users/Will/Desktop/continents.rdf", "", "http://telegraphis.net/continents/");
-		LOG.trace("Adding 146 tuples from 1 RDFXML file - " + millisLength(start));
-	}
-	
-	private static final void benchBigSesameDataImport() throws RepositoryException, RDFParseException, IOException {
-		long start = System.currentTimeMillis();
-		source.addRDFXMLTuples("/Users/Will/Desktop/insee-geo/", "", "http://rdf.insee.fr/geo/");
-		LOG.trace("Adding 590K tuples from 200 RDFXML files - " + millisLength(start));
 	}
 	
 	private static final void benchEmptySesameQueryEvaluation() throws RepositoryException, MalformedQueryException, QueryEvaluationException {
@@ -231,55 +202,18 @@ public class BenchmarkTool {
 		LOG.trace("Matching data from both data sources of a medium linkage (40k - 40k) - " + millisLength(start));
 	}
 	
-	private static final void benchSmallSPARQLOutputWriting() throws RepositoryException, QueryEvaluationException, MalformedQueryException {
-		output.setNewTuples(linkage.generateLinks(), false);
-		long start = System.currentTimeMillis();
-		output.getOutput();
-		LOG.trace("Writing output queries for a small linkage (7 - 7) - " + millisLength(start));
-	}
-	
-	private static final void benchMediumSPARQLOutputWriting() throws RepositoryException, QueryEvaluationException, MalformedQueryException {
-		output.setNewTuples(linkage.generateLinks(), false);
-		long start = System.currentTimeMillis();
-		output.getOutput();
-		LOG.trace("Writing output queries for a medium linkage (500 - 500) - " + millisLength(start));
-	}
-	
-	private static final void benchBigSPARQLOutputWriting() throws RepositoryException, QueryEvaluationException, MalformedQueryException {
-		output.setNewTuples(linkage.generateLinks(), false);
-		long start = System.currentTimeMillis();
-		output.getOutput();
-		LOG.trace("Writing output queries for a big linkage (40k - 40k) - " + millisLength(start));
-	}
-	
-	private static final void benchSmallSPARQLUpdateExecution() throws RepositoryException, QueryEvaluationException, MalformedQueryException, UpdateExecutionException {
-		output.setNewTuples(linkage.generateLinks(), false);
-		long start = System.currentTimeMillis();
-		output.updateDataSet();
-		LOG.trace("Updating data of a small linkage (7 - 7) - " + millisLength(start));
-	}
-	
-	private static final void benchMediumSPARQLUpdateExecution() throws RepositoryException, QueryEvaluationException, MalformedQueryException, UpdateExecutionException {
-		output.setNewTuples(linkage.generateLinks(), false);
-		long start = System.currentTimeMillis();
-		output.updateDataSet();
-		LOG.trace("Updating data of a medium linkage (500 - 500) - " + millisLength(start));
-	}
-	
-	private static final void benchBigSPARQLUpdateExecution() throws RepositoryException, QueryEvaluationException, MalformedQueryException, UpdateExecutionException {
-		output.setNewTuples(linkage.generateLinks(), false);
-		long start = System.currentTimeMillis();
-		output.updateDataSet();
-		LOG.trace("Updating data of a big linkage (40k - 40k) - " + millisLength(start));
-	}
-
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
 		LOG.trace("Start benchmarking - " + start + "ms");
 		
 		try {
-			benchBigSesameDataSetCreation();
-			benchBigSesameDataImport();
+			benchEmptySesameDatasetCreation();
+			benchEmptySesameQueryEvaluation();
+			benchSmallSesameDatasetCreation();
+			benchSmallSesameQueryEvaluation();
+			benchSmallLinkageCreation();
+			benchSmallDataRetrieval();
+			benchSmallLinkGeneration();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
