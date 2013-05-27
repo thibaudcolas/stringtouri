@@ -8,7 +8,7 @@ import org.openrdf.repository.RepositoryException;
  * Helps handling the interlinking with Sesame data sets.
  * 
  * @author Thibaud Colas
- * @version 13072012
+ * @version 2012-09-30
  * @see App
  */
 public class SesameApp extends App {

@@ -7,7 +7,7 @@ import org.openrdf.repository.http.HTTPRepository;
  * A data set stored inside a local or remote Sesame server.
  * 
  * @author Thibaud Colas
- * @version 21092012
+ * @version 2012-09-30
  * @see HTTPRepository
  */
 public class SesameDataset extends Dataset {

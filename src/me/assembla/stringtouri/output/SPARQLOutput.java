@@ -13,7 +13,7 @@ import org.openrdf.repository.RepositoryException;
  * Updates a SPARQL endpoint using SPARQL queries.
  * 
  * @author Thibaud Colas
- * @version 21092012
+ * @version 2012-09-30
  * @see Output
  */
 public class SPARQLOutput extends Output {

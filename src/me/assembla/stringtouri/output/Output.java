@@ -20,7 +20,7 @@ import org.openrdf.repository.RepositoryException;
  * Abstract class to process the result of the interlinking.
  * 
  * @author Thibaud Colas
- * @version 21092012
+ * @version 2012-09-30
  * @see Linkage
  */
 public abstract class Output {

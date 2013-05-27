@@ -6,7 +6,7 @@ import me.assembla.stringtouri.dataset.Dataset;
  * Links two data sets according to two predicates and two data types.
  * 
  * @author Thibaud Colas
- * @version 21092012
+ * @version 2012-09-30
  * @see Linkage
  */
 public class TypedLinkage extends Linkage {

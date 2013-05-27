@@ -7,7 +7,7 @@ import me.assembla.stringtouri.dataset.Dataset;
  * In order to work, the queries must return two columns ?s and ?o.
  * 
  * @author Thibaud Colas
- * @version 21092012
+ * @version 2012-09-30
  * @see Linkage
  */
 public class TailorLinkage extends Linkage {
