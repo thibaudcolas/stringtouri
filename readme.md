@@ -57,17 +57,17 @@ v1.2.5, 2013-05-27
 - Code base is now cleaner
 - Lots of useless pieces of code have been trimmed
 - No changes to the core API (yet).
+- Update to Sesame 2.6.10 (seamlessly)
 
 
 ## System requirements :
 
-- Sesame 2.6.7
+- Sesame 2.6.10
   - Commons httpclient 3.1
   - Commons codec 1.4
   - Commons logging 1.1.1
   - slf4j api 1.6.4
   - An slf4j implementation 1.6.4
-- Commons CLI 1.2 for the CLI apps
 - Log4j
 - JUnit 4 for the unit tests 
 
