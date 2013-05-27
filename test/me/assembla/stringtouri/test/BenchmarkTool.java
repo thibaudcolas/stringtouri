@@ -19,7 +19,7 @@ import org.openrdf.rio.RDFParseException;
  * Benchmarking class.
  * 
  * @author Thibaud Colas
- * @version 20042012
+ * @version 2013-05-27
  */
 public class BenchmarkTool {
 

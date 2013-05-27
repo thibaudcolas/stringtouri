@@ -44,6 +44,21 @@ v1.1.0, 2012-07-11
 - Linkages can now use contexts inside their queries.
 - Output can now display the new tuples as lists of strings.
 
+v1.2.0, 2012-09-30
+------------------------
+
+- Switched to sesame 2.6.9
+- Other modifications I lost trace of
+
+v1.2.5, 2013-05-27
+------------------------
+
+- Project now hosted on GitHub
+- Code base is now cleaner
+- Lots of useless pieces of code have been trimmed
+- No changes to the core API (yet).
+
+
 ## System requirements :
 
 - Sesame 2.6.7
