@@ -14,23 +14,23 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
       a {color:#777;}
       a:hover, a:focus {text-decoration:none;color:#172983;}
       a:active {position:relative;top:1px;}
-      
+
       h1 {margin:10px 20px 0 50px;font:bold 800% sans-serif;color:#049FE0;text-shadow:0 0 5px rgba(0,0,0,0.3);}
       h2 {text-transform:uppercase;font:bold 130% sans-serif;color:#172983;margin:10px 0;}
       strong{color:#575757;}
-      
+
       #menu {list-style:none;height:35px;margin:auto 20px;padding:0 20px;background:#eee;border:1px solid #eee;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;}
       #menu li {font-size:140%;padding:10px 8px;float:right;}
       #menu li:last-child {float:left;padding-right:40px;border-right:1px solid #ccc;}
       #menu li a {text-decoration:none;width:90px;color:#172983;text-align:center;display:block;border-bottom:1px solid #ccc;margin:auto 10px;}
       #menu li a:hover, #menu li a:focus {color:#333;border-bottom:none;text-shadow:0 0 5px rgba(0,0,0,0.2);}
-            
+
       #contenu {text-align:justify;padding:20px 20px 0;font-size:130%;line-height:1.3;color:#555;}
       #contenu h3 {margin:5px 0; font-size:120%;}
       #contenu li:before {content:'-';margin-right:15px;}
       #contenu dt{font-weight:bold; display:inline;}
       #contenu dt:before{content:'>';margin-right:15px;}
-      
+
       #footer {margin:20px;border-top:1px solid #ccc;}
       #footer p {margin:10px auto;text-align:center;font-size:110%;color:#999;letter-spacing:0.5px;}
       #footer p img {margin-left:10px;vertical-align:middle;}
@@ -49,7 +49,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
       </ul>
     </div>
     <div id="contenu">
-    
+
       <h2 id="overview">Overview</h2>
       <p>StringToURI is a simple link generation framework that helps linking two related data sets on the web of data. Given two predicates in two different data sets, it matches the values of the predicates on each side and replaces old string values by URIs inside the updated data set.</p>
       <p>This module was made in order to work within <a href="http://datalift.org/" title="The Datalift website">Datalift</a>, a linked data publishing platform. However, it can also be used as a stand-alone application or in other environments.</p>
@@ -60,10 +60,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
       	<li>As a stand-alone  command-line tool, by setting its parameters manually.</li>
       	<li>Wrapped inside an existing workflow.</li>
       </ul>
-      
+
       <h3>Workflow</h3>
       <img src="http://stringtouri-workflow.assembla.me/" alt="The StringToURI workflow with its input, output and three components"/>
-      
+
       <h2 id="innerworking">Inner working</h2>
       <p>To generate links, StringToURI is built around the <a href="http://www.openrdf.org/doc/sesame/users/ch07.html">Sesame Java API</a>, relying mainly on : <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/repository/Repository.html">Repository</a>, <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/repository/RepositoryConnection.html">RepositoryConnection</a>, <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/model/Statement.html">Statement</a>, <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/query/TupleQuery.html">TupleQuery</a>, <a href="http://www.openrdf.org/doc/sesame2/api/org/openrdf/query/Update.html">Update</a>.</p>
       <p>StringToURI's source code is divided into three components :</p>
@@ -96,7 +96,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
       	<li>Export of the SPARQL  DELETE/INSERT queries.</li>
       	<li>SPARQL queries directly submited to a given Sesame server / endpoint.</li>
       	<li>Export of the modifications as tuples each preceded by +/-.</li>
-      </ul>		
+      </ul>
       <p>Those output types are designed for different use cases, it is fairly easy to create new ones to satisfy new needs.</p>
 
       <h2 id="example">An example</h2>
@@ -155,7 +155,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
       </dl>
     </div>
     <div id="footer">
-      <p>The StringToURI module - A <acronym title="Travail Experimental de Recherche">TER</acronym> project by <a rel="author" href="http://thibaudcolas.fr">Thibaud Colas</a> directed by Mr <a href="http://www.scharffe.fr/">Fran&ccedil;ois Scharffe</a> - At <a href="http://www.univ-montp2.fr/">Universit&eacute; Montpellier 2</a> <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a></p>
+      <p>The StringToURI module - A <acronym title="Travail Experimental de Recherche">TER</acronym> project by <a rel="author" href="http://thib.me">Thibaud Colas</a> directed by Mr <a href="http://www.scharffe.fr/">Fran&ccedil;ois Scharffe</a> - At <a href="http://www.univ-montp2.fr/">Universit&eacute; Montpellier 2</a> <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a></p>
     </div>
   </body>
 </html>
