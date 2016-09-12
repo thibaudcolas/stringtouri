@@ -69,10 +69,10 @@ v1.2.5, 2013-05-27
   - slf4j api 1.6.4
   - An slf4j implementation 1.6.4
 - Log4j
-- JUnit 4 for the unit tests 
+- JUnit 4 for the unit tests
 
 ## Origin
 
 StringToURI was written during a school research project at the UM2 university in Montpellier. It was previously hosted on [Assembla](http://www.assembla.com/) and has now been moved to GitHub.
 
-© 2012-2013 ThibWeb
+© 2012-2013 thibaudcolas
