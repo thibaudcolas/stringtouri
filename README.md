@@ -75,4 +75,4 @@ v1.2.5, 2013-05-27
 
 StringToURI was written during a school research project at the UM2 university in Montpellier. It was previously hosted on [Assembla](http://www.assembla.com/) and has now been moved to GitHub.
 
-© 2012-2013 thibaudcolas
+© 2012-present Thibaud Colas
