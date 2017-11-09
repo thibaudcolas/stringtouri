@@ -1,12 +1,12 @@
-# StringToURI — Basic RDF dataset interlinking
+# [StringToURI](https://rawgit.com/thibaudcolas/stringtouri/master/stringtouri.html) — Basic RDF dataset interlinking
 
-> StringToURI is a simple link generation framework which helps creating links between RDF datasets.
+> [StringToURI](https://rawgit.com/thibaudcolas/stringtouri/master/stringtouri.html) is a simple link generation framework which helps creating links between RDF datasets.
 
 ------------------------------------------------------------
 
 ## Overview
 
-As stated by its name, StringToURI looks for specified strings inside a data set and tries to find matches inside another data set.
+StringToURI looks for specified strings inside a data set and tries to find matches inside another data set.
 If two strings are equal, the string in the "target / goal / destination / update" data set is replaced by a link to the entity described by the string inside the "source / reference / origin" data set.
 
 This process is delivered in three different fashions :
